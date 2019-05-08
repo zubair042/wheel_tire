@@ -26,3 +26,9 @@ Route::get('/login', function () {
 Route::get('/register', function(){
 	return view('register');
 });
+Route::get('/add_report', function(){
+	return view('reports/add_report');
+});
+Route::get('/reports', function(){
+	return view('reports/view_reports');
+});
