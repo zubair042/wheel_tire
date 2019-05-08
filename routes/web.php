@@ -11,7 +11,17 @@
 |
 */
 
-Route::get('/', function () {
+// Route::get('/', function () {
 	
-    return view('dashboard/index');
+//     return view('dashboard/index');
+// });
+
+Route::get('/', 'Dashboard@index');
+
+Route::get('/login', function () {
+	
+    return view('login');
+});
+Route::get('/register', function(){
+	return view('register');
 });
