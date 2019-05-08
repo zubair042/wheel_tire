@@ -16,12 +16,13 @@
 //     return view('dashboard/index');
 // });
 
-Route::get('/', 'Dashboard@index');
+Route::get('/', 'Dashboard@index')->name('dashboard');
+//Route::get('/', 'ReportsController@index');
 
 Route::get('/login', function () {
-	
     return view('login');
 });
+
 Route::get('/register', function(){
 	return view('register');
 });

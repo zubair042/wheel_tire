@@ -20,7 +20,6 @@
     <script src="{{asset('js/main/jquery.min.js')}}"></script>
     <script src="{{asset('js/main/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('js/plugins/loaders/blockui.min.js')}}"></script>
-    <script src="{{asset('js/plugins/ui/ripple.min.js')}}"></script>
     <!-- /core JS files -->
 
     <!-- Theme JS files -->
@@ -31,8 +30,7 @@
     <script src="{{asset('js/plugins/ui/moment/moment.min.js')}}"></script>
     <script src="{{asset('js/plugins/pickers/daterangepicker.js')}}"></script>
 
-    <script src="{{asset('js/app.js')}}"></script>
-    <script src="{{asset('js/demo_pages/dashboard.js')}}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <!-- /theme JS files -->
 
 </head>
@@ -82,6 +80,7 @@
     <div class="page-content">
 
         <!-- Main sidebar -->
+        @section('sidebar')
         <div class="sidebar sidebar-light sidebar-main sidebar-expand-md">
 
             <!-- Sidebar mobile toggler -->
@@ -106,7 +105,7 @@
                 <div class="card card-sidebar-mobile">
                     <ul class="nav nav-sidebar" data-nav-type="accordion">
                         <li class="nav-item">
-                            <a href="index.html" class="nav-link active">
+                            <a href="{{route('dashboard')}}" class="nav-link active">
                                 <i class="icon-home4"></i>
                                 <span>
                                     Dashboard
@@ -136,6 +135,7 @@
             </div>
             <!-- /sidebar content -->
         </div>
+        @show
         <!-- /main sidebar -->
 
         <!-- Main content -->
@@ -161,7 +161,7 @@
             <!-- Content area -->
             <div class="content">
 
-
+                @yield('content')
             </div>
             <!-- /content area -->
 
