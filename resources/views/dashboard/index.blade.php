@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'asdfasd adsfs')
+@section('title', 'Wheel Tire')
 
 @section('sidebar')
     @parent
