@@ -8,32 +8,32 @@
 
     <!-- Global stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
-    <link href="{{asset('css/icons/icomoon/styles.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{asset('css/bootstrap_limitless.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{asset('css/layout.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{asset('css/components.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{asset('css/colors.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('')}}global_assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('')}}assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('')}}assets/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('')}}assets/css/layout.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('')}}assets/css/components.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('')}}assets/css/colors.min.css" rel="stylesheet" type="text/css">
     <!-- /global stylesheets -->
 
     <!-- Core JS files -->
-    <script src="{{ asset('js/main/jquery.min.js')}}"></script>
-    <script src="{{ asset('js/main/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{ asset('js/plugins/loaders/blockui.min.js')}}"></script>
-    <!-- <script src="{{ asset('js/plugins/ui/ripple.min.js') }}"></script> -->
-
+    <script src="{{asset('')}}global_assets/js/main/jquery.min.js"></script>
+    <script src="{{asset('')}}global_assets/js/main/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('')}}global_assets/js/plugins/loaders/blockui.min.js"></script>
+    <script src="{{asset('')}}global_assets/js/plugins/ui/ripple.min.js"></script>
     <!-- /core JS files -->
 
     <!-- Theme JS files -->
-    <script src="{{asset('js/plugins/forms/styling/switchery.min.js')}}"></script>
-    <script src="{{asset('js/plugins/forms/selects/bootstrap_multiselect.js')}}"></script>
-    <script src="{{asset('js/plugins/ui/moment/moment.min.js')}}"></script>
-    <script src="{{asset('js/plugins/pickers/daterangepicker.js')}}"></script>
+    <script src="{{asset('')}}global_assets/js/plugins/visualization/d3/d3.min.js"></script>
+    <script src="{{asset('')}}global_assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
+    <script src="{{asset('')}}global_assets/js/plugins/forms/styling/switchery.min.js"></script>
+    <script src="{{asset('')}}global_assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+    <script src="{{asset('')}}global_assets/js/plugins/ui/moment/moment.min.js"></script>
+    <script src="{{asset('')}}global_assets/js/plugins/pickers/daterangepicker.js"></script>
 
-    <script src="{{ asset('js/app.js') }}"></script>
-
+    <script src="{{asset('')}}assets/js/app.js"></script>
+    <script src="{{asset('')}}global_assets/js/demo_pages/dashboard.js"></script>
     <!-- /theme JS files -->
-
 </head>
 
 <body>
@@ -42,7 +42,7 @@
     <div class="navbar navbar-expand-md navbar-dark bg-indigo navbar-static">
         <div class="navbar-brand">
             <a href="index.html" class="d-inline-block">
-                <img src="{{ asset('images/logo_icon_light.png') }}" alt="">
+                <img src="{{asset('')}}global_assets/images/logo_icon_light.png" alt="">
             </a>
         </div>
 
@@ -63,6 +63,7 @@
                     </a>
                 </li>
             </ul>
+
             <ul class="navbar-nav ml-md-auto">
 
                 <li class="nav-item">
@@ -79,10 +80,9 @@
 
     <!-- Page content -->
     <div class="page-content">
-
-        <!-- Main sidebar -->
+       
         @section('sidebar')
-        
+        <!-- Main sidebar -->
         <div class="sidebar sidebar-light sidebar-main sidebar-expand-md">
 
             <!-- Sidebar mobile toggler -->
@@ -101,13 +101,12 @@
 
             <!-- Sidebar content -->
             <div class="sidebar-content">
-
-
                 <!-- Main navigation -->
                 <div class="card card-sidebar-mobile">
                     <ul class="nav nav-sidebar" data-nav-type="accordion">
+                        <!-- Main -->
                         <li class="nav-item">
-                            <a href="{{route('dashboard')}}" class="nav-link active">
+                            <a href="{{ route('dashboard') }}" class="nav-link active">
                                 <i class="icon-home4"></i>
                                 <span>
                                     Dashboard
@@ -115,21 +114,38 @@
                             </a>
                         </li>
                         <li class="nav-item nav-item-submenu">
-                            <a href="#" class="nav-link"><i class="icon-profile"></i> <span>Reports</span></a>
+                            <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Reports</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Reports">
-                                <li class="nav-item"><a href="#" class="nav-link">View List Reports</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link">Add new Report</a></li>
+                                <li class="nav-item"><a href="{{ url('reports') }}" class="nav-link active">View All Reports</a></li>
+                                <li class="nav-item"><a href="{{ url('add_report') }}" class="nav-link">Add New</a></li>
                             </ul>
                         </li>
                         <li class="nav-item nav-item-submenu">
                             <a href="#" class="nav-link"><i class="icon-users"></i> <span>Users</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Users">
-                                <li class="nav-item"><a href="#" class="nav-link">List Users</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link">Add new User</a></li>
+                                <li class="nav-item"><a href="{{ url('users') }}" class="nav-link active">View All Users</a></li>
+                                <li class="nav-item"><a href="{{ url('add_user') }}" class="nav-link">Add New</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Customers</span></a>
+
+                            <ul class="nav nav-group-sub" data-submenu-title="Customers">
+                                <li class="nav-item"><a href="{{ url('customers') }}" class="nav-link active">View All Customers</a></li>
+                                <li class="nav-item"><a href="" class="nav-link">Add New</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-location4"></i> <span>Location</span></a>
+
+                            <ul class="nav nav-group-sub" data-submenu-title="Location">
+                                <li class="nav-item"><a href="{{ url('location') }}" class="nav-link active">View All Locations</a></li>
+                                <li class="nav-item"><a href="" class="nav-link">Add New</a></li>
+                            </ul>
+                        </li>
+
 
                     </ul>
                 </div>
@@ -137,8 +153,8 @@
             </div>
             <!-- /sidebar content -->
         </div>
-        @show
         <!-- /main sidebar -->
+        @show
 
         <!-- Main content -->
         <div class="content-wrapper">
@@ -159,10 +175,8 @@
             </div>
             <!-- /page header -->
 
-
             <!-- Content area -->
             <div class="content">
-
                 @yield('content')
             </div>
             <!-- /content area -->
@@ -179,22 +193,15 @@
 
                 <div class="navbar-collapse collapse" id="navbar-footer">
                     <span class="navbar-text">
-                        &copy; 2015 - 2018. 
+                        &copy; 2015 - 2018.
                     </span>
+
                 </div>
             </div>
             <!-- /footer -->
-
         </div>
         <!-- /main content -->
-
     </div>
     <!-- /page content -->
-
 </body>
 </html>
-<script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function() {
-        Dropdowns.initComponents();
-    });
-</script>

@@ -22,7 +22,6 @@ Route::get('/', 'Dashboard@index')->name('dashboard');
 Route::get('/login', function () {
     return view('login');
 });
-
 Route::get('/register', function(){
 	return view('register');
 });
@@ -37,4 +36,13 @@ Route::get('/view_report', function(){
 });
 Route::get('/add_customer', function(){
 	return view('customer/add_customer');
+});
+Route::get('/users', function(){
+	return view('users/index');
+});
+Route::get('/add_user', function(){
+	return view('users/add_user');
+});
+Route::get('/location', function(){
+	return view('location/index');
 });

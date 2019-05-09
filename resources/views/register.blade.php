@@ -26,8 +26,7 @@
 
 <!-- Theme JS files -->
 <script src="{{ asset('js/plugins/forms/selects/select2.min.js') }}"></script>
-<script src="{{ asset('') }}js/app.js"></script>
-<script src="{{ asset('') }}js/demo_pages/form_layouts.js"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 <!-- /theme JS files -->
 
 </head>
