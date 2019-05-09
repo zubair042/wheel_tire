@@ -9,7 +9,7 @@
 					<div class="col-md-12">
 						<div style="list-style: none; background-color: #40a6ff" class="media">
 							<div class="media-body" style="padding-left: 5px;">
-								<p><h2 style="color: white;">WHEEL / TIRE USERS REPORT</h2></p>
+								<p><h2 style="color: white;">Results for "Latest Registered Locations"</h2></p>
 							</div>
 						</div>
 					</div>
@@ -40,7 +40,7 @@
 	</div>
 
 
-<script src="{{asset('js/plugins/tables/datatables/datatables.min.js') }}"></script>
+<script src="{{asset('global_assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript">
 
 	$("#main-datatable-users").DataTable({

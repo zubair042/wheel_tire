@@ -49,7 +49,7 @@
 	</div>
 
 
-<script src="{{asset('js/plugins/tables/datatables/datatables.min.js') }}"></script>
+<script src="{{asset('global_assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript">
 
 	$("#main-datatable-users").DataTable({

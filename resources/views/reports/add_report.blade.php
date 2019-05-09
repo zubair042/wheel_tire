@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<script src="{{ asset('js/plugins/forms/styling/uniform.min.js') }}"></script>
+<script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
 
 <div class="row">
 	<div class="col-md-12">
@@ -39,7 +39,7 @@
 									</div>
 
 									<div class="media-body" style="text-align: center;">
-									 	<img src="{{asset('/images/placeholders/fr1.png')}}" width="80%" height="100%" alt="">
+									 	<img src="{{asset('global_assets/images/placeholders/fr1.png')}}" width="80%" height="100%" alt="">
 									</div>
 
 									<div class="align-self-center ml-3">
@@ -61,7 +61,7 @@
 									</div>
 
 									<div class="media-body" style="text-align: center;">
-									 	<img src="{{asset('images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt="">
+									 	<img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt="">
 									</div>
 
 									<div class="align-self-center ml-3">
@@ -83,7 +83,7 @@
 									</div>
 
 									<div class="media-body" style="text-align: center;">
-										<img src="{{asset('images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt="">
+										<img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt="">
 									</div>
 
 									<div class="align-self-center ml-3">
@@ -119,7 +119,7 @@
 									</div>
 
 									<div class="media-body" style="text-align: center;">
-									 	<img src="{{asset('images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt="">
+									 	<img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt="">
 									</div>
 
 									<div class="align-self-center ml-3">
@@ -141,7 +141,7 @@
 									</div>
 
 									<div class="media-body" style="text-align: center;">
-										<img src="{{asset('images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt="">
+										<img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt="">
 									</div>
 
 									<div class="align-self-center ml-3">
