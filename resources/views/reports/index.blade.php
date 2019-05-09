@@ -1,146 +1,143 @@
 @extends('layouts.app')
-@section('title', 'Wheel Tire')
+
 @section('content')
+	<!-- <?php //include(APPPATH."views/inc/header.php"); ?>
+<?php //echo "<pre>"; print_r($report_detail);exit; ?> -->
 
 
 <div class="content">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card">
-				<div class="card-header">
+				<div class="row">
 					<div class="col-md-12">
-						<span class="font-weight-semibold" style="font-size: 30px;">Wheel/Tire Installation Report</span>
-						<span class="font-weight-semibold" style="float: right;color: #5543e8;font-size: 15px;">ID: 352602</span>
+						<div style="list-style: none; background-color: #40a6ff" class="media">
+							<div class="media-body" style="padding-left: 5px;">
+								<p><h2 style="color: white;">WHEEL / TIRE INSTALLATION REPORT</h2></p>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="card-body">
-					<div class="row">
-						<div class="col-md-8">
-							<a href="#" class="d-inline-block">
-								<img src="{{asset('')}}assets/images/placeholders/cover.jpg" class="img-fluid" alt="">
-							</a>
-							<div class="card" style="margin-top:12px;">
-								<div class="card-header">
-									<h6 class="card-title text-secondary">Comments:</h6>
-								</div>
-								<div class="card-body">
-									<apan class="text-primary font-weight-semibold">John Smith : </apan><span>Torque wrench was missing</span>
-									<br>
-									<span class="text-success font-weight-semibold">Bob Jones : </span><span>John say the torque wrench was not in the shop</span> 
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4" style="margin-top: 5px;">
-							<label class="font-weight-black">Work Performed By:</label>
-							<p>Jhon Smith</p>
-							<label class="font-weight-black">Unit Number:</label>
-							<p>422254</p>
-							<label class="font-weight-black">Location:</label>
-							<p>Johar Town</p>
-							<label class="font-weight-black">Wheel Lug Nuts Torqued To:</label>
-							<p>700 lbs</p>
-							<label class="font-weight-black">Second Signature:</label>
-							<p>Bob Jones</p>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-							<button type="button" class="btn btn-primary rounded-round legitRipple">Apply Signature</button>
-							<button type="button" class="btn btn-danger rounded-round legitRipple">Add Comment</button>
-						</div>
+				<div class="row" style="margin-top: 40px; padding-left: 20px;">
+					<div class="col-md-12">
+						<p style="color: #4d52ff">Latest Reports</p>
 					</div>
-					<div class="card" style="margin-top: 8px;background: #63af81">
-						<div class="card-body">
-							<h4 class="font-weight-semibold" style="text-align: center;color: #f9f9f9;"> LEFT FRONT WHEEL POSITION</h4>
-							<div class="row">
-								<div class="col-md-3">
-									<div class="card-img-actions m-1">
-										<img src="{{asset('')}}assets/images/placeholders/placeholder.jpg" width="80%" height="100%" alt="">
-										<div class="card-img-actions-overlay card-img">
-											<a href="{{asset('')}}assets/images/placeholders/placeholder.jpg" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
-												<i class="icon-plus3"></i>
-											</a>
-										</div>
-									</div>	
-								</div>
-								<div class="col-md-3">
-									<div class="card-img-actions m-1">
-										<img class="card-img img-fluid" src="{{asset('')}} assets/images/placeholders/placeholder.jpg" alt="">
-										<div class="card-img-actions-overlay card-img">
-											<a href="{{asset('')}}assets/images/placeholders/placeholder.jpg" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
-												<i class="icon-plus3"></i>
-											</a>
-										</div>
-									</div>	
-								</div>
-								<div class="col-md-3">
-									<div class="card-img-actions m-1">
-										<img class="card-img img-fluid" src="{{asset('')}}assets/images/placeholders/placeholder.jpg" alt="">
-										<div class="card-img-actions-overlay card-img">
-											<a href="{{asset('')}}assets/images/placeholders/placeholder.jpg" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
-												<i class="icon-plus3"></i>
-											</a>
-										</div>
-									</div>	
-								</div>
-								<div class="col-md-3">
-									<div class="card-img-actions m-1">
-										<img class="card-img img-fluid" src="{{asset('')}}assets/images/placeholders/placeholder.jpg" alt="">
-										<div class="card-img-actions-overlay card-img">
-											<a href="{{asset('')}}assets/images/placeholders/placeholder.jpg" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
-												<i class="icon-plus3"></i>
-											</a>
-										</div>
-									</div>	
-								</div>
-							</div>
-							<h4 class="font-weight-semibold" style="text-align: center;color: #f9f9f9;margin-top: 12px;"> RIGHT REAR WHEEL POSITION</h4>
-							<div class="row">
-								<div class="col-md-3">
-									<div class="card-img-actions m-1">
-										<img class="card-img img-fluid" src="{{asset('')}}assets/images/placeholders/placeholder.jpg" alt="">
-										<div class="card-img-actions-overlay card-img">
-											<a href="{{asset('')}}assets/images/placeholders/placeholder.jpg" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
-												<i class="icon-plus3"></i>
-											</a>
-										</div>
-									</div>	
-								</div>
-								<div class="col-md-3">
-									<div class="card-img-actions m-1">
-										<img class="card-img img-fluid" src="{{asset('')}}assets/images/placeholders/placeholder.jpg" alt="">
-										<div class="card-img-actions-overlay card-img">
-											<a href="{{asset('')}}assets/images/placeholders/placeholder.jpg" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
-												<i class="icon-plus3"></i>
-											</a>
-										</div>
-									</div>	
-								</div>
-								<div class="col-md-3">
-									<div class="card-img-actions m-1">
-										<img class="card-img img-fluid" src="{{asset('')}}assets/images/placeholders/placeholder.jpg" alt="">
-										<div class="card-img-actions-overlay card-img">
-											<a href="{{asset('')}}assets/images/placeholders/placeholder.jpg" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
-												<i class="icon-plus3"></i>
-											</a>
-										</div>
-									</div>	
-								</div>
-								<div class="col-md-3">
-									<div class="card-img-actions m-1">
-										<img class="card-img img-fluid" src="{{asset('')}}assets/images/placeholders/placeholder.jpg" alt="">
-										<div class="card-img-actions-overlay card-img">
-											<a href="{{asset('')}}assets/images/placeholders/placeholder.jpg" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
-												<i class="icon-plus3"></i>
-											</a>
-										</div>
-									</div>	
-								</div>
-							</div>
-						</div>
-					</div>
+				</div>
+				<div class="datatable-scroll">
+					<table class="table" id="main-datatable">
+					    <thead style="background-color: #ecedec57">
+					      <tr>
+					        <th style="text-align: center;"><i style="margin-right: 8px;"></i>DATE</th>
+					        <th><i style="margin-right: 8px;"></i>UNIT NUMBER</th>
+					        <th><i style="margin-right: 8px;"></i>LOCATION</th>
+					        <th><i style="margin-right: 8px;"></i>TECHNITIAN</th>
+					        <th><i style="margin-right: 8px;"></i>TORQUE AMOUNT</th>
+					        <th><i style="margin-right: 8px;"></i>2ND SIGNATURE</th>
+					        <th class="text-center">COMMENT</th>
+					      </tr>
+					    </thead>
+					    <tbody>
+					      <tr>
+					        <td width="200px" style="text-align: center;"><a href="{{('view_report')}}" class="btn btn-success btn-sm legitRipple" style="margin-right: 10px; background-color: #4ec88a">View</a><i style="margin-right: 8px;"></i>09:05:2019</td>
+					        <td><i style="margin-right: 8px;"></i>001</td>
+					        <td><i style="margin-right: 8px;"></i>Lahore</td>
+					        <td><i style="margin-right: 8px;"></i>Usama</td>
+					        <td><i style="margin-right: 8px;"></i>100Rs</td>
+					        <td><i style="margin-right: 8px;"></i>Zubair ETNH</td>
+					        <td class="text-center"><i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i></td>
+					      </tr>
+					      	<tr>
+					          <td width="200px" style="text-align: center;"><a href="{{('view_report')}}" class="btn btn-success btn-sm legitRipple" style="margin-right: 10px; background-color: #4ec88a">View</a><i style="margin-right: 8px;"></i>10:05:2019</td>
+					        <td><i style="margin-right: 8px;"></i>002</td>
+					        <td><i style="margin-right: 8px;"></i>Karachi</td>
+					        <td><i style="margin-right: 8px;"></i>Don</td>
+					        <td><i style="margin-right: 8px;"></i>1Rs</td>
+					        <td><i style="margin-right: 8px;"></i>Zubair ETNH</td>
+					        <td class="text-center"><i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i></td>
+					      </tr>
+					         	<tr>
+					          <td width="200px" style="text-align: center;"><a href="{{('view_report')}}" class="btn btn-success btn-sm legitRipple" style="margin-right: 10px; background-color: #4ec88a">View</a><i style="margin-right: 8px;"></i>11:05:2019</td>
+					        <td><i style="margin-right: 8px;"></i>002</td>
+					        <td><i style="margin-right: 8px;"></i>Multan</td>
+					        <td><i style="margin-right: 8px;"></i>Ahmad</td>
+					        <td><i style="margin-right: 8px;"></i>2Rs</td>
+					        <td><i style="margin-right: 8px;"></i>Zubair ETNH</td>
+					        <td class="text-center"><i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i></td>
+					      </tr>
+					   <!--  	<?php //if (count($report_detail) > 0) {
+					    		//foreach ($report_detail as $detail) { ?> -->
+					    	
+					      	
+					        	<!-- 	<span><?php //echo date("Y M d (H:i:s)",strtotime(created_at)); ?></span></td>
+					        	<td style="text-align: center;"><span><?php  //echo  //unit_number; ?></span></td>
+					        	<td style="text-align: center;"><span></span></td>
+					        	<td style="text-align: center;"><?php  //echo name; ?></td>
+					        	<td style="text-align: center;"><?php // echo weight; ?> lbs</td>
+					        	<td style="text-align: center;"></td> -->
+
+
+					        	<!-- <td class="text-center">
+					        		<?php //if (!empty($detail->comments)) { ?>
+					        			<i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i>	
+					        		
+					        	</td>	 -->
+					      	<!-- </tr>
+					      	<?php  ?> -->
+					    </tbody>
+				  	</table>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
+<!-- -------------MODAL------------- -->
+<div id="modal_tyre" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            
+        </div>
+    </div>
+</div>
 
-@endsection 
+<!-- <script src="<?php// echo base_url(); ?>assets/js/demo_pages/form_checkboxes_radios.js"></script>
+<script src="<?php //echo base_url(); ?>assets/js/plugins/tables/datatables/datatables.min.js"></script> //-->
+
+<!-- <?php //include(APPPATH."views/inc/footer.php"); ?>
+
+<script type="text/javascript">
+
+    $('#upload_music_file').click(function(){
+            if($("#file_link").css("display","block")){
+                $("#file_link").css("display","none");
+                $("#music_upload").css("display","block");
+            }
+        });
+        $('#music_file_link').click(function(){
+            if($("#file_link").css("display","none")){
+                $("#file_link").css("display","block");
+                $("#music_upload").css("display","none");
+            }
+        });
+
+	$("#main-datatable").DataTable({
+	autoWidth: false,
+	columnDefs: [{ 
+		orderable: false,
+		width: 100,
+		targets: [ 6 ]
+	}],
+	dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+	language: {
+		search: '<span>Filter:</span> _INPUT_',
+		searchPlaceholder: 'Type to filter...',
+		lengthMenu: '<span>Show:</span> _MENU_',
+		paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
+	}
+});
+
+</script> -->
+
+
+
+@endsection
