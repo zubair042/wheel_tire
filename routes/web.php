@@ -30,5 +30,8 @@ Route::get('/add_report', function(){
 	return view('reports/add_report');
 });
 Route::get('/reports', function(){
-	return view('reports/view_reports');
+	return view('reports/index');
+});
+Route::get('/view_report', function(){
+	return view('reports/view_report');
 });
