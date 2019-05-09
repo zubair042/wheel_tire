@@ -12,7 +12,7 @@
 <div class="content">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="card">
+			<div class="card" style="padding: 12px;">
 				<div class="row">
 					<div class="col-md-3 offset-md-3" style=" margin-top: 30px;">
 						<div class="form-check form-check-switchery">
