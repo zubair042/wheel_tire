@@ -1,6 +1,7 @@
 @extends('layouts.app')
-@section('title', 'Wheel Tire')
+
 @section('content')
+<script src="{{ asset('js/plugins/forms/styling/uniform.min.js') }}"></script>
 
 <div class="content">
 	<div class="row">
@@ -215,6 +216,11 @@
 	</div>
 </div>
 
+<script type="text/javascript">
+	 $('.form-check-input-styled-danger').uniform({
+            wrapperClass: 'border-danger-600 text-danger-800'
+        });
+</script>
 
 <!-- <script type="text/javascript">
 

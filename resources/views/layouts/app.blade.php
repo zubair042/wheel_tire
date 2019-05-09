@@ -29,8 +29,6 @@
     <script src="{{asset('js/plugins/forms/selects/bootstrap_multiselect.js')}}"></script>
     <script src="{{asset('js/plugins/ui/moment/moment.min.js')}}"></script>
     <script src="{{asset('js/plugins/pickers/daterangepicker.js')}}"></script>
-    <script src="{{ asset('js/plugins/forms/styling/uniform.min.js') }}"></script>
-
 
     <script src="{{ asset('js/app.js') }}"></script>
 
