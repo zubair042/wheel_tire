@@ -100,10 +100,10 @@
 
 
             <!-- Sidebar content -->
-            <div class="sidebar-content">
+            <!-- <div class="sidebar-content">
 
 
-                <!-- Main navigation -->
+                
                 <div class="card card-sidebar-mobile">
                     <ul class="nav nav-sidebar" data-nav-type="accordion">
                         <li class="nav-item">
@@ -133,7 +133,46 @@
 
                     </ul>
                 </div>
+                
+            </div> -->
+            <div class="sidebar-content">
+
+                <!-- Main navigation -->
+                <div class="card card-sidebar-mobile">
+                    <ul class="nav nav-sidebar" data-nav-type="accordion">
+
+                        <!-- Main -->
+                        
+                        <li class="nav-item">
+                            <a href="" class="nav-link active">
+                                <i class="icon-home4"></i>
+                                <span>
+                                    Dashboard
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-profile"></i> <span>Reports</span></a>
+
+                            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                                <li class="nav-item"><a href="" class="nav-link">View List Reports</a></li>
+                                <li class="nav-item"><a href="" class="nav-link">Add new Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-users"></i> <span>Users</span></a>
+
+                            <ul class="nav nav-group-sub" data-submenu-title="Layouts">
+                                <li class="nav-item"><a href="" class="nav-link">List Users</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">Add new User</a></li>
+                            </ul>
+                        </li>
+                        
+                        
+                    </ul>
+                </div>
                 <!-- /main navigation -->
+
             </div>
             <!-- /sidebar content -->
         </div>
