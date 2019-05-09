@@ -30,7 +30,6 @@
     <script src="{{asset('js/plugins/ui/moment/moment.min.js')}}"></script>
     <script src="{{asset('js/plugins/pickers/daterangepicker.js')}}"></script>
 
-
     <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- /theme JS files -->
