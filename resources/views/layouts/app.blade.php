@@ -190,11 +190,7 @@
 
     </div>
     <!-- /page content -->
-
+   
+</script>
 </body>
 </html>
-<script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function() {
-        Dropdowns.initComponents();
-    });
-</script>
