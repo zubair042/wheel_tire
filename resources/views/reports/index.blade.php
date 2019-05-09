@@ -86,7 +86,7 @@
 	</div>
 </div>
 
-<script src="{{ asset('js/plugins/tables/datatables/datatables.min.js') }}"></script>
+<script src="{{asset('js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript">
 	$("#main-datatable").DataTable({
 		autoWidth: false,
