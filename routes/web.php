@@ -38,3 +38,9 @@ Route::get('/view_report', function(){
 Route::get('/add_customer', function(){
 	return view('customer/add_customer');
 });
+Route::get('/users', function(){
+	return view('users/index');
+});
+Route::get('/add_user', function(){
+	return view('users/add_user');
+});
