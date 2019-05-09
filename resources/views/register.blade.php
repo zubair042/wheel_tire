@@ -8,31 +8,31 @@
 
 <!-- Global stylesheets -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
-<link href="{{ asset('') }}css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
-<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
-<link href="{{ asset('') }}css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
-<link href="{{ asset('') }}css/layout.min.css" rel="stylesheet" type="text/css">
-<link href="{{ asset('') }}css/components.min.css" rel="stylesheet" type="text/css">
-<link href="{{ asset('') }}css/colors.min.css" rel="stylesheet" type="text/css">
+<link href="{{ asset('') }}global_assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('') }}assets/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
+<link href="{{ asset('') }}assets/css/layout.min.css" rel="stylesheet" type="text/css">
+<link href="{{ asset('') }}assets/css/components.min.css" rel="stylesheet" type="text/css">
+<link href="{{ asset('') }}assets/css/colors.min.css" rel="stylesheet" type="text/css">
 <!-- /global stylesheets -->
 
 <!-- Core JS files -->
-<script src="{{ asset('') }}js/main/jquery.min.js"></script>
-<script src="{{ asset('js/main/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('') }}js/plugins/loaders/blockui.min.js"></script>
-<script src="{{ asset('') }}js/plugins/ui/ripple.min.js"></script>
+<script src="{{ asset('') }}global_assets/js/main/jquery.min.js"></script>
+<script src="{{ asset('global_assets/js/main/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('') }}global_assets/js/plugins/loaders/blockui.min.js"></script>
+<script src="{{ asset('') }}global_assets/js/plugins/ui/ripple.min.js"></script>
 
 <!-- /core JS files -->
 
 <!-- Theme JS files -->
-<script src="{{ asset('js/plugins/forms/selects/select2.min.js') }}"></script>
+<script src="{{ asset('global_assets/js/plugins/forms/selects/select2.min.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 <!-- /theme JS files -->
 
 </head>
 <style type="text/css">
 body {
-	background-image: url("{{ asset('images/background.png') }}");
+	background-image: url("{{ asset('global_assets/images/background.png') }}");
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
   height: 100%
@@ -85,7 +85,7 @@ body {
                   <input type="password" class="form-control" name="password" placeholder="Enter password ">
                 </div>
                 <div class="text-center" style="margin-top: 40px;">
-                  <a href="" style="float: left; color:#6178ca;" class="btn btn-light legitRipple"><i class="icon-arrow-left13" style="color: #6178ca;"></i> Login</a>
+                  <a href="{{ url('login') }}" style="float: left; color:#6178ca;" class="btn btn-light legitRipple"><i class="icon-arrow-left13" style="color: #6178ca;"></i> Login</a>
                   <input type="submit" style="background: #6178ca;margin-bottom: 10px;" class="btn btn-primary" value="Sign Up">
                 </div> 
               </div>
@@ -99,7 +99,7 @@ body {
 
 </body>
 </html>
-<script src="{{ asset('') }}js/plugins/notifications/sweet_alert.min.js"></script>
-  <script src="{{ asset('') }}js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+<script src="{{ asset('') }}global_assets/js/plugins/notifications/sweet_alert.min.js"></script>
+  <script src="{{ asset('') }}global_assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
 
 
