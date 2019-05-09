@@ -22,7 +22,6 @@ Route::get('/', 'Dashboard@index')->name('dashboard');
 Route::get('/login', function () {
     return view('login');
 });
-
 Route::get('/register', function(){
 	return view('register');
 });
@@ -43,4 +42,7 @@ Route::get('/users', function(){
 });
 Route::get('/add_user', function(){
 	return view('users/add_user');
+});
+Route::get('/location', function(){
+	return view('location/index');
 });
