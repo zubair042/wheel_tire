@@ -47,7 +47,7 @@ class Reports extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return 'dsdfsd';
     }
 
     /**
