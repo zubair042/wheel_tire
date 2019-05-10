@@ -18,6 +18,7 @@
 
 Route::get('/', 'Dashboard@index')->name('dashboard');
 //Route::get('/', 'ReportsController@index');
+Route::get('/location','Location@index');
 
 Route::get('/login', function () {
     return view('login');
@@ -45,9 +46,6 @@ Route::get('/users', function(){
 });
 Route::get('/add_user', function(){
 	return view('users/add_user');
-});
-Route::get('/location', function(){
-	return view('location/index');
 });
 Route::get('/add_location', function(){
 	return view('location/add_location');
