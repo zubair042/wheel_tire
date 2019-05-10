@@ -43,3 +43,6 @@ Route::get('/users', function(){
 Route::get('/add_user', function(){
 	return view('users/add_user');
 });
+Route::get('/add_location', function(){
+	return view('location/add_location');
+});

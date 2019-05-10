@@ -142,7 +142,7 @@
 
                             <ul class="nav nav-group-sub" data-submenu-title="Location">
                                 <li class="nav-item"><a href="{{ url('location') }}" class="nav-link active">View All Locations</a></li>
-                                <li class="nav-item"><a href="" class="nav-link">Add New</a></li>
+                                <li class="nav-item"><a href="{{ url('add_location') }}" class="nav-link">Add New</a></li>
                             </ul>
                         </li>
 
