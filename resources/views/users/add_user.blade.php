@@ -95,6 +95,7 @@
 </div>
 
 <script type="text/javascript">
+	
 	$('.form-check-input-switch').bootstrapSwitch();
 	$('.custom-select').select2();
 
