@@ -37,11 +37,10 @@
 				</div>
 				<div class="row">
 			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Company Names</span>
+						<span class="input-group-text" style="font-size: 18px;">Company Name</span>
 					</div>
 					<div class="col-md-3">
 						<select class="custom-select" name="">
-			                <option value="Manager"><span>Choose a compnany..</span></option>
 			                <option value="Manager"><span>Manager</span></option>
 			                <option value="Worker">Worker</option>
 			                <option value="Salesman">Salesman</option>
@@ -53,8 +52,7 @@
 						<span class="input-group-text" style="font-size: 18px;">User Roles</span>
 					</div>
 					<div class="col-md-3">
-						<select class="custom-select" name="">
-			                <option value="Manager"><span>Choose a role..</span></option>
+						<select class="custom-select1" name="">
 			                <option value="Manager"><span>Manager</span></option>
 			                <option value="Worker">Worker</option>
 			                <option value="Salesman">Salesman</option>
@@ -107,7 +105,16 @@
 <script type="text/javascript">
 
 	$('.form-check-input-switch').bootstrapSwitch();
-	$('.custom-select').select2();
+	$('.custom-select').select2({
+		placeholder: 'Choose a company..',
+		allowClear: true,
+	    minimumResultsForSearch: Infinity
+	});
+	$('.custom-select1').select2({
+		placeholder: 'Choose a role..',
+		allowClear: true,
+	    minimumResultsForSearch: Infinity
+	});
 
 </script>
 

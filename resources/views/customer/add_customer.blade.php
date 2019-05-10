@@ -38,7 +38,7 @@
 					<span class="input-group-text" style="font-size: 18px;">Account Type</span>
 				</div>
 				<div class="col-md-3">
-					<select class="custom-select" name="position_at_company">
+					<select class="select_select2" name="position_at_company">
 		                <option value="Manager"><span>Manager</span></option>
 		                <option value="Worker">Worker</option>
 		                <option value="Salesman">Salesman</option>
@@ -50,7 +50,7 @@
 					<span class="input-group-text" style="font-size: 18px;">Package</span>
 				</div>
 				<div class="col-md-3">
-					<select class="custom-select" name="position_at_company">
+					<select class="select_select2" name="position_at_company">
 		                <option value=""><span>Basic Package | 1</span></option>
 		                <option value="">Medium Package | 2</option>
 		            </select>
@@ -159,7 +159,9 @@
 
 <script type="text/javascript">
 	$('.form-check-input-switch').bootstrapSwitch();
-	$('.custom-select').select2();
+	$('.select_select2').select2({
+	    minimumResultsForSearch: Infinity
+	});
 
 </script>
 

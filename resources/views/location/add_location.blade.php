@@ -3,6 +3,7 @@
 @section('content')
 
 <script src="{{asset('global_assets/js/plugins/forms/styling/switch.min.js')}}"></script>
+<script src="{{asset('global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
 
 <div class="content">
 	<div class="row">
@@ -35,11 +36,10 @@
 						<span class="input-group-text" style="font-size: 18px;">Customer</span>
 					</div>
 					<div class="col-md-3">
-						<select class="custom-select" name="position_at_company">
-			                <option value="Manager"><span>Choose a customer</span></option>
-			                <option value="Manager"><span>Manager</span></option>
-			                <option value="Worker">Worker</option>
-			                <option value="Salesman">Salesman</option>
+						<select class="select_select2_select2" name="" value="choose.." >
+			                <option value="Manager"><span>Customer 1</span></option>
+			                <option value="Worker">Customer 2</option>
+			                <option value="Salesman">Customer 3</option>
 			            </select>
 			    	</div>
 			    </div>
@@ -65,6 +65,11 @@
 <script type="text/javascript">
 	
 	$('.form-check-input-switch').bootstrapSwitch();
+	$('.select_select2_select2').select2({
+		placeholder: 'Choose a position..',
+		allowClear: true,
+	    minimumResultsForSearch: Infinity
+	});
 
 </script>
 
