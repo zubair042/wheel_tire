@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Report;
 
-class ReportsController extends Controller
+class Reports extends Controller
 {
     /**
      * Display a listing of the resource.
