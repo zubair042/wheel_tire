@@ -2,10 +2,10 @@
 
 @section('content')
 
-<script src="{{asset('js/plugins/forms/styling/switch.min.js')}}"></script>
-<script src="{{asset('js/plugins/forms/styling/switchery.min.js')}}"></script>
-<script src="{{ asset('js/plugins/forms/styling/uniform.min.js') }}"></script>
-<script src="{{asset('js/plugins/forms/selects/select2.min.js')}}"></script>
+<script src="{{asset('global_assets/js/plugins/forms/styling/switch.min.js')}}"></script>
+<script src="{{asset('global_assets/js/plugins/forms/styling/switchery.min.js')}}"></script>
+<script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
+<script src="{{asset('global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
 
 
 
@@ -22,7 +22,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row"">
+				<div class="row">
 			    	<div class="col-md-2 offset-md-4">
 						<span class="input-group-text" style="font-size: 20px;"></span>
 					</div>
