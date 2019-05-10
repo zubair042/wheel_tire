@@ -2,10 +2,10 @@
 
 @section('content')
 
-<script src="{{asset('js/plugins/forms/styling/switch.min.js')}}"></script>
-<script src="{{asset('js/plugins/forms/styling/switchery.min.js')}}"></script>
-<script src="{{ asset('js/plugins/forms/styling/uniform.min.js') }}"></script>
-<script src="{{asset('js/plugins/forms/selects/select2.min.js')}}"></script>
+<script src="{{asset('global_assets/js/plugins/forms/styling/switch.min.js')}}"></script>
+<script src="{{asset('global_assets/js/plugins/forms/styling/switchery.min.js')}}"></script>
+<script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
+<script src="{{asset('global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
 
 
 
@@ -32,7 +32,7 @@
 						</div>
 					</div>
 				</div>
-			    <div class="row"">
+			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
 						<span class="input-group-text" style="font-size: 18px;">Account Type</span>
 					</div>
@@ -44,7 +44,7 @@
 			            </select>
 			    	</div>
 			    </div>
-			    <div class="row"">
+			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
 						<span class="input-group-text" style="font-size: 18px;">Package</span>
 					</div>
@@ -55,7 +55,7 @@
 			            </select>
 			    	</div>
 			    </div>
-			    <div class="row"">
+			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
 						<span class="input-group-text" style="font-size: 18px;">Company Name</span>
 					</div>
@@ -63,7 +63,7 @@
 						<input type="text" name="lbs_weight" id="" class="form-control">
 			    	</div>
 			    </div>
-			    <div class="row"">
+			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
 						<span class="input-group-text" style="font-size: 18px;">Address</span>
 					</div>
@@ -71,7 +71,7 @@
 						<input type="text" name="lbs_weight" id="" class="form-control">
 			    	</div>
 			    </div>
-			    <div class="row"">
+			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
 						<span class="input-group-text" style="font-size: 18px;">Address 2</span>
 					</div>
@@ -79,7 +79,7 @@
 						<input type="text" name="lbs_weight" id="" class="form-control">
 			    	</div>
 			    </div>
-			    <div class="row"">
+			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
 						<span class="input-group-text" style="font-size: 18px;">City</span>
 					</div>
@@ -87,7 +87,7 @@
 						<input type="text" name="" id="" class="form-control">
 			    	</div>
 			    </div>
-			    <div class="row"">
+			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
 						<span class="input-group-text" style="font-size: 18px;">State</span>
 					</div>
@@ -95,7 +95,7 @@
 						<input type="text" name="" id="" class="form-control">
 			    	</div>
 			    </div>
-			    <div class="row"">
+			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
 						<span class="input-group-text" style="font-size: 18px;">Zip</span>
 					</div>
@@ -103,7 +103,7 @@
 						<input type="text" name="" id="" class="form-control">
 			    	</div>
 			    </div>
-			    <div class="row"">
+			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
 						<span class="input-group-text" style="font-size: 18px;">Phone</span>
 					</div>
@@ -111,7 +111,7 @@
 						<input type="text" name="" id="" class="form-control">
 			    	</div>
 			    </div>
-			    <div class="row"">
+			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
 						<span class="input-group-text" style="font-size: 18px;">Face</span>
 					</div>
@@ -119,7 +119,7 @@
 						<input type="text" name="" id="" class="form-control">
 			    	</div>
 			    </div>
-			    <div class="row"">
+			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
 						<span class="input-group-text" style="font-size: 18px;">Email</span>
 					</div>
@@ -127,7 +127,7 @@
 						<input type="text" name="" id="" class="form-control">
 			    	</div>
 			    </div>
-			    <div class="row"">
+			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
 						<span class="input-group-text" style="font-size: 18px;">Notes</span>
 					</div>
@@ -135,7 +135,7 @@
 						<input type="text" name="" id="" class="form-control">
 			    	</div>
 			    </div>
-			    <!-- <div class="row"">
+			    <!-- <div class="row">
 			    	<div class="col-md-2 offset-md-5">
 			    		<div class="input-group">
 			    			<span class="input-group-append" style="margin-left: 0px;">
@@ -146,11 +146,9 @@
 			    	</div>
 			    </div> -->
 			    <div class="row" style="text-align: center;margin:30px 0;">
-			    	<div class="col-md-6 offset-md-1" style="text-align: right;">
-			    		<button type="button" style="background-color: #6262e1;" class="btn btn-primary legitRipple"><i class="icon-checkmark mr-2"></i>Submit</button>
-			    	</div>
-			    	<div class="col-md-5" style="text-align: left;">
-			    		<button type="button" style="background-color: #ccc7d2;" class="btn btn-primary legitRipple"><i class="icon-reset mr-2"></i>Reset</button>
+			    	<div class="col-md-9 offset-md-1">
+			    		<button type="button" style="background-color: #4f99c6!important;margin-right: 12px;" class="btn btn-primary legitRipple"><i class="icon-checkmark mr-2"></i>Submit</button>
+			    		<button type="button" style="background-color: #8b9aa3!important;margin-left: 12px;" class="btn btn-primary legitRipple"><i class="icon-reset mr-2"></i>Reset</button>
 			    	</div>
 			    </div>
 			</div>
