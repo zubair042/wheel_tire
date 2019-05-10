@@ -32,7 +32,7 @@ Route::get('/register', function(){
 Route::get('/add_report', function(){
 	return view('reports/add_report');
 });
-Route::get('/reports/view_report', function(){
+Route::get('/reports/view_report/{id}', function(){
 	return view('reports/view_report');
 });
 Route::get('/add_customer', function(){

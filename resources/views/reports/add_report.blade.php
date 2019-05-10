@@ -6,7 +6,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="card">
-			<form id="trailer_powerunit" method="POST" enctype="multipart/form-data">
+			<form id="trailer_powerunit" method="POST" action="" enctype="multipart/form-data">
 				<div class="form-group mb-3 mb-md-2" style="text-align: center; margin-top: 40px;">
 					<div class="form-check form-check-inline form-check-right">
 						<label class="form-check-label">
@@ -232,40 +232,4 @@
     });
 </script>
 
-<!-- <script type="text/javascript">
-
-	$("#trailer_powerunit").on("submit", function(e){
-		//var selectedOption = $("input:radio[name=vehicle_type]:checked").val()
-		e.preventDefault();
-		var formData = new FormData($(this)[0]);
-		//formData.append(selectedOption);
-		$.ajax({
-			url: '<?php //echo site_url("reports/add_new_report"); ?>',
-			type: 'POST',
-			data: formData,
-			cache: false,
-			contentType: false,
-			processData: false,
-			success: function(e){
-				console.log(e);
-				//return false;
-				swal({
-					title: "Good job!",
-					type: 'success',
-					html: 'You have added a report successfully',
-					allowOutsideClick: false,
-		        }).then(function() {
-					location.reload();
-		        });
-			} 
-		});
-	});
-
-	$('.form-check-input-styled-danger').uniform({
-            wrapperClass: 'border-danger-600 text-danger-800'
-        });
-
-	
-
-</script> -->
 @endsection 
