@@ -15,7 +15,9 @@ class Reports extends Controller
      */
     public function index()
     {
-        return view('reports/index');
+        $report_detail = Report::all();
+        return view('reports/index',compact("report_detail"));
+       // return view('reports/index')->with('report_detail',$report_detail);
         // $user = User::find(1);
         // foreach($user->reports as $a):
         //     echo $a->vehicle_type."<br>";
