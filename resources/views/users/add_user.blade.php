@@ -14,30 +14,24 @@
 		<div class="col-md-12">
 			<div class="card" style="padding: 12px;">
 				<div class="row">
-					<div class="col-md-3 offset-md-3" style=" margin-top: 30px;">
-						<div class="form-check form-check-switchery">
-							<label class="form-check-label">
-								<input type="checkbox" class="form-check-input-switchery" checked data-fouc>
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text" style="font-size: 18px;">Activation</span>
+					</div>
+					<div class="col-md-3">
+						<div class="form-check form-check-switch form-check-switch-left">
+							<label class="form-check-label d-flex align-items-center">
+								<input type="checkbox" data-on-text="On" data-off-text="Off" class="form-check-input-switch" data-size="small" checked>
 							</label>
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-2 offset-md-3">
-						<div class="form-check form-check-switchery form-check-inline form-check-right">
-							<label class="form-check-label">
-								<input type="checkbox" class="form-check-input-switchery" checked="" data-fouc="" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="background-color: rgb(100, 189, 99); border-color: rgb(100, 189, 99); box-shadow: rgb(100, 189, 99) 0px 0px 0px 10px inset; transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s, background-color 1.2s ease 0s;"><small style="left: 18px; background-color: rgb(255, 255, 255); transition: background-color 0.4s ease 0s, left 0.2s ease 0s;"></small></span>
-								<p style="font-size: 18px;">First input</p>
-							</label>
-						</div>
-					</div>
-				</div>
-			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Account Type</span>
+						<span class="input-group-text" style="font-size: 18px;">Company Names</span>
 					</div>
 					<div class="col-md-3">
-						<select class="custom-select" name="position_at_company">
+						<select class="custom-select" name="">
+			                <option value="Manager"><span>Choose a compnany..</span></option>
 			                <option value="Manager"><span>Manager</span></option>
 			                <option value="Worker">Worker</option>
 			                <option value="Salesman">Salesman</option>
@@ -46,18 +40,20 @@
 			    </div>
 			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Package</span>
+						<span class="input-group-text" style="font-size: 18px;">User Roles</span>
 					</div>
 					<div class="col-md-3">
-						<select class="custom-select" name="position_at_company">
-			                <option value=""><span>Basic Package | 1</span></option>
-			                <option value="">Medium Package | 2</option>
+						<select class="custom-select" name="">
+			                <option value="Manager"><span>Choose a role..</span></option>
+			                <option value="Manager"><span>Manager</span></option>
+			                <option value="Worker">Worker</option>
+			                <option value="Salesman">Salesman</option>
 			            </select>
 			    	</div>
 			    </div>
 			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Company Name</span>
+						<span class="input-group-text" style="font-size: 18px;">First Name</span>
 					</div>
 					<div class="col-md-3">
 						<input type="text" name="lbs_weight" id="" class="form-control">
@@ -65,58 +61,10 @@
 			    </div>
 			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Address</span>
+						<span class="input-group-text" style="font-size: 18px;">Last Name</span>
 					</div>
 					<div class="col-md-3">
 						<input type="text" name="lbs_weight" id="" class="form-control">
-			    	</div>
-			    </div>
-			    <div class="row">
-			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Address 2</span>
-					</div>
-					<div class="col-md-3">
-						<input type="text" name="lbs_weight" id="" class="form-control">
-			    	</div>
-			    </div>
-			    <div class="row">
-			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">City</span>
-					</div>
-					<div class="col-md-3">
-						<input type="text" name="" id="" class="form-control">
-			    	</div>
-			    </div>
-			    <div class="row">
-			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">State</span>
-					</div>
-					<div class="col-md-3">
-						<input type="text" name="" id="" class="form-control">
-			    	</div>
-			    </div>
-			    <div class="row">
-			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Zip</span>
-					</div>
-					<div class="col-md-3">
-						<input type="text" name="" id="" class="form-control">
-			    	</div>
-			    </div>
-			    <div class="row">
-			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Phone</span>
-					</div>
-					<div class="col-md-3">
-						<input type="text" name="" id="" class="form-control">
-			    	</div>
-			    </div>
-			    <div class="row">
-			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Face</span>
-					</div>
-					<div class="col-md-3">
-						<input type="text" name="" id="" class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -124,27 +72,17 @@
 						<span class="input-group-text" style="font-size: 18px;">Email</span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="" id="" class="form-control">
+						<input type="text" name="lbs_weight" id="" class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Notes</span>
+						<span class="input-group-text" style="font-size: 18px;">Password</span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="" id="" class="form-control">
+						<input type="text" name="lbs_weight" id="" class="form-control">
 			    	</div>
 			    </div>
-			    <!-- <div class="row">
-			    	<div class="col-md-2 offset-md-5">
-			    		<div class="input-group">
-			    			<span class="input-group-append" style="margin-left: 0px;">
-								<span class="input-group-text" style="">Company Name</span>	
-							</span>
-							<input type="text" name="lbs_weight" id="" class="form-control">
-						</div>
-			    	</div>
-			    </div> -->
 			    <div class="row" style="text-align: center;margin:30px 0;">
 			    	<div class="col-md-9 offset-md-1">
 			    		<button type="button" style="background-color: #4f99c6!important;margin-right: 12px;" class="btn btn-primary legitRipple"><i class="icon-checkmark mr-2"></i>Submit</button>
