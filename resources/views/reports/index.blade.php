@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+	<?php //echo "<pre>";print_r($report_detail);exit; ?>
 <div class="row">
 	<div class="col-md-12">
 		<div class="card">
@@ -33,33 +33,23 @@
 				      </tr>
 				    </thead>
 				    <tbody>
-				      <tr>
-				        <td width="200px" style="text-align: center;"><a href="{{('#')}}" class="btn btn-success btn-sm legitRipple" style="margin-right: 10px; background-color: #4ec88a">View</a><i style="margin-right: 8px;"></i>09:05:2019</td>
-				        <td><i style="margin-right: 8px;"></i>001</td>
-				        <td><i style="margin-right: 8px;"></i>Lahore</td>
-				        <td><i style="margin-right: 8px;"></i>Usama</td>
-				        <td><i style="margin-right: 8px;"></i>100Rs</td>
-				        <td><i style="margin-right: 8px;"></i>Zubair ETNH</td>
-				        <td class="text-center"><i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i></td>
-				      </tr>
-				      	<tr>
-				          <td width="200px" style="text-align: center;"><a href="{{('#')}}" class="btn btn-success btn-sm legitRipple" style="margin-right: 10px; background-color: #4ec88a">View</a><i style="margin-right: 8px;"></i>10:05:2019</td>
-				        <td><i style="margin-right: 8px;"></i>002</td>
-				        <td><i style="margin-right: 8px;"></i>Karachi</td>
-				        <td><i style="margin-right: 8px;"></i>Don</td>
-				        <td><i style="margin-right: 8px;"></i>1Rs</td>
-				        <td><i style="margin-right: 8px;"></i>Zubair ETNH</td>
-				        <td class="text-center"><i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i></td>
-				      </tr>
-				         	<tr>
-				          <td width="200px" style="text-align: center;"><a href="{{('#')}}" class="btn btn-success btn-sm legitRipple" style="margin-right: 10px; background-color: #4ec88a">View</a><i style="margin-right: 8px;"></i>11:05:2019</td>
-				        <td><i style="margin-right: 8px;"></i>002</td>
-				        <td><i style="margin-right: 8px;"></i>Multan</td>
-				        <td><i style="margin-right: 8px;"></i>Ahmad</td>
-				        <td><i style="margin-right: 8px;"></i>2Rs</td>
-				        <td><i style="margin-right: 8px;"></i>Zubair ETNH</td>
-				        <td class="text-center"><i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i></td>
-				      </tr>
+				    	@if (count($report_detail) > 0)
+				    		@foreach($report_detail as $detail)
+				    		<tr>
+						        <td width="200px" style="text-align: center;"><a href="{{ url('reports/view_report')}}" class="btn btn-success btn-sm legitRipple" style="margin-right: 10px; background-color: #4ec88a">View</a><?php echo date("Y M d",strtotime($detail->created_at)); ?></td>
+						        <td><i style="margin-right: 8px;"></i>{{ $detail->unit_number}}</td>
+						        <td><i style="margin-right: 8px;"></i></td>
+						        <td><i style="margin-right: 8px;"></i>{{ $detail->name}}</td>
+						        <td><i style="margin-right: 8px;"></i>{{ $detail->weight}}</td>
+						        <td><i style="margin-right: 8px;"></i></td>
+						        <td class="text-center">
+				        		<?php if (!empty($detail->comments)) { ?>
+				        			<i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i>
+				        			<?php } ?>	
+				        		</td>
+						     </tr>
+				    		@endforeach
+				    	@endif
 				   <!--  	<?php //if (count($report_detail) > 0) {
 				    		//foreach ($report_detail as $detail) { ?> -->
 				    	
