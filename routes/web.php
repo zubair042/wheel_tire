@@ -20,6 +20,7 @@ Route::get('/', 'Dashboard@index')->name('dashboard');
 //Route::get('/', 'ReportsController@index');
 Route::get('/reports','Reports@index');
 Route::get('/customers','Customers@index');
+Route::get('/users','Users@index');
 Route::get('/location','Location@index');
 
 Route::get('/login', function () {
@@ -36,9 +37,6 @@ Route::get('/reports/view_report', function(){
 });
 Route::get('/add_customer', function(){
 	return view('customer/add_customer');
-});
-Route::get('/users', function(){
-	return view('users/index');
 });
 Route::get('/add_user', function(){
 	return view('users/add_user');

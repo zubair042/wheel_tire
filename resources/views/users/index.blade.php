@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<?php //echo "<pre>";print_r($user_detail);exit; ?>
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card">
@@ -23,24 +23,16 @@
 					      <th>Date</th>
 					    </thead>
 					    <tbody>
+					    	@if (count($user_detail) > 0)
+				    		@foreach($user_detail as $detail)
 					    	<tr>
-					        	<td><span>44467</span></td>
-					        	<td><span>zubair@gmail.com</span></td>
-					        	<td><span>John Smith</span></td>
-					        	<td>2019 Mar 30 (22:31:16)</td>	
+					        	<td><span>{{$detail->company_id}}</span></td>
+					        	<td><span>{{$detail->email}}</span></td>
+					        	<td><span><?php echo $detail->full_name;?></span></td>
+					        	<td>{{date("Y-M-d", strtotime($detail->created_at))}}</td>	
 				      		</tr>
-				      		<tr>
-					        	<td><span>23467</span></td>
-					        	<td><span>042zubair@gmail.com</span></td>
-					        	<td><span>samsh Smith</span></td>
-					        	<td>2019 Mar 30 (22:31:16)</td>	
-				      		</tr>
-				      		<tr>
-					        	<td><span>53467</span></td>
-					        	<td><span>zubairkhan@gmail.com</span></td>
-					        	<td><span>Hill Smith</span></td>
-					        	<td>2019 Mar 30 (22:31:16)</td>	
-				      		</tr> 
+				      		@endforeach
+				    		@endif
 					    </tbody>
 				  	</table>
 				</div>
