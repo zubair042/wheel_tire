@@ -9,8 +9,13 @@
 		<div class="col-md-12">
 			<div class="card" style="padding: 12px;">
 				<div class="row">
-					<div class="col-md-9 offset-md-3">
-						<hr align="left" width="70%">
+				<div class="col-md-12">
+					<h1 style="padding: 0;margin: 0 8px;font-size: 24px;color: #2679b5;">Location<small> <i class="icon-arrow-right5"></i>Add New</small></h1>
+				</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<hr align="left" >
 					</div>
 				</div>
 				<div class="row">
@@ -46,11 +51,6 @@
 						<input type="text" name="lbs_weight" id="" class="form-control">
 			    	</div>
 			    </div>
-			    <div class="row">
-					<div class="col-md-9 offset-md-3">
-						<hr align="left" width="70%">
-					</div>
-				</div>
 				<div class="row" style="text-align: center;margin:30px 0;">
 			    	<div class="col-md-9 offset-md-1">
 			    		<button type="button" style="background-color: #4f99c6!important;margin-right: 12px;" class="btn btn-primary legitRipple"><i class="icon-checkmark mr-2"></i>Submit</button>

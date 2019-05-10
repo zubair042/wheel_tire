@@ -14,6 +14,16 @@
 		<div class="col-md-12">
 			<div class="card" style="padding: 12px;">
 				<div class="row">
+				<div class="col-md-12">
+					<h1 style="padding: 0;margin: 0 8px;font-size: 24px;color: #2679b5;">User<small> <i class="icon-arrow-right5"></i>Add New</small></h1>
+				</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<hr align="left" >
+					</div>
+				</div>
+				<div class="row">
 					<div class="col-md-2 offset-md-3">
 						<span class="input-group-text" style="font-size: 18px;">Activation</span>
 					</div>
@@ -95,7 +105,7 @@
 </div>
 
 <script type="text/javascript">
-	
+
 	$('.form-check-input-switch').bootstrapSwitch();
 	$('.custom-select').select2();
 
