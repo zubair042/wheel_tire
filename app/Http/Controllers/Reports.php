@@ -15,6 +15,7 @@ class Reports extends Controller
      */
     public function index()
     {
+        return view('reports/index');
         // $user = User::find(1);
         // foreach($user->reports as $a):
         //     echo $a->vehicle_type."<br>";

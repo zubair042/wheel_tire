@@ -18,6 +18,8 @@
 
 Route::get('/', 'Dashboard@index')->name('dashboard');
 //Route::get('/', 'ReportsController@index');
+Route::get('/reports','Reports@index');
+Route::get('/customers','Customers@index');
 Route::get('/location','Location@index');
 
 Route::get('/login', function () {
@@ -29,14 +31,8 @@ Route::get('/register', function(){
 Route::get('/add_report', function(){
 	return view('reports/add_report');
 });
-Route::get('/reports', function(){
-	return view('reports/index');
-});
 Route::get('/view_report', function(){
 	return view('reports/view_report');
-});
-Route::get('/customers', function(){
-	return view('customer/index');
 });
 Route::get('/add_customer', function(){
 	return view('customer/add_customer');
