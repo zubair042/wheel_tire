@@ -49,3 +49,6 @@ Route::get('/add_user', function(){
 Route::get('/location', function(){
 	return view('location/index');
 });
+Route::get('/add_location', function(){
+	return view('location/add_location');
+});
