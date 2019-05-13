@@ -36,7 +36,7 @@ class Reports extends Controller
      */
     public function create()
     {
-        //
+        return view('reports/add_report');
     }
 
     /**
@@ -47,7 +47,8 @@ class Reports extends Controller
      */
     public function store(Request $request)
     {
-        return 'dsdfsd';
+        
+        return "safsa";
     }
 
     /**

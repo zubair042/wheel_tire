@@ -58,15 +58,25 @@ body {
                 <span class="font-weight-semibold" style="margin-right: 25px;color: #96a2ce;">Log In</span>
                 <a href="{{ url('/register')}}"><span class="font-weight-semibold" style="margin-left: 25px;color: #797373;">Sign Up</span></a>
               </div>
-              <form action="" method="POST">
-                
+              <form action="{{ route('login') }}" method="POST">
+                {{ csrf_field() }}
               <div class="form-group">
                 <label for="name">Email Address</label>
                 <input type="text" class="form-control" name="email" placeholder="Enter your email">
+                @if ($errors->has('email'))
+                  <span class="help-block">
+                      <strong style="color: red;">{{ $errors->first('email') }}</strong>
+                  </span>
+                @endif
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" name="password" placeholder="Enter password ">
+                @if ($errors->has('password'))
+                  <span class="help-block">
+                      <strong style="color: red;">{{ $errors->first('password') }}</strong>
+                  </span>
+                @endif
               </div>
               <div class="text-center" style="margin-top: 45px;">
                 <input type="submit" style="background: #6178ca;margin-bottom: 15px;" class="btn btn-primary" value="Log in">

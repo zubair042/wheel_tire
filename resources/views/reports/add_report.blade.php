@@ -6,7 +6,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="card">
-			<form id="trailer_powerunit" method="POST" action="" enctype="multipart/form-data">
+			<form id="trailer_powerunit" method="POST" action="{{ action('Reports@store') }}" enctype="multipart/form-data">
 				<div class="form-group mb-3 mb-md-2" style="text-align: center; margin-top: 40px;">
 					<div class="form-check form-check-inline form-check-right">
 						<label class="form-check-label">

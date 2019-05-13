@@ -19,19 +19,18 @@
 Route::get('/', 'Dashboard@index')->name('dashboard');
 //Route::get('/', 'ReportsController@index');
 Route::get('/reports','Reports@index');
+Route::get('/add_report','Reports@create');
 Route::get('/customers','Customers@index');
 Route::get('/users','Users@index');
 Route::get('/location','Location@index');
 
-Route::get('/login', function () {
-    return view('login');
-});
-Route::get('/register', function(){
-	return view('register');
-});
-Route::get('/add_report', function(){
-	return view('reports/add_report');
-});
+// Route::get('/login', function () {
+//     return view('login');
+// });
+// Route::get('/register', function(){
+// 	return view('register');
+// });
+
 Route::get('/reports/view_report/{id}', function(){
 	return view('reports/view_report');
 });
@@ -44,3 +43,6 @@ Route::get('/add_user', function(){
 Route::get('/add_location', function(){
 	return view('location/add_location');
 });
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');

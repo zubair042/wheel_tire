@@ -54,7 +54,8 @@ body {
         </div> -->
         
         <div class="col-md-4">
-          <form id="add_new_user" method="POST" enctype="multipart/form-data">
+          <form id="add_new_user" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+            {{ csrf_field() }}
             <div class="card">
               <div class="card-header header-elements-inline" style="background: #708bea;height: 90px;">
               </div>
@@ -71,18 +72,38 @@ body {
                 <div class="form-group">
                   <label for="name">Company ID</label>
                   <input type="text" class="form-control" name="company_id" placeholder="Enter your company ID">
+                  @if ($errors->has('company_id'))
+                    <span class="help-block">
+                        <strong style="color: red;">{{ $errors->first('company_id') }}</strong>
+                    </span>
+                  @endif
                 </div>
                 <div class="form-group">
                   <label for="name">Full Name</label>
-                  <input type="text" class="form-control" name="full_name" placeholder="Enter your name">
+                  <input type="text" class="form-control" name="name" placeholder="Enter your name">
+                  @if ($errors->has('name'))
+                    <span class="help-block">
+                        <strong style="color: red;">{{ $errors->first('name') }}</strong>
+                    </span>
+                  @endif
                 </div>
                 <div class="form-group">
                   <label for="name">Email Address</label>
                   <input type="text" class="form-control" name="email" placeholder="Enter your email">
+                  @if ($errors->has('email'))
+                  <span class="help-block">
+                      <strong style="color: red;">{{ $errors->first('email') }}</strong>
+                  </span>
+                  @endif
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
                   <input type="password" class="form-control" name="password" placeholder="Enter password ">
+                  @if ($errors->has('password'))
+                  <span class="help-block">
+                      <strong style="color: red;">{{ $errors->first('password') }}</strong>
+                  </span>
+                  @endif
                 </div>
                 <div class="text-center" style="margin-top: 40px;">
                   <a href="{{ url('login') }}" style="float: left; color:#6178ca;" class="btn btn-light legitRipple"><i class="icon-arrow-left13" style="color: #6178ca;"></i> Login</a>
