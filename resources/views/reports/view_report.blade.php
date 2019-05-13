@@ -2,6 +2,7 @@
 @section('title', 'Wheel Tire')
 @section('content')
 
+<script src="{{asset('global_assets/js/plugins/media/fancybox.min.js') }}"></script> 
 
 <div class="content">
 	<div class="row">
@@ -52,9 +53,9 @@
 							<div class="row">
 								<div class="col-md-3">
 									<div class="card-img-actions m-1">
-										<img src="{{asset('')}}assets/images/placeholders/placeholder.jpg" width="80%" height="100%" alt="">
+										<img class="card-img img-fluid" src="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" alt="">
 										<div class="card-img-actions-overlay card-img">
-											<a href="{{asset('')}}assets/images/placeholders/placeholder.jpg" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
+											<a href="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
 												<i class="icon-plus3"></i>
 											</a>
 										</div>
@@ -62,9 +63,9 @@
 								</div>
 								<div class="col-md-3">
 									<div class="card-img-actions m-1">
-										<img class="card-img img-fluid" src="{{asset('')}} assets/images/placeholders/placeholder.jpg" alt="">
+										<img class="card-img img-fluid" src="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" alt="">
 										<div class="card-img-actions-overlay card-img">
-											<a href="{{asset('')}}assets/images/placeholders/placeholder.jpg" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
+											<a href="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
 												<i class="icon-plus3"></i>
 											</a>
 										</div>
@@ -72,9 +73,9 @@
 								</div>
 								<div class="col-md-3">
 									<div class="card-img-actions m-1">
-										<img class="card-img img-fluid" src="{{asset('')}}assets/images/placeholders/placeholder.jpg" alt="">
+										<img class="card-img img-fluid" src="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" alt="">
 										<div class="card-img-actions-overlay card-img">
-											<a href="{{asset('')}}assets/images/placeholders/placeholder.jpg" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
+											<a href="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
 												<i class="icon-plus3"></i>
 											</a>
 										</div>
@@ -82,9 +83,9 @@
 								</div>
 								<div class="col-md-3">
 									<div class="card-img-actions m-1">
-										<img class="card-img img-fluid" src="{{asset('')}}assets/images/placeholders/placeholder.jpg" alt="">
+										<img class="card-img img-fluid" src="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" alt="">
 										<div class="card-img-actions-overlay card-img">
-											<a href="{{asset('')}}assets/images/placeholders/placeholder.jpg" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
+											<a href="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
 												<i class="icon-plus3"></i>
 											</a>
 										</div>
@@ -95,9 +96,9 @@
 							<div class="row">
 								<div class="col-md-3">
 									<div class="card-img-actions m-1">
-										<img class="card-img img-fluid" src="{{asset('')}}assets/images/placeholders/placeholder.jpg" alt="">
+										<img class="card-img img-fluid" src="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" alt="">
 										<div class="card-img-actions-overlay card-img">
-											<a href="{{asset('')}}assets/images/placeholders/placeholder.jpg" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
+											<a href="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
 												<i class="icon-plus3"></i>
 											</a>
 										</div>
@@ -105,9 +106,9 @@
 								</div>
 								<div class="col-md-3">
 									<div class="card-img-actions m-1">
-										<img class="card-img img-fluid" src="{{asset('')}}assets/images/placeholders/placeholder.jpg" alt="">
+										<img class="card-img img-fluid" src="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" alt="">
 										<div class="card-img-actions-overlay card-img">
-											<a href="{{asset('')}}assets/images/placeholders/placeholder.jpg" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
+											<a href="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
 												<i class="icon-plus3"></i>
 											</a>
 										</div>
@@ -115,9 +116,9 @@
 								</div>
 								<div class="col-md-3">
 									<div class="card-img-actions m-1">
-										<img class="card-img img-fluid" src="{{asset('')}}assets/images/placeholders/placeholder.jpg" alt="">
+										<img class="card-img img-fluid" src="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" alt="">
 										<div class="card-img-actions-overlay card-img">
-											<a href="{{asset('')}}assets/images/placeholders/placeholder.jpg" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
+											<a href="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
 												<i class="icon-plus3"></i>
 											</a>
 										</div>
@@ -125,9 +126,9 @@
 								</div>
 								<div class="col-md-3">
 									<div class="card-img-actions m-1">
-										<img class="card-img img-fluid" src="{{asset('')}}assets/images/placeholders/placeholder.jpg" alt="">
+										<img class="card-img img-fluid" src="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" alt="">
 										<div class="card-img-actions-overlay card-img">
-											<a href="{{asset('')}}assets/images/placeholders/placeholder.jpg" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
+											<a href="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
 												<i class="icon-plus3"></i>
 											</a>
 										</div>
@@ -141,6 +142,10 @@
 		</div>
 	</div>
 </div>
-
+<script type="text/javascript">
+	$('[data-popup="lightbox1"]').fancybox({
+            padding: 3
+        });
+</script>
 
 @endsection 
