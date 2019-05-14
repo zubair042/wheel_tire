@@ -77,7 +77,8 @@ class Accounts extends Controller
      */
     public function edit($id)
     {
-        //
+        $account = Account::find($id);
+        return view('accounts/edit_account')->with('account',$account);
     }
 
     /**

@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <script src="{{asset('global_assets/js/plugins/forms/styling/switch.min.js')}}"></script>
 <script src="{{asset('global_assets/js/plugins/forms/styling/switchery.min.js')}}"></script>
 <script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
@@ -63,7 +62,7 @@
 						<span class="input-group-text" style="font-size: 18px;">Company Name</span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="company_name" id="" class="form-control">
+						<input type="text" name="company_name" value="{{ $account->company_name }}" class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -71,7 +70,7 @@
 						<span class="input-group-text" style="font-size: 18px;">Address</span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="address" id="" class="form-control">
+						<input type="text" name="address" value="{{ $account->address }}" class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -79,7 +78,7 @@
 						<span class="input-group-text" style="font-size: 18px;">Address 2</span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="address2" id="" class="form-control">
+						<input type="text" name="address2" value="{{ $account->address2 }}" class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -87,7 +86,7 @@
 						<span class="input-group-text" style="font-size: 18px;">City</span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="city" class="form-control">
+						<input type="text" name="city" value="{{ $account->city }}" class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -95,7 +94,7 @@
 						<span class="input-group-text" style="font-size: 18px;">State</span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="state" class="form-control">
+						<input type="text" name="state" value="{{ $account->state }}" class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -103,7 +102,7 @@
 						<span class="input-group-text" style="font-size: 18px;">Zip</span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="zip" class="form-control">
+						<input type="text" name="zip" value="{{ $account->zip }}" class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -111,7 +110,7 @@
 						<span class="input-group-text" style="font-size: 18px;">Phone</span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="phone" id="" class="form-control">
+						<input type="text" name="phone" value="{{ $account->phone }}" class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -119,7 +118,7 @@
 						<span class="input-group-text" style="font-size: 18px;">Fax</span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="fax" id="" class="form-control">
+						<input type="text" name="fax" value="{{ $account->fax }}" class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -127,7 +126,7 @@
 						<span class="input-group-text" style="font-size: 18px;">Email</span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="email" id="" class="form-control">
+						<input type="text" name="email" value="{{ $account->email }}" class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -135,7 +134,7 @@
 						<span class="input-group-text" style="font-size: 18px;">Notes</span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="note" id="" class="form-control">
+						<input type="text" name="note" value="{{ $account->note }}" class="form-control">
 			    	</div>
 			    </div>
 			    <!-- <div class="row">
