@@ -33,6 +33,15 @@ Route::get('/add_user', function(){
 Route::get('/add_location', function(){
 	return view('location/add_location');
 });
+Route::get('/edit_location', function(){
+	return view('location/edit_location');
+});
+Route::get('/edit_account', function(){
+	return view('accounts/edit_account');
+});
+Route::get('/edit_user', function(){
+	return view('users/edit_user');
+});
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

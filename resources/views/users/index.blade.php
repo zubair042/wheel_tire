@@ -21,6 +21,7 @@
 					      <th>Email</th>
 					      <th>Full Name</th>
 					      <th>Date</th>
+					      <th></th>
 					    </thead>
 					    <tbody>
 					    	@if (count($user_detail) > 0)
@@ -29,7 +30,8 @@
 					        	<td><span>{{$detail->company_id}}</span></td>
 					        	<td><span>{{$detail->email}}</span></td>
 					        	<td><span><?php echo $detail->full_name;?></span></td>
-					        	<td>{{date("Y-M-d", strtotime($detail->created_at))}}</td>	
+					        	<td>{{date("Y-M-d", strtotime($detail->created_at))}}</td>
+					        	<td style="text-align: center;"><a href="{{url('') }} "><i style="color: rebeccapurple;" class="icon-bin2 mr-3 icon-1x"></i></a><a href="{{url('edit_user') }}"><i style="color: red;" class="icon-pencil mr-3 icon-1x"></i></a></td>
 				      		</tr>
 				      		@endforeach
 				    		@endif
@@ -49,7 +51,7 @@
 	columnDefs: [{ 
 		orderable: false,
 		//width: 100,
-		targets: [ 3 ]
+		targets: [ 4 ]
 	}],
 	dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
 	language: {
