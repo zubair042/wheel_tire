@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Report;
+use DB;
 
 class Reports extends Controller
 {
@@ -15,9 +16,10 @@ class Reports extends Controller
      */
     public function index()
     {
-        // $user = User::find(2);
-        // dd($user);
-        $report_detail = Report::all();
+        $user_id = auth()->user()->id;
+        $report_detail = DB::table('reports')
+                            ->where('user_id',$user_id)
+                            ->get();
         return view('reports/index', compact("report_detail"));
        // return view('reports/index')->with('report_detail',$report_detail);
         // $user = User::find(1);
@@ -26,9 +28,6 @@ class Reports extends Controller
         // endforeach;
         //echo '<pre>'; print_r(); exit;
         //dd("test");
-
-        // $report = Report::find(1);
-        // echo '<pre>'; print_r($report->user);
     }
 
     /**

@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
 <div class="row">
 	<div class="col-md-12">
 		<div class="card">
@@ -24,30 +23,19 @@
 				      <th></th>
 				    </thead>
 				    <tbody>
-				    	<tr>
-				        	<td><span>44467</span></td>
-				        	<td><span>Suzuki</span></td>
-				        	<td><span>Customer</span></td>
-				        	<td><span>322-4001730</span></td>
-				        	<td>zubair@gmail.com</td>	
-				        	<td style="text-align: center;"><a href="{{url('') }} "><i style="color: rebeccapurple;" class="icon-bin2 mr-3 icon-1x"></i></a><a href="{{url('edit_account') }}"><i style="color: red;" class="icon-pencil mr-3 icon-1x"></i></a></td>
-			      		</tr>
-			      		<tr>
-				        	<td><span>43535</span></td>
-				        	<td><span>Suzuki dsfs</span></td>
-				        	<td><span>vendor</span></td>
-				        	<td><span>322-68486549</span></td>
-				        	<td>sdfsf@gmail.com</td>
-				        	<td style="text-align: center;"><a href="{{url('') }} "><i style="color: rebeccapurple;" class="icon-bin2 mr-3 icon-1x"></i></a><a href="{{url('edit_account') }}"><i style="color: red;" class="icon-pencil mr-3 icon-1x"></i></a></td>
-			      		</tr>
-			      		<tr>
-				        	<td><span>43535</span></td>
-				        	<td><span>DICKINSON FLEET SERVICES</span></td>
-				        	<td><span>customer</span></td>
-				        	<td><span>32332-34433</span></td>
-				        	<td>sdfsf@gmail.com</td>
-				        	<td style="text-align: center;"><a href="{{url('') }} "><i style="color: rebeccapurple;" class="icon-bin2 mr-3 icon-1x"></i></a><a href="{{url('edit_account') }}"><i style="color: red;" class="icon-pencil mr-3 icon-1x"></i></a></td>
-			      		</tr> 
+				    	@if(count($account_detail) > 0)
+				    		@foreach($account_detail as $detail)
+				    		<tr>
+				        	<td><span></span></td>
+				        	<td><span>{{ $detail->company_name }}</span></td>
+				        	<td><span>{{ $detail->account_type}}</span></td>
+				        	<td><span>{{ $detail->phone }}</span></td>
+				        	<td>{{ $detail->email }}</td>	
+				        	<td style="text-align: center;"><a href="{{url('') }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a href="{{url('') }} "><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
+			      		</tr>	
+				    		@endforeach
+				    	@endif
+			      		
 				    </tbody>
 			  	</table>
 			</div>

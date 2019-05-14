@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Account;
 use App\User;
+use DB;
 
 class Accounts extends Controller
 {
@@ -15,7 +16,11 @@ class Accounts extends Controller
      */
     public function index()
     {
-        return view('accounts/index');
+        $user_id = auth()->user()->id;
+        $account_detail = DB::table('accounts')
+                            ->where('user_id',$user_id)
+                            ->get();
+        return view('accounts/index')->with('account_detail',$account_detail);
     }
 
     /**
