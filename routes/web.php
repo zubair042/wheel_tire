@@ -23,7 +23,7 @@ Route::get('/reports/view_report/{id}', function(){
 	return view('reports/view_report');
 });
 Route::get('/add_account', function(){
-	return view('customer/add_account');
+	return view('accounts/add_account');
 });
 Route::get('/add_user', function(){
 	return view('users/add_user');

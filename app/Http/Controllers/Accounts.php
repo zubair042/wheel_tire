@@ -13,7 +13,7 @@ class Accounts extends Controller
      */
     public function index()
     {
-        return view('customer/index');
+        return view('accounts/index');
     }
 
     /**
