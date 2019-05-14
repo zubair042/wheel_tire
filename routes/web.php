@@ -21,7 +21,7 @@ Route::post('/add_account','Accounts@store')->name('save_accounts');
 Route::get('/users','Users@index');
 Route::get('/location','Location@index');
 Route::post('/add_location','Location@store')->name('save_location');
-
+Route::get('/account/edit/{id}','Accounts@edit');
 Route::get('/reports/view_report/{id}', function(){
 	return view('reports/view_report');
 });
@@ -37,9 +37,9 @@ Route::get('/location/add', function(){
 Route::get('/edit_location', function(){
 	return view('location/edit_location');
 });
-Route::get('/edit_account', function(){
-	return view('accounts/edit_account');
-});
+// Route::get('/account/edit/{id}', function(){
+// 	return view('accounts/edit_account');
+// });
 Route::get('/edit_user', function(){
 	return view('users/edit_user');
 });
