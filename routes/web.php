@@ -39,6 +39,9 @@ Route::get('/edit_location', function(){
 Route::get('/edit_account', function(){
 	return view('accounts/edit_account');
 });
+Route::get('/edit_user', function(){
+	return view('users/edit_user');
+});
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
