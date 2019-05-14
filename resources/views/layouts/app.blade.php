@@ -131,7 +131,7 @@
 
                             <ul class="nav nav-group-sub" data-submenu-title="Users">
                                 <li class="nav-item"><a href="{{ url('users') }}" class="nav-link active">View All Users</a></li>
-                                <li class="nav-item"><a href="{{ url('add_user') }}" class="nav-link">Add New</a></li>
+                                <li class="nav-item"><a href="{{ url('user/add') }}" class="nav-link">Add New</a></li>
                             </ul>
                         </li>
                         <li class="nav-item nav-item-submenu">
@@ -139,7 +139,7 @@
 
                             <ul class="nav nav-group-sub" data-submenu-title="Customers">
                                 <li class="nav-item"><a href="{{ url('accounts') }}" class="nav-link active">View All Accounts</a></li>
-                                <li class="nav-item"><a href="{{ url('add_account') }}" class="nav-link">Add New</a></li>
+                                <li class="nav-item"><a href="{{ url('account/add') }}" class="nav-link">Add New</a></li>
                             </ul>
                         </li>
                         <li class="nav-item nav-item-submenu">
@@ -147,7 +147,7 @@
 
                             <ul class="nav nav-group-sub" data-submenu-title="Location">
                                 <li class="nav-item"><a href="{{ url('location') }}" class="nav-link active">View All Locations</a></li>
-                                <li class="nav-item"><a href="{{ url('add_location') }}" class="nav-link">Add New</a></li>
+                                <li class="nav-item"><a href="{{ url('location/add') }}" class="nav-link">Add New</a></li>
                             </ul>
                         </li>
 
