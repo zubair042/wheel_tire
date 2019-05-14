@@ -13,7 +13,7 @@
 
 Route::get('/', 'Dashboard@index')->name('dashboard');
 Route::get('/reports','Reports@index');
-Route::get('/add_report','Reports@create');
+Route::get('/report/add','Reports@create');
 Route::post('/add_report','Reports@store')->name('save_reports');
 Route::get('/accounts','Accounts@index');
 Route::get('/add_account','Accounts@create');

@@ -123,7 +123,7 @@
 
                             <ul class="nav nav-group-sub" data-submenu-title="Reports">
                                 <li class="nav-item"><a href="{{ url('reports') }}" class="nav-link active">View All Reports</a></li>
-                                <li class="nav-item"><a href="{{ url('add_report') }}" class="nav-link">Add New</a></li>
+                                <li class="nav-item"><a href="{{ url('report/add') }}" class="nav-link">Add New</a></li>
                             </ul>
                         </li>
                         <li class="nav-item nav-item-submenu">
@@ -182,6 +182,7 @@
 
             <!-- Content area -->
             <div class="content">
+                @include('flash_message')
                 @yield('content')
             </div>
             <!-- /content area -->
