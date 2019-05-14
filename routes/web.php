@@ -20,6 +20,7 @@ Route::get('/account/add','Accounts@create');
 Route::post('/add_account','Accounts@store')->name('save_accounts');
 Route::get('/users','Users@index');
 Route::get('/location','Location@index');
+Route::post('/add_location','Location@store')->name('save_location');
 
 Route::get('/reports/view_report/{id}', function(){
 	return view('reports/view_report');

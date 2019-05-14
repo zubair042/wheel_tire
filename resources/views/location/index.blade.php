@@ -25,16 +25,16 @@
 					    	<tr>
 					        	<td><span>44467</span></td>
 					        	<td><span>Multan</span></td>
-					        	<td style="text-align: center;"><a href="{{url('') }} "><i style="color: rebeccapurple;" class="icon-bin2 mr-3 icon-1x"></i></a><a href="{{url('edit_location') }}"><i style="color: red;" class="icon-pencil mr-3 icon-1x"></i></a></td>
+					        	<td style="text-align: center;"><a href="{{url('edit_user') }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a href="{{url('') }} "><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
 				      		<tr>
 					        	<td><span>23467</span></td>
 					        	<td><span>Lahore</span></td>
-					        	<td style="text-align: center;"><a href="{{url('') }} "><i style="color: rebeccapurple;" class="icon-bin2 mr-3 icon-1x"></i></a><a href="{{url('edit_location') }}"><i style="color: red;" class="icon-pencil mr-3 icon-1x"></i></a></td>
+					        	<td style="text-align: center;"><a href="{{url('edit_user') }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a href="{{url('') }} "><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
 				      		</tr>
 				      		<tr>
 					        	<td><span>53467</span></td>
 					        	<td><span>Karachi</span></td>
-					        	<td style="text-align: center;"><a href="{{url('') }} "><i style="color: rebeccapurple;" class="icon-bin2 mr-3 icon-1x"></i></a><a href="{{url('edit_location') }}"><i style="color: red;" class="icon-pencil mr-3 icon-1x"></i></a></td>
+					        	<td style="text-align: center;"><a href="{{url('edit_user') }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a href="{{url('') }} "><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
 				      		</tr> 
 					    </tbody>
 				  	</table>
