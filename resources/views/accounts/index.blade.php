@@ -21,6 +21,7 @@
 				      <th>Type</th>
 				      <th>Phone</th>
 				      <th>Email</th>
+				      <th></th>
 				    </thead>
 				    <tbody>
 				    	<tr>
@@ -29,6 +30,7 @@
 				        	<td><span>Customer</span></td>
 				        	<td><span>322-4001730</span></td>
 				        	<td>zubair@gmail.com</td>	
+				        	<td style="text-align: center;"><a href="{{url('') }} "><i style="color: rebeccapurple;" class="icon-bin2 mr-3 icon-1x"></i></a><a href="{{url('edit_account') }}"><i style="color: red;" class="icon-pencil mr-3 icon-1x"></i></a></td>
 			      		</tr>
 			      		<tr>
 				        	<td><span>43535</span></td>
@@ -36,6 +38,7 @@
 				        	<td><span>vendor</span></td>
 				        	<td><span>322-68486549</span></td>
 				        	<td>sdfsf@gmail.com</td>
+				        	<td style="text-align: center;"><a href="{{url('') }} "><i style="color: rebeccapurple;" class="icon-bin2 mr-3 icon-1x"></i></a><a href="{{url('edit_account') }}"><i style="color: red;" class="icon-pencil mr-3 icon-1x"></i></a></td>
 			      		</tr>
 			      		<tr>
 				        	<td><span>43535</span></td>
@@ -43,6 +46,7 @@
 				        	<td><span>customer</span></td>
 				        	<td><span>32332-34433</span></td>
 				        	<td>sdfsf@gmail.com</td>
+				        	<td style="text-align: center;"><a href="{{url('') }} "><i style="color: rebeccapurple;" class="icon-bin2 mr-3 icon-1x"></i></a><a href="{{url('edit_account') }}"><i style="color: red;" class="icon-pencil mr-3 icon-1x"></i></a></td>
 			      		</tr> 
 				    </tbody>
 			  	</table>
@@ -60,7 +64,7 @@
 	columnDefs: [{ 
 		orderable: false,
 		//width: 100,
-		targets: [ 4 ]
+		targets: [ 5 ]
 	}],
 	dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
 	language: {

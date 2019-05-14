@@ -36,6 +36,9 @@ Route::get('/add_location', function(){
 Route::get('/edit_location', function(){
 	return view('location/edit_location');
 });
+Route::get('/edit_account', function(){
+	return view('accounts/edit_account');
+});
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
