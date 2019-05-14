@@ -48,7 +48,22 @@ class Reports extends Controller
     public function store(Request $request)
     {
         
-        return "safsa";
+        $report = new Report;
+        $report->user_id = auth()->user()->id;
+        $report->vehicle_type = $request->input('vehicle_type');
+        $report->wheel_option1 = $request->input('small_wheel');
+        $report->wheel_option2 = $request->input('front_wheel');
+        $report->wheel_option3 = $request->input('rear_wheel');
+        $report->weight = $request->input('weight');
+        $report->unit_number = $request->input('unit_number');
+        $report->name = $request->input('name');
+        $report->position = $request->input('position_at_company');
+        $report->comments = $request->input('comments');
+
+        //$report->user_id = auth()->user()->id;
+        //dd($report);
+        $report->save();
+        return redirect('/reports')->with('success','Reports Added Successfully');
     }
 
     /**

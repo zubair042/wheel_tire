@@ -6,7 +6,8 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="card">
-			<form id="trailer_powerunit" method="POST" action="{{ action('Reports@store') }}" enctype="multipart/form-data">
+			<form id="trailer_powerunit" method="POST" action="{{ route('reports') }}" enctype="multipart/form-data">
+				{{ csrf_field() }}
 				<div class="form-group mb-3 mb-md-2" style="text-align: center; margin-top: 40px;">
 					<div class="form-check form-check-inline form-check-right">
 						<label class="form-check-label">
@@ -170,7 +171,7 @@
 				    <div class="row"">
 				    	<div class="col-md-2 offset-md-5">
 				    		<div class="input-group">
-								<input type="text" name="lbs_weight" id="" class="form-control">
+								<input type="text" name="weight" id="" class="form-control">
 								<span class="input-group-append">
 									<span class="input-group-text" style="font-family:arial black; color: gray; font-size: 20px;">lbs.</span>
 								</span>
@@ -184,7 +185,7 @@
 				    </div>
 				    <div class="row" style="margin-top: 10px;">
 				    	<div class="col-md-2 offset-md-5">
-				    		<input type="text" name="your_name" id="" class="form-control" placeholder="Your Name">
+				    		<input type="text" name="name" id="" class="form-control" placeholder="Your Name">
 				    	</div>
 				    </div>
 				    <div class="row" style="margin-top: 10px;">

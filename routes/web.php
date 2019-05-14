@@ -14,6 +14,7 @@
 Route::get('/', 'Dashboard@index')->name('dashboard');
 Route::get('/reports','Reports@index');
 Route::get('/add_report','Reports@create');
+Route::post('/add_report','Reports@store')->name('reports');
 Route::get('/customers','Customers@index');
 Route::get('/users','Users@index');
 Route::get('/location','Location@index');
