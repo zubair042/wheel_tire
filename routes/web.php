@@ -11,25 +11,12 @@
 |
 */
 
-// Route::get('/', function () {
-	
-//     return view('dashboard/index');
-// });
-
 Route::get('/', 'Dashboard@index')->name('dashboard');
-//Route::get('/', 'ReportsController@index');
 Route::get('/reports','Reports@index');
 Route::get('/add_report','Reports@create');
 Route::get('/customers','Customers@index');
 Route::get('/users','Users@index');
 Route::get('/location','Location@index');
-
-// Route::get('/login', function () {
-//     return view('login');
-// });
-// Route::get('/register', function(){
-// 	return view('register');
-// });
 
 Route::get('/reports/view_report/{id}', function(){
 	return view('reports/view_report');
