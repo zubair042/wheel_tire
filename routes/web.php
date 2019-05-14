@@ -31,6 +31,9 @@ Route::get('/add_user', function(){
 Route::get('/add_location', function(){
 	return view('location/add_location');
 });
+Route::get('/edit_location', function(){
+	return view('location/edit_location');
+});
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
