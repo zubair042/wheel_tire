@@ -1,7 +1,8 @@
 @extends('layouts.app')
 	
 @section('content')
-    <div class="row">
+	<h1>Dashboard</h1>
+<!-- <div class="row">
 	<div class="col-md-12">
 		<div class="card">
 			<div class="row">
@@ -59,33 +60,14 @@
 				        <td><i style="margin-right: 8px;"></i>Zubair ETNH</td>
 				        <td class="text-center"><i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i></td>
 				      </tr>
-				   <!--  	<?php //if (count($report_detail) > 0) {
-				    		//foreach ($report_detail as $detail) { ?> -->
-				    	
-				      	
-				        	<!-- 	<span><?php //echo date("Y M d (H:i:s)",strtotime(created_at)); ?></span></td>
-				        	<td style="text-align: center;"><span><?php  //echo  //unit_number; ?></span></td>
-				        	<td style="text-align: center;"><span></span></td>
-				        	<td style="text-align: center;"><?php  //echo name; ?></td>
-				        	<td style="text-align: center;"><?php // echo weight; ?> lbs</td>
-				        	<td style="text-align: center;"></td> -->
-
-
-				        	<!-- <td class="text-center">
-				        		<?php //if (!empty($detail->comments)) { ?>
-				        			<i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i>	
-				        		
-				        	</td>	 -->
-				      	<!-- </tr>
-				      	<?php  ?> -->
 				    </tbody>
 			  	</table>
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
-<script src="{{asset('global_assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
+<!-- <script src="{{asset('global_assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript">
 	$("#main-datatable").DataTable({
 		autoWidth: false,
@@ -102,7 +84,7 @@
 			paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
 		}
 	});
-</script>
+</script> -->
 
 
 @endsection 

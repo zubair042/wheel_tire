@@ -135,10 +135,10 @@
                             </ul>
                         </li>
                         <li class="nav-item nav-item-submenu">
-                            <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Customers</span></a>
+                            <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Accounts</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Customers">
-                                <li class="nav-item"><a href="{{ url('customers') }}" class="nav-link active">View All Customers</a></li>
+                                <li class="nav-item"><a href="{{ url('customers') }}" class="nav-link active">View All Accounts</a></li>
                                 <li class="nav-item"><a href="{{ url('add_customer') }}" class="nav-link">Add New</a></li>
                             </ul>
                         </li>
