@@ -15,6 +15,8 @@ class Reports extends Controller
      */
     public function index()
     {
+        // $user = User::find(2);
+        // dd($user);
         $report_detail = Report::all();
         return view('reports/index', compact("report_detail"));
        // return view('reports/index')->with('report_detail',$report_detail);

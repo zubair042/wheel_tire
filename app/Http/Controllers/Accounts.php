@@ -50,7 +50,7 @@ class Accounts extends Controller
         $account->email = $request->input('email');
         $account->note = $request->input('note');
         $account->save();
-        return redirect('/accounts');
+        return redirect('/accounts')->with('success',"Account created successfully");
     }
 
     /**

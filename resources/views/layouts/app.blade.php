@@ -182,6 +182,7 @@
 
             <!-- Content area -->
             <div class="content">
+                @include('flash_message')
                 @yield('content')
             </div>
             <!-- /content area -->
