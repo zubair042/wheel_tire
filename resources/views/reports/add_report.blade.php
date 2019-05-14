@@ -6,7 +6,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="card">
-			<form id="trailer_powerunit" method="POST" action="{{ route('reports') }}" enctype="multipart/form-data">
+			<form id="trailer_powerunit" method="POST" action="{{ route('save_reports') }}" enctype="multipart/form-data">
 				{{ csrf_field() }}
 				<div class="form-group mb-3 mb-md-2" style="text-align: center; margin-top: 40px;">
 					<div class="form-check form-check-inline form-check-right">

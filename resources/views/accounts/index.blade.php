@@ -8,7 +8,7 @@
 				<div class="col-md-12">
 					<div style="list-style: none; background-color: #40a6ff" class="media">
 						<div class="media-body" style="padding-left: 5px;">
-							<p><h2 style="color: white;">Results for "Registered Customers"</h2></p>
+							<p><h2 style="color: white;">Results for "Registered Accounts"</h2></p>
 						</div>
 					</div>
 				</div>
