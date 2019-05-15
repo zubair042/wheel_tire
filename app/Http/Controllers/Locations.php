@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Location;
 
-class Location extends Controller
+class Locations extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +24,7 @@ class Location extends Controller
      */
     public function create()
     {
-        //
+        return view('location/add_location');
     }
 
     /**
@@ -34,9 +35,16 @@ class Location extends Controller
      */
     public function store(Request $request)
     {
+        
         $location = new Location;
-        $account->user_id = auth()->user()->id;
-        $account->account_type = $request->input('customer_type');
+        $location->user_id = auth()->user()->id;
+        $location->customer_type = $request->input('customer_type');
+        $location->location_name = $request->input('location_name');
+        //dd($location);
+        $location->save();
+        return redirect('/location')->with('success',"Location added successfully");
+        // $account->user_id = auth()->user()->id;
+        // $account->account_type = $request->input('customer_type');
     }
 
     /**

@@ -19,7 +19,7 @@
 						<hr align="left" >
 					</div>
 				</div>
-				<form method="POST" action="{{route('save_location')}}">
+				<form method="POST" action="{{ route('save_location') }}">
 					{{csrf_field()}}
 					<div class="row">
 						<div class="col-md-2 offset-md-3">
@@ -39,9 +39,9 @@
 						</div>
 						<div class="col-md-3">
 							<select class="select_select2_select2" name="customer_type" value="choose.." >
-				                <option value="Manager"><span>Customer 1</span></option>
-				                <option value="Worker">Customer 2</option>
-				                <option value="Salesman">Customer 3</option>
+				                <option value="Customer 1"><span>Customer 1</span></option>
+				                <option value="Customer 2">Customer 2</option>
+				                <option value="Customer 3">Customer 3</option>
 				            </select>
 				    	</div>
 				    </div>
@@ -50,12 +50,12 @@
 							<span class="input-group-text" style="font-size: 18px;">Location Name</span>
 						</div>
 						<div class="col-md-3">
-							<input type="text" name="lbs_weight" id="" class="form-control">
+							<input type="text" name="location_name" id="" class="form-control">
 				    	</div>
 				    </div>
 					<div class="row" style="text-align: center;margin:30px 0;">
 				    	<div class="col-md-9 offset-md-1">
-				    		<button type="button" style="background-color: #4f99c6!important;margin-right: 12px;" class="btn btn-primary legitRipple"><i class="icon-checkmark mr-2"></i>Submit</button>
+				    		<button type="submit" style="background-color: #4f99c6!important;margin-right: 12px;" class="btn btn-primary legitRipple"><i class="icon-checkmark mr-2"></i>Submit</button>
 				    		<button type="button" style="background-color: #8b9aa3!important;margin-left: 12px;" class="btn btn-primary legitRipple"><i class="icon-reset mr-2"></i>Reset</button>
 				    	</div>
 				    </div>
