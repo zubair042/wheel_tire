@@ -19,7 +19,7 @@
 					<hr align="left" >
 				</div>
 			</div>
-			<form method="post" action="{{ route('save_accounts')}}">
+			<form method="post" action="{{ url('/account/edit/'.$account->id)}}">
 				{{ csrf_field() }}
 				<div class="row">
 					<div class="col-md-2 offset-md-3">

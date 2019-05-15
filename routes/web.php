@@ -15,12 +15,15 @@ Route::get('/', 'Dashboard@index')->name('dashboard');
 Route::get('/reports','Reports@index');
 Route::get('/report/add','Reports@create');
 Route::post('/add_report','Reports@store')->name('save_reports');
-Route::get('/accounts','Accounts@index');
-Route::get('/account/add','Accounts@create');
 Route::post('/add_account','Accounts@store')->name('save_accounts');
 Route::get('/users','Users@index');
 Route::get('/location','Location@index');
+
+Route::get('/accounts','Accounts@index');
+Route::get('/account/add','Accounts@create');
 Route::get('/account/edit/{id}','Accounts@edit');
+Route::post('/account/edit/{id}','Accounts@update');
+
 Route::get('/reports/view_report/{id}', function(){
 	return view('reports/view_report');
 });
@@ -36,9 +39,6 @@ Route::get('/location/add', function(){
 Route::get('/edit_location', function(){
 	return view('location/edit_location');
 });
-// Route::get('/account/edit/{id}', function(){
-// 	return view('accounts/edit_account');
-// });
 Route::get('/edit_user', function(){
 	return view('users/edit_user');
 });
