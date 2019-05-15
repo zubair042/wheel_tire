@@ -34,7 +34,9 @@ class Location extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $location = new Location;
+        $account->user_id = auth()->user()->id;
+        $account->account_type = $request->input('customer_type');
     }
 
     /**

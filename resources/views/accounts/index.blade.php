@@ -31,7 +31,7 @@
 				        	<td><span>{{ $detail->account_type}}</span></td>
 				        	<td><span>{{ $detail->phone }}</span></td>
 				        	<td>{{ $detail->email }}</td>	
-				        	<td style="text-align: center;"><a href="{{ url('/account/edit/'.$detail->id) }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a href="{{url('') }} "><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
+				        	<td style="text-align: center;"><a href="{{url('edit_user') }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a href="{{url('') }} "><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
 			      		</tr>	
 				    		@endforeach
 				    	@endif

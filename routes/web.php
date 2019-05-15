@@ -19,17 +19,19 @@ Route::post('/add_account','Accounts@store')->name('save_accounts');
 Route::get('/users','Users@index');
 Route::get('/location','Location@index');
 
+
 Route::get('/accounts','Accounts@index');
 Route::get('/account/add','Accounts@create');
+
+Route::post('/add_location','Location@store')->name('save_location');
+
 Route::get('/account/edit/{id}','Accounts@edit');
 Route::post('/account/edit/{id}','Accounts@update');
 
 Route::get('/reports/view_report/{id}', function(){
 	return view('reports/view_report');
 });
-// Route::get('/add_account', function(){
-// 	return view('accounts/add_account');
-// });
+
 Route::get('/user/add', function(){
 	return view('users/add_user');
 });
@@ -44,4 +46,3 @@ Route::get('/edit_user', function(){
 });
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
