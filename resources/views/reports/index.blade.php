@@ -50,25 +50,6 @@
 						     </tr>
 				    		@endforeach
 				    	@endif
-				   <!--  	<?php //if (count($report_detail) > 0) {
-				    		//foreach ($report_detail as $detail) { ?> -->
-				    	
-				      	
-				        	<!-- 	<span><?php //echo date("Y M d (H:i:s)",strtotime(created_at)); ?></span></td>
-				        	<td style="text-align: center;"><span><?php  //echo  //unit_number; ?></span></td>
-				        	<td style="text-align: center;"><span></span></td>
-				        	<td style="text-align: center;"><?php  //echo name; ?></td>
-				        	<td style="text-align: center;"><?php // echo weight; ?> lbs</td>
-				        	<td style="text-align: center;"></td> -->
-
-
-				        	<!-- <td class="text-center">
-				        		<?php //if (!empty($detail->comments)) { ?>
-				        			<i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i>	
-				        		
-				        	</td>	 -->
-				      	<!-- </tr>
-				      	<?php  ?> -->
 				    </tbody>
 			  	</table>
 			</div>
