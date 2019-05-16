@@ -26,7 +26,7 @@
 							    	<tr>
 							        	<td><span>{{ $detail->customer_type }}</span></td>
 							        	<td><span>{{ $detail->location_name }}</span></td>
-							        	<td style="text-align: center;"><a href="{{ url('location/edit/'.$detail->id) }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a href="{{  }} "><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
+							        	<td style="text-align: center;"><a href="{{ url('location/edit/'.$detail->id) }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a href="{{ url('') }} "><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
 						      		</tr>
 				      			@endforeach
 				    		@endif
