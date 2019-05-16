@@ -26,7 +26,7 @@
 				    	@if(count($account_detail) > 0)
 				    		@foreach($account_detail as $detail)
 				    		<tr>
-				        	<td><span></span></td>
+				        	<td><span>{{ $detail->id }}</span></td>
 				        	<td><span>{{ $detail->company_name }}</span></td>
 				        	<td><span>{{ $detail->account_type}}</span></td>
 				        	<td><span>{{ $detail->account_phone }}</span></td>
