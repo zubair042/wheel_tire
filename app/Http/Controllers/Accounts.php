@@ -116,6 +116,8 @@ class Accounts extends Controller
      */
     public function destroy($id)
     {
-        //
+        $accounts = Account::find($id);
+        $accounts->delete();
+        return redirect('/accounts')->with('warning',"Accounts Deleted Successfully");
     }
 }

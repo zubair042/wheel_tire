@@ -37,7 +37,7 @@
 						<span class="input-group-text" style="font-size: 18px;">Customer</span>
 					</div>
 					<div class="col-md-3">
-						<select class="select_select2_select2" name="customer_type" value="choose.." >
+						<select class="select_select2_select2" name="customer_type">
 			                <option value="Customer 1"><span>Customer 1</span></option>
 			                <option value="Customer 2">Customer 2</option>
 			                <option value="Customer 3">Customer 3</option>
@@ -67,9 +67,7 @@
 	
 	$('.form-check-input-switch').bootstrapSwitch();
 	$('.select_select2_select2').select2({
-		placeholder: 'Choose a customer..',
-		allowClear: true,
-	    minimumResultsForSearch: Infinity
+		minimumResultsForSearch: Infinity
 	});
 
 	function resetForm() {

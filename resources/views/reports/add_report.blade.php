@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<script src="{{asset('global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
 <script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
 
 <div class="row">
@@ -190,7 +191,7 @@
 				    </div>
 				    <div class="row" style="margin-top: 10px;">
 				    	<div class="col-md-2 offset-md-5">
-				    		<select class="custom-select" name="position_at_company" class="select_select2">
+				    		<select class="custom-select" name="position_at_company" class="select_select2_select">
 				                <option value="Manager"><span>Manager</span></option>
 				                <option value="Worker">Worker</option>
 				                <option value="Salesman">Salesman</option>
@@ -204,7 +205,7 @@
 				    </div>
 				    <div class="row" style="text-align: center;margin:30px 0;">
 				    	<div class="col-md-12" style="text-align: center;">
-				    		<button type="submit" class="btn bg-primary btn-ladda btn-ladda-progress"data-style="zoom-in" data-spinner-size="20"><span class="ladda-label">Submit</span>
+				    		<button type="submit" style="background-color: #4f99c6!important;margin-right: 12px;" class="btn btn-primary legitRipple"><i class="icon-checkmark mr-2"></i>Submit</button>
 						</button>
 				    	</div>
 				    </div>
@@ -231,6 +232,11 @@
             $("#power_unit_html").css("display","none");
         }
     });
+    $('.select_select2_select').select2({
+		placeholder: 'Choose a customer..',
+		allowClear: true,
+	    minimumResultsForSearch: Infinity
+	});
 </script>
 
 @endsection 
