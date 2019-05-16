@@ -17,6 +17,7 @@ class Accounts extends Controller
     public function index()
     {
         $user_id = auth()->user()->id;
+
         $account_detail = DB::table('accounts')
                             ->where('user_id',$user_id)
                             ->get();
