@@ -56,9 +56,9 @@ class Reports extends Controller
         $report->wheel_option2 = $request->input('front_wheel');
         $report->wheel_option3 = $request->input('rear_wheel');
         $report->weight = $request->input('weight');
-        $report->unit_number = $request->input('unit_number');
-        $report->name = $request->input('name');
-        $report->position = $request->input('position_at_company');
+        $report->report_unit_num = $request->input('unit_number');
+        $report->technition_name = $request->input('name');
+        $report->position_at_company = $request->input('position_at_company');
         $report->comments = $request->input('comments');
 
         //$report->user_id = auth()->user()->id;
