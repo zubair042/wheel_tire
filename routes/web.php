@@ -30,8 +30,8 @@ Route::get('/account/edit/{id}','Accounts@edit');
 Route::post('/account/edit/{id}','Accounts@update');
 
 Route::get('/location/edit/{id}','Locations@edit');
-Route::post('location/edit/{id}','Locations@update');
-//Route::post('location/destroy/{id}','Locations@destroy');
+Route::post('/location/edit/{id}','Locations@update');
+Route::get('/location/destroy/{id}','Locations@destroy');
 
 
 Route::get('/reports/view_report/{id}', function(){
