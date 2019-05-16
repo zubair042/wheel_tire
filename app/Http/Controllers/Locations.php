@@ -44,6 +44,7 @@ class Locations extends Controller
         
         $location = new Location;
         $location->user_id = auth()->user()->id;
+        //dd($location);
         $location->customer_type = $request->input('customer_type');
         $location->location_name = $request->input('location_name');
         //dd($location);
