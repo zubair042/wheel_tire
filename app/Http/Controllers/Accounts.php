@@ -17,7 +17,6 @@ class Accounts extends Controller
     public function index()
     {
         $user_id = auth()->user()->id;
-
         $account_detail = DB::table('accounts')
                             ->where('user_id',$user_id)
                             ->get();
@@ -31,7 +30,8 @@ class Accounts extends Controller
      */
     public function create()
     {
-        return view('accounts/add_account');    
+        $account_type = DB::table('account_types')->get();
+        return view('accounts/add_account')->with('account_type',$account_type);    
     }
 
     /**

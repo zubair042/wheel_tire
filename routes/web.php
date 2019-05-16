@@ -20,12 +20,11 @@ Route::get('/users','Users@index');
 Route::get('/location','Locations@index');
 
 
-Route::get('/accounts','Accounts@index');
-Route::get('/account/add','Accounts@create');
-
 Route::get('/location/add','Locations@create');
 Route::post('/location/add','Locations@store')->name('save_location');
 
+Route::get('/accounts','Accounts@index');
+Route::get('/account/add','Accounts@create');
 Route::get('/account/edit/{id}','Accounts@edit');
 Route::post('/account/edit/{id}','Accounts@update');
 

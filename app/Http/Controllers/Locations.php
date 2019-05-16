@@ -94,7 +94,6 @@ class Locations extends Controller
         $location->save();
         return redirect('/location')->with('success',"Location updated successfully");
     }
-
     /**
      * Remove the specified resource from storage.
      *
