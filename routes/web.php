@@ -31,6 +31,7 @@ Route::post('/account/edit/{id}','Accounts@update');
 
 Route::get('/location/edit/{id}','Locations@edit');
 Route::post('location/edit/{id}','Locations@update');
+//Route::post('location/destroy/{id}','Locations@destroy');
 
 
 Route::get('/reports/view_report/{id}', function(){
@@ -40,12 +41,7 @@ Route::get('/reports/view_report/{id}', function(){
 Route::get('/user/add', function(){
 	return view('users/add_user');
 });
-// Route::get('/location/add', function(){
-// 	return view('location/add_location');
-// });
-// Route::get('/edit_location', function(){
-// 	return view('location/edit_location');
-// });
+
 Route::get('/edit_user', function(){
 	return view('users/edit_user');
 });
