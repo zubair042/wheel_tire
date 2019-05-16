@@ -95,15 +95,15 @@ class Accounts extends Controller
         $account->user_id = auth()->user()->id;
         $account->account_type = $request->input('account_type');
         $account->company_name = $request->input('company_name');
-        $account->address = $request->input('address');
-        $account->address2 = $request->input('address2');
-        $account->city = $request->input('city');
-        $account->state = $request->input('state');
-        $account->zip = $request->input('zip');
-        $account->phone = $request->input('phone');
-        $account->fax = $request->input('fax');
-        $account->email = $request->input('email');
-        $account->note = $request->input('note');
+        $account->account_address1 = $request->input('address');
+        $account->account_address2 = $request->input('address2');
+        $account->account_city = $request->input('city');
+        $account->account_state = $request->input('state');
+        $account->account_zip = $request->input('zip');
+        $account->account_phone = $request->input('phone');
+        $account->account_fax = $request->input('fax');
+        $account->account_email = $request->input('email');
+        $account->account_notes = $request->input('note');
         $account->save();
         return redirect('/accounts')->with('success',"Account Updated successfully");    
     }
