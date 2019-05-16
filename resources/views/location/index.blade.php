@@ -1,7 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
-
+<?php //echo "<pre>";print_r($location_detail);exit; ?>
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card">
@@ -22,20 +21,15 @@
 					      <th></th>
 					    </thead>
 					    <tbody>
-					    	<tr>
-					        	<td><span>44467</span></td>
-					        	<td><span>Multan</span></td>
-					        	<td style="text-align: center;"><a href="{{url('edit_location') }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a href="{{url('') }} "><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
-				      		<tr>
-					        	<td><span>23467</span></td>
-					        	<td><span>Lahore</span></td>
-					        	<td style="text-align: center;"><a href="{{url('edit_location') }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a href="{{url('') }} "><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
-				      		</tr>
-				      		<tr>
-					        	<td><span>53467</span></td>
-					        	<td><span>Karachi</span></td>
-					        	<td style="text-align: center;"><a href="{{url('edit_location') }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a href="{{url('') }} "><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
-				      		</tr> 
+					    	@if(count($location_detail) > 0)
+				    			@foreach($location_detail as $detail)
+							    	<tr>
+							        	<td><span>{{ $detail->customer_type }}</span></td>
+							        	<td><span>{{ $detail->location_name }}</span></td>
+							        	<td style="text-align: center;"><a href="{{url('location/edit/'.$detail->id) }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a href="{{url('') }} "><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
+						      		</tr>
+				      			@endforeach
+				    		@endif
 					    </tbody>
 				  	</table>
 				</div>

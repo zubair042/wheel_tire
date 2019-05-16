@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Location;
+use App\User;
+use DB;
 
 class Locations extends Controller
 {
@@ -14,7 +16,11 @@ class Locations extends Controller
      */
     public function index()
     {
-        return view('location/index');
+        $user_id = auth()->user()->id;
+        $location_detail = DB::table('locations')
+                            ->where('user_id',$user_id)
+                            ->get();
+        return view('location/index')->with('location_detail',$location_detail);
     }
 
     /**
@@ -66,7 +72,8 @@ class Locations extends Controller
      */
     public function edit($id)
     {
-        //
+        $location = Location::find($id);
+        return view('location/edit_location')->with('location',$location);
     }
 
     /**
@@ -78,7 +85,13 @@ class Locations extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $location = Location::find($id);
+        $location->user_id = auth()->user()->id;
+        $location->customer_type = $request->input('customer_type');
+        $location->location_name = $request->input('location_name');
+        //dd($location);
+        $location->save();
+        return redirect('/location')->with('success',"Location updated successfully");
     }
 
     /**
