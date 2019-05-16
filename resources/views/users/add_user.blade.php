@@ -109,8 +109,6 @@
 	    minimumResultsForSearch: Infinity
 	});
 	$('.custom-select1').select2({
-		placeholder: 'Choose a role..',
-		allowClear: true,
 	    minimumResultsForSearch: Infinity
 	});
 

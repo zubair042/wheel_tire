@@ -39,10 +39,11 @@
 						<span class="input-group-text" style="font-size: 18px;">Account Type</span>
 					</div>
 					<div class="col-md-3">
-						<select class="select_select2" name="account_type">
-			                <option value="Manager"><span>Manager</span></option>
-			                <option value="Worker">Worker</option>
-			                <option value="Salesman">Salesman</option>
+						<select class="select_select2" name="account_type" >
+							
+			                <option value="Database"><span>Database</span></option>
+			                <option value="Vendor">Vendor</option>
+			                <option value="Customer">Customer</option>
 			            </select>
 			    	</div>
 			    </div>

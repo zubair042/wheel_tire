@@ -69,8 +69,6 @@
 	
 	$('.form-check-input-switch').bootstrapSwitch();
 	$('.select_select2_select2').select2({
-		placeholder: 'Choose a customer..',
-		allowClear: true,
 	    minimumResultsForSearch: Infinity
 	});
 

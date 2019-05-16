@@ -1,4 +1,4 @@
-@extends('layouts.app')
+	@extends('layouts.app')
 
 @section('content')
 <script src="{{asset('global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
@@ -191,7 +191,7 @@
 				    </div>
 				    <div class="row" style="margin-top: 10px;">
 				    	<div class="col-md-2 offset-md-5">
-				    		<select class="custom-select" name="position_at_company" class="select_select2_select">
+				    		<select name="position_at_company" class="select_select2_select">
 				                <option value="Manager"><span>Manager</span></option>
 				                <option value="Worker">Worker</option>
 				                <option value="Salesman">Salesman</option>
@@ -233,8 +233,6 @@
         }
     });
     $('.select_select2_select').select2({
-		placeholder: 'Choose a customer..',
-		allowClear: true,
 	    minimumResultsForSearch: Infinity
 	});
 </script>

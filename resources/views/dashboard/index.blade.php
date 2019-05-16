@@ -1,8 +1,8 @@
 @extends('layouts.app')
-	
+
 @section('content')
-	<h1>Dashboard</h1>
-<!-- <div class="row">
+	<?php //echo "<pre>";print_r($report_detail);exit; ?>
+<div class="row">
 	<div class="col-md-12">
 		<div class="card">
 			<div class="row">
@@ -33,41 +33,31 @@
 				      </tr>
 				    </thead>
 				    <tbody>
-				      <tr>
-				        <td width="200px" style="text-align: center;"><a href="{{('#')}}" class="btn btn-success btn-sm legitRipple" style="margin-right: 10px; background-color: #4ec88a">View</a><i style="margin-right: 8px;"></i>09:05:2019</td>
-				        <td><i style="margin-right: 8px;"></i>001</td>
-				        <td><i style="margin-right: 8px;"></i>Lahore</td>
-				        <td><i style="margin-right: 8px;"></i>Usama</td>
-				        <td><i style="margin-right: 8px;"></i>100Rs</td>
-				        <td><i style="margin-right: 8px;"></i>Zubair ETNH</td>
-				        <td class="text-center"><i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i></td>
-				      </tr>
-				      	<tr>
-				          <td width="200px" style="text-align: center;"><a href="{{('#')}}" class="btn btn-success btn-sm legitRipple" style="margin-right: 10px; background-color: #4ec88a">View</a><i style="margin-right: 8px;"></i>10:05:2019</td>
-				        <td><i style="margin-right: 8px;"></i>002</td>
-				        <td><i style="margin-right: 8px;"></i>Karachi</td>
-				        <td><i style="margin-right: 8px;"></i>Don</td>
-				        <td><i style="margin-right: 8px;"></i>1Rs</td>
-				        <td><i style="margin-right: 8px;"></i>Zubair ETNH</td>
-				        <td class="text-center"><i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i></td>
-				      </tr>
-				         	<tr>
-				          <td width="200px" style="text-align: center;"><a href="{{('#')}}" class="btn btn-success btn-sm legitRipple" style="margin-right: 10px; background-color: #4ec88a">View</a><i style="margin-right: 8px;"></i>11:05:2019</td>
-				        <td><i style="margin-right: 8px;"></i>002</td>
-				        <td><i style="margin-right: 8px;"></i>Multan</td>
-				        <td><i style="margin-right: 8px;"></i>Ahmad</td>
-				        <td><i style="margin-right: 8px;"></i>2Rs</td>
-				        <td><i style="margin-right: 8px;"></i>Zubair ETNH</td>
-				        <td class="text-center"><i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i></td>
-				      </tr>
+				    	@if (count($report_detail) > 0)
+				    		@foreach($report_detail as $detail)
+				    		<tr>
+						        <td width="200px" style="text-align: center;"><a href="{{ url('reports/view_report/'.$detail->id)}}" class="btn btn-success btn-sm legitRipple" style="margin-right: 10px; background-color: #4ec88a">View</a><?php echo date("Y M d",strtotime($detail->created_at)); ?></td>
+						        <td style="text-align: center;">{{ $detail->report_unit_num}}</td>
+						        <td>{{ $detail->report_location }}</td>
+						        <td style="text-align: center;">{{ $detail->technition_name }}</td>
+						        <td style="text-align: center;">{{ $detail->weight }}</td>
+						        <td></i></td>
+						        <td class="text-center">
+				        		<?php if (!empty($detail->comments)) { ?>
+				        			<i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i>
+				        			<?php } ?>	
+				        		</td>
+						     </tr>
+				    		@endforeach
+				    	@endif
 				    </tbody>
 			  	</table>
 			</div>
 		</div>
 	</div>
-</div> -->
+</div>
 
-<!-- <script src="{{asset('global_assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
+<script src="{{asset('global_assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript">
 	$("#main-datatable").DataTable({
 		autoWidth: false,
@@ -84,7 +74,8 @@
 			paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
 		}
 	});
-</script> -->
+</script>
 
 
-@endsection 
+
+@endsection

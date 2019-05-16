@@ -37,11 +37,11 @@
 				    		@foreach($report_detail as $detail)
 				    		<tr>
 						        <td width="200px" style="text-align: center;"><a href="{{ url('reports/view_report/'.$detail->id)}}" class="btn btn-success btn-sm legitRipple" style="margin-right: 10px; background-color: #4ec88a">View</a><?php echo date("Y M d",strtotime($detail->created_at)); ?></td>
-						        <td><i style="margin-right: 8px;"></i>{{ $detail->report_unit_num}}</td>
-						        <td><i style="margin-right: 8px;">{{ $detail->report_location }}</i></td>
-						        <td><i style="margin-right: 8px;">{{ $detail->technition_name }}</i></td>
-						        <td><i style="margin-right: 8px;">{{ $detail->weight }}</i></td>
-						        <td><i style="margin-right: 8px;"></i></td>
+						        <td style="text-align: center;">{{ $detail->report_unit_num}}</td>
+						        <td>{{ $detail->report_location }}</td>
+						        <td style="text-align: center;">{{ $detail->technition_name }}</td>
+						        <td style="text-align: center;">{{ $detail->weight }}</td>
+						        <td></i></td>
 						        <td class="text-center">
 				        		<?php if (!empty($detail->comments)) { ?>
 				        			<i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i>
