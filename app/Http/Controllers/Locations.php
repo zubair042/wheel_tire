@@ -103,6 +103,8 @@ class Locations extends Controller
      */
     public function destroy($id)
     {
-        //
+        $location = Location::find($id);
+        $location->delete();
+        return redirect('/location')->with('warning',"Location Deleted Successfully");
     }
 }
