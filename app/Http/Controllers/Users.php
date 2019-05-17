@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Account;
 
 class Users extends Controller
 {
@@ -26,7 +27,8 @@ class Users extends Controller
      */
     public function create()
     {
-        //
+        $customers = Account::all();
+        return view('users/add_user')->with('customers',$customers);
     }
 
     /**
