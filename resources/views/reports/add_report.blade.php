@@ -26,15 +26,15 @@
 				<div class="row" id="trailer_html" style="display:none;margin-top: 10px;padding: 12px;">
 					<div class="row" style="width: 100%; margin-left: 0px;">
 						<div class="col-md-12" style="background-color: #fafafa;">
-							<div class="col-md-6 offset-md-3" style="background-color: #fafafa;">
+							<div class="col-md-8 offset-md-2" style="background-color: #fafafa;">
 								<div class="" style="text-align: center; padding-top: 30px;">
 									<h5>SELECT WHEEL POSITION YOU WORKED ON</h5>
 								</div>
 								<li class="media">
-									<div class="mr-3 align-self-center">
+									<div class="mr-3 align-self-center" style="width: 29%;">
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
-												<span class="font-weight-bold text-primary" style="font-size: 15px;">LS</span>
+												<span style="font-size: 15px; text-align: right;">Left Steer Wheel Position</span>
 												<input type="radio" id="power_unit_radio" class="form-check-input-styled-danger" checked="" name="small_wheel" value="LS" data-fouc="">
 											</label>
 										</div>
@@ -44,19 +44,19 @@
 									 	<img src="{{asset('global_assets/images/placeholders/fr1.png')}}" width="80%" height="100%" alt="">
 									</div>
 
-									<div class="align-self-center ml-3">
+									<div class="align-self-center ml-3" style="width: 29%;">
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
-												<input type="radio" class="form-check-input-styled-danger" name="small_wheel" value="RS" data-fouc="">&nbsp;&nbsp; <span class="font-weight-bold text-primary" style="font-size: 15px;">RS</span>
+												<input type="radio" class="form-check-input-styled-danger" name="small_wheel" value="RS" data-fouc="">&nbsp;&nbsp; <span style="font-size: 15px;">Right Steer Wheel Position</span>
 											</label>
 										</div>
 									</div>
 								</li>
 								<li class="media">
-									<div class="mr-3 align-self-center">
+									<div class="mr-3 align-self-center" style="width: 29%;">
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
-												<span class="font-weight-bold text-primary" style="font-size: 15px;">LF</span>
+												<span style="font-size: 15px; text-align: right;">Left Front Wheel Position</span>
 												<input type="radio" id="power_unit_radio" class="form-check-input-styled-danger" checked="" name="front_wheel" value="LF" data-fouc="">
 											</label>
 										</div>
@@ -66,19 +66,19 @@
 									 	<img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt="">
 									</div>
 
-									<div class="align-self-center ml-3">
+									<div class="align-self-center ml-3" style="width: 29%;">
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
-												<input type="radio" class="form-check-input-styled-danger" name="front_wheel" value="RF" data-fouc="">&nbsp;&nbsp; <span class="font-weight-bold text-primary" style="font-size: 15px;">RF</span>
+												<input type="radio" class="form-check-input-styled-danger" name="front_wheel" value="RF" data-fouc="">&nbsp;&nbsp; <span style="font-size: 15px;">Right Front Wheel Position</span>
 											</label>
 										</div>
 									</div>
 								</li>
 								<li class="media">
-									<div class="mr-3 align-self-center">
+									<div class="mr-3 align-self-center" style="width: 29%;">
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
-												<span class="font-weight-bold text-primary" style="font-size: 15px;">LR</span>
+												<span style="font-size: 15px; text-align: right;">Left Rear Wheel Position</span>
 												<input type="radio" id="power_unit_radio" class="form-check-input-styled-danger" name="rear_wheel" value="LR" data-fouc="" checked="">
 											</label>
 										</div>
@@ -88,10 +88,10 @@
 										<img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt="">
 									</div>
 
-									<div class="align-self-center ml-3">
+									<div class="align-self-center ml-3" style="width: 29%;">
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
-												<input type="radio" class="form-check-input-styled-danger" name="rear_wheel" value="RR" data-fouc="">&nbsp;&nbsp; <span class="font-weight-bold text-primary" style="font-size: 15px;">RR</span>
+												<input type="radio" class="form-check-input-styled-danger" name="rear_wheel" value="RR" data-fouc="">&nbsp;&nbsp; <span style="font-size: 15px;">Right Rear Wheel Position</span>
 											</label>
 										</div>
 									</div>
@@ -106,15 +106,15 @@
 				<div class="row" id="power_unit_html" style="margin-top: 10px;padding: 12px;">
 					<div class="row" style="width: 100%; margin-left: 0px;">
 						<div class="col-md-12" style="background-color: #fafafa;">
-							<div class="col-md-6 offset-md-3" style="background-color: #fafafa;">
+							<div class="col-md-8 offset-md-2" style="background-color: #fafafa;">
 								<div class="" style="text-align: center; padding-top: 30px;">
 									<h5>SELECT WHEEL POSITION YOU WORKED ON</h5>
 								</div>
 								<li class="media">
-									<div class="mr-3 align-self-center">
+									<div class="mr-3 align-self-center" style="width: 29%;">
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
-												<span class="font-weight-bold text-primary" style="font-size: 15px;">LF</span>
+												<span style="font-size: 15px; text-align: right;">Left Front Wheel Position</span>
 												<input type="radio" id="power_unit_radio" class="form-check-input-styled-danger" checked="" name="front_wheel" value="LF" data-fouc="">
 											</label>
 										</div>
@@ -124,19 +124,19 @@
 									 	<img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt="">
 									</div>
 
-									<div class="align-self-center ml-3">
+									<div class="align-self-center ml-3" style="width: 29%;">
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
-												<input type="radio" class="form-check-input-styled-danger" name="front_wheel" value="RF" data-fouc="">&nbsp;&nbsp; <span class="font-weight-bold text-primary" style="font-size: 15px;">RF</span>
+												<input type="radio" class="form-check-input-styled-danger" name="front_wheel" value="RF" data-fouc="">&nbsp;&nbsp; <span style="font-size: 15px;">Right Front Wheel Position</span>
 											</label>
 										</div>
 									</div>
 								</li>
 								<li class="media">
-									<div class="mr-3 align-self-center">
+									<div class="mr-3 align-self-center" style="width: 29%;">
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
-												<span class="font-weight-bold text-primary" style="font-size: 15px;">LR</span>
+												<span style="font-size: 15px; text-align: right;">Left Rear WHeel Position</span>
 												<input type="radio" id="power_unit_radio" class="form-check-input-styled-danger" name="rear_wheel" value="LR" data-fouc="" checked="">
 											</label>
 										</div>
@@ -146,10 +146,10 @@
 										<img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt="">
 									</div>
 
-									<div class="align-self-center ml-3">
+									<div class="align-self-center ml-3" style="width: 29%;">
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
-												<input type="radio" class="form-check-input-styled-danger" name="rear_wheel" value="RR" data-fouc="">&nbsp;&nbsp; <span class="font-weight-bold text-primary" style="font-size: 15px;">RR</span>
+												<input type="radio" class="form-check-input-styled-danger" name="rear_wheel" value="RR" data-fouc="">&nbsp;&nbsp; <span style="font-size: 15px;">Right Rear Wheel Position</span>
 											</label>
 										</div>
 									</div>
