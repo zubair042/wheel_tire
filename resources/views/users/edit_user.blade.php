@@ -94,7 +94,7 @@
 			    <div class="row" style="text-align: center;margin:30px 0;">
 			    	<div class="col-md-9 offset-md-1">
 			    		<button type="button" style="background-color: #4f99c6!important;margin-right: 12px;" class="btn btn-primary legitRipple"><i class="icon-checkmark mr-2"></i>Update</button>
-			    		<button type="button" style="background-color: #8b9aa3!important;margin-left: 12px;" class="btn btn-primary legitRipple"><i class="icon-reset mr-2"></i>Reset</button>
+			    		<button type="button" style="background-color: #8b9aa3!important;margin-left: 12px;" class="btn btn-primary legitRipple"><i class="icon-reset mr-2" onClick="resetForm";></i>Reset</button>
 			    	</div>
 			    </div>
 			</div>
@@ -106,8 +106,6 @@
 
 	$('.form-check-input-switch').bootstrapSwitch();
 	$('.custom-select').select2({
-		placeholder: 'Choose a company..',
-		allowClear: true,
 	    minimumResultsForSearch: Infinity
 	});
 	$('.custom-select1').select2({
