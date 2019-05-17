@@ -36,13 +36,12 @@ Route::post('/location/edit/{id}','Locations@update');
 Route::get('/location/destroy/{id}','Locations@destroy');
 
 
-// Route::get('/reports/view/{id}', function(){
-// 	return view('reports/view_report');
-// });
+Route::get('/user/add','Users@create');
 
-Route::get('/user/add', function(){
-	return view('users/add_user');
-});
+
+// Route::get('/user/add', function(){
+// 	return view('users/add_user');
+// });
 
 Route::get('/edit_user', function(){
 	return view('users/edit_user');

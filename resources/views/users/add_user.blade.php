@@ -39,9 +39,14 @@
 				</div>
 				<div class="col-md-3">
 					<select class="custom-select" name="">
-		                <option value="Manager"><span>Manager</span></option>
+						@if(count($customers) > 0)
+							@foreach($customers as $customer)
+							<option value="{{ $customer->id}}"><span>{{ $customer->company_name }}</span></option>
+							@endforeach
+						@endif
+		                <!-- <option value="Manager"><span>Manager</span></option>
 		                <option value="Worker">Worker</option>
-		                <option value="Salesman">Salesman</option>
+		                <option value="Salesman">Salesman</option> -->
 		            </select>
 		    	</div>
 		    </div>
