@@ -8,8 +8,6 @@
 <script src="{{asset('global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
 
 
-
-<div class="content">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card" style="padding: 12px;">
@@ -23,7 +21,7 @@
 						<hr align="left" >
 					</div>
 				</div>
-				<form method="POST" action="{{url('')}}" id="adit_user_form">
+				<form method="POST" action="{{ url('/user/edit/'.$user->id) }}" id="adit_user_form">
 					<div class="row">
 						<div class="col-md-2 offset-md-3">
 							<span class="input-group-text" style="font-size: 18px;">Activation</span>
@@ -42,9 +40,11 @@
 					</div>
 					<div class="col-md-3">
 						<select class="custom-select" name="">
-			                <option value="Manager"><span>Manager</span></option>
-			                <option value="Worker">Worker</option>
-			                <option value="Salesman">Salesman</option>
+			                @if(count($customers) > 0)
+								@foreach($customers as $customer)
+								<option value="{{ $customer->id}}" <?php if($customer->company_name==$user->company_name){echo 'selected="selected"';} ?>><span>{{ $customer->company_name }}</span></option>
+								@endforeach
+							@endif
 			            </select>
 			    	</div>
 			    </div>
@@ -103,7 +103,7 @@
 					
 		</div>
 	</div>
-</div>
+
 
 <script type="text/javascript">
 

@@ -70,7 +70,9 @@ class Users extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('users/edit_user')->with('user',$user);
+        $customers = Account::all();
+        return view('users/edit_user')->with('user',$user)
+                                    ->with('customers',$customers);
     }
 
     /**
