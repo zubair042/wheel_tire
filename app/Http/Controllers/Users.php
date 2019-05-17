@@ -84,7 +84,15 @@ class Users extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $users = User::find($id);
+        $users->company_name = $request->input('company_name');
+        $users->user_role = $request->input('user_role');
+        $users->first_name = $request->input('first_name');
+        $users->last_name = $request->input('last_name');
+        $users->email = $request->input('email');
+        $users->password = bcrypt($request->input('password'));
+        $users->save();
+        return redirect('/users')->with('success',"Update User successfully");
     }
 
     /**

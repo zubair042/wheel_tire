@@ -39,6 +39,7 @@ Route::get('/location/destroy/{id}','Locations@destroy');
 Route::get('/user/add','Users@create');
 Route::post('/user/add','Users@store')->name("save_user");
 Route::get('/user/edit/{id}','Users@edit');
+Route::post('/user/edit/{id}','Users@update');
 
 
 

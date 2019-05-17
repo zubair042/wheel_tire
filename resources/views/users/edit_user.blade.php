@@ -22,6 +22,7 @@
 					</div>
 				</div>
 				<form method="POST" action="{{ url('/user/edit/'.$user->id) }}" id="adit_user_form">
+					{{ csrf_field() }}
 					<div class="row">
 						<div class="col-md-2 offset-md-3">
 							<span class="input-group-text" style="font-size: 18px;">Activation</span>
