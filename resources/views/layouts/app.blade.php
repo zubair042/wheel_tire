@@ -42,7 +42,7 @@
     <div class="navbar navbar-expand-md navbar-dark bg-indigo navbar-static">
         <div class="navbar-brand">
             <a href="index.html" class="d-inline-block">
-                <img src="{{asset('')}}global_assets/images/logo_icon_light.png" alt="">
+                <img src="{{asset('')}}global_assets/images/tire.png" alt="">
             </a>
         </div>
 
