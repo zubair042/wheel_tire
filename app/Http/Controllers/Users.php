@@ -42,7 +42,7 @@ class Users extends Controller
         $users = new User;
         $users->company_name = $request->input('company_name');
         $users->user_role = $request->input('user_role');
-        $users->name = $request->input('first_name');
+        $users->first_name = $request->input('first_name');
         $users->last_name = $request->input('last_name');
         $users->email = $request->input('email');
         $users->password = bcrypt($request->input('password'));
@@ -69,7 +69,8 @@ class Users extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('users/edit_user')->with('user',$user);
     }
 
     /**
