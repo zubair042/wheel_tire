@@ -39,7 +39,15 @@ class Users extends Controller
      */
     public function store(Request $request)
     {
-        return "sdfsdfs";
+        $users = new User;
+        $users->company_name = $request->input('company_name');
+        $users->user_role = $request->input('user_role');
+        $users->first_name = $request->input('first_name');
+        $users->last_name = $request->input('last_name');
+        $users->email = $request->input('email');
+        $users->password = bcrypt($request->input('password'));
+        $users->save();
+        return redirect('/users')->with('success',"New User created successfully"); 
     }
 
     /**
@@ -61,7 +69,8 @@ class Users extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('users/edit_user')->with('user',$user);
     }
 
     /**
