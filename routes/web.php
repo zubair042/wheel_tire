@@ -37,6 +37,7 @@ Route::get('/location/destroy/{id}','Locations@destroy');
 
 
 Route::get('/user/add','Users@create');
+Route::post('/user/add','Users@store')->name("save_user");
 
 
 

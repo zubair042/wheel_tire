@@ -39,7 +39,7 @@ class Users extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return "sdfsdfs";
     }
 
     /**

@@ -21,7 +21,7 @@
 					<hr align="left" >
 				</div>
 			</div>
-			<form method="post" action="">
+			<form method="post" action="{{ route('save_user') }}" >
 				<div class="row">
 					<div class="col-md-2 offset-md-3">
 						<span class="input-group-text" style="font-size: 18px;">Activation</span>
