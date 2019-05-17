@@ -161,6 +161,7 @@
         <!-- /main sidebar -->
         @show
 
+
         <!-- Main content -->
         <div class="content-wrapper">
 
