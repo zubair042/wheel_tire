@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Location;
 use App\User;
+use App\Account;
 use DB;
 
 class Locations extends Controller
@@ -35,7 +36,8 @@ class Locations extends Controller
      */
     public function create()
     {
-        return view('location/add_location');
+        $customers = Account::all();
+        return view('location/add_location')->with('customers',$customers);
     }
 
     /**
