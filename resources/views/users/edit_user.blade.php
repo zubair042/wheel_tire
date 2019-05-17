@@ -20,8 +20,6 @@
 <script src="{{asset('global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
 
 
-
-<div class="content">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card" style="padding: 12px;">
@@ -35,7 +33,10 @@
 						<hr align="left" >
 					</div>
 				</div>
-				<form method="POST" action="{{url('')}}" id="edit_user_form">
+
+				<form method="POST" action="{{ url('/user/edit/'.$user->id) }}" id="adit_user_form">
+					{{ csrf_field() }}
+
 					<div class="row">
 						<div class="col-md-2 offset-md-3">
 							<span class="input-group-text"><p>Activation</p></span>
@@ -54,12 +55,14 @@
 						</div>
 						<div class="col-md-3">
 							<select class="custom-select" name="">
-				                <option value="Manager"><span>Manager</span></option>
-				                <option value="Worker">Worker</option>
-				                <option value="Salesman">Salesman</option>
+				                @if(count($customers) > 0)
+									@foreach($customers as $customer)
+									<option value="{{ $customer->id}}" <?php if($customer->company_name==$user->company_name){echo 'selected="selected"';} ?>><span>{{ $customer->company_name }}</span></option>
+									@endforeach
+								@endif
 				            </select>
 				    	</div>
-				    </div>
+			    	</div>
 				    <div class="row">
 				    	<div class="col-md-2 offset-md-3">
 							<span class="input-group-text"><p>User Roles</p></span>
@@ -107,7 +110,7 @@
 				    <div class="row" style="text-align: center;margin:30px 0;">
 				    	<div class="col-md-9 offset-md-1">
 				    		<button type="submit" style="background-color: #4f99c6!important;margin-right: 12px;" class="btn btn-primary legitRipple"><i class="icon-checkmark mr-2"></i>Update</button>
-				    		<button type="button" style="background-color: #8b9aa3!important;margin-left: 12px;" class="btn btn-primary legitRipple"><i class="icon-reset mr-2" onclick="resetForm()"></i>Reset</button>
+				    		<button type="button" style="background-color: #8b9aa3!important;margin-left: 12px;" class="btn btn-primary legitRipple" onclick="resetForm();"><i class="icon-reset mr-2"></i>Reset</button>
 				    	</div>
 				    </div>
 				</form>
@@ -115,7 +118,7 @@
 					
 		</div>
 	</div>
-</div>
+
 
 <script type="text/javascript">
 
@@ -127,8 +130,8 @@
 	    minimumResultsForSearch: Infinity
 	});
 	function resetForm() {
-		alert();
-    	//document.getElementById("edit_user_form").reset();
+		//alert();
+    	document.getElementById("edit_user_form").reset();
 	}
 
 </script>
