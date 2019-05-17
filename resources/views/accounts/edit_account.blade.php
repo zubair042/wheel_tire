@@ -41,8 +41,6 @@
 					<div class="col-md-3">
 						<select class="select_select2" name="account_type" >
 							
-			                <option value="Database"><span>Database</span></option>
-			                <option value="Vendor">Vendor</option>
 			                <option value="Customer">Customer</option>
 			            </select>
 			    	</div>

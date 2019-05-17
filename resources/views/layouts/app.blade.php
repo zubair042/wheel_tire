@@ -200,7 +200,7 @@
 
                 <div class="navbar-collapse collapse" id="navbar-footer">
                     <span class="navbar-text">
-                        &copy; 2015 - 2018.
+                         &copy 2019 
                     </span>
 
                 </div>

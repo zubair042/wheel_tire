@@ -52,7 +52,6 @@ class Locations extends Controller
         //dd($location);
         $location->customer_type = $request->input('customer_type');
         $location->location_name = $request->input('location_name');
-        //dd($location);
         $location->save();
         return redirect('/location')->with('success',"Location added successfully");
         // $account->user_id = auth()->user()->id;

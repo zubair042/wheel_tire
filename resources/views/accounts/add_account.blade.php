@@ -45,8 +45,6 @@
 						@foreach($account_type as $type)
 							 <!-- <option value="{{ $type->id }}"><span>{{ $type->description }}</span></option> -->
 						@endforeach
-			                <option value="Database"><span>Database</span></option>
-			                <option value="Vendor">Vendor</option>
 			                <option value="Customer">Customer</option>
 			            </select>
 			    	</div>

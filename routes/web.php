@@ -14,7 +14,9 @@
 Route::get('/', 'Dashboard@index')->name('dashboard');
 Route::get('/reports','Reports@index');
 Route::get('/report/add','Reports@create');
+Route::get('/report/view/{id}','Reports@show');
 Route::post('/add_report','Reports@store')->name('save_reports');
+
 Route::post('/add_account','Accounts@store')->name('save_accounts');
 Route::get('/users','Users@index');
 Route::get('/location','Locations@index');
@@ -34,9 +36,9 @@ Route::post('/location/edit/{id}','Locations@update');
 Route::get('/location/destroy/{id}','Locations@destroy');
 
 
-Route::get('/reports/view_report/{id}', function(){
-	return view('reports/view_report');
-});
+// Route::get('/reports/view/{id}', function(){
+// 	return view('reports/view_report');
+// });
 
 Route::get('/user/add', function(){
 	return view('users/add_user');

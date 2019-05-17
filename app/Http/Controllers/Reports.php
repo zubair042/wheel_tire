@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Report;
+use App\Location;
 use DB;
 
 class Reports extends Controller
@@ -80,7 +81,9 @@ class Reports extends Controller
      */
     public function show($id)
     {
-        //
+        $report_detail = Report::find($id);
+        $location = Location::find($id);
+        return view('reports/view_report')->with('report_detail',$report_detail)->with('location',$location);
     }
 
     /**
