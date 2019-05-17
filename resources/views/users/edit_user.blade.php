@@ -2,6 +2,18 @@
 
 @section('content')
 
+<style type="text/css">
+	p {
+		font-size: 18px;
+	}
+	h1 {
+		padding: 0;
+		margin: 0 8px;
+		font-size: 24px;
+		color: #2679b5;
+	}
+</style>
+
 <script src="{{asset('global_assets/js/plugins/forms/styling/switch.min.js')}}"></script>
 <script src="{{asset('global_assets/js/plugins/forms/styling/switchery.min.js')}}"></script>
 <script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
@@ -15,7 +27,7 @@
 			<div class="card" style="padding: 12px;">
 				<div class="row">
 				<div class="col-md-12">
-					<h1 style="padding: 0;margin: 0 8px;font-size: 24px;color: #2679b5;">User<small> <i class="icon-arrow-right5"></i>Edit User</small></h1>
+					<h1>User<small> <i class="icon-arrow-right5"></i>Edit User</small></h1>
 				</div>
 				</div>
 				<div class="row">
@@ -23,10 +35,10 @@
 						<hr align="left" >
 					</div>
 				</div>
-				<form method="POST" action="{{url('')}}" id="adit_user_form">
+				<form method="POST" action="{{url('')}}" id="edit_user_form">
 					<div class="row">
 						<div class="col-md-2 offset-md-3">
-							<span class="input-group-text" style="font-size: 18px;">Activation</span>
+							<span class="input-group-text"><p>Activation</p></span>
 						</div>
 						<div class="col-md-3">
 							<div class="form-check form-check-switch form-check-switch-left">
@@ -38,7 +50,7 @@
 					</div>
 					<div class="row">
 				    	<div class="col-md-2 offset-md-3">
-							<span class="input-group-text" style="font-size: 18px;">Company Name</span>
+							<span class="input-group-text"><p>Company Name</p></span>
 						</div>
 						<div class="col-md-3">
 							<select class="custom-select" name="">
@@ -50,19 +62,19 @@
 				    </div>
 				    <div class="row">
 				    	<div class="col-md-2 offset-md-3">
-							<span class="input-group-text" style="font-size: 18px;">User Roles</span>
+							<span class="input-group-text"><p>User Roles<p></span>
 						</div>
 						<div class="col-md-3">
 							<select class="custom-select1" name="">
-				                <option value="Manager"><span>Manager</span></option>
-				                <option value="Worker">Worker</option>
-				                <option value="Salesman">Salesman</option>
+				                <option value="Administrator"><span>Administrator</span></option>
+				                <option value="Manager">Manager</option>
+				                <option value="Technician">Technician</option>
 				            </select>
 				    	</div>
 				    </div>
 				    <div class="row">
 				    	<div class="col-md-2 offset-md-3">
-							<span class="input-group-text" style="font-size: 18px;">First Name</span>
+							<span class="input-group-text"><p>First Name</p></span>
 						</div>
 						<div class="col-md-3">
 							<input type="text" name="lbs_weight" id="" class="form-control">
@@ -70,7 +82,7 @@
 				    </div>
 				    <div class="row">
 				    	<div class="col-md-2 offset-md-3">
-							<span class="input-group-text" style="font-size: 18px;">Last Name</span>
+							<span class="input-group-text"><p>Last Name</p></span>
 						</div>
 						<div class="col-md-3">
 							<input type="text" name="lbs_weight" id="" class="form-control">
@@ -78,7 +90,7 @@
 				    </div>
 				    <div class="row">
 				    	<div class="col-md-2 offset-md-3">
-							<span class="input-group-text" style="font-size: 18px;">Email</span>
+							<span class="input-group-text"><p>Email</p></span>
 						</div>
 						<div class="col-md-3">
 							<input type="text" name="lbs_weight" id="" class="form-control">
@@ -86,7 +98,7 @@
 				    </div>
 				    <div class="row">
 				    	<div class="col-md-2 offset-md-3">
-							<span class="input-group-text" style="font-size: 18px;">Password</span>
+							<span class="input-group-text"><p>Password</p></span>
 						</div>
 						<div class="col-md-3">
 							<input type="text" name="lbs_weight" id="" class="form-control">
@@ -114,8 +126,8 @@
 	    minimumResultsForSearch: Infinity
 	});
 	function resetForm() {
-		alert();
-    	//document.getElementById("edit_location_form").reset();
+		//alert();
+    	document.getElementById("edit_user_form").reset();
 	}
 
 </script>

@@ -2,6 +2,18 @@
 
 @section('content')
 
+<style type="text/css">
+	p {
+		font-size: 18px;
+	}
+	h1 {
+		padding: 0;
+		margin: 0 8px;
+		font-size: 24px;
+		color: #2679b5;
+	}
+</style>
+
 <script src="{{asset('global_assets/js/plugins/forms/styling/switch.min.js')}}"></script>
 <script src="{{asset('global_assets/js/plugins/forms/styling/switchery.min.js')}}"></script>
 <script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
@@ -12,7 +24,7 @@
 		<div class="card" style="padding: 12px;">
 			<div class="row">
 				<div class="col-md-12">
-					<h1 style="padding: 0;margin: 0 8px;font-size: 24px;color: #2679b5;">Accounts<small> <i class="icon-arrow-right5"></i>Add New</small></h1>
+					<h1>Accounts<small> <i class="icon-arrow-right5"></i>Add New</small></h1>
 				</div>
 			</div>
 			<div class="row">
@@ -24,7 +36,7 @@
 				{{ csrf_field() }}
 				<div class="row">
 					<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Activation</span>
+						<span class="input-group-text"><p>Activation</p></span>
 					</div>
 					<div class="col-md-3">
 						<div class="form-check form-check-switch form-check-switch-left">
@@ -37,7 +49,7 @@
 				</div>
 			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Account Type</span>
+						<span class="input-group-text"><p>Account Type</p></span>
 					</div>
 					<div class="col-md-3">
 						
@@ -51,7 +63,7 @@
 			    </div>
 			    <!-- <div class="row">
 			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Package</span>
+						<span class="input-group-text"><p>Package</span>
 					</div>
 					<div class="col-md-3">
 						<select class="select_select2" name="position_at_company">
@@ -62,7 +74,7 @@
 			    </div> -->
 			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Company Name</span>
+						<span class="input-group-text"><p>Company Name</p></span>
 					</div>
 					<div class="col-md-3">
 						<input type="text" name="company_name" id="" class="form-control">
@@ -70,7 +82,7 @@
 			    </div>
 			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Address</span>
+						<span class="input-group-text"><p>Address</p></span>
 					</div>
 					<div class="col-md-3">
 						<input type="text" name="address" id="" class="form-control">
@@ -78,7 +90,7 @@
 			    </div>
 			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Address 2</span>
+						<span class="input-group-text"]><p>Address 2</p></span>
 					</div>
 					<div class="col-md-3">
 						<input type="text" name="address2" id="" class="form-control">
@@ -86,7 +98,7 @@
 			    </div>
 			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">City</span>
+						<span class="input-group-text"><p>City</p></span>
 					</div>
 					<div class="col-md-3">
 						<input type="text" name="city" class="form-control">
@@ -94,7 +106,7 @@
 			    </div>
 			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">State</span>
+						<span class="input-group-text"><p>State</p></span>
 					</div>
 					<div class="col-md-3">
 						<input type="text" name="state" class="form-control">
@@ -102,7 +114,7 @@
 			    </div>
 			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Zip</span>
+						<span class="input-group-text"><p>Zip</p></span>
 					</div>
 					<div class="col-md-3">
 						<input type="text" name="zip" class="form-control">
@@ -110,7 +122,7 @@
 			    </div>
 			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Phone</span>
+						<span class="input-group-text"><p>Phone</p></span>
 					</div>
 					<div class="col-md-3">
 						<input type="text" name="phone" id="" class="form-control">
@@ -118,7 +130,7 @@
 			    </div>
 			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Fax</span>
+						<span class="input-group-text"><p>Fax</p></span>
 					</div>
 					<div class="col-md-3">
 						<input type="text" name="fax" id="" class="form-control">
@@ -126,7 +138,7 @@
 			    </div>
 			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Email</span>
+						<span class="input-group-text"><p>Email</p></span>
 					</div>
 					<div class="col-md-3">
 						<input type="text" name="email" id="" class="form-control">
@@ -134,7 +146,7 @@
 			    </div>
 			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text" style="font-size: 18px;">Notes</span>
+						<span class="input-group-text"><p>Notes</p></span>
 					</div>
 					<div class="col-md-3">
 						<input type="text" name="note" id="" class="form-control">
