@@ -108,8 +108,6 @@
 
 	$('.form-check-input-switch').bootstrapSwitch();
 	$('.custom-select').select2({
-		placeholder: 'Choose a company..',
-		allowClear: true,
 	    minimumResultsForSearch: Infinity
 	});
 	$('.custom-select1').select2({
