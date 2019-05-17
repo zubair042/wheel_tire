@@ -51,9 +51,9 @@
 				</div>
 				<div class="col-md-3">
 					<select class="custom-select1" name="">
-		                <option value="Manager"><span>Manager</span></option>
-		                <option value="Worker">Worker</option>
-		                <option value="Salesman">Salesman</option>
+		                <option value="Administrator"><span>Administrator</span></option>
+		                <option value="Manager">Manager</option>
+		                <option value="Technician">Technician</option>
 		            </select>
 		    	</div>
 		    </div>
