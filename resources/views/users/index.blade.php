@@ -17,7 +17,7 @@
 				<div class="datatable-scroll">
 					<table class="table" id="main-datatable-users">
 					    <thead style="background-color: #ecedec57">
-					      <th>Comapny ID</th>
+					      <th>ID</th>
 					      <th>Email</th>
 					      <th>Full Name</th>
 					      <th>Date</th>
@@ -27,9 +27,9 @@
 					    	@if (count($user_detail) > 0)
 				    		@foreach($user_detail as $detail)
 					    	<tr>
-					        	<td><span>{{$detail->company_id}}</span></td>
+					        	<td><span>{{$detail->id}}</span></td>
 					        	<td><span>{{$detail->email}}</span></td>
-					        	<td><span><?php echo $detail->full_name;?></span></td>
+					        	<td><span><?php echo $detail->name;?></span></td>
 					        	<td>{{date("Y-M-d", strtotime($detail->created_at))}}</td>
 					        	<td style="text-align: right;"><a href="{{url('edit_user') }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a href="{{url('') }} "><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
 				      		</tr>
