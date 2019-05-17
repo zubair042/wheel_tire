@@ -49,67 +49,67 @@
 						</div>
 					</div>
 					<div class="row">
-			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text"><p>Company Name</p></span>
-					</div>
-					<div class="col-md-3">
-						<select class="custom-select" name="">
-			                <option value="Manager"><span>Manager</span></option>
-			                <option value="Worker">Worker</option>
-			                <option value="Salesman">Salesman</option>
-			            </select>
-			    	</div>
-			    </div>
-			    <div class="row">
-			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text"><p>User Roles</p></span>
-					</div>
-					<div class="col-md-3">
-						<select class="custom-select1" name="">
-			                <option value="Manager"><span>Manager</span></option>
-			                <option value="Worker">Worker</option>
-			                <option value="Salesman">Salesman</option>
-			            </select>
-			    	</div>
-			    </div>
-			    <div class="row">
-			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text"><p>First Name</p></span>
-					</div>
-					<div class="col-md-3">
-						<input type="text" name="first_name" value="{{ $user->first_name }}" class="form-control">
-			    	</div>
-			    </div>
-			    <div class="row">
-			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text"><p>Last Name</p></span>
-					</div>
-					<div class="col-md-3">
-						<input type="text" name="last_name" value="{{ $user->last_name }}" class="form-control">
-			    	</div>
-			    </div>
-			    <div class="row">
-			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text"><p>Email</p></span>
-					</div>
-					<div class="col-md-3">
-						<input type="text" name="email" value="{{ $user->email }}" class="form-control">
-			    	</div>
-			    </div>
-			    <div class="row">
-			    	<div class="col-md-2 offset-md-3">
-						<span class="input-group-text"><p>Password</p></span>
-					</div>
-					<div class="col-md-3">
-						<input type="password" name="password" value="{{ $user->password }}" class="form-control">
-			    	</div>
-			    </div>
-			    <div class="row" style="text-align: center;margin:30px 0;">
-			    	<div class="col-md-9 offset-md-1">
-			    		<button type="submit" style="background-color: #4f99c6!important;margin-right: 12px;" class="btn btn-primary legitRipple"><i class="icon-checkmark mr-2"></i>Update</button>
-			    		<button type="button" style="background-color: #8b9aa3!important;margin-left: 12px;" class="btn btn-primary legitRipple"><i class="icon-reset mr-2"></i>Reset</button>
-			    	</div>
-			    </div>
+				    	<div class="col-md-2 offset-md-3">
+							<span class="input-group-text"><p>Company Name</p></span>
+						</div>
+						<div class="col-md-3">
+							<select class="custom-select" name="">
+				                <option value="Manager"><span>Manager</span></option>
+				                <option value="Worker">Worker</option>
+				                <option value="Salesman">Salesman</option>
+				            </select>
+				    	</div>
+				    </div>
+				    <div class="row">
+				    	<div class="col-md-2 offset-md-3">
+							<span class="input-group-text"><p>User Roles</p></span>
+						</div>
+						<div class="col-md-3">
+							<select class="custom-select1" name="">
+				                <option value="Manager"><span>Manager</span></option>
+				                <option value="Worker">Worker</option>
+				                <option value="Salesman">Salesman</option>
+				            </select>
+				    	</div>
+				    </div>
+				    <div class="row">
+				    	<div class="col-md-2 offset-md-3">
+							<span class="input-group-text"><p>First Name</p></span>
+						</div>
+						<div class="col-md-3">
+							<input type="text" name="first_name" value="{{ $user->first_name }}" class="form-control">
+				    	</div>
+				    </div>
+				    <div class="row">
+				    	<div class="col-md-2 offset-md-3">
+							<span class="input-group-text"><p>Last Name</p></span>
+						</div>
+						<div class="col-md-3">
+							<input type="text" name="last_name" value="{{ $user->last_name }}" class="form-control">
+				    	</div>
+				    </div>
+				    <div class="row">
+				    	<div class="col-md-2 offset-md-3">
+							<span class="input-group-text"><p>Email</p></span>
+						</div>
+						<div class="col-md-3">
+							<input type="text" name="email" value="{{ $user->email }}" class="form-control">
+				    	</div>
+				    </div>
+				    <div class="row">
+				    	<div class="col-md-2 offset-md-3">
+							<span class="input-group-text"><p>Password</p></span>
+						</div>
+						<div class="col-md-3">
+							<input type="password" name="password" value="{{ $user->password }}" class="form-control">
+				    	</div>
+				    </div>
+				    <div class="row" style="text-align: center;margin:30px 0;">
+				    	<div class="col-md-9 offset-md-1">
+				    		<button type="submit" style="background-color: #4f99c6!important;margin-right: 12px;" class="btn btn-primary legitRipple"><i class="icon-checkmark mr-2"></i>Update</button>
+				    		<button type="button" style="background-color: #8b9aa3!important;margin-left: 12px;" class="btn btn-primary legitRipple"><i class="icon-reset mr-2" onclick="resetForm()"></i>Reset</button>
+				    	</div>
+				    </div>
 				</form>
 			</div>
 					
@@ -127,8 +127,8 @@
 	    minimumResultsForSearch: Infinity
 	});
 	function resetForm() {
-		//alert();
-    	document.getElementById("edit_user_form").reset();
+		alert();
+    	//document.getElementById("edit_user_form").reset();
 	}
 
 </script>
