@@ -80,7 +80,8 @@ class Locations extends Controller
     public function edit($id)
     {
         $location = Location::find($id);
-        return view('location/edit_location')->with('location',$location);
+        $customers = Account::all();
+        return view('location/edit_location')->with('location',$location)->with('customers',$customers);
     }
 
     /**

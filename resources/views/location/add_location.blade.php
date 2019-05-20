@@ -4,7 +4,7 @@
 
 <style type="text/css">
 	p {
-		font-size: 18px;
+		font-size: 14px;
 	}
 	h1 {
 		padding: 0;

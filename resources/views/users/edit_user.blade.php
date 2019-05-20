@@ -4,7 +4,7 @@
 
 <style type="text/css">
 	p {
-		font-size: 18px;
+		font-size: 14px;
 	}
 	h1 {
 		padding: 0;
@@ -54,10 +54,10 @@
 							<span class="input-group-text"><p>Company Name</p></span>
 						</div>
 						<div class="col-md-3">
-							<select class="custom-select" name="">
+							<select class="custom-select" name="company_name">
 				                @if(count($customers) > 0)
 									@foreach($customers as $customer)
-									<option value="{{ $customer->id}}" <?php if($customer->company_name==$user->company_name){echo 'selected="selected"';} ?>><span>{{ $customer->company_name }}</span></option>
+									<option value="{{ $customer->company_name}}" <?php if($customer->company_name==$user->company_name){echo 'selected="selected"';} ?>><span>{{ $customer->company_name }}</span></option>
 									@endforeach
 								@endif
 				            </select>
@@ -68,10 +68,10 @@
 							<span class="input-group-text"><p>User Roles</p></span>
 						</div>
 						<div class="col-md-3">
-							<select class="custom-select1" name="">
-				                <option value="Manager"><span>Manager</span></option>
-				                <option value="Worker">Worker</option>
-				                <option value="Salesman">Salesman</option>
+							<select class="custom-select1" name="user_role">
+				                <option value="1" <?php if($user->user_role==1){echo 'selected="selected"';} ?>><span>Administrator</span></option>
+			                <option value="2" <?php if($user->user_role==2){echo 'selected="selected"';} ?>>Manager</option>
+			                <option value="3" <?php if($user->user_role==3){echo 'selected="selected"';} ?>>Technician</option>
 				            </select>
 				    	</div>
 				    </div>

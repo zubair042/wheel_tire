@@ -5,7 +5,7 @@
 
 <style type="text/css">
 	p {
-		font-size: 18px;
+		font-size: 14px;
 	}
 	h1 {
 		padding: 0;
@@ -52,9 +52,11 @@
 						</div>
 						<div class="col-md-3">
 							<select class="select_select2_select2" name="customer_type" value="choose.." >
-				                <option value="Customer 1"><span>Customer 1</span></option>
-				                <option value="Customer 2">Customer 2</option>
-				                <option value="Customer 3">Customer 3</option>
+								@if(count($customers) > 0)
+									@foreach($customers as $customer)
+									<option value="{{ $customer->company_name}}" <?php if($customer->company_name==$location->customer_type){echo 'selected="selected"';} ?>><span>{{ $customer->company_name }}</span></option>
+									@endforeach
+								@endif
 				            </select>
 				    	</div>
 				    </div>
