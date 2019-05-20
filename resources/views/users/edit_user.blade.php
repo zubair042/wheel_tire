@@ -131,7 +131,7 @@
 	});
 	function resetForm() {
 		//alert();
-    	document.getElementById("edit_user_form").reset();
+    	document.getElementById("adit_user_form").reset();
 	}
 
 </script>

@@ -29,7 +29,7 @@
 					<hr align="left" >
 				</div>
 			</div>
-			<form method="post" action="{{ url('/account/edit/'.$account->id)}}">
+			<form method="post" action="{{ url('/account/edit/'.$account->id)}}" id="edit_account_form">
 				{{ csrf_field() }}
 				<div class="row">
 					<div class="col-md-2 offset-md-3">
@@ -159,7 +159,7 @@
 			    <div class="row" style="text-align: center;margin:30px 0;">
 			    	<div class="col-md-9 offset-md-1">
 			    		<button type="submit" style="background-color: #4f99c6!important;margin-right: 12px;" class="btn btn-primary legitRipple"><i class="icon-checkmark mr-2"></i>Update</button>
-			    		<button type="button" style="background-color: #8b9aa3!important;margin-left: 12px;" class="btn btn-primary legitRipple"><i class="icon-reset mr-2"></i>Reset</button>
+			    		<button type="button" style="background-color: #8b9aa3!important;margin-left: 12px;" class="btn btn-primary legitRipple" onclick="resetForm();"><i class="icon-reset mr-2"></i>Reset</button>
 			    	</div>
 			    </div>
 		    </form>
@@ -173,6 +173,11 @@
 	$('.select_select2').select2({
 	    minimumResultsForSearch: Infinity
 	});
+
+	function resetForm(){
+		//alert();
+		document.getElementById("edit_account_form").reset();
+	}
 
 </script>
 
