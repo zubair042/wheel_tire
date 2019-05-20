@@ -1,3 +1,10 @@
+<?php
+$Permissions = App\Module_permission::getPermissions(Auth::user()->user_role);
+$roles = array();
+foreach($Permissions as $p){
+    $roles[] = $p->module_slug;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +41,10 @@
     <script src="{{asset('')}}assets/js/app.js"></script>
     <script src="{{asset('')}}global_assets/js/demo_pages/dashboard.js"></script>
     <!-- /theme JS files -->
+
+<style type="text/css">
+    .hide{display: none;}
+</style>
 </head>
 
 <body>
@@ -118,7 +129,7 @@
                                 </span>
                             </a>
                         </li>
-                        <li class="nav-item nav-item-submenu">
+                        <li class="nav-item nav-item-submenu <?php if(!in_array('reports', $roles)){echo 'hide';} ?>">
                             <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Reports</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Reports">
@@ -126,7 +137,7 @@
                                 <li class="nav-item"><a href="{{ url('report/add') }}" class="nav-link">Add New</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item nav-item-submenu">
+                        <li class="nav-item nav-item-submenu <?php if(!in_array('users',$roles)){echo 'hide';} ?>">
                             <a href="#" class="nav-link"><i class="icon-users"></i> <span>Users</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Users">
@@ -134,7 +145,7 @@
                                 <li class="nav-item"><a href="{{ url('user/add') }}" class="nav-link">Add New</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item nav-item-submenu">
+                        <li class="nav-item nav-item-submenu <?php if(!in_array('accounts',$roles)){echo 'hide';} ?>">
                             <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Accounts</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Customers">
@@ -142,7 +153,7 @@
                                 <li class="nav-item"><a href="{{ url('account/add') }}" class="nav-link">Add New</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item nav-item-submenu">
+                        <li class="nav-item nav-item-submenu <?php if(!in_array('users',$roles)){echo 'hide';} ?>">
                             <a href="#" class="nav-link"><i class="icon-location4"></i> <span>Location</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Location">
