@@ -67,9 +67,9 @@
 					</div>
 					<div class="col-md-3">
 						<select class="custom-select1" name="user_role">
-			                <option value="1"><span>Administrator</span></option>
-			                <option value="2">Manager</option>
-			                <option value="3">Technician</option>
+			                <option value="2"><span>Administrator</span></option>
+			                <option value="3">Manager</option>
+			                <option value="4">Technician</option>
 			            </select>
 			    	</div>
 			    </div>
@@ -78,7 +78,7 @@
 						<span class="input-group-text"><p>First Name</p></span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="first_name" id="" class="form-control">
+						<input type="text" name="first_name"  class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -86,7 +86,7 @@
 						<span class="input-group-text"><p>Last Name</p></span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="last_name" id="" class="form-control">
+						<input type="text" name="last_name"  class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -94,7 +94,7 @@
 						<span class="input-group-text"><p>Email</p></span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="email" id="" class="form-control">
+						<input type="text" name="email"  class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -102,7 +102,7 @@
 						<span class="input-group-text"><p>Password</p></span>
 					</div>
 					<div class="col-md-3">
-						<input type="password" name="password" id="" class="form-control">
+						<input type="password" name="password"  class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row" style="text-align: center;margin:30px 0;">

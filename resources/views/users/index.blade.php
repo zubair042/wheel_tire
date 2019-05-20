@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<?php //echo "<pre>";print_r($user_detail);exit; ?>
+<?php //echo "<pre>";print_r($session);exit; ?>
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card">

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Wheel Tire')
+
 @section('content')
 
 <script src="{{asset('global_assets/js/plugins/media/fancybox.min.js') }}"></script> 
