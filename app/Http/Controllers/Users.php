@@ -16,7 +16,8 @@ class Users extends Controller
     public function index()
     {
         $user_detail = User::all();
-       // print_r($user_detail); exit;
+        // print_r($user_detail); exit;
+        // $session = session()->get('user_role');
         return view('users/index', compact("user_detail")); 
     }
 
@@ -40,12 +41,14 @@ class Users extends Controller
     public function store(Request $request)
     {
         $users = new User;
+        $users->parent_id = auth()->user()->id;
         $users->company_name = $request->input('company_name');
         $users->user_role = $request->input('user_role');
         $users->first_name = $request->input('first_name');
         $users->last_name = $request->input('last_name');
         $users->email = $request->input('email');
         $users->password = bcrypt($request->input('password'));
+        // $request->session()->put('user_role',$users->user_role);
         $users->save();
         return redirect('/users')->with('success',"New User created successfully"); 
     }

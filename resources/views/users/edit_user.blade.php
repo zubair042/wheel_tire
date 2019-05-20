@@ -69,9 +69,9 @@
 						</div>
 						<div class="col-md-3">
 							<select class="custom-select1" name="user_role">
-				                <option value="1" <?php if($user->user_role==1){echo 'selected="selected"';} ?>><span>Administrator</span></option>
-			                <option value="2" <?php if($user->user_role==2){echo 'selected="selected"';} ?>>Manager</option>
-			                <option value="3" <?php if($user->user_role==3){echo 'selected="selected"';} ?>>Technician</option>
+				                <option value="1" <?php if($user->user_role==2){echo 'selected="selected"';} ?>><span>Administrator</span></option>
+			                <option value="2" <?php if($user->user_role==3){echo 'selected="selected"';} ?>>Manager</option>
+			                <option value="3" <?php if($user->user_role==4){echo 'selected="selected"';} ?>>Technician</option>
 				            </select>
 				    	</div>
 				    </div>
