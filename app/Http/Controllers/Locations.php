@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Location;
 use App\User;
 use App\Account;
+use App\Auth;
 use DB;
 
 class Locations extends Controller
@@ -22,7 +23,7 @@ class Locations extends Controller
     
     public function index()
     {
-        $user_id = auth()->user()->id;
+        $user_id = Auth::user()->id;
         $location_detail = DB::table('locations')
                             ->where('user_id',$user_id)
                             ->get();

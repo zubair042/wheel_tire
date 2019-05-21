@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Account;
+use App\Auth;
 
 class Users extends Controller
 {
@@ -17,7 +18,9 @@ class Users extends Controller
     {
         $user_detail = User::all();
         // print_r($user_detail); exit;
-        // $session = session()->get('user_role');
+        //$session = session()->get('user_role');
+        //$session = session()->get('user_id');
+        //d($session);
         return view('users/index', compact("user_detail")); 
     }
 
@@ -41,14 +44,17 @@ class Users extends Controller
     public function store(Request $request)
     {
         $users = new User;
-        $users->parent_id = auth()->user()->id;
+        $users->parent_id = Auth::user()->id;
+
         $users->company_name = $request->input('company_name');
         $users->user_role = $request->input('user_role');
         $users->first_name = $request->input('first_name');
         $users->last_name = $request->input('last_name');
         $users->email = $request->input('email');
         $users->password = bcrypt($request->input('password'));
+        // $request->session()->put('user_id',$users->id);
         // $request->session()->put('user_role',$users->user_role);
+        // $request->session()->put('account_id');
         $users->save();
         return redirect('/users')->with('success',"New User created successfully"); 
     }
