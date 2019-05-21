@@ -1,16 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<style type="text/css">
-	p {
-		font-size: 14px;
-	}
-	h1 {
-		padding: 0;
-		margin: 0 8px;
-		font-size: 24px;
-		color: #2679b5;
-	}
-</style>
+
 <script src="{{asset('global_assets/js/plugins/forms/styling/switch.min.js')}}"></script>
 <script src="{{asset('global_assets/js/plugins/forms/styling/switchery.min.js')}}"></script>
 <script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
