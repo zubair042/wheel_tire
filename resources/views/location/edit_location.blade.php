@@ -3,14 +3,6 @@
 @section('content')
 <?php //echo "<pre>";print_r($location);exit; ?>
 
-<style type="text/css">
-	h1 {
-		padding: 0;
-		margin: 0 8px;
-		font-size: 24px;
-		color: #2679b5;
-	}
-</style>
 
 <script src="{{asset('global_assets/js/plugins/forms/styling/switch.min.js')}}"></script>
 <script src="{{asset('global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
