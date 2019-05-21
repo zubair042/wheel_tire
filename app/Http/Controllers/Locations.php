@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Location;
 use App\User;
 use App\Account;
-use App\Auth;
+use Auth;
 use DB;
 
 class Locations extends Controller
@@ -18,7 +18,7 @@ class Locations extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth', 'permission']);
     }
     
     public function index()
