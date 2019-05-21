@@ -4,9 +4,6 @@
 <?php //echo "<pre>";print_r($location);exit; ?>
 
 <style type="text/css">
-	p {
-		font-size: 14px;
-	}
 	h1 {
 		padding: 0;
 		margin: 0 8px;
