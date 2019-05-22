@@ -41,8 +41,9 @@ class Users extends Controller
         $customers = Account::all();
         $user = DB::table('users')
                         ->where("account_id",Auth::user()->account_id)
-                        ->where('user_role', 2)
-                        ->first(); 
+                        ->where('user_role', Auth::user()->user_role)
+                        ->where('id',Auth::user()->id)
+                        ->first();
         return view('users/add_user')->with('customers',$customers)->with('user',$user);
     }
 
