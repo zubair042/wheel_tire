@@ -56,7 +56,6 @@ body {
             <div class="card-body" style="margin-top: 40px;">
               <div class="text-center" style="font-size: 25px;margin-bottom: 35px;">
                 <span class="font-weight-semibold" style="margin-right: 25px;color: #96a2ce;">Log In</span>
-                <a href="{{ url('/register')}}"><span class="font-weight-semibold" style="margin-left: 25px;color: #797373;">Sign Up</span></a>
               </div>
               <form action="{{ route('login') }}" method="POST">
                 {{ csrf_field() }}
