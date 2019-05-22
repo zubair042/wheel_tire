@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Account;
 use App\User;
+use Auth;
 use DB;
 
 class Accounts extends Controller
@@ -20,7 +21,7 @@ class Accounts extends Controller
     
     public function index()
     {
-        $user_id = auth()->user()->id;
+        $user_id = Auth::user()->id;
         $account_detail = DB::table('accounts')
                             ->where('user_id',$user_id)
                             ->get();
@@ -47,7 +48,7 @@ class Accounts extends Controller
     public function store(Request $request)
     {
         $account = new Account;
-        $account->user_id = auth()->user()->id;
+        $account->user_id = Auth::user()->id;
         $account->account_id = $request->input('account_id');
         $account->account_type = $request->input('account_type');
         $account->company_name = $request->input('company_name');
@@ -97,7 +98,7 @@ class Accounts extends Controller
     public function update(Request $request, $id)
     {
         $account =Account::find($id);
-        $account->user_id = auth()->user()->id;
+        $account->user_id = Auth::user()->id;
         $account->account_type = $request->input('account_type');
         $account->company_name = $request->input('company_name');
         $account->account_address1 = $request->input('address');
