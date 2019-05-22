@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Account;
-use App\Auth;
+use Auth;
+use DB;
 
 class Users extends Controller
 {
@@ -23,11 +24,11 @@ class Users extends Controller
     
     public function index()
     {
-        $user_detail = User::all();
-        // print_r($user_detail); exit;
-        //$session = session()->get('user_role');
-        //$session = session()->get('user_id');
-        //d($session);
+        $account_id = Auth::user()->account_id;
+        $user_detail = DB::table('users')
+                        ->where('account_id',$account_id)
+                        ->get();
+                        //dd($user_detail);
         return view('users/index', compact("user_detail")); 
     }
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Report;
 use App\Location;
+use Auth;
 use DB;
 
 class Reports extends Controller
@@ -22,7 +23,7 @@ class Reports extends Controller
     
     public function index()
     {
-        $user_id = auth()->user()->id;
+        $user_id = Auth::user()->id;
         $report_detail = DB::table('reports')
                             ->where('user_id',$user_id)
                             ->get();
@@ -43,7 +44,12 @@ class Reports extends Controller
      */
     public function create()
     {
-        return view('reports/add_report');
+        $account_id = Auth::user()->account_id;
+        $manager_detail = DB::table('users')
+                    ->where('user_role',3)
+                    ->where('account_id',$account_id)
+                    ->get();
+        return view('reports/add_report')->with('manager_detail',$manager_detail);
     }
 
     /**
@@ -56,7 +62,7 @@ class Reports extends Controller
     {
         
         $report = new Report;
-        $report->user_id = auth()->user()->id;
+        $report->user_id = Auth::user()->id;
         $report->vehicle_type = $request->input('vehicle_type');
         $report->wheel_option1 = $request->input('small_wheel');
         $report->wheel_option2 = $request->input('front_wheel');
