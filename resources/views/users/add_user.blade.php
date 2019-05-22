@@ -10,7 +10,7 @@
 		color: #2679b5;
 	}
 </style>
-
+<?php //echo"<pre>";print_r($user->user_role);exit; ?>
 <script src="{{asset('global_assets/js/plugins/forms/styling/switch.min.js')}}"></script>
 <script src="{{asset('global_assets/js/plugins/forms/styling/switchery.min.js')}}"></script>
 <script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
@@ -44,7 +44,7 @@
 						</div>
 					</div>
 				</div>
-				<?php if ($user->user_role == 2) { ?>
+				<?php if($user->user_role == 2){ ?>
 				<div class="row" style="display: none;">
 			    	<div class="col-md-2 offset-md-3">
 						<span class="input-group-text"><p>Company Name</p></span>
@@ -59,7 +59,7 @@
 			            </select>
 			    	</div>
 			    </div>
-				<?php }elseif ($user->user_role != 2) { ?>
+				<?php }else{ ?>
 				<div class="row">
 			    	<div class="col-md-2 offset-md-3">
 						<span class="input-group-text"><p>Company Name</p></span>
