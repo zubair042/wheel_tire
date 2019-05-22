@@ -1,7 +1,6 @@
-    <?php
+<?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Account;
 use App\User;
@@ -122,7 +121,7 @@ class Accounts extends Controller
      */
     public function destroy($id)
     {
-        $accounts = Account::find($id);
+        $accounts = Account::find($account_id);
         $accounts->delete();
         return redirect('/accounts')->with('warning',"Accounts Deleted Successfully");
     }
