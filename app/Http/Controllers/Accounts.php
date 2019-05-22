@@ -21,10 +21,8 @@ class Accounts extends Controller
     
     public function index()
     {
-        $user_id = Auth::user()->id;
-        $account_detail = DB::table('accounts')
-                            ->where('user_id',$user_id)
-                            ->get();
+        //$user_id = Auth::user()->id;
+        $account_detail = Account::all();
         return view('accounts/index')->with('account_detail',$account_detail);
     }
 

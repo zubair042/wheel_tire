@@ -23,9 +23,9 @@ class Locations extends Controller
     
     public function index()
     {
-        $user_id = Auth::user()->id;
+        $account_id = Auth::user()->account_id;
         $location_detail = DB::table('locations')
-                            ->where('user_id',$user_id)
+                            ->where('account_id',$account_id)
                             ->get();
         return view('location/index')->with('location_detail',$location_detail);
     }
@@ -51,14 +51,12 @@ class Locations extends Controller
     {
         
         $location = new Location;
-        $location->user_id = auth()->user()->id;
-        //dd($location);
+        $location->user_id = Auth::user()->id;
+        $location->account_id = Auth::user()->account_id;
         $location->customer_type = $request->input('customer_type');
         $location->location_name = $request->input('location_name');
         $location->save();
         return redirect('/location')->with('success',"Location added successfully");
-        // $account->user_id = auth()->user()->id;
-        // $account->account_type = $request->input('customer_type');
     }
 
     /**
