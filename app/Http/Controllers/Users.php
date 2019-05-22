@@ -39,7 +39,11 @@ class Users extends Controller
     public function create()
     {
         $customers = Account::all();
-        return view('users/add_user')->with('customers',$customers);
+        $user = DB::table('users')
+                        ->where("account_id",Auth::user()->account_id)
+                        ->where('user_role', 2)
+                        ->first(); 
+        return view('users/add_user')->with('customers',$customers)->with('user',$user);
     }
 
     /**
@@ -52,7 +56,7 @@ class Users extends Controller
     {
         $users = new User;
         $users->parent_id = Auth::user()->id;
-
+        $users->account_id = Auth::user()->account_id;
         $users->company_name = $request->input('company_name');
         $users->user_role = $request->input('user_role');
         $users->first_name = $request->input('first_name');

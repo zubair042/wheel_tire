@@ -44,6 +44,22 @@
 						</div>
 					</div>
 				</div>
+				<?php if ($user->user_role == 2) { ?>
+				<div class="row" style="display: none;">
+			    	<div class="col-md-2 offset-md-3">
+						<span class="input-group-text"><p>Company Name</p></span>
+					</div>
+					<div class="col-md-3">
+						<select class="custom-select" name="company_name">
+							@if(count($customers) > 0)
+								@foreach($customers as $customer)
+								<option value="{{ $customer->company_name}}"><span>{{ $customer->company_name }}</span></option>
+								@endforeach
+							@endif
+			            </select>
+			    	</div>
+			    </div>
+				<?php }elseif ($user->user_role != 2) { ?>
 				<div class="row">
 			    	<div class="col-md-2 offset-md-3">
 						<span class="input-group-text"><p>Company Name</p></span>
@@ -58,6 +74,7 @@
 			            </select>
 			    	</div>
 			    </div>
+				<?php } ?>
 			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
 						<span class="input-group-text"><p>User Roles</p></span>
