@@ -39,12 +39,13 @@ class Users extends Controller
     public function create()
     {
         $customers = Account::all();
-        $user = DB::table('users')
+        $user_roles = DB::table('user_roles')->get();
+        $user_comapany_name = DB::table('users')
                         ->where("account_id",Auth::user()->account_id)
                         ->where('user_role', Auth::user()->user_role)
                         ->where('id',Auth::user()->id)
                         ->first();
-        return view('users/add_user')->with('customers',$customers)->with('user',$user);
+        return view('users/add_user',compact(['customers', 'user_comapany_name',"user_roles"]));
     }
 
     /**
@@ -92,8 +93,8 @@ class Users extends Controller
     {
         $user = User::find($id);
         $customers = Account::all();
-        return view('users/edit_user')->with('user',$user)
-                                    ->with('customers',$customers);
+        $user_roles = DB::table('user_roles')->get();
+        return view('users/edit_user',compact(['user','customers','user_roles']));
     }
 
     /**

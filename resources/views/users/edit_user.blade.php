@@ -59,8 +59,8 @@
 							@if(count($customers) > 0)
 							@foreach($customers as $customer)
 							<option value="{{ $customer->company_name}}" <?php if ($customer->company_name == $user->company_name) {
-																				echo 'selected="selected"';
-																			} ?>><span>{{ $customer->company_name }}</span></option>
+									echo 'selected="selected"';
+								} ?>><span>{{ $customer->company_name }}</span></option>
 							@endforeach
 							@endif
 						</select>
@@ -74,15 +74,13 @@
 					</div>
 					<div class="col-md-3">
 						<select class="custom-select1" name="user_role">
-							<option value="1" <?php if ($user->user_role == 2) {
-													echo 'selected="selected"';
-												} ?>><span>Administrator</span></option>
-							<option value="2" <?php if ($user->user_role == 3) {
-													echo 'selected="selected"';
-												} ?>>Manager</option>
-							<option value="3" <?php if ($user->user_role == 4) {
-													echo 'selected="selected"';
-												} ?>>Technician</option>
+							@if(count($user_roles) > 0)
+							@foreach($user_roles as $role)
+							<option value="{{ $role->id }}" <?php if ($role->id == $user->user_role){
+									echo 'selected="selected"';
+								} ?>><span>{{ $role->description }}</span></option>
+							@endforeach
+							@endif
 						</select>
 					</div>
 				</div>

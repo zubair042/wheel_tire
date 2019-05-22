@@ -44,7 +44,7 @@
 						</div>
 					</div>
 				</div>
-				<?php if($user->user_role == 2){ ?>
+				<?php if(isset($user_comapany_name) && $user_comapany_name->user_role == 2){ ?>
 				<div class="row" style="display: none;">
 			    	<div class="col-md-2 offset-md-3">
 						<span class="input-group-text"><p>Company Name</p></span>
@@ -81,9 +81,11 @@
 					</div>
 					<div class="col-md-3">
 						<select class="custom-select1" name="user_role">
-			                <option value="2"><span>Administrator</span></option>
-			                <option value="3">Manager</option>
-			                <option value="4">Technician</option>
+							@if(count($user_roles) > 0)
+								@foreach($user_roles as $role)
+								<option value="{{ $role->id}}"><span>{{ $role->description }}</span></option>
+								@endforeach
+							@endif
 			            </select>
 			    	</div>
 			    </div>
