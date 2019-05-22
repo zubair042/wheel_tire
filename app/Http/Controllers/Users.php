@@ -28,7 +28,6 @@ class Users extends Controller
         $user_detail = DB::table('users')
                         ->where('account_id',$account_id)
                         ->get();
-                        //dd($user_detail);
         return view('users/index', compact("user_detail")); 
     }
 
