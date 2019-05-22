@@ -53,7 +53,7 @@
 						<select class="custom-select" name="company_name">
 							@if(count($customers) > 0)
 								@foreach($customers as $customer)
-								<option value="{{ $customer->company_name}}"><span>{{ $customer->company_name }}</span></option>
+								<option value="{{ $customer->id}}"><span>{{ $customer->company_name }}</span></option>
 								@endforeach
 							@endif
 			            </select>
@@ -68,7 +68,7 @@
 						<select class="custom-select" name="company_name">
 							@if(count($customers) > 0)
 								@foreach($customers as $customer)
-								<option value="{{ $customer->company_name}}"><span>{{ $customer->company_name }}</span></option>
+								<option value="{{ $customer->id}}"><span>{{ $customer->company_name }}</span></option>
 								@endforeach
 							@endif
 			            </select>
