@@ -49,6 +49,7 @@ class Accounts extends Controller
     {
         $account = new Account;
         $account->user_id = auth()->user()->id;
+        $account->account_id = $request->input('account_id');
         $account->account_type = $request->input('account_type');
         $account->company_name = $request->input('company_name');
         $account->account_address1 = $request->input('address');
