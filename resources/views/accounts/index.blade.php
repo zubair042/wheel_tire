@@ -27,12 +27,12 @@
 				    	@if(count($account_detail) > 0)
 				    		@foreach($account_detail as $detail)
 				    		<tr>
-				        	<td><span>{{ $detail->account_id }}</span></td>
+				        	<td><span>{{ $detail->id }}</span></td>
 				        	<td><span>{{ $detail->company_name }}</span></td>
 				        	<td><span>{{ $detail->account_type}}</span></td>
 				        	<td><span>{{ $detail->account_phone }}</span></td>
 				        	<td>{{ $detail->account_email }}</td>	
-				        	<td style="text-align: right;"><a href="{{url('account/edit/'.$detail->account_id) }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a href="{{ url('/accounts/destroy/'.$detail->account_id) }} "><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
+				        	<td style="text-align: right;"><a href="{{url('account/edit/'.$detail->id) }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a href="{{ url('/accounts/destroy/'.$detail->id) }} "><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
 			      		</tr>	
 				    		@endforeach
 				    	@endif

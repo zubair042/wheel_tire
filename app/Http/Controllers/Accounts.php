@@ -49,7 +49,7 @@ class Accounts extends Controller
     {
         $account = new Account;
         $account->user_id = Auth::user()->id;
-        $account->account_id = $request->input('account_id');
+        $account->id = $request->input('account_id');
         $account->account_type = $request->input('account_type');
         $account->company_name = $request->input('company_name');
         $account->account_address1 = $request->input('address');
@@ -122,7 +122,7 @@ class Accounts extends Controller
      */
     public function destroy($id)
     {
-        $accounts = Account::find($account_id);
+        $accounts = Account::find($id);
         $accounts->delete();
         return redirect('/accounts')->with('warning',"Accounts Deleted Successfully");
     }
