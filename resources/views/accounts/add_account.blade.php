@@ -44,6 +44,14 @@
 						</div>
 					</div>
 				</div>
+				<div class="row">
+			    	<div class="col-md-2 offset-md-3">
+						<span class="input-group-text"><p>Account ID</p></span>
+					</div>
+					<div class="col-md-3">
+						<input type="text" name="account_id" id="" class="form-control" maxlength="8">
+			    	</div>
+			    </div>
 			    <div class="row">
 			    	<div class="col-md-2 offset-md-3">
 						<span class="input-group-text"><p>Account Type</p></span>
