@@ -16,10 +16,10 @@ class Dashboard extends Controller
     }
 
     public function index(){
-    	$user_id = Auth::user()->id;
+    	$account_id = Auth::user()->account_id;
         //$user_id = auth()->user()->id;
         $report_detail = DB::table('reports')
-                            ->where('user_id',$user_id)
+                            ->where('account_id',$account_id)
                             ->get();
     	return view('dashboard/index',compact("report_detail"));
 

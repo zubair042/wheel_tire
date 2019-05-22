@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Account;
 use App\Report;
 use App\Location;
 use Auth;
@@ -23,9 +24,9 @@ class Reports extends Controller
     
     public function index()
     {
-        $user_id = Auth::user()->id;
+        $account_id = Auth::user()->account_id;
         $report_detail = DB::table('reports')
-                            ->where('user_id',$user_id)
+                            ->where('account_id',$account_id)
                             ->get();
         return view('reports/index', compact("report_detail"));
        // return view('reports/index')->with('report_detail',$report_detail);
