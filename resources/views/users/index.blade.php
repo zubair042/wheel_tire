@@ -16,7 +16,7 @@
 				</div>
 				<div class="datatable-scroll">
 					<table class="table" id="main-datatable-users">
-					    <thead style="background-color: #ecedec57">
+					    <thead>
 					      <th>ID</th>
 					      <th>Email</th>
 					      <th>Full Name</th>

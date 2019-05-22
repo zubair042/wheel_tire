@@ -21,7 +21,7 @@
 			</div>
 			<div class="datatable-scroll">
 				<table class="table" id="main-datatable">
-				    <thead style="background-color: #ecedec57">
+				    <thead>
 				      <tr>
 				        <th style="text-align: center;"><i style="margin-right: 8px;"></i>DATE</th>
 				        <th><i style="margin-right: 8px;"></i>UNIT NUMBER</th>
