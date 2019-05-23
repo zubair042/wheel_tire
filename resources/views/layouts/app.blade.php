@@ -76,7 +76,6 @@ foreach($Permissions as $p){
             </ul>
 
             <ul class="navbar-nav ml-md-auto">
-
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" 
                     onclick="event.preventDefault();

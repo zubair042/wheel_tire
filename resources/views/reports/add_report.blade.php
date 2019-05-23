@@ -169,10 +169,10 @@
 			    <div class="row" style="padding: 15px">
 			    	<div class="col-md-12">
 			    		
-				    <div class="row"">
+				    <div class="row">
 				    	<div class="col-md-2 offset-md-5">
 				    		<div class="input-group">
-								<input type="text" name="weight" id="" class="form-control">
+								<input type="text" name="weight"  class="form-control" required="">
 								<span class="input-group-append">
 									<span class="input-group-text" style="font-family:arial black; color: gray; font-size: 20px;">lbs.</span>
 								</span>
@@ -181,12 +181,12 @@
 				    </div>
 				    <div class="row" style="margin-top: 10px;">
 				    	<div class="col-md-2 offset-md-5">
-				    		<input type="text" name="unit_number" id="" class="form-control" placeholder="Unit Number">
+				    		<input type="text" name="unit_number" id="" class="form-control" placeholder="Unit Number" required="">
 				    	</div>
 				    </div>
 				    <div class="row" style="margin-top: 10px;">
 				    	<div class="col-md-2 offset-md-5">
-				    		<input type="text" name="name" id="" class="form-control" placeholder="Your Name">
+				    		<input type="text" name="name" id="" class="form-control" placeholder="Your Name" required="">
 				    	</div>
 				    </div>
 				    <div class="row" style="margin-top: 10px;">

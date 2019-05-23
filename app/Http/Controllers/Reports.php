@@ -24,18 +24,19 @@ class Reports extends Controller
     
     public function index()
     {
-        $account_id = Auth::user()->account_id;
-        $report_detail = DB::table('reports')
-                            ->where('account_id',$account_id)
-                            ->get();
+        if (Auth::user()->user_role != 1) { //Other than Global Admin
+            $account_id = Auth::user()->account_id;
+            $report_detail = DB::table('reports')
+                        ->join('accounts',"reports.account_id","=","accounts.id")
+                        ->where('account_id',$account_id)
+                        ->select('reports.*')
+                        ->get();
+            //dd($report_detail);
+        }
+        else{
+            $report_detail = Report::all();
+        }
         return view('reports/index', compact("report_detail"));
-       // return view('reports/index')->with('report_detail',$report_detail);
-        // $user = User::find(1);
-        // foreach($user->reports as $a):
-        //     echo $a->vehicle_type."<br>";
-        // endforeach;
-        //echo '<pre>'; print_r(); exit;
-        //dd("test");
     }
 
     /**
@@ -45,11 +46,17 @@ class Reports extends Controller
      */
     public function create()
     {
-        $account_id = Auth::user()->account_id;
-        $manager_detail = DB::table('users')
-                    ->where('user_role',3)
-                    ->where('account_id',$account_id)
-                    ->get();
+        if(Auth::user()->user_role != 1){
+            $account_id = Auth::user()->account_id;
+            $manager_detail = DB::table('users')
+                        ->where('user_role',3)
+                        ->where('account_id',$account_id)
+                        ->get();
+        }else{
+            $manager_detail = DB::table('users')
+                            ->where('user_role',3)
+                            ->get();
+        }
         return view('reports/add_report')->with('manager_detail',$manager_detail);
     }
 
@@ -90,8 +97,11 @@ class Reports extends Controller
     public function show($id)
     {
         $report_detail = Report::find($id);
-        $location = Location::find($id);
-        return view('reports/view_report')->with('report_detail',$report_detail)->with('location',$location);
+        //dd($report_detail);
+        //$location = Location::find($id);
+        //dd($location);
+
+        return view('reports/view_report',compact(['report_detail']));
     }
 
     /**

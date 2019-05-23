@@ -32,11 +32,11 @@
 					</div>
 					<div class="col-md-4" style="margin-top: 5px;">
 						<label class="font-weight-black">Work Performed By:</label>
-						<p>{{ $report_detail->technition_name }}</p>
+						<p>{{ $report_detail->name }}</p>
 						<label class="font-weight-black">Unit Number:</label>
 						<p>{{ $report_detail->report_unit_num }}</p>
 						<label class="font-weight-black">Location:</label>
-						<p>{{ $location->location_name }}</p>
+						<p></p>
 						<label class="font-weight-black">Wheel Lug Nuts Torqued To:</label>
 						<p>{{ $report_detail->weight }} Lbs</p>
 						<label class="font-weight-black">Second Signature:</label>

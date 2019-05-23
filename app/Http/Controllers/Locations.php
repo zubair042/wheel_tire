@@ -23,10 +23,18 @@ class Locations extends Controller
     
     public function index()
     {
-        $account_id = Auth::user()->account_id;
-        $location_detail = DB::table('locations')
-                            ->where('account_id',$account_id)
-                            ->get();
+        if (Auth::user()->user_role != 1) { //Other than Global Admin
+            $account_id = Auth::user()->account_id;
+            $location_detail = DB::table('locations')
+                        ->join('accounts',"locations.account_id","=","accounts.id")
+                        ->where('account_id',$account_id)
+                        ->select('locations.*')
+                        ->get();
+                        
+        }
+        else{
+            $location_detail = Location::all();
+        }
         return view('location/index')->with('location_detail',$location_detail);
     }
 
@@ -37,7 +45,13 @@ class Locations extends Controller
      */
     public function create()
     {
-        $customers = Account::all();
+        if (Auth::user()->user_role !=1) {
+            $customers = DB::table('accounts')
+                            ->where('id',Auth::user()->account_id)
+                            ->get();
+        }else{
+            $customers = Account::all();
+        }
         return view('location/add_location')->with('customers',$customers);
     }
 
@@ -78,9 +92,15 @@ class Locations extends Controller
      */
     public function edit($id)
     {
+        if (Auth::user()->user_role !=1) {
+            $customers = DB::table('accounts')
+                            ->where('id',Auth::user()->account_id)
+                            ->get();
+        }else{
+            $customers = Account::all();
+        }
         $location = Location::find($id);
-        $customers = Account::all();
-        return view('location/edit_location')->with('location',$location)->with('customers',$customers);
+        return view('location/edit_location',compact(['location','customers']));
     }
 
     /**

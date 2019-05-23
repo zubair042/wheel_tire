@@ -16,7 +16,7 @@
 <script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
 <script src="{{asset('global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
 
-
+<?php // print_r($user->id); ?>
 <div class="row">
 	<div class="col-md-12">
 		<div class="card" style="padding: 12px;">
@@ -48,24 +48,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-2 offset-md-3">
-						<span class="input-group-text">
-							<p>Company Name</p>
-						</span>
-					</div>
-					<div class="col-md-3">
-						<select class="custom-select" name="account_id">
-							@if(count($customers) > 0)
-							@foreach($customers as $customer)
-							<option value="{{ $customer->id }}" <?php if ($customer->id == $user->account_id) {
-									echo 'selected="selected"';
-								} ?>><span>{{ $customer->account_name }}</span></option>
-							@endforeach
-							@endif
-						</select>
-					</div>
-				</div>
+				
 				<div class="row">
 					<div class="col-md-2 offset-md-3">
 						<span class="input-group-text">

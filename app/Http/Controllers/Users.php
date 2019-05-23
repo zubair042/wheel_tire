@@ -28,12 +28,13 @@ class Users extends Controller
             $account_id = Auth::user()->account_id;
             $user_detail = DB::table('users')
                         ->join('accounts',"users.account_id","=","accounts.id")
+                        ->join('user_roles',"users.user_role","=","user_roles.id")
                         ->where('account_id',$account_id)
+                        ->select('users.*','accounts.account_name','user_roles.description')
                         ->get();
         }
         else{
-            $user_detail = DB::table('users')
-                        ->get();
+            $user_detail = User::all();
         }
         return view('users/index', compact("user_detail")); 
     }
@@ -108,11 +109,22 @@ class Users extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
+        if (Auth::user()->user_role != 1) { // Global Admin
+           $customers = DB::table('accounts')
+                        ->where('id', Auth::user()->account_id)
+                        ->get();
+
+            $user_roles = DB::table('user_roles')
+                        ->where("is_visible",1)
+                        ->get();
+        }
+        else{
+            $customers = Account::all();
+            $user_roles = DB::table('user_roles')->get();
+        }
         $user = User::find($id);
-        $customers = Account::all();
-        $user_roles = DB::table('user_roles')->get();
-        return view('users/edit_user',compact(['user','customers','user_roles']));
+        return view('users/edit_user', compact(['user','customers','user_roles']));
     }
 
     /**
