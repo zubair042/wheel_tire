@@ -30,8 +30,8 @@
 					    	<tr>
 					        	<td><span>{{$detail->id}}</span></td>
 					        	<td><span>{{$detail->email}}</span></td>
-					        	<td><span><?php echo $detail->name;?><?php echo $detail->first_name." ".$detail->last_name;?></span></td>
-					        	<td><?php echo $detail->company_name; ?></td>
+					        	<td><span><?php echo $detail->first_name." ".$detail->last_name;?></span></td>
+					        	<td><?php //echo $detail->company_name; ?></td>
 					        	<td>{{date("Y-M-d", strtotime($detail->created_at))}}</td>
 					        	<td style="text-align: right;"><a href="{{ url('/user/edit/'.$detail->id) }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a href="{{url('/user/destroy/'.$detail->id) }} "><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
 				      		</tr>

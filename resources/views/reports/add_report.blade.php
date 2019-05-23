@@ -191,11 +191,11 @@
 				    </div>
 				    <div class="row" style="margin-top: 10px;">
 				    	<div class="col-md-2 offset-md-5">
-				    		<select name="position_at_company" class="select_select2_select">
+				    		<select name="manager_id" class="select_select2_select">
 				    			<option disabled selected hidden>Select Manager</option>
 				    			@if(count($manager_detail) > 0)
 				    				@foreach($manager_detail as $manager)
-				    					<option value="Manager"><span>{{ $manager->first_name." ".$manager->last_name }}</span></option>
+				    					<option value="{{ $manager->id }}"><span>{{ $manager->first_name." ".$manager->last_name }}</span></option>
 				    				@endforeach
 				    			@endif
 				    	</div>

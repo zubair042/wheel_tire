@@ -50,10 +50,10 @@
 						</span>
 					</div>
 					<div class="col-md-3">
-						<select class="select_select2_select2" name="customer_type">
+						<select class="select_select2_select2" name="account_id">
 							@if(count($customers) > 0)
 							@foreach($customers as $customer)
-							<option value="{{ $customer->company_name}}"><span>{{ $customer->company_name }}</span></option>
+							<option value="{{ $customer->id}}"><span>{{ $customer->account_name }}</span></option>
 							@endforeach
 							@endif
 						</select>

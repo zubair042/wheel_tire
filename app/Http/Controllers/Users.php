@@ -59,7 +59,6 @@ class Users extends Controller
                         ->get();
         }
 
-
         $user_comapany_name = DB::table('users')
                         ->where("account_id",Auth::user()->account_id)
                         ->where('user_role', Auth::user()->user_role)
@@ -77,9 +76,8 @@ class Users extends Controller
     public function store(Request $request)
     {
         $users = new User;
-        $users->parent_id = Auth::user()->id;
-        $users->account_id = $request->input('company_name');
-        $users->company_name = $request->input('company_name');
+        $users->created_by = Auth::user()->id;
+        $users->account_id = $request->input('account_id');
         $users->user_role = $request->input('user_role');
         $users->first_name = $request->input('first_name');
         $users->last_name = $request->input('last_name');
@@ -127,7 +125,7 @@ class Users extends Controller
     public function update(Request $request, $id)
     {
         $users = User::find($id);
-        $users->company_name = $request->input('company_name');
+        $users->account_id = $request->input('account_id');
         $users->user_role = $request->input('user_role');
         $users->first_name = $request->input('first_name');
         $users->last_name = $request->input('last_name');

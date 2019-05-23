@@ -28,7 +28,7 @@
 				    		@foreach($account_detail as $detail)
 				    		<tr>
 				        	<td><span>{{ $detail->id }}</span></td>
-				        	<td><span>{{ $detail->company_name }}</span></td>
+				        	<td><span>{{ $detail->account_name }}</span></td>
 				        	<td><span>{{ $detail->account_type}}</span></td>
 				        	<td><span>{{ $detail->account_phone }}</span></td>
 				        	<td>{{ $detail->account_email }}</td>	

@@ -63,16 +63,16 @@ class Reports extends Controller
     {
         
         $report = new Report;
-        $report->user_id = Auth::user()->id;
+        $report->created_by = Auth::user()->id;
         $report->account_id = Auth::user()->account_id;
         $report->vehicle_type = $request->input('vehicle_type');
-        $report->wheel_option1 = $request->input('small_wheel');
-        $report->wheel_option2 = $request->input('front_wheel');
-        $report->wheel_option3 = $request->input('rear_wheel');
+        $report->steer_wheel_position = $request->input('small_wheel');
+        $report->front_wheel_position = $request->input('front_wheel');
+        $report->rear_wheel_position = $request->input('rear_wheel');
         $report->weight = $request->input('weight');
         $report->report_unit_num = $request->input('unit_number');
-        $report->technition_name = $request->input('name');
-        $report->position_at_company = $request->input('position_at_company');
+        $report->name = $request->input('name');
+        $report->manager_id = $request->input('manager_id');
         $report->comments = $request->input('comments');
 
         //$report->user_id = auth()->user()->id;

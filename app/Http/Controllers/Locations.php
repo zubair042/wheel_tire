@@ -51,9 +51,9 @@ class Locations extends Controller
     {
         
         $location = new Location;
-        $location->user_id = Auth::user()->id;
-        $location->account_id = Auth::user()->account_id;
-        $location->customer_type = $request->input('customer_type');
+        $location->created_by = Auth::user()->id;
+        $location->account_id = $request->input('account_id');
+        //$location->customer_type = $request->input('customer_type');
         $location->location_name = $request->input('location_name');
         $location->save();
         return redirect('/location')->with('success',"Location added successfully");
@@ -93,7 +93,7 @@ class Locations extends Controller
     public function update(Request $request, $id)
     {
         $location = Location::find($id);
-        $location->user_id = auth()->user()->id;
+        $location->created_by = auth()->user()->id;
         $location->customer_type = $request->input('customer_type');
         $location->location_name = $request->input('location_name');
         //dd($location);

@@ -55,12 +55,12 @@
 						</span>
 					</div>
 					<div class="col-md-3">
-						<select class="custom-select" name="company_name">
+						<select class="custom-select" name="account_id">
 							@if(count($customers) > 0)
 							@foreach($customers as $customer)
-							<option value="{{ $customer->company_name}}" <?php if ($customer->company_name == $user->company_name) {
+							<option value="{{ $customer->id }}" <?php if ($customer->id == $user->account_id) {
 									echo 'selected="selected"';
-								} ?>><span>{{ $customer->company_name }}</span></option>
+								} ?>><span>{{ $customer->account_name }}</span></option>
 							@endforeach
 							@endif
 						</select>

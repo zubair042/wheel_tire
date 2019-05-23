@@ -70,7 +70,7 @@
 						<span class="input-group-text"><p>Company Name</p></span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="company_name" value="{{ $account->company_name }}" class="form-control">
+						<input type="text" name="account_name" value="{{ $account->account_name }}" class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
