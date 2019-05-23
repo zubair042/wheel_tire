@@ -122,6 +122,6 @@ class Accounts extends Controller
     {
         $accounts = Account::find($id);
         $accounts->delete();
-        return redirect('/accounts')->with('warning',"Accounts Deleted Successfully");
+        return redirect('/accounts')->with('danger',"Accounts Deleted Successfully");
     }
 }

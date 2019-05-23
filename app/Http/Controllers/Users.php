@@ -34,7 +34,12 @@ class Users extends Controller
                         ->get();
         }
         else{
-            $user_detail = User::all();
+            //$user_detail = User::all();
+            $user_detail = DB::table('users')
+                        ->join('accounts',"users.account_id","=","accounts.id")
+                        ->join('user_roles',"users.user_role","=","user_roles.id")
+                        ->select('users.*','accounts.account_name','user_roles.description')
+                        ->get();
         }
         return view('users/index', compact("user_detail")); 
     }
@@ -157,6 +162,6 @@ class Users extends Controller
     {
         $users = User::find($id);
         $users->delete();
-        return redirect('/users')->with('warning',"Users Deleted Successfully");
+        return redirect('/users')->with('danger',"Users Deleted Successfully");
     }
 }

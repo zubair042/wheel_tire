@@ -26,7 +26,7 @@
 				        <th style="text-align: center;"><i style="margin-right: 8px;"></i>DATE</th>
 				        <th><i style="margin-right: 8px;"></i>UNIT NUMBER</th>
 				        <th><i style="margin-right: 8px;"></i>LOCATION</th>
-				        <th><i style="margin-right: 8px;"></i>TECHNITIAN</th>
+				        <th><i style="margin-right: 8px;"></i>TECHNICIAN</th>
 				        <th><i style="margin-right: 8px;"></i>TORQUE AMOUNT</th>
 				        <th><i style="margin-right: 8px;"></i>2ND SIGNATURE</th>
 				        <th class="text-center">COMMENT</th>

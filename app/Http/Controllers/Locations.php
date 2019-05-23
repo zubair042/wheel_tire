@@ -130,6 +130,6 @@ class Locations extends Controller
     {
         $location = Location::find($id);
         $location->delete();
-        return redirect('/location')->with('warning',"Location Deleted Successfully");
+        return redirect('/location')->with('danger',"Location Deleted Successfully");
     }
 }
