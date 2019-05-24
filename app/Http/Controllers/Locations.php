@@ -126,10 +126,10 @@ class Locations extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        $location = Location::find($id);
+    public function destroy()
+    {   //print_r($_POST['id']);exit;
+        $location = Location::find($_POST['id']);
         $location->delete();
-        return redirect('/location')->with('danger',"Location Deleted Successfully");
+        //return redirect('/location')->with('danger',"Location Deleted Successfully");
     }
 }

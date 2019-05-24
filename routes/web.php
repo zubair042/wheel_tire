@@ -33,7 +33,7 @@ Route::get('/accounts/destroy/{id}','Accounts@destroy');
 
 Route::get('/location/edit/{id}','Locations@edit');
 Route::post('/location/edit/{id}','Locations@update');
-Route::get('/location/destroy/{id}','Locations@destroy');
+Route::post('/location/destroy','Locations@destroy')->name('destroy-location');
 
 
 Route::get('/user/add','Users@create');
