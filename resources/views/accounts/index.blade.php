@@ -32,7 +32,7 @@
 				        	<td><span>{{ $detail->account_type}}</span></td>
 				        	<td><span>{{ $detail->account_phone }}</span></td>
 				        	<td>{{ $detail->account_email }}</td>	
-				        	<td style="text-align: right;"><a href="{{url('account/edit/'.$detail->id) }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a href="{{ url('/accounts/destroy/'.$detail->id) }} "><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
+				        	<td style="text-align: right;"><a href="{{url('account/edit/'.$detail->id) }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a href="{{ url('/accounts/destroy/'.$detail->id) }} "><i style="color: red;" class="icon-bin mr-3 icon-1x" onclick="checkDelete();"></i></a></td>
 			      		</tr>	
 				    		@endforeach
 				    	@endif
@@ -63,6 +63,10 @@
 		paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
 	}
 });
+
+function checkDelete(){
+	alert('Are you sure you want to delete?');
+}
 
 </script>
 

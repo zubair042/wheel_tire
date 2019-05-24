@@ -127,6 +127,6 @@ class Users extends Controller
     {
         $users = User::find($id);
         $users->delete();
-        return redirect('/users')->with('warning',"Users Deleted Successfully");
+        return redirect('/users')->with('danger',"Users Deleted Successfully");
     }
 }
