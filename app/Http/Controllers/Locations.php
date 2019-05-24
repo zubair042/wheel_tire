@@ -132,4 +132,12 @@ class Locations extends Controller
         $location->delete();
         //return redirect('/location')->with('danger',"Location Deleted Successfully");
     }
+    public function getLocationById(){
+        $location = DB::table('locations')
+                ->join('users','locations.id','=','users.location_id')
+                ->where('users.id', $_POST['id'])
+                ->first();
+                //dd($location);
+        return $location;
+    }
 }

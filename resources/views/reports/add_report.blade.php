@@ -1,4 +1,4 @@
-	@extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
 <script src="{{asset('global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
@@ -191,7 +191,7 @@
 				    </div>
 				    <div class="row" style="margin-top: 10px;">
 				    	<div class="col-md-2 offset-md-5">
-				    		<select name="manager_id" class="select_select2_select">
+				    		<select name="manager_id" id="manager_id" class="select_select2_select" onchange="getLocationById()">
 				    			<option disabled selected hidden>Select Manager</option>
 				    			@if(count($manager_detail) > 0)
 				    				@foreach($manager_detail as $manager)
@@ -203,9 +203,9 @@
 				    </div>
 				    <div class="row" style="margin-top: 10px;">
 				    	<div class="col-md-2 offset-md-5">
-				    		<select name="locatin_id" class="select_select2_select">
+				    		<select name="location_id" class="select_select2_select">
 				    			<option disabled selected hidden>Select Location</option>
-				    			<option value=""><span>new Location</span></option>
+				    			<option value=""><span></span></option>
 				    		</select>
 				    	</div>
 				    </div>
@@ -246,6 +246,19 @@
     $('.select_select2_select').select2({
 	    minimumResultsForSearch: Infinity
 	});
+
+	function getLocationById(){
+		var id = $('#manager_id').val();
+		$.ajax({
+			type: "post",
+			url: "{{ route('manager-location') }}",
+			data: {id: id, "_token": "{{ csrf_token() }}"},
+			success:function(data){
+				console.log(data);
+				return false;
+			}
+		})
+	}
 </script>
 
 @endsection 

@@ -46,8 +46,8 @@ class Reports extends Controller
      */
     public function create()
     {
+        $account_id = Auth::user()->account_id;
         if(Auth::user()->user_role != 1){
-            $account_id = Auth::user()->account_id;
             $manager_detail = DB::table('users')
                         ->where('user_role',3)
                         ->where('account_id',$account_id)
@@ -57,9 +57,21 @@ class Reports extends Controller
                             ->where('user_role',3)
                             ->get();
         }
+        
+        /*
+        else if(Auth::user()->user_role == 2){ // Administrator
+            $location = DB::table('locations')
+                        ->where('account_id', Auth::user()->account_id)
+                        ->get();
+        }
+        else if(Auth::user()->user_role == 1){ // Global Administrator
+            $location = DB::table('locations')
+                        ->get();
+        }*/
         return view('reports/add_report')->with('manager_detail',$manager_detail);
-    }
 
+    }
+    
     /**
      * Store a newly created resource in storage.
      *
