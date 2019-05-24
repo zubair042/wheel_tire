@@ -71,7 +71,7 @@ class Reports extends Controller
         return view('reports/add_report')->with('manager_detail',$manager_detail);
 
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -84,6 +84,7 @@ class Reports extends Controller
         $report = new Report;
         $report->created_by = Auth::user()->id;
         $report->account_id = Auth::user()->account_id;
+        $report->location_id =  $request->input('location_id');
         $report->vehicle_type = $request->input('vehicle_type');
         $report->steer_wheel_position = $request->input('small_wheel');
         $report->front_wheel_position = $request->input('front_wheel');
