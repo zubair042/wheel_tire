@@ -6,13 +6,14 @@ foreach ($Permissions as $p) {
 }
 ?>
 <?php
- $user_role = DB::table('user_roles')
-            ->where('id', Auth::user()->user_role)
-            ->first();
-            //dd($user_role);
+$user_role = DB::table('user_roles')
+    ->where('id', Auth::user()->user_role)
+    ->first();
+//dd($user_role);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
     <meta charset="utf-8">
@@ -83,26 +84,29 @@ foreach ($Permissions as $p) {
                     </a>
                 </li>
             </ul>
-            
+
             <ul class="navbar-nav ml-md-auto">
                 <li class="nav-item">
-                    <p style="padding-top: 15px;"> You are logged in with "{{ $user_role->description }}"</p>
+                    <span class="navbar-text ml-md-3">
+                        <span class="badge badge-mark border-orange-300 mr-2"></span>
+                        You are login with "{{ $user_role->description }}"
+                    </span>
                 </li>
-                <li class="nav-item dropdown dropdown-user">
-					<a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown">
-						<span>{{ Auth::user()->first_name. " ".Auth::user()->last_name }}</span>
-					</a>
-
-					<div class="dropdown-menu dropdown-menu-right">
-						<a href="#" class="dropdown-item"><i class="icon-user-plus"></i> My profile</a>
-						<div class="dropdown-divider"></div>
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
-					</div>
-				</li>
+                <li class="nav-item">
+                    <span class="navbar-text ml-md-3">
+                    {{ Auth::user()->first_name. " ".Auth::user()->last_name }}
+                    </span>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); 
+                    document.getElementById('logout-form').submit();" class="navbar-nav-link">
+                        <i class="icon-switch2"></i>
+                        <span class="d-md-none ml-2">Logout</span>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                </li>
             </ul>
         </div>
     </div>
