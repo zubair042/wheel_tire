@@ -89,12 +89,7 @@ $user_role = DB::table('user_roles')
                 <li class="nav-item">
                     <span class="navbar-text ml-md-3">
                         <span class="badge badge-mark border-orange-300 mr-2"></span>
-                        You are login with "{{ $user_role->description }}"
-                    </span>
-                </li>
-                <li class="nav-item">
-                    <span class="navbar-text ml-md-3">
-                    {{ Auth::user()->first_name. " ".Auth::user()->last_name }}
+                        {{ Auth::user()->first_name. " ".Auth::user()->last_name }} is login with "{{ $user_role->description }}"
                     </span>
                 </li>
                 <li class="nav-item">
@@ -111,8 +106,7 @@ $user_role = DB::table('user_roles')
         </div>
     </div>
     <!-- /main navbar -->
-
-
+    
     <!-- Page content -->
     <div class="page-content">
 
