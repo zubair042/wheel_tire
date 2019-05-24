@@ -2,7 +2,7 @@
 
 @section('content')
 
-<script src="{{asset('global_assets/js/plugins/media/fancybox.min.js') }}"></script> 
+<script src="{{asset('global_assets/js/plugins/media/fancybox.min.js') }}"></script>
 
 <div class="row">
 	<div class="col-md-12">
@@ -26,7 +26,7 @@
 							<div class="card-body">
 								<apan class="text-primary font-weight-semibold">John Smith : </apan><span>Torque wrench was missing</span>
 								<br>
-								<span class="text-success font-weight-semibold">Bob Jones : </span><span>John say the torque wrench was not in the shop</span> 
+								<span class="text-success font-weight-semibold">Bob Jones : </span><span>John say the torque wrench was not in the shop</span>
 							</div>
 						</div>
 					</div>
@@ -43,7 +43,8 @@
 						<p></p>
 						<p>{{ $report_detail->comments }}</p>
 						<button type="button" class="btn btn-primary rounded-round legitRipple">Apply Signature</button>
-						<button type="button" class="btn btn-danger rounded-round legitRipple">Add Comment</button>
+						<button type="button" class="btn btn-danger rounded-round legitRipple" data-toggle="modal" 
+						data-target="#modal_default" >Add Comment</button>
 					</div>
 				</div>
 				<div class="card" style="margin-top: 8px;background: #63af81">
@@ -58,7 +59,7 @@
 											<i class="icon-plus3"></i>
 										</a>
 									</div>
-								</div>	
+								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="card-img-actions m-1">
@@ -68,7 +69,7 @@
 											<i class="icon-plus3"></i>
 										</a>
 									</div>
-								</div>	
+								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="card-img-actions m-1">
@@ -78,7 +79,7 @@
 											<i class="icon-plus3"></i>
 										</a>
 									</div>
-								</div>	
+								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="card-img-actions m-1">
@@ -88,7 +89,7 @@
 											<i class="icon-plus3"></i>
 										</a>
 									</div>
-								</div>	
+								</div>
 							</div>
 						</div>
 						<h4 class="font-weight-semibold" style="text-align: center;color: #f9f9f9;margin-top: 12px;"> RIGHT REAR WHEEL POSITION</h4>
@@ -101,7 +102,7 @@
 											<i class="icon-plus3"></i>
 										</a>
 									</div>
-								</div>	
+								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="card-img-actions m-1">
@@ -111,7 +112,7 @@
 											<i class="icon-plus3"></i>
 										</a>
 									</div>
-								</div>	
+								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="card-img-actions m-1">
@@ -121,7 +122,7 @@
 											<i class="icon-plus3"></i>
 										</a>
 									</div>
-								</div>	
+								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="card-img-actions m-1">
@@ -131,7 +132,7 @@
 											<i class="icon-plus3"></i>
 										</a>
 									</div>
-								</div>	
+								</div>
 							</div>
 						</div>
 					</div>
@@ -141,10 +142,37 @@
 	</div>
 </div>
 
+<div id="modal_default" class="modal fade" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Basic modal</h5>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+
+			<div class="modal-body">
+				<h6 class="font-weight-semibold">Text in a modal</h6>
+				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+				<hr>
+
+				<h6 class="font-weight-semibold">Another paragraph</h6>
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+				<button type="button" class="btn bg-primary">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 <script type="text/javascript">
 	$('[data-popup="lightbox1"]').fancybox({
-            padding: 3
-        });
+		padding: 3
+	});
 </script>
 
-@endsection 
+@endsection
