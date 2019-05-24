@@ -26,7 +26,7 @@
 							    	<tr>
 							        	<td><span>{{ $detail->id }}</span></td>
 							        	<td><span>{{ $detail->location_name }}</span></td>
-							        	<td style="text-align: right;"><a href="{{ url('/location/edit/'.$detail->id) }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a href="{{ url('/location/destroy/'.$detail->id) }} "><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
+							        	<td style="text-align: right;"><a href="{{ url('/location/edit/'.$detail->id) }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a onclick="//del_location(<?php //echo $detail->id ?>)" href="{{ url('/location/destroy/'.$detail->id) }}"><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
 						      		</tr>
 				      			@endforeach
 				    		@endif
@@ -41,7 +41,7 @@
 <script src="{{asset('global_assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 <script type="text/javascript">
 
-	$("#main-datatable-users").DataTable({
+$("#main-datatable-users").DataTable({
 	autoWidth: false,
 	columnDefs: [{ 
 		orderable: false,
@@ -57,6 +57,21 @@
 	}
 });
 
+
+// function del_location(id){ 
+// 	if (confirm('Are you sure you want to delete')) {
+// 		$.ajax({
+// 			type: "post",
+// 			url: "",
+// 			data: {'id': id, "_token": "{{ csrf_token() }}"},
+// 			success:function(data){
+
+// 			}
+// 		})
+// 	}else{
+// 		alert('Delete Cancel');
+// 	}
+// }
 </script>
 
 

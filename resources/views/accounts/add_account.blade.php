@@ -49,7 +49,7 @@
 						<span class="input-group-text"><p>Account ID</p></span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="account_id" id="" class="form-control" maxlength="8">
+						<input type="text" name="account_id" class="form-control" maxlength="8">
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -82,7 +82,7 @@
 						<span class="input-group-text"><p>Company Name</p></span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="company_name" id="" class="form-control">
+						<input type="text" name="account_name" class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -90,7 +90,7 @@
 						<span class="input-group-text"><p>Address</p></span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="address" id="" class="form-control">
+						<input type="text" name="address" class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -98,7 +98,7 @@
 						<span class="input-group-text"]><p>Address 2</p></span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="address2" id="" class="form-control">
+						<input type="text" name="address2" class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -130,7 +130,7 @@
 						<span class="input-group-text"><p>Phone</p></span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="phone" id="" class="form-control">
+						<input type="text" name="phone" class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -138,7 +138,7 @@
 						<span class="input-group-text"><p>Fax</p></span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="fax" id="" class="form-control">
+						<input type="text" name="fax" class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -146,7 +146,7 @@
 						<span class="input-group-text"><p>Email</p></span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="email" id="" class="form-control">
+						<input type="text" name="email" class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -154,7 +154,7 @@
 						<span class="input-group-text"><p>Notes</p></span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="note" id="" class="form-control">
+						<input type="text" name="note" class="form-control">
 			    	</div>
 			    </div>
 			    <!-- <div class="row">
@@ -163,7 +163,7 @@
 			    			<span class="input-group-append" style="margin-left: 0px;">
 								<span class="input-group-text" style="">Company Name</span>	
 							</span>
-							<input type="text" name="lbs_weight" id="" class="form-control">
+							<input type="text" name="lbs_weight" class="form-control">
 						</div>
 			    	</div>
 			    </div> -->

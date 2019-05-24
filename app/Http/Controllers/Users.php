@@ -24,10 +24,23 @@ class Users extends Controller
     
     public function index()
     {
-        $account_id = Auth::user()->account_id;
-        $user_detail = DB::table('users')
+        if (Auth::user()->user_role != 1) { //Other than Global Admin
+            $account_id = Auth::user()->account_id;
+            $user_detail = DB::table('users')
+                        ->join('accounts',"users.account_id","=","accounts.id")
+                        ->join('user_roles',"users.user_role","=","user_roles.id")
                         ->where('account_id',$account_id)
+                        ->select('users.*','accounts.account_name','user_roles.description')
                         ->get();
+        }
+        else{
+            //$user_detail = User::all();
+            $user_detail = DB::table('users')
+                        ->join('accounts',"users.account_id","=","accounts.id")
+                        ->join('user_roles',"users.user_role","=","user_roles.id")
+                        ->select('users.*','accounts.account_name','user_roles.description')
+                        ->get();
+        }
         return view('users/index', compact("user_detail")); 
     }
 
@@ -38,8 +51,20 @@ class Users extends Controller
      */
     public function create()
     {
-        $customers = Account::all();
-        $user_roles = DB::table('user_roles')->get();
+        if (Auth::user()->user_role == 1) { // Global Admin
+            $customers = Account::all();
+            $user_roles = DB::table('user_roles')->get();
+        }
+        else{
+            $customers = DB::table('accounts')
+                        ->where('id',Auth::user()->account_id)
+                        ->get();
+
+            $user_roles = DB::table('user_roles')
+                        ->where("is_visible",1)
+                        ->get();
+        }
+
         $user_comapany_name = DB::table('users')
                         ->where("account_id",Auth::user()->account_id)
                         ->where('user_role', Auth::user()->user_role)
@@ -57,9 +82,8 @@ class Users extends Controller
     public function store(Request $request)
     {
         $users = new User;
-        $users->parent_id = Auth::user()->id;
-        $users->account_id = Auth::user()->account_id;
-        $users->company_name = $request->input('company_name');
+        $users->created_by = Auth::user()->id;
+        $users->account_id = $request->input('account_id');
         $users->user_role = $request->input('user_role');
         $users->first_name = $request->input('first_name');
         $users->last_name = $request->input('last_name');
@@ -90,11 +114,22 @@ class Users extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
+        if (Auth::user()->user_role != 1) { // Global Admin
+           $customers = DB::table('accounts')
+                        ->where('id', Auth::user()->account_id)
+                        ->get();
+
+            $user_roles = DB::table('user_roles')
+                        ->where("is_visible",1)
+                        ->get();
+        }
+        else{
+            $customers = Account::all();
+            $user_roles = DB::table('user_roles')->get();
+        }
         $user = User::find($id);
-        $customers = Account::all();
-        $user_roles = DB::table('user_roles')->get();
-        return view('users/edit_user',compact(['user','customers','user_roles']));
+        return view('users/edit_user', compact(['user','customers','user_roles']));
     }
 
     /**
@@ -107,7 +142,7 @@ class Users extends Controller
     public function update(Request $request, $id)
     {
         $users = User::find($id);
-        $users->company_name = $request->input('company_name');
+        $users->account_id = $request->input('account_id');
         $users->user_role = $request->input('user_role');
         $users->first_name = $request->input('first_name');
         $users->last_name = $request->input('last_name');

@@ -26,7 +26,7 @@
 				        <th style="text-align: center;"><i style="margin-right: 8px;"></i>DATE</th>
 				        <th><i style="margin-right: 8px;"></i>UNIT NUMBER</th>
 				        <th><i style="margin-right: 8px;"></i>LOCATION</th>
-				        <th><i style="margin-right: 8px;"></i>TECHNITIAN</th>
+				        <th><i style="margin-right: 8px;"></i>TECHNICIAN</th>
 				        <th><i style="margin-right: 8px;"></i>TORQUE AMOUNT</th>
 				        <th><i style="margin-right: 8px;"></i>2ND SIGNATURE</th>
 				        <th class="text-center">COMMENT</th>
@@ -39,7 +39,7 @@
 						        <td width="200px" style="text-align: center;"><a href="{{ url('reports/view_report/'.$detail->id)}}" class="btn btn-success btn-sm legitRipple" style="margin-right: 10px; background-color: #4ec88a">View</a><?php echo date("Y M d",strtotime($detail->created_at)); ?></td>
 						        <td style="text-align: center;">{{ $detail->report_unit_num}}</td>
 						        <td>{{ $detail->report_location }}</td>
-						        <td style="text-align: center;">{{ $detail->technition_name }}</td>
+						        <td style="text-align: center;">{{ $detail->name }}</td>
 						        <td style="text-align: center;">{{ $detail->weight }}</td>
 						        <td></i></td>
 						        <td class="text-center">

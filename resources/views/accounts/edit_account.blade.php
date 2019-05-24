@@ -8,6 +8,11 @@
 		font-size: 24px;
 		color: #2679b5;
 	}
+	.a1{
+		float: right;
+		color: #2679b5;
+		font-size: 15px;
+	}
 </style>
 
 <script src="{{asset('global_assets/js/plugins/forms/styling/switch.min.js')}}"></script>
@@ -20,8 +25,15 @@
 		<div class="card" style="padding: 12px;">
 			<div class="row">
 				<div class="col-md-12">
-					<h1>Accounts<small> <i class="icon-arrow-right5"></i>Edit Accounts</small></h1>
+					<h1>Accounts<small> <i class="icon-arrow-right5"></i>Edit Accounts</small>
+						<span class="font-weight-semibold a1" >Account ID: {{ $account->id }}</span>
+					</h1>
+					
+					
 				</div>
+				<!-- <div class="col-md-2">
+					<span>Account ID: {{ $account->id }}</span>
+				</div> -->
 			</div>
 			<div class="row">
 				<div class="col-md-12">
@@ -70,7 +82,7 @@
 						<span class="input-group-text"><p>Company Name</p></span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="company_name" value="{{ $account->company_name }}" class="form-control">
+						<input type="text" name="account_name" value="{{ $account->account_name }}" class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">

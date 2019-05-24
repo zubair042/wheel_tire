@@ -21,10 +21,8 @@ class Accounts extends Controller
     
     public function index()
     {
-        $user_id = Auth::user()->id;
-        $account_detail = DB::table('accounts')
-                            ->where('user_id',$user_id)
-                            ->get();
+        //$user_id = Auth::user()->id;
+        $account_detail = Account::all();
         return view('accounts/index')->with('account_detail',$account_detail);
     }
 
@@ -48,10 +46,10 @@ class Accounts extends Controller
     public function store(Request $request)
     {
         $account = new Account;
-        $account->user_id = Auth::user()->id;
+        $account->created_by = Auth::user()->id;
         $account->id = $request->input('account_id');
         $account->account_type = $request->input('account_type');
-        $account->company_name = $request->input('company_name');
+        $account->account_name = $request->input('account_name');
         $account->account_address1 = $request->input('address');
         $account->account_address2 = $request->input('address2');
         $account->account_city = $request->input('city');
@@ -98,9 +96,9 @@ class Accounts extends Controller
     public function update(Request $request, $id)
     {
         $account =Account::find($id);
-        $account->user_id = Auth::user()->id;
+        $account->created_by = Auth::user()->id;
         $account->account_type = $request->input('account_type');
-        $account->company_name = $request->input('company_name');
+        $account->account_name = $request->input('account_name');
         $account->account_address1 = $request->input('address');
         $account->account_address2 = $request->input('address2');
         $account->account_city = $request->input('city');

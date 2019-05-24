@@ -23,10 +23,18 @@ class Locations extends Controller
     
     public function index()
     {
-        $user_id = Auth::user()->id;
-        $location_detail = DB::table('locations')
-                            ->where('user_id',$user_id)
-                            ->get();
+        if (Auth::user()->user_role != 1) { //Other than Global Admin
+            $account_id = Auth::user()->account_id;
+            $location_detail = DB::table('locations')
+                        ->join('accounts',"locations.account_id","=","accounts.id")
+                        ->where('account_id',$account_id)
+                        ->select('locations.*')
+                        ->get();
+                        
+        }
+        else{
+            $location_detail = Location::all();
+        }
         return view('location/index')->with('location_detail',$location_detail);
     }
 
@@ -37,7 +45,13 @@ class Locations extends Controller
      */
     public function create()
     {
-        $customers = Account::all();
+        if (Auth::user()->user_role !=1) {
+            $customers = DB::table('accounts')
+                            ->where('id',Auth::user()->account_id)
+                            ->get();
+        }else{
+            $customers = Account::all();
+        }
         return view('location/add_location')->with('customers',$customers);
     }
 
@@ -51,14 +65,12 @@ class Locations extends Controller
     {
         
         $location = new Location;
-        $location->user_id = auth()->user()->id;
-        //dd($location);
-        $location->customer_type = $request->input('customer_type');
+        $location->created_by = Auth::user()->id;
+        $location->account_id = $request->input('account_id');
+        //$location->customer_type = $request->input('customer_type');
         $location->location_name = $request->input('location_name');
         $location->save();
         return redirect('/location')->with('success',"Location added successfully");
-        // $account->user_id = auth()->user()->id;
-        // $account->account_type = $request->input('customer_type');
     }
 
     /**
@@ -80,9 +92,15 @@ class Locations extends Controller
      */
     public function edit($id)
     {
+        if (Auth::user()->user_role !=1) {
+            $customers = DB::table('accounts')
+                            ->where('id',Auth::user()->account_id)
+                            ->get();
+        }else{
+            $customers = Account::all();
+        }
         $location = Location::find($id);
-        $customers = Account::all();
-        return view('location/edit_location')->with('location',$location)->with('customers',$customers);
+        return view('location/edit_location',compact(['location','customers']));
     }
 
     /**
@@ -95,7 +113,7 @@ class Locations extends Controller
     public function update(Request $request, $id)
     {
         $location = Location::find($id);
-        $location->user_id = auth()->user()->id;
+        $location->created_by = auth()->user()->id;
         $location->customer_type = $request->input('customer_type');
         $location->location_name = $request->input('location_name');
         //dd($location);
@@ -112,6 +130,6 @@ class Locations extends Controller
     {
         $location = Location::find($id);
         $location->delete();
-        return redirect('/location')->with('warning',"Location Deleted Successfully");
+        return redirect('/location')->with('danger',"Location Deleted Successfully");
     }
 }

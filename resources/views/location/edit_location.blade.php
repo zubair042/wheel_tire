@@ -15,7 +15,6 @@
 <script src="{{asset('global_assets/js/plugins/forms/styling/switch.min.js')}}"></script>
 <script src="{{asset('global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
 
-<div class="content">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card" style="padding: 12px;">
@@ -51,7 +50,7 @@
 							<select class="select_select2_select2" name="customer_type" value="choose.." >
 								@if(count($customers) > 0)
 									@foreach($customers as $customer)
-									<option value="{{ $customer->company_name}}" <?php if($customer->company_name==$location->customer_type){echo 'selected="selected"';} ?>><span>{{ $customer->company_name }}</span></option>
+									<option value="{{ $customer->id}}" <?php if($customer->id==$location->customer_type){echo 'selected="selected"';} ?>><span>{{ $customer->account_name }}</span></option>
 									@endforeach
 								@endif
 				            </select>
@@ -75,7 +74,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+
 
 <script type="text/javascript">
 	

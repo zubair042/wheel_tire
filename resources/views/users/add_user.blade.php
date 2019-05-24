@@ -50,10 +50,10 @@
 						<span class="input-group-text"><p>Company Name</p></span>
 					</div>
 					<div class="col-md-3">
-						<select class="custom-select" name="company_name">
+						<select class="custom-select" name="account_id">
 							@if(count($customers) > 0)
 								@foreach($customers as $customer)
-								<option value="{{ $customer->company_name}}"><span>{{ $customer->company_name }}</span></option>
+								<option value="{{ $customer->id }}"><span>{{ $customer->account_name }}</span></option>
 								@endforeach
 							@endif
 			            </select>
@@ -65,10 +65,10 @@
 						<span class="input-group-text"><p>Company Name</p></span>
 					</div>
 					<div class="col-md-3">
-						<select class="custom-select" name="company_name">
+						<select class="custom-select" name="account_id">
 							@if(count($customers) > 0)
 								@foreach($customers as $customer)
-								<option value="{{ $customer->company_name}}"><span>{{ $customer->company_name }}</span></option>
+								<option value="{{ $customer->id }}"><span>{{ $customer->account_name }}</span></option>
 								@endforeach
 							@endif
 			            </select>
