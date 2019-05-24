@@ -198,6 +198,15 @@
 				    					<option value="{{ $manager->id }}"><span>{{ $manager->first_name." ".$manager->last_name }}</span></option>
 				    				@endforeach
 				    			@endif
+				    		</select>
+				    	</div>
+				    </div>
+				    <div class="row" style="margin-top: 10px;">
+				    	<div class="col-md-2 offset-md-5">
+				    		<select name="locatin_id" class="select_select2_select">
+				    			<option disabled selected hidden>Select Location</option>
+				    			<option value=""><span>new Location</span></option>
+				    		</select>
 				    	</div>
 				    </div>
 				    <div class="row" style="margin-top: 10px;">

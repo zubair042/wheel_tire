@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Account;
+use App\Location;
 use Auth;
 use DB;
 
@@ -51,26 +52,30 @@ class Users extends Controller
      */
     public function create()
     {
+        $account_id = Auth::user()->account_id;
+        //dd($account_id);
         if (Auth::user()->user_role == 1) { // Global Admin
             $customers = Account::all();
             $user_roles = DB::table('user_roles')->get();
         }
         else{
             $customers = DB::table('accounts')
-                        ->where('id',Auth::user()->account_id)
+                        ->where('id', $account_id)
                         ->get();
 
             $user_roles = DB::table('user_roles')
                         ->where("is_visible",1)
                         ->get();
         }
-
+        $locations = DB::table('locations')
+                        ->where('account_id', $account_id)
+                        ->get();
         $user_comapany_name = DB::table('users')
-                        ->where("account_id",Auth::user()->account_id)
+                        ->where("account_id", $account_id)
                         ->where('user_role', Auth::user()->user_role)
                         ->where('id',Auth::user()->id)
                         ->first();
-        return view('users/add_user',compact(['customers', 'user_comapany_name',"user_roles"]));
+        return view('users/add_user',compact(['customers', 'user_comapany_name',"user_roles","locations"]));
     }
 
     /**
