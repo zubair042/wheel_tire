@@ -80,7 +80,7 @@
 						<span class="input-group-text"><p>User Roles</p></span>
 					</div>
 					<div class="col-md-3">
-						<select class="custom-select1" name="user_role">
+						<select class="custom-select1" id="set_location" onchange="setLocation()" name="user_role">
 							@if(count($user_roles) > 0)
 								@foreach($user_roles as $role)
 								<option value="{{ $role->id}}"><span>{{ $role->description }}</span></option>
@@ -103,6 +103,24 @@
 					</div>
 					<div class="col-md-3">
 						<input type="text" name="last_name"  class="form-control">
+			    	</div>
+			    </div>
+			    <div id="manager_location" style="display: none;">
+			    	<div class="row">
+				    	<div class="col-md-2 offset-md-3">
+							<span class="input-group-text"><p>Location</p></span>
+						</div>
+						<div class="col-md-3">
+							<select class="custom-select2" name="location_id">
+								<option disabled selected hidden>Select Location</option>
+								@if(count($locations) > 0)
+									@foreach($locations as $location)
+									<option value="{{ $location->id }}"><span>{{ $location->location_name }}</span></option>	
+									@endforeach
+								@endif
+								
+				            </select>
+				    	</div>
 			    	</div>
 			    </div>
 			    <div class="row">
@@ -142,10 +160,21 @@
 	$('.custom-select1').select2({
 	    minimumResultsForSearch: Infinity
 	});
+	$('.custom-select2').select2({
+	    minimumResultsForSearch: Infinity
+	});
+
 
 	function resetForm(){
-		//alert();
 		document.getElementById("add_user_form").reset();
+	}
+	function setLocation(){
+		var type = $('#set_location').val();
+		if (type == 3) {
+			$('#manager_location').css('display','block');
+		}else{
+			$('#manager_location').css('display','none');
+		}
 	}
 
 </script>
