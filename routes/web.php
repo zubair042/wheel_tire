@@ -29,7 +29,7 @@ Route::get('/accounts','Accounts@index');
 Route::get('/account/add','Accounts@create');
 Route::get('/account/edit/{id}','Accounts@edit');
 Route::post('/account/edit/{id}','Accounts@update');
-Route::get('/accounts/destroy/{id}','Accounts@destroy');
+Route::post('/accounts/destroy','Accounts@destroy')->name('destroy-account');
 
 Route::get('/location/edit/{id}','Locations@edit');
 Route::post('/location/edit/{id}','Locations@update');
@@ -40,7 +40,7 @@ Route::get('/user/add','Users@create');
 Route::post('/user/add','Users@store')->name("save_user");
 Route::get('/user/edit/{id}','Users@edit');
 Route::post('/user/edit/{id}','Users@update');
-Route::get('/user/destroy/{id}','Users@destroy');
+Route::post('/user/destroy','Users@destroy')->name('destroy-user');
 
 
 

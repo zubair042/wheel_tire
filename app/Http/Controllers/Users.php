@@ -158,10 +158,10 @@ class Users extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        $users = User::find($id);
+        $users = User::find($_POST['id']);
         $users->delete();
-        return redirect('/users')->with('danger',"Users Deleted Successfully");
+       // return redirect('/users')->with('danger',"Users Deleted Successfully");
     }
 }

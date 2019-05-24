@@ -118,10 +118,10 @@ class Accounts extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        $accounts = Account::find($id);
+        $accounts = Account::find($_POST['id']);
         $accounts->delete();
-        return redirect('/accounts')->with('danger',"Account Deleted Successfully");
+        //return redirect('/accounts')->with('danger',"Account Deleted Successfully");
     }
 }
