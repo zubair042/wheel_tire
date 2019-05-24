@@ -1,9 +1,15 @@
 <?php
 $Permissions = App\Module_permission::getPermissions(Auth::user()->user_role);
 $roles = array();
-foreach($Permissions as $p){
+foreach ($Permissions as $p) {
     $roles[] = $p->module_slug;
 }
+?>
+<?php
+ $user_role = DB::table('user_roles')
+            ->where('id', Auth::user()->user_role)
+            ->first();
+            //dd($user_role);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,9 +49,11 @@ foreach($Permissions as $p){
     <script src="{{asset('')}}global_assets/js/demo_pages/dashboard.js"></script>
     <!-- /theme JS files -->
 
-<style type="text/css">
-    .hide{display: none;}
-</style>
+    <style type="text/css">
+        .hide {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -75,19 +83,26 @@ foreach($Permissions as $p){
                     </a>
                 </li>
             </ul>
-
+            
             <ul class="navbar-nav ml-md-auto">
                 <li class="nav-item">
-                    <a href="{{ route('logout') }}" 
-                    onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();" class="navbar-nav-link">
-                        <i class="icon-switch2"></i>
-                        <span class="d-md-none ml-2">Logout</span>
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
+                    <p style="padding-top: 15px;"> You are logged in with "{{ $user_role->description }}"</p>
                 </li>
+                <li class="nav-item dropdown dropdown-user">
+					<a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown">
+						<span>{{ Auth::user()->first_name. " ".Auth::user()->last_name }}</span>
+					</a>
+
+					<div class="dropdown-menu dropdown-menu-right">
+						<a href="#" class="dropdown-item"><i class="icon-user-plus"></i> My profile</a>
+						<div class="dropdown-divider"></div>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+					</div>
+				</li>
             </ul>
         </div>
     </div>
@@ -96,7 +111,7 @@ foreach($Permissions as $p){
 
     <!-- Page content -->
     <div class="page-content">
-       
+
         @section('sidebar')
         <!-- Main sidebar -->
         <div class="sidebar sidebar-light sidebar-main sidebar-expand-md">
@@ -129,7 +144,9 @@ foreach($Permissions as $p){
                                 </span>
                             </a>
                         </li>
-                        <li class="nav-item nav-item-submenu <?php if(!in_array('reports', $roles)){echo 'hide';} ?>">
+                        <li class="nav-item nav-item-submenu <?php if (!in_array('reports', $roles)) {
+                                                                    echo 'hide';
+                                                                } ?>">
                             <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Reports</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Reports">
@@ -137,7 +154,9 @@ foreach($Permissions as $p){
                                 <li class="nav-item"><a href="{{ url('report/add') }}" class="nav-link">Add New</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item nav-item-submenu <?php if(!in_array('users',$roles)){echo 'hide';} ?>">
+                        <li class="nav-item nav-item-submenu <?php if (!in_array('users', $roles)) {
+                                                                    echo 'hide';
+                                                                } ?>">
                             <a href="#" class="nav-link"><i class="icon-users"></i> <span>Users</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Users">
@@ -145,7 +164,9 @@ foreach($Permissions as $p){
                                 <li class="nav-item"><a href="{{ url('user/add') }}" class="nav-link">Add New</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item nav-item-submenu <?php if(!in_array('accounts',$roles)){echo 'hide';} ?>">
+                        <li class="nav-item nav-item-submenu <?php if (!in_array('accounts', $roles)) {
+                                                                    echo 'hide';
+                                                                } ?>">
                             <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Accounts</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Customers">
@@ -153,7 +174,9 @@ foreach($Permissions as $p){
                                 <li class="nav-item"><a href="{{ url('account/add') }}" class="nav-link">Add New</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item nav-item-submenu <?php if(!in_array('users',$roles)){echo 'hide';} ?>">
+                        <li class="nav-item nav-item-submenu <?php if (!in_array('users', $roles)) {
+                                                                    echo 'hide';
+                                                                } ?>">
                             <a href="#" class="nav-link"><i class="icon-location4"></i> <span>Location</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Location">
@@ -211,7 +234,7 @@ foreach($Permissions as $p){
 
                 <div class="navbar-collapse collapse" id="navbar-footer">
                     <span class="navbar-text">
-                         &copy 2019 
+                        &copy 2019
                     </span>
 
                 </div>
@@ -222,4 +245,5 @@ foreach($Permissions as $p){
     </div>
     <!-- /page content -->
 </body>
+
 </html>
