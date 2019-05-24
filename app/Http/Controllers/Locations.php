@@ -136,8 +136,8 @@ class Locations extends Controller
         $location = DB::table('locations')
                 ->join('users','locations.id','=','users.location_id')
                 ->where('users.id', $_POST['id'])
-                ->first();
-                //dd($location);
+                ->select('locations.*')
+                ->get();        
         return $location;
     }
 }

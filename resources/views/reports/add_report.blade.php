@@ -203,9 +203,8 @@
 				    </div>
 				    <div class="row" style="margin-top: 10px;">
 				    	<div class="col-md-2 offset-md-5">
-				    		<select name="location_id" class="select_select2_select">
+				    		<select name="location_id" id="manager-location" class="select_select2_select">
 				    			<option disabled selected hidden>Select Location</option>
-				    			<option value=""><span></span></option>
 				    		</select>
 				    	</div>
 				    </div>
@@ -249,13 +248,21 @@
 
 	function getLocationById(){
 		var id = $('#manager_id').val();
+		//$("#manager-location").select2("val","");
 		$.ajax({
 			type: "post",
 			url: "{{ route('manager-location') }}",
 			data: {id: id, "_token": "{{ csrf_token() }}"},
-			success:function(data){
-				console.log(data);
-				return false;
+			success:function(d){
+				$('#manager-location').html('').select({data: []});
+				for (var i = 0; i <= d.length; i++) {
+					var id = d[i].id;
+					var name = d[i].location_name;
+					var option = new Option(name,id,false,false);
+					$("#manager-location").append(option).trigger('change');
+					//$("#manager-location").append($("<option/>").val(id).text(name));
+
+				}
 			}
 		})
 	}
