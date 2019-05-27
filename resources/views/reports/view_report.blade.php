@@ -55,7 +55,7 @@
 								<h4 class="font-weight-semibold" > LEFT FRONT WHEEL POSITION</h4>
 							</div>
 							<div class="col-md-3">
-								<form method="post" action="">
+								<form method="post" enctype="multipart/form-data" action="{{ url('/report/view/'.$report_detail->id ) }}">
 									<input type="file" name="file">
 									<input type="hidden" name="_token" value="{{ csrf_token() }}">
 									<button type="submit" name="upload" >Upload</button>
