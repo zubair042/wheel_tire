@@ -116,6 +116,8 @@ class Reports extends Controller
     public function show($id)
     {
         $report_detail = Report::find($id);
+        $user = User::all();
+        dd($user);
         //dd($report_detail);
         //$location = Location::find($id);
         //dd($location);

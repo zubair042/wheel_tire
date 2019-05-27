@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<?php echo "<pre>" ;print_r($report_detail);exit; ?>
 <script src="{{asset('global_assets/js/plugins/media/fancybox.min.js') }}"></script>
 
 <div class="row">
@@ -42,8 +42,8 @@
 						<label class="font-weight-black">Second Signature:</label>
 						<p></p>
 						<p>{{ $report_detail->comments }}</p>
-						<button type="button" class="btn btn-primary rounded-round legitRipple">
-							Apply Signature</button>
+						<a href="javascript:;" type="button" class="btn btn-primary rounded-round legitRipple" onclick="add_signature(<?php ?>)">
+							Apply Signature</a>
 						<button type="button" class="btn btn-danger rounded-round legitRipple" data-toggle="modal" data-target="#modal_comment">
 							Add Comment</button>
 					</div>
