@@ -2,7 +2,7 @@
 
 @section('content')
 
-<script src="{{asset('global_assets/js/plugins/media/fancybox.min.js') }}"></script> 
+<script src="{{asset('global_assets/js/plugins/media/fancybox.min.js') }}"></script>
 
 <div class="row">
 	<div class="col-md-12">
@@ -24,9 +24,9 @@
 								<h6 class="card-title text-secondary">Comments:</h6>
 							</div>
 							<div class="card-body">
-								<apan class="text-primary font-weight-semibold">John Smith : </apan><span>Torque wrench was missing</span>
+								<span class="text-primary font-weight-semibold">John Smith : </span><span>Torque wrench was missing</span>
 								<br>
-								<span class="text-success font-weight-semibold">Bob Jones : </span><span>John say the torque wrench was not in the shop</span> 
+								<span class="text-success font-weight-semibold">Bob Jones : </span><span>John say the torque wrench was not in the shop</span>
 							</div>
 						</div>
 					</div>
@@ -42,8 +42,10 @@
 						<label class="font-weight-black">Second Signature:</label>
 						<p></p>
 						<p>{{ $report_detail->comments }}</p>
-						<button type="button" class="btn btn-primary rounded-round legitRipple">Apply Signature</button>
-						<button type="button" class="btn btn-danger rounded-round legitRipple">Add Comment</button>
+						<button type="button" class="btn btn-primary rounded-round legitRipple" data-toggle="modal" data-target="#modal_signature">
+							Apply Signature</button>
+						<button type="button" class="btn btn-danger rounded-round legitRipple" data-toggle="modal" data-target="#modal_comment">
+							Add Comment</button>
 					</div>
 				</div>
 				<div class="card" style="margin-top: 8px;background: #63af81">
@@ -58,7 +60,7 @@
 											<i class="icon-plus3"></i>
 										</a>
 									</div>
-								</div>	
+								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="card-img-actions m-1">
@@ -68,7 +70,7 @@
 											<i class="icon-plus3"></i>
 										</a>
 									</div>
-								</div>	
+								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="card-img-actions m-1">
@@ -78,7 +80,7 @@
 											<i class="icon-plus3"></i>
 										</a>
 									</div>
-								</div>	
+								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="card-img-actions m-1">
@@ -88,7 +90,7 @@
 											<i class="icon-plus3"></i>
 										</a>
 									</div>
-								</div>	
+								</div>
 							</div>
 						</div>
 						<h4 class="font-weight-semibold" style="text-align: center;color: #f9f9f9;margin-top: 12px;"> RIGHT REAR WHEEL POSITION</h4>
@@ -101,7 +103,7 @@
 											<i class="icon-plus3"></i>
 										</a>
 									</div>
-								</div>	
+								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="card-img-actions m-1">
@@ -111,7 +113,7 @@
 											<i class="icon-plus3"></i>
 										</a>
 									</div>
-								</div>	
+								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="card-img-actions m-1">
@@ -121,7 +123,7 @@
 											<i class="icon-plus3"></i>
 										</a>
 									</div>
-								</div>	
+								</div>
 							</div>
 							<div class="col-md-3">
 								<div class="card-img-actions m-1">
@@ -131,7 +133,7 @@
 											<i class="icon-plus3"></i>
 										</a>
 									</div>
-								</div>	
+								</div>
 							</div>
 						</div>
 					</div>
@@ -141,10 +143,50 @@
 	</div>
 </div>
 
+<div id="modal_comment" class="modal fade" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<h6 class="font-weight-semibold">Add a comment</h6>
+				<div class="form-group row">
+					<div class="col-lg-12">
+						<textarea rows="3" cols="3" class="form-control" placeholder="Write your comments.."></textarea>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn bg-primary">Add</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="modal_signature" class="modal fade" tabindex="-2">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<h6 class="font-weight-semibold">Add a comment</h6>
+				<div class="form-group row">
+					<div class="col-lg-12">
+						<textarea rows="3" cols="3" class="form-control" placeholder="Write your comments.."></textarea>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn bg-primary">Add</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 <script type="text/javascript">
 	$('[data-popup="lightbox1"]').fancybox({
-            padding: 3
-        });
+		padding: 3
+	});
 </script>
 
-@endsection 
+@endsection
