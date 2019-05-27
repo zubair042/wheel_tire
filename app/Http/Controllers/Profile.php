@@ -21,7 +21,7 @@ class Profile extends Controller
 
     public function index()
     {
-        
+        return view('profile/change_password');
     }
 
     /**
@@ -82,7 +82,7 @@ class Profile extends Controller
         $user->password = bcrypt($request->input('change_password'));
         $user->save();
         //dd($password);
-        return redirect('/profile/change_password');
+        return redirect('/');
     }
 
     /**

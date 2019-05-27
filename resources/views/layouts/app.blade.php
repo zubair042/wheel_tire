@@ -100,9 +100,10 @@ $user_role = DB::table('user_roles')
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right">
-                        <p class="dropdown-item"><i class="icon-user"></i>{{ $user_role->description }}</p>
-                        <a href="{{url('profile/change_password/'.Auth::user()->id)}}" class="dropdown-item"><i class="icon-cog5"></i>Change password</a>
+                        <p class="dropdown-item">You are login as {{ $user_role->description }}</p>
                         <div class="dropdown-divider"></div>
+                        <a href="{{url('profile/change_password/'.Auth::user()->id)}}" class="dropdown-item"><i class="icon-cog5"></i>
+                        Change password</a>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
