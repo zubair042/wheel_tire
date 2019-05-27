@@ -24,7 +24,7 @@
 								<h6 class="card-title text-secondary">Comments:</h6>
 							</div>
 							<div class="card-body">
-								<apan class="text-primary font-weight-semibold">John Smith : </apan><span>Torque wrench was missing</span>
+								<span class="text-primary font-weight-semibold">John Smith : </span><span>Torque wrench was missing</span>
 								<br>
 								<span class="text-success font-weight-semibold">Bob Jones : </span><span>John say the torque wrench was not in the shop</span>
 							</div>
@@ -42,9 +42,10 @@
 						<label class="font-weight-black">Second Signature:</label>
 						<p></p>
 						<p>{{ $report_detail->comments }}</p>
-						<button type="button" class="btn btn-primary rounded-round legitRipple">Apply Signature</button>
-						<button type="button" class="btn btn-danger rounded-round legitRipple" data-toggle="modal" 
-						data-target="#modal_default" >Add Comment</button>
+						<button type="button" class="btn btn-primary rounded-round legitRipple" data-toggle="modal" data-target="#modal_signature">
+							Apply Signature</button>
+						<button type="button" class="btn btn-danger rounded-round legitRipple" data-toggle="modal" data-target="#modal_comment">
+							Add Comment</button>
 					</div>
 				</div>
 				<div class="card" style="margin-top: 8px;background: #63af81">
@@ -142,28 +143,41 @@
 	</div>
 </div>
 
-<div id="modal_default" class="modal fade" tabindex="-1">
+<div id="modal_comment" class="modal fade" tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title">Basic modal</h5>
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-			</div>
-
 			<div class="modal-body">
-				<h6 class="font-weight-semibold">Text in a modal</h6>
-				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-
-				<hr>
-
-				<h6 class="font-weight-semibold">Another paragraph</h6>
-				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<h6 class="font-weight-semibold">Add a comment</h6>
+				<div class="form-group row">
+					<div class="col-lg-12">
+						<textarea rows="3" cols="3" class="form-control" placeholder="Write your comments.."></textarea>
+					</div>
+				</div>
 			</div>
 
 			<div class="modal-footer">
-				<button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
-				<button type="button" class="btn bg-primary">Save changes</button>
+				<button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn bg-primary">Add</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="modal_signature" class="modal fade" tabindex="-2">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<h6 class="font-weight-semibold">Add a comment</h6>
+				<div class="form-group row">
+					<div class="col-lg-12">
+						<textarea rows="3" cols="3" class="form-control" placeholder="Write your comments.."></textarea>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn bg-primary">Add</button>
 			</div>
 		</div>
 	</div>
