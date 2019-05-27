@@ -7,6 +7,7 @@ use App\User;
 use App\Account;
 use App\Report;
 use App\Location;
+use APP\Report_image;
 use Auth;
 use DB;
 

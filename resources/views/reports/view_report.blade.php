@@ -42,7 +42,7 @@
 						<label class="font-weight-black">Second Signature:</label>
 						<p></p>
 						<p>{{ $report_detail->comments }}</p>
-						<button type="button" class="btn btn-primary rounded-round legitRipple" data-toggle="modal" data-target="#modal_signature">
+						<button type="button" class="btn btn-primary rounded-round legitRipple">
 							Apply Signature</button>
 						<button type="button" class="btn btn-danger rounded-round legitRipple" data-toggle="modal" data-target="#modal_comment">
 							Add Comment</button>
@@ -186,7 +186,7 @@
 	</div>
 </div>
 
-<div id="modal_signature" class="modal fade" tabindex="-2">
+<!-- <div id="modal_signature" class="modal fade" tabindex="-2">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-body">
@@ -204,7 +204,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
 <script type="text/javascript">
 	$('[data-popup="lightbox1"]').fancybox({

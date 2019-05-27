@@ -14,7 +14,7 @@ class Report_images extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -42,7 +42,7 @@ class Report_images extends Controller
             $path = $request->file->storeAs('uploads',$file_name);
             $file = new Report_image;
             $file->url = $path;
-            $file->save();
+            //$file->save();
         }
     }
 
