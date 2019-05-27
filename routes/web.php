@@ -43,8 +43,12 @@ Route::get('/user/edit/{id}','Users@edit');
 Route::post('/user/edit/{id}','Users@update');
 Route::post('/user/destroy','Users@destroy')->name('destroy-user');
 
+
+//Route::post('/report/view','Reports@upload_file')->name('file_upload');
+
 Route::get('/profile/change_password/{id}','Profile@edit');
 Route::post('/profile/change_password/{id}','Profile@update');
+
 
 
 

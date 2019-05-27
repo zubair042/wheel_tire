@@ -50,7 +50,18 @@
 				</div>
 				<div class="card" style="margin-top: 8px;background: #63af81">
 					<div class="card-body">
-						<h4 class="font-weight-semibold" style="text-align: center;color: #f9f9f9;"> LEFT FRONT WHEEL POSITION</h4>
+						<div class="row">
+							<div class="col-md-9" style="text-align: center;color: #f9f9f9;">
+								<h4 class="font-weight-semibold" > LEFT FRONT WHEEL POSITION</h4>
+							</div>
+							<div class="col-md-3">
+								<form method="post" action="">
+									<input type="file" name="file">
+									<input type="hidden" name="_token" value="{{ csrf_token() }}">
+									<button type="submit" name="upload" >Upload</button>
+								</form>
+							</div>
+						</div>
 						<div class="row">
 							<div class="col-md-3">
 								<div class="card-img-actions m-1">
@@ -93,7 +104,19 @@
 								</div>
 							</div>
 						</div>
-						<h4 class="font-weight-semibold" style="text-align: center;color: #f9f9f9;margin-top: 12px;"> RIGHT REAR WHEEL POSITION</h4>
+						<div class="row" style="margin-top: 15px;">
+							<div class="col-md-9" style="text-align: center;color: #f9f9f9;">
+								<h4 class="font-weight-semibold" > RIGHT REAR WHEEL POSITION</h4>
+							</div>
+							<div class="col-md-3">
+								<input type="file" name="file">
+								<!-- <form method="post" action="">
+									<input type="file" name="file">
+									<input type="hidden" name="_token" value="{{ csrf_token() }}">
+									<button type="submit" name="upload" >Upload</button>
+								</form> -->
+							</div>
+						</div>
 						<div class="row">
 							<div class="col-md-3">
 								<div class="card-img-actions m-1">
@@ -187,6 +210,10 @@
 	$('[data-popup="lightbox1"]').fancybox({
 		padding: 3
 	});
+	// $('.form-control-uniform-custom').uniform({
+ //            fileButtonClass: 'action btn bg-blue',
+ //            selectClass: 'uniform-select bg-pink-400 border-pink-400'
+ //        });
 </script>
 
 @endsection
