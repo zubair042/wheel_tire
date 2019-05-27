@@ -155,8 +155,9 @@ class Reports extends Controller
     {
         //
     }
-    public function upload_file(Request $request){
-        $path = $request->file('file')->store('upload');
-        echo $path;
-    }
+    // public function upload_file(Request $request){
+    //     echo "test";
+    //     //$path = $request->file('file')->store('upload');
+    //     //
+    // }
 }

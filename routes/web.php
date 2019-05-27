@@ -44,7 +44,7 @@ Route::post('/user/edit/{id}','Users@update');
 Route::post('/user/destroy','Users@destroy')->name('destroy-user');
 
 
-//Route::post('/report/view','Reports@upload_file')->name('file_upload');
+Route::post('/report/view/{id}','Report_images@store');
 
 Route::get('/profile/change_password/{id}','Profile@edit');
 
