@@ -64,7 +64,8 @@ class Profile extends Controller
      */
     public function edit($id)
     {
-        return view('profile/change_password');
+        $user = User::find($id);
+        return view('profile/change_password', compact('user'));
     }
 
     /**
@@ -76,7 +77,12 @@ class Profile extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        //$user->new_password = $request->input('change_password');
+        $user->password = bcrypt($request->input('change_password'));
+        $user->save();
+        //dd($password);
+        return redirect('/profile/change_password');
     }
 
     /**

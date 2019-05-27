@@ -2,7 +2,7 @@
 
 @section('content')
 
-<?php
+<?php 
 ?>
 
 <style type="text/css">
@@ -27,24 +27,48 @@
                     <hr allign="left">
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-2 offset-md-3">
-                    <span class="input-group-text">
-                        <p>Enter you new password</p>
-                    </span>
+            <form method="POST" action="{{url('/profile/change_password/'.$user->id)}}" id="">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <div class="row">
+                    <div class="col-md-2 offset-md-3">
+                        <span class="input-group-text">
+                            <p>Enter you new password</p>
+                        </span>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="change_password" id="" value="" class="form-control">
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <input type="text" name="change_password" id="" value="" class="form-control">
+                <div class="row">
+                    <div class="col-md-2 offset-md-3">
+                        <span class="input-group-text">
+                            <p>Confirm your new password</p>
+                        </span>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="change_password" id="" value="" class="form-control">
+                    </div>
                 </div>
-            </div>
-            <div class="row" style="text-align: center;margin:30px 0;">
-                <div class="col-md-9 offset-md-1">
-                    <button type="submit" style="background-color: #4f99c6!important;margin-right: 12px;" class="btn btn-primary legitRipple"><i class="icon-checkmark mr-2"></i>Submit</button>
-                    <button type="button" style="background-color: #8b9aa3!important;margin-left: 12px;" class="btn btn-primary legitRipple" onclick="resetForm();"><i class="icon-reset mr-2"></i>Reset</button>
+                <div class="row" style="text-align: center;margin:30px 0;">
+                    <div class="col-md-9 offset-md-1">
+                        <button type="submit" style="background-color: #4f99c6!important;margin-right: 12px;" class="btn btn-primary legitRipple"><i class="icon-checkmark mr-2"></i>Submit</button>
+                        <button type="button" style="background-color: #8b9aa3!important;margin-left: 12px;" class="btn btn-primary legitRipple" onclick="resetForm();"><i class="icon-reset mr-2"></i>Reset</button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
+
+<script>
+    function check_pass() {
+        if (document.getElementById('password').value ==
+            document.getElementById('confirm_password').value) {
+            document.getElementById('submit').disabled = false;
+        } else {
+            document.getElementById('submit').disabled = true;
+        }
+    }
+</script>
 
 @endsection

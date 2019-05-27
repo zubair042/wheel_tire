@@ -44,6 +44,7 @@ Route::post('/user/edit/{id}','Users@update');
 Route::post('/user/destroy','Users@destroy')->name('destroy-user');
 
 Route::get('/profile/change_password/{id}','Profile@edit');
+Route::post('/profile/change_password/{id}','Profile@update');
 
 
 
