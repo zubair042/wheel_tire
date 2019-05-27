@@ -38,7 +38,7 @@
 				    		<tr>
 						        <td width="200px" style="text-align: center;"><a href="{{ url('report/view/'.$detail->id)}}" class="btn btn-success btn-sm legitRipple" style="margin-right: 10px; background-color: #4ec88a">View</a><?php echo date("Y M d",strtotime($detail->created_at)); ?></td>
 						        <td style="text-align: center;">{{ $detail->report_unit_num}}</td>
-						        <td></td>
+						        <td style="text-align: center;"><?php if (isset($detail->location_name)) {echo $detail->location_name;} ?></td>
 						        <td style="text-align: center;">{{ $detail->name }}</td>
 						        <td style="text-align: center;">{{ $detail->weight }}</td>
 						        <td></i></td>
