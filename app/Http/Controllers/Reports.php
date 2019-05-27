@@ -28,13 +28,18 @@ class Reports extends Controller
             $account_id = Auth::user()->account_id;
             $report_detail = DB::table('reports')
                         ->join('accounts',"reports.account_id","=","accounts.id")
+                        // ->join('locations',"reports.location_id","=","locations.id")
                         ->where('account_id',$account_id)
                         ->select('reports.*')
                         ->get();
-            //dd($report_detail);
+           // dd($report_detail);
         }
         else{
-            $report_detail = Report::all();
+            // $report_detail = Report::all();
+            $report_detail = DB::table('reports')
+                        ->join('locations','reports.location_id','=','locations.id')
+                        ->select('reports.*','locations.location_name')
+                        ->get();
         }
         return view('reports/index', compact("report_detail"));
     }
