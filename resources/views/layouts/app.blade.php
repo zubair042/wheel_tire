@@ -88,40 +88,33 @@ $user_role = DB::table('user_roles')
             <ul class="navbar-nav ml-md-auto">
                 <li class="nav-item">
                     <span class="navbar-text ml-md-3">
-                        <span class="badge badge-mark border-orange-300 mr-2"></span>
-                        {{ Auth::user()->first_name. " ".Auth::user()->last_name }} is login with "{{ $user_role->description }}"
+                        <span class=""></span>
+                        
                     </span>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); 
-                    document.getElementById('logout-form').submit();" class="navbar-nav-link">
-                        <i class="icon-switch2"></i>
-                        <span class="d-md-none ml-2">Logout</span>
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
                 </li>
                 <li class="nav-item dropdown dropdown-user">
-					<a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown">
-						<img src="../../../../global_assets/images/placeholders/placeholder.jpg" class="rounded-circle mr-2" height="34" alt="">
-						<span>Victoria</span>
-					</a>
+                    <a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown">
+                        <span>{{ Auth::user()->first_name. " ".Auth::user()->last_name }}</span>
+                    </a>
 
-					<div class="dropdown-menu dropdown-menu-right">
-						<a href="#" class="dropdown-item"><i class="icon-user-plus"></i> My profile</a>
-						<a href="#" class="dropdown-item"><i class="icon-coins"></i> My balance</a>
-						<a href="#" class="dropdown-item"><i class="icon-comment-discussion"></i> Messages <span class="badge badge-pill bg-indigo-400 ml-auto">58</span></a>
-						<div class="dropdown-divider"></div>
-						<a href="#" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a>
-						<a href="#" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
-					</div>
-				</li>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="" class="dropdown-item"><i class="badge badge-mark border-orange-300"></i>{{ $user_role->description }}</a>
+                        <a href="{{url('profile/'.Auth::user()->id)}}" class="dropdown-item"><i class="icon-user-plus"></i>My profile</a>
+                        <a href="{{url('profile/edit/'.Auth::user()->id)}}" class="dropdown-item"><i class="icon-cog5"></i>Change password</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
     <!-- /main navbar -->
-    
+
     <!-- Page content -->
     <div class="page-content">
 

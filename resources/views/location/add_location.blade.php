@@ -24,7 +24,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<hr align="left">
+					<hr allign="left">
 				</div>
 			</div>
 			<form method="POST" action="{{ route('save_location') }}" id="add_location_form">
