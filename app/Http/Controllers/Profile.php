@@ -19,12 +19,9 @@ class Profile extends Controller
         $this->middleware(['auth', 'permission']);
     }
 
-    public function index($id)
+    public function index()
     {
-        //dd($id);
-        $user = User::find($id);
-        //dd($user);
-        return view('profile/index', compact("user"));
+        
     }
 
     /**
@@ -67,7 +64,7 @@ class Profile extends Controller
      */
     public function edit($id)
     {
-        return view('profile/edit_profile');
+        return view('profile/change_password');
     }
 
     /**
