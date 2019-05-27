@@ -100,9 +100,8 @@ $user_role = DB::table('user_roles')
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a href="" class="dropdown-item"><i class="badge badge-mark border-orange-300"></i>{{ $user_role->description }}</a>
-                        <a href="{{url('profile/'.Auth::user()->id)}}" class="dropdown-item"><i class="icon-user-plus"></i>My profile</a>
-                        <a href="{{url('profile/edit/'.Auth::user()->id)}}" class="dropdown-item"><i class="icon-cog5"></i>Change password</a>
+                        <p class="dropdown-item"><i class="icon-user"></i>{{ $user_role->description }}</p>
+                        <a href="{{url('profile/change_password/'.Auth::user()->id)}}" class="dropdown-item"><i class="icon-cog5"></i>Change password</a>
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
