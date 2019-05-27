@@ -55,7 +55,11 @@
 								<h4 class="font-weight-semibold" > LEFT FRONT WHEEL POSITION</h4>
 							</div>
 							<div class="col-md-3">
-								<input type="file" name="file">
+								<form method="post" action="">
+									<input type="file" name="file">
+									<input type="hidden" name="_token" value="{{ csrf_token() }}">
+									<button type="submit" name="upload" >Upload</button>
+								</form>
 							</div>
 						</div>
 						<div class="row">
@@ -106,6 +110,11 @@
 							</div>
 							<div class="col-md-3">
 								<input type="file" name="file">
+								<!-- <form method="post" action="">
+									<input type="file" name="file">
+									<input type="hidden" name="_token" value="{{ csrf_token() }}">
+									<button type="submit" name="upload" >Upload</button>
+								</form> -->
 							</div>
 						</div>
 						<div class="row">

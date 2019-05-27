@@ -45,6 +45,8 @@ Route::post('/user/destroy','Users@destroy')->name('destroy-user');
 
 Route::get('/profile/{id}','Profile@index');
 Route::get('/profile/edit/{id}','Profile@edit');
+//Route::post('/report/view','Reports@upload_file')->name('file_upload');
+
 
 
 
