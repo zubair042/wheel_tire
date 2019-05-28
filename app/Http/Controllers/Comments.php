@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use APP\Report_image;
+use App\Comment;
+use Auth;
 
-class Report_images extends Controller
+class Comments extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -33,32 +34,14 @@ class Report_images extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request ,$id)
     {
-        $this->validate($request,[
-           'file'=>'required',
-        ]);
-
-        // Live path
-        $file = $request->file('file')->getRealPath();
-       
-        // Test path
-        $file = "https://cdn.pixabay.com/photo/2014/06/03/19/38/board-361516__340.jpg";
-       
-        $cloud = Cloudder::upload($file, null);
-        $c = Cloudder::getResult();
-        $url = $c["url"];
-        echo "<pre>"; print_r($url); exit;
-
-        // $file = $request->file('file');
-        // $file = $request->file;
-        // if ($request->hasFile('file')) {
-        //     $file_name = $request->file->getClientOriginalName();
-        //     $path = $request->file->storeAs('uploads',$file_name);
-        //     $file = new Report_image;
-        //     $file->url = $path;
-        //     //$file->save();
-        // }
+        $comment = new Comment;
+        $comment->report_id = $id;
+        $comment->comments = $request->input('comments');
+        $comment->created_by = Auth::user()->id;
+        $comment->save();
+        return redirect('/reports')->with('success',"Comment added successfully");
     }
 
     /**

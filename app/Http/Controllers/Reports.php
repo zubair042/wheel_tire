@@ -8,6 +8,7 @@ use App\Account;
 use App\Report;
 use App\Location;
 use APP\Report_image;
+use App\Comment;
 use Auth;
 use DB;
 
@@ -33,10 +34,8 @@ class Reports extends Controller
                         ->where('account_id',$account_id)
                         ->select('reports.*')
                         ->get();
-           // dd($report_detail);
         }
         else{
-            // $report_detail = Report::all();
             $report_detail = DB::table('reports')
                         ->join('locations','reports.location_id','=','locations.id')
                         ->select('reports.*','locations.location_name')
@@ -120,11 +119,10 @@ class Reports extends Controller
                     ->where('user_role',Auth::user()->user_role)
                     ->where('id',Auth::user()->id)
                     ->first();
-        // if ($user->user_role == 3 || $user->user_role == 2) {
-        //     return "yes";
-        // }
-
-        return view('reports/view_report',compact(['report_detail','user']));
+        $comment = DB::table('comments')
+                    ->where('report_id',$report_detail->id)
+                    ->first();
+        return view('reports/view_report',compact(['report_detail','user','comment']));
     }
 
     /**
