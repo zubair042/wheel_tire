@@ -57,7 +57,7 @@ class Report_images extends Controller
         $image->image_type = $request->file->getClientOriginalExtension();
         $image->created_by = Auth::user()->id;
         $image->save();
-
+        return redirect('reports')->with('success','Image added Successfully');
         // $file = $request->file('file');
         // $file = $request->file;
         // if ($request->hasFile('file')) {

@@ -102,9 +102,6 @@ class Reports extends Controller
         $report->name = $request->input('name');
         $report->manager_id = $request->input('manager_id');
         $report->comment = $request->input('comments');
-
-        //$report->user_id = auth()->user()->id;
-        //dd($report);
         $report->save();
         return redirect('/reports')->with('success','Reports Added Successfully');
     }
@@ -162,9 +159,7 @@ class Reports extends Controller
     {
         //
     }
-    // public function upload_file(Request $request){
-    //     echo "test";
-    //     //$path = $request->file('file')->store('upload');
-    //     //
-    // }
+    public function signature(){
+        print_r($_POST['id']);
+    }
 }

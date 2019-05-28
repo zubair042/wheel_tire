@@ -208,15 +208,15 @@
  //        });
  function add_signature(id){
  	if (confirm('Are you sure you want to Add Signature')) {
-		// $.ajax({
-		// 	type: "post",
-		// 	url: "",
-		// 	data: {'id': id, "_token": "{{ csrf_token() }}"},
-		// 	success:function(data){
-		// 		alert('Signature added successfully!');
-		// 		location.reload();
-		// 	}
-		// })
+		$.ajax({
+			type: "post",
+			url: "{{ route('signature') }}",
+			data: {'id': id, "_token": "{{ csrf_token() }}"},
+			success:function(data){
+				// alert('Signature added successfully!');
+				// location.reload();
+			}
+		})
 	}else{
 		alert('Signature Cancel');
 	}
