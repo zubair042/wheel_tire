@@ -89,7 +89,7 @@ $user_role = DB::table('user_roles')
                 <li class="nav-item">
                     <span class="navbar-text ml-md-3">
                         <span class=""></span>
-                        
+
                     </span>
                 </li>
                 <li class="nav-item">
@@ -103,7 +103,7 @@ $user_role = DB::table('user_roles')
                         <p class="dropdown-item">You are login as {{ $user_role->description }}</p>
                         <div class="dropdown-divider"></div>
                         <a href="{{url('profile/change_password/'.Auth::user()->id)}}" class="dropdown-item"><i class="icon-cog5"></i>
-                        Change password</a>
+                            Change password</a>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
