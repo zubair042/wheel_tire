@@ -9,6 +9,7 @@ use App\User;
 use App\Role;
 use App\Module_permission;
 
+
 class Dashboard extends Controller
 {
 	public function __construct(){

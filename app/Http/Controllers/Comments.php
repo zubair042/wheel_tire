@@ -34,10 +34,10 @@ class Comments extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request ,$id)
+    public function store(Request $request ,$id=null)
     {
         $comment = new Comment;
-        $comment->report_id = $id;
+        $comment->report_id = $request->input('report_id');
         $comment->comments = $request->input('comments');
         $comment->created_by = Auth::user()->id;
         $comment->save();

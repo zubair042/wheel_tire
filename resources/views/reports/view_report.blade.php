@@ -41,7 +41,7 @@
 						<p>{{ $report_detail->weight }} Lbs</p>
 						<label class="font-weight-black">Second Signature:</label>
 						<p></p>
-						<p>{{ $comment->comments }}</p>
+						<p><?php if (isset($comment->comments)) {echo $comment->comments ; } ?></p>
 						<?php if ($user->user_role == 2 || $user->user_role == 3) { ?>
 						<a href="javascript:;" type="button" class="btn btn-primary rounded-round legitRipple"<?php if ($user->user_role == 3) { ?>
 							onclick="add_signature(<?php echo $user->id; ?>)"
@@ -175,7 +175,8 @@
 
 <div id="modal_comment" class="modal fade" tabindex="-1">
 	<div class="modal-dialog">
-		<form method="post" action="{{ url('/report/view/'.$report_detail->id) }}">
+		<form method="post" action="{{ route('add_comment') }}">
+			<input type="hidden" name="report_id" value="{{ $report_detail->id}}">
 			{{ csrf_field() }}
 			<div class="modal-content">
 				<div class="modal-body">

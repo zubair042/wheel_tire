@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use APP\Report_image;
+use JD\Cloudder\Facades\Cloudder;
+use App\Report_image;
+use Auth;
 
 class Report_images extends Controller
 {
@@ -33,7 +35,7 @@ class Report_images extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request ,$id)
     {
         $this->validate($request,[
            'file'=>'required',
@@ -48,7 +50,13 @@ class Report_images extends Controller
         $cloud = Cloudder::upload($file, null);
         $c = Cloudder::getResult();
         $url = $c["url"];
-        echo "<pre>"; print_r($url); exit;
+
+        $image = new Report_image; 
+        $image->report_id = $id;
+        $image->url = $url;
+        $image->image_type = $request->file->getClientOriginalExtension();
+        $image->created_by = Auth::user()->id;
+        $image->save();
 
         // $file = $request->file('file');
         // $file = $request->file;

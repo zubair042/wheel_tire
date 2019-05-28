@@ -29,16 +29,19 @@ class Reports extends Controller
         if (Auth::user()->user_role != 1) { //Other than Global Admin
             $account_id = Auth::user()->account_id;
             $report_detail = DB::table('reports')
-                        ->join('accounts',"reports.account_id","=","accounts.id")
+                        ->join('accounts','reports.account_id','=','accounts.id')
                         // ->join('locations',"reports.location_id","=","locations.id")
+                        ->join('comments','reports.id','=','comments.report_id','left outer')
                         ->where('account_id',$account_id)
-                        ->select('reports.*')
+                        ->select('reports.*','comments.comments')
                         ->get();
+                        //dd($report_detail);
         }
         else{
             $report_detail = DB::table('reports')
-                        ->join('locations','reports.location_id','=','locations.id')
-                        ->select('reports.*','locations.location_name')
+                        ->join('locations','reports.location_id','=','locations.id','left outer')
+                        ->join('comments','reports.id','=','comments.report_id','left outer')
+                        ->select('reports.*','locations.location_name','comments.comments')
                         ->get();
         }
         return view('reports/index', compact("report_detail"));
@@ -98,7 +101,7 @@ class Reports extends Controller
         $report->report_unit_num = $request->input('unit_number');
         $report->name = $request->input('name');
         $report->manager_id = $request->input('manager_id');
-        $report->comments = $request->input('comments');
+        $report->comment = $request->input('comments');
 
         //$report->user_id = auth()->user()->id;
         //dd($report);
@@ -121,6 +124,7 @@ class Reports extends Controller
                     ->first();
         $comment = DB::table('comments')
                     ->where('report_id',$report_detail->id)
+                    //->where('created_by',Auth::user()->id)
                     ->first();
         return view('reports/view_report',compact(['report_detail','user','comment']));
     }
