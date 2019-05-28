@@ -116,13 +116,15 @@ class Reports extends Controller
     public function show($id)
     {
         $report_detail = Report::find($id);
-        $user = User::all();
-        dd($user);
-        //dd($report_detail);
-        //$location = Location::find($id);
-        //dd($location);
+        $user = DB::table('users')
+                    ->where('user_role',Auth::user()->user_role)
+                    ->where('id',Auth::user()->id)
+                    ->first();
+        // if ($user->user_role == 3 || $user->user_role == 2) {
+        //     return "yes";
+        // }
 
-        return view('reports/view_report',compact(['report_detail']));
+        return view('reports/view_report',compact(['report_detail','user']));
     }
 
     /**

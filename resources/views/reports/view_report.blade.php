@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<?php echo "<pre>" ;print_r($report_detail);exit; ?>
+
 <script src="{{asset('global_assets/js/plugins/media/fancybox.min.js') }}"></script>
 
 <div class="row">
@@ -42,10 +42,17 @@
 						<label class="font-weight-black">Second Signature:</label>
 						<p></p>
 						<p>{{ $report_detail->comments }}</p>
-						<a href="javascript:;" type="button" class="btn btn-primary rounded-round legitRipple" onclick="add_signature(<?php ?>)">
+						<?php if ($user->user_role == 2 || $user->user_role == 3) { ?>
+						<a href="javascript:;" type="button" class="btn btn-primary rounded-round legitRipple"<?php if ($user->user_role == 3) { ?>
+							onclick="add_signature(<?php echo $user->id; ?>)"
+						<?php } ?> >
 							Apply Signature</a>
-						<button type="button" class="btn btn-danger rounded-round legitRipple" data-toggle="modal" data-target="#modal_comment">
+						<button type="button" class="btn btn-danger rounded-round legitRipple" 
+						<?php if ($user->user_role == 3) { ?>
+							data-toggle="modal" data-target="#modal_comment"
+						<?php } ?>>
 							Add Comment</button>
+						<?php } ?>
 					</div>
 				</div>
 				<div class="card" style="margin-top: 8px;background: #63af81">
@@ -168,43 +175,26 @@
 
 <div id="modal_comment" class="modal fade" tabindex="-1">
 	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-body">
-				<h6 class="font-weight-semibold">Add a comment</h6>
-				<div class="form-group row">
-					<div class="col-lg-12">
-						<textarea rows="3" cols="3" class="form-control" placeholder="Write your comments.."></textarea>
+		<form method="post">
+			<div class="modal-content">
+				<div class="modal-body">
+					<h6 class="font-weight-semibold">Add a comment</h6>
+					<div class="form-group row">
+						<div class="col-lg-12">
+							<textarea rows="3" cols="3" class="form-control" placeholder="Write your comments.."></textarea>
+						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="modal-footer">
-				<button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>
-				<button type="button" class="btn bg-primary">Add</button>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>
+					<button type="submit" class="btn bg-primary">Add</button>
+				</div>
 			</div>
-		</div>
+		</form>
 	</div>
 </div>
 
-<!-- <div id="modal_signature" class="modal fade" tabindex="-2">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-body">
-				<h6 class="font-weight-semibold">Add a comment</h6>
-				<div class="form-group row">
-					<div class="col-lg-12">
-						<textarea rows="3" cols="3" class="form-control" placeholder="Write your comments.."></textarea>
-					</div>
-				</div>
-			</div>
-
-			<div class="modal-footer">
-				<button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>
-				<button type="button" class="btn bg-primary">Add</button>
-			</div>
-		</div>
-	</div>
-</div> -->
 
 <script type="text/javascript">
 	$('[data-popup="lightbox1"]').fancybox({
@@ -214,6 +204,21 @@
  //            fileButtonClass: 'action btn bg-blue',
  //            selectClass: 'uniform-select bg-pink-400 border-pink-400'
  //        });
+ function add_signature(id){
+ 	if (confirm('Are you sure you want to Add Signature')) {
+		// $.ajax({
+		// 	type: "post",
+		// 	url: "",
+		// 	data: {'id': id, "_token": "{{ csrf_token() }}"},
+		// 	success:function(data){
+		// 		alert('Signature added successfully!');
+		// 		location.reload();
+		// 	}
+		// })
+	}else{
+		alert('Signature Cancel');
+	}
+ }
 </script>
 
 @endsection
