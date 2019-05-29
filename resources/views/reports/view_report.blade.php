@@ -223,20 +223,20 @@ function add_signature(id){
 
 $('#file').on('click',function(e){
 	e.preventDefault();
-	alert("dhgdf");
-	var form_data = new FormData($('#file')[0]);
-	form_data.append("file", file);
-	console.log(form_data);
-	// var property = $('#file').prop('files')[0];
-	// var image_name = property.name;
-	// var image_extention = image_name.split('.').pop().toLowerCase();
-	// if (jQuery.inArray(image_extention, ['gif','png','jpg','jpeg']) == -1) {
-	// 	alert("Invalid image file");
-	// }else{
-	// 	form_data = new FormData();
-	// 	form_data.append('file',property);
-	// 	console.log(form_data);
-	// }
+	// alert("dhgdf");
+	// var form_data = new FormData($('#file')[0]);
+	// form_data.append("file", file);
+	// console.log(form_data);
+	var property = $('#file').prop('files')[0];
+	var image_name = property.name;
+	var image_extention = image_name.split('.').pop().toLowerCase();
+	if (jQuery.inArray(image_extention, ['gif','png','jpg','jpeg']) == -1) {
+		alert("Invalid image file");
+	}else{
+		form_data = new FormData();
+		form_data.append('file',property);
+		console.log(form_data);
+	}
 	
 });
 </script>

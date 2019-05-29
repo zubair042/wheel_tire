@@ -45,7 +45,8 @@ class Reports extends Controller
             $report_detail = DB::table('reports')
                         ->join('locations','reports.location_id','=','locations.id','left outer')
                         ->join('comments','reports.id','=','comments.report_id','left outer')
-                        ->select('reports.*','locations.location_name','comments.comments')
+                        ->join('users',"reports.signature_by","=","users.id",'left outer')
+                        ->select('reports.*','locations.location_name','comments.comments','users.first_name','users.last_name')
                         ->orderBy('reports.id','DESC')
                         ->get();
         }
