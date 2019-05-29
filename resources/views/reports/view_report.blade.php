@@ -44,7 +44,7 @@
 						<p><?php if (isset($comment->comments)) {echo $comment->comments ; } ?></p>
 						<?php if ($user->user_role == 2 || $user->user_role == 3) { ?>
 						<a href="javascript:;" type="button" class="btn btn-primary rounded-round legitRipple"<?php if ($user->user_role == 3) { ?>
-							onclick="add_signature(<?php echo $user->id; ?>)"
+							onclick="add_signature(<?php echo $report_detail->id; ?>)"
 						<?php } ?> >
 							Apply Signature</a>
 						<button type="button" class="btn btn-danger rounded-round legitRipple" 
@@ -213,8 +213,8 @@
 			url: "{{ route('signature') }}",
 			data: {'id': id, "_token": "{{ csrf_token() }}"},
 			success:function(data){
-				// alert('Signature added successfully!');
-				// location.reload();
+				alert('Signature added successfully!');
+				location.reload();
 			}
 		})
 	}else{

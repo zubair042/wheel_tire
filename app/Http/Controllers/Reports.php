@@ -32,12 +32,17 @@ class Reports extends Controller
             $account_id = Auth::user()->account_id;
             $report_detail = DB::table('reports')
                         ->join('accounts','reports.account_id','=','accounts.id')
-                        // ->join('locations',"reports.location_id","=","locations.id")
+                        //->join('users',"reports.signature_by","=","users.id",'right outer')
                         ->join('comments','reports.id','=','comments.report_id','left outer')
                         ->where('account_id',$account_id)
                         ->select('reports.*','comments.comments')
                         ->get();
                         //dd($report_detail);
+            // $q = DB::table('reports')
+            //         ->where('signature_by',Auth::user()->id)
+            //         ->where('account_id',Auth::user()->account_id)
+            //         ->get();
+            //dd($q);
         }
         else{
             $report_detail = DB::table('reports')
@@ -152,7 +157,7 @@ class Reports extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+    
     }
 
     /**
@@ -161,13 +166,16 @@ class Reports extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        //
+
     }
 
     public function signature()
     {
-        print_r($_POST['id']);
+        $signed = DB::table('reports')
+                    ->where('id',$_POST['id'])
+                    ->update(['signature' => 1 , 'signature_by'=> Auth::user()->id , 'signature_on' => date('Y-m-d H:i:s')]);
+
     }
 }
