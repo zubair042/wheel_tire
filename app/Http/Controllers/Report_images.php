@@ -14,6 +14,7 @@ class Report_images extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+   
     public function index()
     {
         
@@ -45,7 +46,7 @@ class Report_images extends Controller
         $file = $request->file('file')->getRealPath();
        
         // Test path
-        $file = "https://cdn.pixabay.com/photo/2014/06/03/19/38/board-361516__340.jpg";
+        //$file = "https://cdn.pixabay.com/photo/2014/06/03/19/38/board-361516__340.jpg";
        
         $cloud = Cloudder::upload($file, null);
         $c = Cloudder::getResult();
