@@ -120,7 +120,7 @@ class Reports extends Controller
         $emails = ['usama52966@gmail.com'];
         $message = 'asdfasdf';
         Mail::send('emails.welcome', [], function($message) use ($manager_email){    
-            $message->to($manager_email)->subject('This is test e-mail');
+            $message->to($manager_email)->subject('wheels.mobilemaintaince');
         });
         var_dump( Mail:: failures());
         //Mail::to($manager_email)->send(new SendEmail());
