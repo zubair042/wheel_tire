@@ -36,12 +36,13 @@
 				    	@if (count($report_detail) > 0)
 				    		@foreach($report_detail as $detail)
 				    		<tr>
+				    			
 						        <td width="200px" style="text-align: center;"><a href="{{ url('report/view/'.$detail->id)}}" class="btn btn-success btn-sm legitRipple" style="margin-right: 10px; background-color: #4ec88a">View</a><?php echo date("Y M d",strtotime($detail->created_at)); ?></td>
 						        <td style="text-align: center;">{{ $detail->report_unit_num}}</td>
 						        <td style="text-align: center;"><?php if (isset($detail->location_name)) {echo $detail->location_name;} ?></td>
 						        <td style="text-align: center;">{{ $detail->name }}</td>
 						        <td style="text-align: center;">{{ $detail->weight }}</td>
-						        <td></i></td>
+						        <td>{{ $detail->first_name." ".$detail->last_name }}</td>
 						        <td class="text-center">
 						        	<?php if (!empty($detail->comments)) { ?>
 						        		<i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i>
@@ -62,7 +63,7 @@
 	$("#main-datatable").DataTable({
 		autoWidth: false,
 		columnDefs: [{ 
-			orderable: false,
+			orderable: true,
 			width: 100,
 			targets: [ 6 ]
 		}],

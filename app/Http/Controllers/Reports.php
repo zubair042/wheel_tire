@@ -32,23 +32,20 @@ class Reports extends Controller
             $account_id = Auth::user()->account_id;
             $report_detail = DB::table('reports')
                         ->join('accounts','reports.account_id','=','accounts.id')
-                        //->join('users',"reports.signature_by","=","users.id",'right outer')
+                        ->join('users',"reports.signature_by","=","users.id",'left outer')
                         ->join('comments','reports.id','=','comments.report_id','left outer')
-                        ->where('account_id',$account_id)
-                        ->select('reports.*','comments.comments')
+                        ->where('reports.account_id',$account_id)
+                        ->select('reports.*','comments.comments','users.first_name','users.last_name')
+                        ->orderBy('reports.id','DESC')
                         ->get();
                         //dd($report_detail);
-            // $q = DB::table('reports')
-            //         ->where('signature_by',Auth::user()->id)
-            //         ->where('account_id',Auth::user()->account_id)
-            //         ->get();
-            //dd($q);
         }
         else{
             $report_detail = DB::table('reports')
                         ->join('locations','reports.location_id','=','locations.id','left outer')
                         ->join('comments','reports.id','=','comments.report_id','left outer')
                         ->select('reports.*','locations.location_name','comments.comments')
+                        ->orderBy('reports.id','DESC')
                         ->get();
         }
         return view('reports/index', compact("report_detail"));
@@ -125,7 +122,12 @@ class Reports extends Controller
      */
     public function show($id)
     {
-        $report_detail = Report::find($id);
+        // $report_detail = Report::find($id);
+        $report_detail = DB::table('reports')
+                            ->join('users','reports.signature_by','=','users.id','left outer')
+                            ->where('reports.id',$id)
+                            ->select('reports.*','users.first_name','users.last_name')
+                            ->first();
         // dd($report_detail);
         $user = DB::table('users')
                     ->where('user_role',Auth::user()->user_role)

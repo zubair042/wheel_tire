@@ -40,7 +40,7 @@
 						<label class="font-weight-black">Wheel Lug Nuts Torqued To:</label>
 						<p>{{ $report_detail->weight }} Lbs</p>
 						<label class="font-weight-black">Second Signature:</label>
-						<p></p>
+						<p>{{ $report_detail->first_name." ".$report_detail->last_name }}</p>
 						<p><?php if (isset($comment->comments)) {echo $comment->comments ; } ?></p>
 						<?php if ($user->user_role == 2 || $user->user_role == 3) { ?>
 						<a href="javascript:;" type="button" class="btn btn-primary rounded-round legitRipple"<?php if ($user->user_role == 3) { ?>
@@ -62,12 +62,14 @@
 								<h4 class="font-weight-semibold" > LEFT FRONT WHEEL POSITION</h4>
 							</div>
 							<div class="col-md-3">
-								<form method="post" enctype="multipart/form-data" action="{{ url('/report/view/'.$report_detail->id ) }}">
+								<input type="file" name="file" id="file">
+								<span id="upload_image"></span>
+								<!-- <form method="post" enctype="multipart/form-data" action="{{ url('/report/view/'.$report_detail->id ) }}">
 									{{ csrf_field() }}
 									<input type="file" name="file">
 									<input type="hidden" name="type" value="left_front">
 									<button type="submit" name="upload" >Upload</button>
-								</form>
+								</form> -->
 							</div>
 						</div>
 						<div class="row">
@@ -87,7 +89,7 @@
 							</div>
 							<?php	}
 							} ?>
-							<div class="col-md-3">
+							<!-- <div class="col-md-3">
 								<div class="card-img-actions m-1">
 									<img class="card-img img-fluid" src="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" alt="">
 									<div class="card-img-actions-overlay card-img">
@@ -106,7 +108,7 @@
 										</a>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 						<div class="row" style="margin-top: 15px;">
 							<div class="col-md-9" style="text-align: center;color: #f9f9f9;">
@@ -122,7 +124,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-3">
+							<!-- <div class="col-md-3">
 								<div class="card-img-actions m-1">
 									<img class="card-img img-fluid" src="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" alt="">
 									<div class="card-img-actions-overlay card-img">
@@ -161,7 +163,7 @@
 										</a>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
@@ -203,7 +205,7 @@
  //            fileButtonClass: 'action btn bg-blue',
  //            selectClass: 'uniform-select bg-pink-400 border-pink-400'
  //        });
- function add_signature(id){
+function add_signature(id){
  	if (confirm('Are you sure you want to Add Signature')) {
 		$.ajax({
 			type: "post",
@@ -217,7 +219,26 @@
 	}else{
 		alert('Signature Cancel');
 	}
- }
+}
+
+$('#file').on('click',function(e){
+	e.preventDefault();
+	alert("dhgdf");
+	var form_data = new FormData($('#file')[0]);
+	form_data.append("file", file);
+	console.log(form_data);
+	// var property = $('#file').prop('files')[0];
+	// var image_name = property.name;
+	// var image_extention = image_name.split('.').pop().toLowerCase();
+	// if (jQuery.inArray(image_extention, ['gif','png','jpg','jpeg']) == -1) {
+	// 	alert("Invalid image file");
+	// }else{
+	// 	form_data = new FormData();
+	// 	form_data.append('file',property);
+	// 	console.log(form_data);
+	// }
+	
+});
 </script>
 
 @endsection
