@@ -14,7 +14,7 @@ class Report_images extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-   
+
     public function index()
     {
         
@@ -55,7 +55,8 @@ class Report_images extends Controller
         $image = new Report_image; 
         $image->report_id = $id;
         $image->url = $url;
-        $image->image_type = $request->file->getClientOriginalExtension();
+        //$image->image_type = $request->file->getClientOriginalExtension();
+        $image->image_type = $request->input('type');
         $image->created_by = Auth::user()->id;
         $image->save();
         return redirect('reports')->with('success','Image added Successfully');
@@ -114,4 +115,5 @@ class Report_images extends Controller
     {
         //
     }
+
 }

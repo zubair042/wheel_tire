@@ -126,6 +126,7 @@ class Reports extends Controller
     public function show($id)
     {
         $report_detail = Report::find($id);
+        // dd($report_detail);
         $user = DB::table('users')
                     ->where('user_role',Auth::user()->user_role)
                     ->where('id',Auth::user()->id)
@@ -134,11 +135,11 @@ class Reports extends Controller
                     ->where('report_id',$report_detail->id)
                     //->where('created_by',Auth::user()->id)
                     ->first();
-        $image = DB::table('report_images')
+        $images = DB::table('report_images')
                     ->where('report_id',$report_detail->id)
                     ->get();
-        //dd($image) ;          
-        return view('reports/view_report',compact(['report_detail','user','comment']));
+        //dd($images) ;          
+        return view('reports/view_report',compact(['report_detail','user','comment','images']));
     }
 
     /**

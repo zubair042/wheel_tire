@@ -65,31 +65,28 @@
 								<form method="post" enctype="multipart/form-data" action="{{ url('/report/view/'.$report_detail->id ) }}">
 									{{ csrf_field() }}
 									<input type="file" name="file">
+									<input type="hidden" name="type" value="left_front">
 									<button type="submit" name="upload" >Upload</button>
 								</form>
 							</div>
 						</div>
 						<div class="row">
+							<?php if (count($images) > 0) {
+								foreach ($images as $image) { ?>
+
+							
 							<div class="col-md-3">
 								<div class="card-img-actions m-1">
-									<img class="card-img img-fluid" src="{{ asset('global_assets/images/placeholders/placeholder.jpg')}}" alt="">
+									<img class="card-img img-fluid" src="{{ $image->url }}" alt="">
 									<div class="card-img-actions-overlay card-img">
-										<a href="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
+										<a href="{{ $image->url }}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
 											<i class="icon-plus3"></i>
 										</a>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3">
-								<div class="card-img-actions m-1">
-									<img class="card-img img-fluid" src="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" alt="">
-									<div class="card-img-actions-overlay card-img">
-										<a href="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
-											<i class="icon-plus3"></i>
-										</a>
-									</div>
-								</div>
-							</div>
+							<?php	}
+							} ?>
 							<div class="col-md-3">
 								<div class="card-img-actions m-1">
 									<img class="card-img img-fluid" src="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" alt="">
@@ -116,9 +113,9 @@
 								<h4 class="font-weight-semibold" > RIGHT REAR WHEEL POSITION</h4>
 							</div>
 							<div class="col-md-3">
-								<input type="file" name="file">
-								<!-- <form method="post" action="">
+								<!-- <form method="post" action="{{ url('/report/view/'.$report_detail->id ) }}">
 									<input type="file" name="file">
+									<input type="hidden" name="type" value="right_rear">
 									<input type="hidden" name="_token" value="{{ csrf_token() }}">
 									<button type="submit" name="upload" >Upload</button>
 								</form> -->
