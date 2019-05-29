@@ -8,6 +8,8 @@ use App\Account;
 use App\Report;
 use App\Location;
 use APP\Report_image;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendEmail;
 use Auth;
 use DB;
 
@@ -100,10 +102,11 @@ class Reports extends Controller
         $report->name = $request->input('name');
         $report->manager_id = $request->input('manager_id');
         $report->comments = $request->input('comments');
-
-        //$report->user_id = auth()->user()->id;
-        //dd($report);
+        $manager_info = User::find($report->manager_id);
+        $manager_email = $manager_info->email;
+        //dd($report->manager_email);
         $report->save();
+        Mail::to($manager_email)->send(new SendEmail());
         return redirect('/reports')->with('success','Reports Added Successfully');
     }
 
@@ -165,4 +168,14 @@ class Reports extends Controller
     //     //$path = $request->file('file')->store('upload');
     //     //
     // }
+
+    public function send()
+    {
+        dd('usama');
+        $comment = 'Hi, This test feedback.';
+        $toEmail = "usama-javed@hotmail.com";
+        Mail::to($toEmail)->send(new SendEmail());
+
+        return 'Email has been sent to ' . $toEmail;
+    }
 }
