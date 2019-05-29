@@ -7,10 +7,10 @@ use App\User;
 use App\Account;
 use App\Report;
 use App\Location;
-use APP\Report_image;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendEmail;
 use App\Comment;
+use App\Report_image;
 use Auth;
 use DB;
 
@@ -134,6 +134,10 @@ class Reports extends Controller
                     ->where('report_id',$report_detail->id)
                     //->where('created_by',Auth::user()->id)
                     ->first();
+        $image = DB::table('report_images')
+                    ->where('report_id',$report_detail->id)
+                    ->get();
+        //dd($image) ;          
         return view('reports/view_report',compact(['report_detail','user','comment']));
     }
 
