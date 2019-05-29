@@ -7,12 +7,13 @@ use App\User;
 use App\Account;
 use App\Report;
 use App\Location;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\SendEmail;
+//use Illuminate\Support\Facades\Mail;
+//use App\Mail\SendEmail;
 use App\Comment;
 use App\Report_image;
 use Auth;
 use DB;
+use Mail;
 
 class Reports extends Controller
 {
@@ -95,6 +96,9 @@ class Reports extends Controller
      */
     public function store(Request $request)
     {
+
+        
+        
         
         $report = new Report;
         $report->created_by = Auth::user()->id;
@@ -110,10 +114,18 @@ class Reports extends Controller
         $report->manager_id = $request->input('manager_id');
         $manager_info = User::find($report->manager_id);
         $manager_email = $manager_info->email;
-        //dd($report->manager_email);
+        //dd($manager_email );
         $report->comment = $request->input('comments');
+        
         $report->save();
-        Mail::to($manager_email)->send(new SendEmail());
+        
+        $emails = ['usama52966@gmail.com'];
+        $message = 'asdfasdf';
+        Mail::send('emails.welcome', [], function($message) use ($manager_email){    
+            $message->to($manager_email)->subject('This is test e-mail');
+        });
+        var_dump( Mail:: failures());
+        //Mail::to($manager_email)->send(new SendEmail());
         return redirect('/reports')->with('success','Reports Added Successfully');
     }
 
