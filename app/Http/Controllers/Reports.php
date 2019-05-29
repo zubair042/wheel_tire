@@ -10,6 +10,7 @@ use App\Location;
 use APP\Report_image;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendEmail;
+use App\Comment;
 use Auth;
 use DB;
 
@@ -30,18 +31,19 @@ class Reports extends Controller
         if (Auth::user()->user_role != 1) { //Other than Global Admin
             $account_id = Auth::user()->account_id;
             $report_detail = DB::table('reports')
-                        ->join('accounts',"reports.account_id","=","accounts.id")
+                        ->join('accounts','reports.account_id','=','accounts.id')
                         // ->join('locations',"reports.location_id","=","locations.id")
+                        ->join('comments','reports.id','=','comments.report_id','left outer')
                         ->where('account_id',$account_id)
-                        ->select('reports.*')
+                        ->select('reports.*','comments.comments')
                         ->get();
-           // dd($report_detail);
+                        //dd($report_detail);
         }
         else{
-            // $report_detail = Report::all();
             $report_detail = DB::table('reports')
-                        ->join('locations','reports.location_id','=','locations.id')
-                        ->select('reports.*','locations.location_name')
+                        ->join('locations','reports.location_id','=','locations.id','left outer')
+                        ->join('comments','reports.id','=','comments.report_id','left outer')
+                        ->select('reports.*','locations.location_name','comments.comments')
                         ->get();
         }
         return view('reports/index', compact("report_detail"));
@@ -101,10 +103,10 @@ class Reports extends Controller
         $report->report_unit_num = $request->input('unit_number');
         $report->name = $request->input('name');
         $report->manager_id = $request->input('manager_id');
-        $report->comments = $request->input('comments');
         $manager_info = User::find($report->manager_id);
         $manager_email = $manager_info->email;
         //dd($report->manager_email);
+        $report->comment = $request->input('comments');
         $report->save();
         Mail::to($manager_email)->send(new SendEmail());
         return redirect('/reports')->with('success','Reports Added Successfully');
@@ -123,11 +125,11 @@ class Reports extends Controller
                     ->where('user_role',Auth::user()->user_role)
                     ->where('id',Auth::user()->id)
                     ->first();
-        // if ($user->user_role == 3 || $user->user_role == 2) {
-        //     return "yes";
-        // }
-
-        return view('reports/view_report',compact(['report_detail','user']));
+        $comment = DB::table('comments')
+                    ->where('report_id',$report_detail->id)
+                    //->where('created_by',Auth::user()->id)
+                    ->first();
+        return view('reports/view_report',compact(['report_detail','user','comment']));
     }
 
     /**
@@ -163,19 +165,9 @@ class Reports extends Controller
     {
         //
     }
-    // public function upload_file(Request $request){
-    //     echo "test";
-    //     //$path = $request->file('file')->store('upload');
-    //     //
-    // }
 
-    public function send()
+    public function signature()
     {
-        dd('usama');
-        $comment = 'Hi, This test feedback.';
-        $toEmail = "usama-javed@hotmail.com";
-        Mail::to($toEmail)->send(new SendEmail());
-
-        return 'Email has been sent to ' . $toEmail;
+        print_r($_POST['id']);
     }
 }

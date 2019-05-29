@@ -43,7 +43,9 @@
 						        <td style="text-align: center;">{{ $detail->weight }}</td>
 						        <td></i></td>
 						        <td class="text-center">
-				        			<!-- <i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i> -->
+						        	<?php if (!empty($detail->comments)) { ?>
+						        		<i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i>
+						        	<?php } ?>
 				        		</td>
 						     </tr>
 				    		@endforeach

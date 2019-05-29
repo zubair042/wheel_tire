@@ -41,7 +41,7 @@
 						<p>{{ $report_detail->weight }} Lbs</p>
 						<label class="font-weight-black">Second Signature:</label>
 						<p></p>
-						<p>{{ $report_detail->comments }}</p>
+						<p><?php if (isset($comment->comments)) {echo $comment->comments ; } ?></p>
 						<?php if ($user->user_role == 2 || $user->user_role == 3) { ?>
 						<a href="javascript:;" type="button" class="btn btn-primary rounded-round legitRipple"<?php if ($user->user_role == 3) { ?>
 							onclick="add_signature(<?php echo $user->id; ?>)"
@@ -63,8 +63,8 @@
 							</div>
 							<div class="col-md-3">
 								<form method="post" enctype="multipart/form-data" action="{{ url('/report/view/'.$report_detail->id ) }}">
+									{{ csrf_field() }}
 									<input type="file" name="file">
-									<input type="hidden" name="_token" value="{{ csrf_token() }}">
 									<button type="submit" name="upload" >Upload</button>
 								</form>
 							</div>
@@ -175,13 +175,15 @@
 
 <div id="modal_comment" class="modal fade" tabindex="-1">
 	<div class="modal-dialog">
-		<form method="post">
+		<form method="post" action="{{ route('add_comment') }}">
+			<input type="hidden" name="report_id" value="{{ $report_detail->id}}">
+			{{ csrf_field() }}
 			<div class="modal-content">
 				<div class="modal-body">
 					<h6 class="font-weight-semibold">Add a comment</h6>
 					<div class="form-group row">
 						<div class="col-lg-12">
-							<textarea rows="3" cols="3" class="form-control" placeholder="Write your comments.."></textarea>
+							<textarea rows="3" cols="3" name="comments" class="form-control" placeholder="Write your comments.."></textarea>
 						</div>
 					</div>
 				</div>
@@ -206,15 +208,15 @@
  //        });
  function add_signature(id){
  	if (confirm('Are you sure you want to Add Signature')) {
-		// $.ajax({
-		// 	type: "post",
-		// 	url: "",
-		// 	data: {'id': id, "_token": "{{ csrf_token() }}"},
-		// 	success:function(data){
-		// 		alert('Signature added successfully!');
-		// 		location.reload();
-		// 	}
-		// })
+		$.ajax({
+			type: "post",
+			url: "{{ route('signature') }}",
+			data: {'id': id, "_token": "{{ csrf_token() }}"},
+			success:function(data){
+				// alert('Signature added successfully!');
+				// location.reload();
+			}
+		})
 	}else{
 		alert('Signature Cancel');
 	}

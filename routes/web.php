@@ -45,6 +45,8 @@ Route::post('/user/destroy','Users@destroy')->name('destroy-user');
 
 
 Route::post('/report/view/{id}','Report_images@store');
+Route::post('/report/view','Comments@store')->name('add_comment');
+Route::post('/report','Reports@signature')->name('signature');
 
 Route::get('/profile/change_password/{id}','Profile@edit');
 Route::post('/profile/change_password/{id}','Profile@update');
