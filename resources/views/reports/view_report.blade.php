@@ -58,19 +58,19 @@
 				<div class="card" style="margin-top: 8px;background: #63af81">
 					<div class="card-body">
 						<div class="row">
-							<div class="col-md-9" style="text-align: center;color: #f9f9f9;">
+							<div class="col-md-12" style="text-align: center;color: #f9f9f9;">
 								<h4 class="font-weight-semibold" > LEFT FRONT WHEEL POSITION</h4>
 							</div>
-							<div class="col-md-3">
-								<!-- <input type="file" name="file" id="file">
-								<span id="upload_image"></span> -->
+							<!-- <div class="col-md-3">
+								<input type="file" name="file" id="file">
+								<span id="upload_image"></span>
 								<form method="post" enctype="multipart/form-data" action="{{ url('/report/view/'.$report_detail->id ) }}">
 									{{ csrf_field() }}
 									<input type="file" name="file">
 									<input type="hidden" name="type" value="left_front">
 									<button type="submit" name="upload" >Upload</button>
 								</form>
-							</div>
+							</div> -->
 						</div>
 						<div class="row">
 							<?php if (count($images) > 0) {
@@ -111,17 +111,17 @@
 							</div> -->
 						</div>
 						<div class="row" style="margin-top: 15px;">
-							<div class="col-md-9" style="text-align: center;color: #f9f9f9;">
+							<div class="col-md-12" style="text-align: center;color: #f9f9f9;">
 								<h4 class="font-weight-semibold" > RIGHT REAR WHEEL POSITION</h4>
 							</div>
-							<div class="col-md-3">
-								<!-- <form method="post" action="{{ url('/report/view/'.$report_detail->id ) }}">
+							<!-- <div class="col-md-3">
+								<form method="post" action="{{ url('/report/view/'.$report_detail->id ) }}">
 									<input type="file" name="file">
 									<input type="hidden" name="type" value="right_rear">
 									<input type="hidden" name="_token" value="{{ csrf_token() }}">
 									<button type="submit" name="upload" >Upload</button>
-								</form> -->
-							</div>
+								</form>
+							</div> -->
 						</div>
 						<div class="row">
 							<!-- <div class="col-md-3">

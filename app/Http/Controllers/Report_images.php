@@ -36,15 +36,26 @@ class Report_images extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request ,$id)
+    public function store(Request $request)
     {
-        $this->validate($request,[
-           'file'=>'required',
-        ]);
-
+        // $this->validate($request,[
+        //    'file'=>'required',
+        // ]);
+       // $f = $request->all();
         // Live path
-        $file = $request->file('file')->getRealPath();
-       
+        //$file = $request->file('file')->getRealPath();
+        //$files = $_FILES;
+        $result = array();
+        foreach($_FILES as $name => $fileArray) {
+            if (is_array($fileArray['name'])) {
+               return $fileArray['name'];
+            } else {
+                $result[$name][] = $fileArray;
+            }
+        }
+    //return $result;
+        echo "<pre>"; print_r($value);exit;
+        
         // Test path
         //$file = "https://cdn.pixabay.com/photo/2014/06/03/19/38/board-361516__340.jpg";
        
