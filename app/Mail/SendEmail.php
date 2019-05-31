@@ -10,7 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class SendEmail extends Mailable
 {
     use Queueable, SerializesModels;
-    //public $feedback;
+    //public $demo;
 
     /**
      * Create a new message instance.
@@ -19,7 +19,7 @@ class SendEmail extends Mailable
      */
     public function __construct()
     {
-        //$this->feedback = $feedback;
+        //$this->demo = $demo;
     }
 
     /**
@@ -29,6 +29,12 @@ class SendEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('email.send_email');
+        return $this->from('vp2015786@gmail.com')
+                    ->view('emails.welcome')
+                    ->with(
+                      [
+                            'testVarOne' => '1',
+                            'testVarTwo' => '2',
+                      ]);
     }
 }

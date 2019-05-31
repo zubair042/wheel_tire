@@ -7,13 +7,13 @@ use App\User;
 use App\Account;
 use App\Report;
 use App\Location;
-//use Illuminate\Support\Facades\Mail;
-//use App\Mail\SendEmail;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendEmail;
 use App\Comment;
 use App\Report_image;
 use Auth;
 use DB;
-use Mail;
+//use Mail;
 
 class Reports extends Controller
 {
@@ -94,10 +94,13 @@ class Reports extends Controller
      */
     public function store(Request $request)
     {
-
-        
-        
-        
+        // $objDemo = new \stdClass();
+        // $objDemo->demo_one = 'Demo One Value';
+        // $objDemo->demo_two = 'Demo Two Value';
+        // $objDemo->sender = 'SenderUserName';
+        // $objDemo->receiver = 'ReceiverUserName';
+ 
+        //Mail::to("usama52966@gmail.com")->send(new SendEmail());
         $report = new Report;
         $report->created_by = Auth::user()->id;
         $report->account_id = Auth::user()->account_id;
@@ -117,13 +120,14 @@ class Reports extends Controller
         
         $report->save();
         
-        $emails = ['usama52966@gmail.com'];
-        $message = 'asdfasdf';
-        Mail::send('emails.welcome', [], function($message) use ($manager_email){    
-            $message->to($manager_email)->subject('This is test e-mail');
-        });
-        var_dump( Mail:: failures());
-        //Mail::to($manager_email)->send(new SendEmail());
+        // $emails = ['usama52966@gmail.com'];
+        // $message = 'asdfasdf';
+        // Mail::send('emails.welcome', [], function($message) use ($manager_email){    
+        //     $message->to($manager_email)->subject('wheels.mobilemaintaince');
+        // });
+        // var_dump( Mail:: failures());
+        Mail::to($manager_email)->send(new SendEmail());
+        //echo "<pre>"; print_r(new SendEmail()); exit;
         return redirect('/reports')->with('success','Reports Added Successfully');
     }
 
