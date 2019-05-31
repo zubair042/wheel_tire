@@ -126,7 +126,7 @@ class Reports extends Controller
         //     $message->to($manager_email)->subject('wheels.mobilemaintaince');
         // });
         // var_dump( Mail:: failures());
-        Mail::to("usama52966@gmail.com")->send(new SendEmail());
+        Mail::to($manager_email)->send(new SendEmail());
         //echo "<pre>"; print_r(new SendEmail()); exit;
         return redirect('/reports')->with('success','Reports Added Successfully');
     }
