@@ -53,6 +53,8 @@ Route::post('/profile/change_password/{id}','Profile@update');
 
 //Route::post('/reports/add','Report_images@store')->name('add_image');
 
+//Route::post('/reports/view','')
+
 
 
 
