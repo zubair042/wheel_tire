@@ -95,29 +95,78 @@ class Reports extends Controller
      */
     public function store(Request $request)
     {
-        $input=$request->all();
-        return $input;
+        $power_unit_left_stear = $request->file('power_unit_left_stear');
+        $power_unit_right_stear = $request->file('power_unit_right_stear');
+        $power_unit_left_front = $request->file('power_unit_left_front');
+        $power_unit_right_front = $request->file('power_unit_right_front');
+        $power_unit_left_rear = $request->file('power_unit_left_rear');
+        $power_unit_right_rear = $request->file('power_unit_right_rear');
+        $trailer_left_front = $request->file('trailer_left_front');
+        $trailer_right_front = $request->file('trailer_right_front');
+        $trailer_left_rear = $request->file('trailer_left_rear');
+        $trailer_right_rear = $request->file('trailer_right_rear');
+       // echo "<pre>"; print_r($power_unit_left_stear);exit;
+        //$files = array();
+        // $files = array_merge(
+        //             (array)$power_unit_left_stear,(array)$power_unit_right_stear,
+        //             (array)$power_unit_left_front,(array)$power_unit_right_front,
+        //             (array)$power_unit_left_rear,(array)$power_unit_right_rear,
+        //             (array)$trailer_left_front,(array)$trailer_left_rear,
+        //             (array)$trailer_right_rear,(array)$trailer_right_front
+        //         );
+        //upload image
+        foreach ($power_unit_left_stear as $pls) {
+            $file = $pls->getRealPath();
+            $cloud = Cloudder::upload($file, null);
+            $c = Cloudder::getResult();
+            $url = $c["url"];
+
+            $image = new Report_image; 
+            //$image->report_id = $id;
+            $image->url = $url;
+            $image->image_type = $pls->getClientOriginalExtension();
+            //$image->image_type = $type;
+            $image->created_by = Auth::user()->id;
+            $image->save();
+            //print_r($file);exit;
+        }
+        //$type = $request->input('name');
+       
+        
+
+
+
+
+      //  if (isset($files)) {
+        //     echo "<pre>"; print_r($files); exit;
+        // //}
+        // //$files = $request->file('power_unit_left_stear');
+        // foreach ($files as $file) {
+        // echo "<pre>"; print_r($file->getRealPath()); exit;
+            
+        // }
+        // exit;
  
-        $this->validate($request,[
-           'file'=>'required',
-        ]);
+        // $this->validate($request,[
+        //    'file'=>'required',
+        // ]);
 
-        // Test path
-        //$file = "https://cdn.pixabay.com/photo/2014/06/03/19/38/board-361516__340.jpg";
-        $type = $request->input('name');
-        $file = $request->file('file')->getRealPath();
+        // // Test path
+        // //$file = "https://cdn.pixabay.com/photo/2014/06/03/19/38/board-361516__340.jpg";
+        // $type = $request->input('name');
+        // $file = $request->file('file')->getRealPath();
 
-        $cloud = Cloudder::upload($file, null);
-        $c = Cloudder::getResult();
-        $url = $c["url"];
+        // $cloud = Cloudder::upload($file, null);
+        // $c = Cloudder::getResult();
+        // $url = $c["url"];
 
-        $image = new Report_image; 
-        //$image->report_id = $id;
-        $image->url = $url;
-        //$image->image_type = $request->file->getClientOriginalExtension();
-        $image->image_type = $type;
-        $image->created_by = Auth::user()->id;
-        $image->save();
+        // $image = new Report_image; 
+        // //$image->report_id = $id;
+        // $image->url = $url;
+        // //$image->image_type = $request->file->getClientOriginalExtension();
+        // $image->image_type = $type;
+        // $image->created_by = Auth::user()->id;
+        // $image->save();
 
 
         //Mail::to("usama52966@gmail.com")->send(new SendEmail());

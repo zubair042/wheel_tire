@@ -42,7 +42,7 @@
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
 												<span style="font-size: 15px; text-align: right;">Left Steer Wheel Position</span>
-												<input type="checkbox"  class="form-check-input-styled-danger"  name="small_wheel" value="LS" data-fouc="">
+												<input type="checkbox"  class="form-check-input-styled-danger"  name="power_unit_left_stear" value="1" data-fouc="">
 											</label>
 										</div>
 									</div>
@@ -52,19 +52,19 @@
 									 	<a href="javascript:;">
 									 		<input type="image" name="power_unit_left_stear" class="chooseImage" src="{{asset('global_assets/images/image.png')}}">
 									 		
-									 		<input type="file" name="power_unit_left_stear[]" id="power_unit_left_stear" class="uploadImages" style="display: none;" multiple="">
+									 		<input type="file" name="power_unit_left_stear[]" id="power_unit_left_stear" style="display: none;" multiple="">
 									 		
 									 	</a>
 									 	<a href="javascript:;">
 									 		<input type="image" style="float: right;" name="power_unit_right_stear" class="chooseImage" src="{{asset('global_assets/images/image.png')}}">
-									 		<input type="file" name="power_unit_right_stear[]" id="power_unit_right_stear" class="uploadImages" style="display: none;" multiple="">
+									 		<input type="file" name="power_unit_right_stear[]" id="power_unit_right_stear" style="display: none;" multiple="">
 									 	</a>
 									</div>
 
 									<div class="align-self-center ml-3" style="width: 29%;">
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
-												<input type="checkbox" class="form-check-input-styled-danger" name="small_wheel" value="RS" data-fouc="">&nbsp;&nbsp; <span style="font-size: 15px;">Right Steer Wheel Position</span>
+												<input type="checkbox" class="form-check-input-styled-danger" name="power_unit_right_stear" value="1" data-fouc="">&nbsp;&nbsp; <span style="font-size: 15px;">Right Steer Wheel Position</span>
 											</label>
 										</div>
 									</div>
@@ -74,7 +74,7 @@
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
 												<span style="font-size: 15px; text-align: right;">Left Front Wheel Position</span>
-												<input type="checkbox" class="form-check-input-styled-danger"  name="front_wheel" value="LF" data-fouc="">
+												<input type="checkbox" class="form-check-input-styled-danger"  name="power_unit_left_front" value="1" data-fouc="">
 											</label>
 										</div>
 									</div>
@@ -83,18 +83,18 @@
 									 	<img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt="">
 									 	<a href="javascript:;">
 									 		<input type="image" name="power_unit_left_front" class="chooseImage" src="{{asset('global_assets/images/image.png')}}">
-									 		<input type="file" name="power_unit_left_front[]" id="power_unit_left_front" class="uploadImages" style="display: none;" multiple="">
+									 		<input type="file" name="power_unit_left_front[]" id="power_unit_left_front" style="display: none;" multiple="">
 									 	</a>
 									 	<a href="javascript:;">
 									 		<input type="image" style="float: right;" name="power_unit_right_front" class="chooseImage" src="{{asset('global_assets/images/image.png')}}">
-									 		<input type="file" name="power_unit_right_front[]" id="power_unit_right_front" class="uploadImages" style="display: none;" multiple="">
+									 		<input type="file" name="power_unit_right_front[]" id="power_unit_right_front" style="display: none;" multiple="">
 									 	</a>
 									</div>
 
 									<div class="align-self-center ml-3" style="width: 29%;">
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
-												<input type="checkbox" class="form-check-input-styled-danger" name="front_wheel" value="RF" data-fouc="">&nbsp;&nbsp; <span style="font-size: 15px;">Right Front Wheel Position</span>
+												<input type="checkbox" class="form-check-input-styled-danger" name="power_unit_right_front" value="1" data-fouc="">&nbsp;&nbsp; <span style="font-size: 15px;">Right Front Wheel Position</span>
 											</label>
 										</div>
 									</div>
@@ -104,7 +104,7 @@
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
 												<span style="font-size: 15px; text-align: right;">Left Rear Wheel Position</span>
-												<input type="checkbox" class="form-check-input-styled-danger" name="rear_wheel" value="LR" data-fouc="" >
+												<input type="checkbox" class="form-check-input-styled-danger" name="power_unit_left_rear" value="1" data-fouc="" >
 											</label>
 										</div>
 									</div>
@@ -113,18 +113,18 @@
 										<img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt="">
 										<a href="javascript:;">
 									 		<input type="image" name="power_unit_left_rear" class="chooseImage" src="{{asset('global_assets/images/image.png')}}">
-									 		<input type="file" name="power_unit_left_rear[]" id="power_unit_left_rear" class="uploadImages" style="display: none;" multiple="">
+									 		<input type="file" name="power_unit_left_rear[]" id="power_unit_left_rear" style="display: none;" multiple="">
 									 	</a>
 									 	<a href="javascript:;">
 									 		<input type="image" style="float: right;" name="power_unit_right_rear" class="chooseImage" src="{{asset('global_assets/images/image.png')}}">
-									 		<input type="file" name="power_unit_right_rear[]" id="power_unit_right_rear" class="uploadImages" style="display: none;" multiple="">
+									 		<input type="file" name="power_unit_right_rear[]" id="power_unit_right_rear" style="display: none;" multiple="">
 									 	</a>
 									</div>
 
 									<div class="align-self-center ml-3" style="width: 29%;">
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
-												<input type="checkbox" class="form-check-input-styled-danger" name="rear_wheel" value="RR" data-fouc="">&nbsp;&nbsp; <span style="font-size: 15px;">Right Rear Wheel Position</span>
+												<input type="checkbox" class="form-check-input-styled-danger" name="power_unit_right_rear" value="1" data-fouc="">&nbsp;&nbsp; <span style="font-size: 15px;">Right Rear Wheel Position</span>
 											</label>
 										</div>
 									</div>
@@ -148,7 +148,7 @@
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
 												<span style="font-size: 15px; text-align: right;">Left Front Wheel Position</span>
-												<input type="checkbox" class="form-check-input-styled-danger"  name="front_wheel" value="LF" data-fouc="">
+												<input type="checkbox" class="form-check-input-styled-danger"  name="trailer_left_front" value="1" data-fouc="">
 											</label>
 										</div>
 									</div>
@@ -158,18 +158,18 @@
 
 									 	<a href="javascript:;">
 									 		<input type="image" name="trailer_left_front" class="chooseImage" src="{{asset('global_assets/images/image.png')}}">
-									 		<input type="file" name="trailer_left_front[]" id="trailer_left_front" class="uploadImages" style="display: none;" multiple="">
+									 		<input type="file" name="trailer_left_front[]" id="trailer_left_front" style="display: none;" multiple="">
 									 	</a>
 									 	<a href="javascript:;">
 									 		<input type="image" style="float: right;" name="trailer_right_front" class="chooseImage" src="{{asset('global_assets/images/image.png')}}">
-									 		<input type="file" name="trailer_right_front[]" id="trailer_right_front" class="uploadImages" style="display: none;" multiple="">
+									 		<input type="file" name="trailer_right_front[]" id="trailer_right_front" style="display: none;" multiple="">
 									 	</a>
 									</div>
 
 									<div class="align-self-center ml-3" style="width: 29%;">
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
-												<input type="checkbox" class="form-check-input-styled-danger" name="front_wheel" value="RF" data-fouc="">&nbsp;&nbsp; <span style="font-size: 15px;">Right Front Wheel Position</span>
+												<input type="checkbox" class="form-check-input-styled-danger" name="trailer_right_front" value="1" data-fouc="">&nbsp;&nbsp; <span style="font-size: 15px;">Right Front Wheel Position</span>
 											</label>
 										</div>
 									</div>
@@ -179,7 +179,7 @@
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
 												<span style="font-size: 15px; text-align: right;">Left Rear Wheel Position</span>
-												<input type="checkbox" class="form-check-input-styled-danger" name="rear_wheel" value="LR" data-fouc="">
+												<input type="checkbox" class="form-check-input-styled-danger" name="trailer_left_rear" value="1" data-fouc="">
 											</label>
 										</div>
 									</div>
@@ -188,18 +188,18 @@
 										<img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt="">
 										<a href="javascript:;">
 											<input type="image" src="{{asset('global_assets/images/image.png')}}" name="trailer_left_rear" class="chooseImage">
-											<input type="file" name="trailer_left_rear[]" id="trailer_left_rear" class="uploadImages" style="display: none;" multiple="">
+											<input type="file" name="trailer_left_rear[]" id="trailer_left_rear" style="display: none;" multiple="">
 										</a>
 										<a href="javascript:;">
 											<input type="image" style="float: right;" src="{{asset('global_assets/images/image.png')}}" name="trailer_right_rear" class="chooseImage">
-											<input type="file" name="trailer_right_rear[]" id="trailer_right_rear" class="uploadImages" style="display: none;" multiple="">
+											<input type="file" name="trailer_right_rear[]" id="trailer_right_rear" style="display: none;" multiple="">
 										</a>
 									</div>
 
 									<div class="align-self-center ml-3" style="width: 29%;">
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
-												<input type="checkbox" class="form-check-input-styled-danger" name="rear_wheel" value="RR" data-fouc="">&nbsp;&nbsp; <span style="font-size: 15px;">Right Rear Wheel Position</span>
+												<input type="checkbox" class="form-check-input-styled-danger" name="trailer_right_rear" value="1" data-fouc="">&nbsp;&nbsp; <span style="font-size: 15px;">Right Rear Wheel Position</span>
 											</label>
 										</div>
 									</div>
@@ -320,37 +320,29 @@
 
 	
 
-	$('.uploadImages').on('change',function(e){
+	// $('.uploadImages').on('change',function(e){
 		
-		//e.preventDefault();
-		var name = $(this).attr('name');
-		// var formD = new FormData();
-		// formD.append('file', $(this)[0].files);
+	// 	//e.preventDefault();
+	// 	var name = $(this).attr('name');
+	// 	var formD = new FormData();
+	// 	formD.append('file', $(this)[0].files);
 
-		let formD = new FormData();
-	    let TotalImages = $(this)[0].files.length;  //Total Images
-	    let images = $(this)[0];  
+	// 	formD.append("name",name);
 
-	    for (let i = 0; i < TotalImages; i++) {
-	        formD.append('file', images.files[i]);
-	    }
-	    formD.append('files', TotalImages);
+	// 	$.ajax({
+	// 		url: "{{ route('save_reports') }}",
+	// 		type: "post",
+	// 		data: formD,
+	// 		contentType: false,
+	//         cache: false,
+	//         headers: {'X-CSRF-TOKEN': $('#csrf-token').val()},
+	//    		processData:false,
+	//    		success:function(data){
+	//    			console.log(data);
+	//    		}
+	// 	})
+	// });
 
-		formD.append("name",name);
-
-		$.ajax({
-			url: "{{ route('save_reports') }}",
-			type: "post",
-			data: formD,
-			contentType: false,
-	        cache: false,
-	        headers: {'X-CSRF-TOKEN': $('#csrf-token').val()},
-	   		processData:false,
-	   		success:function(data){
-	   			console.log(data);
-	   		}
-		})
-	});
 	$(".chooseImage").on("click", function(e){
 		var name = $(this).attr("name");
 		$("#"+name+"").click();
