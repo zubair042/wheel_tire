@@ -127,6 +127,7 @@ class Reports extends Controller
         // });
         // var_dump( Mail:: failures());
         Mail::to("usama52966@gmail.com")->send(new SendEmail());
+        //echo "<pre>"; print_r(new SendEmail()); exit;
         return redirect('/reports')->with('success','Reports Added Successfully');
     }
 
