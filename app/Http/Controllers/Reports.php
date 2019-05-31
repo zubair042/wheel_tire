@@ -94,12 +94,27 @@ class Reports extends Controller
      */
     public function store(Request $request)
     {
-        // $objDemo = new \stdClass();
-        // $objDemo->demo_one = 'Demo One Value';
-        // $objDemo->demo_two = 'Demo Two Value';
-        // $objDemo->sender = 'SenderUserName';
-        // $objDemo->receiver = 'ReceiverUserName';
  
+        $this->validate($request,[
+           'file'=>'required',
+        ]);
+
+        // Test path
+        //$file = "https://cdn.pixabay.com/photo/2014/06/03/19/38/board-361516__340.jpg";
+        $type = $request->input('name');
+        $file = $request->file('file')->getRealPath();
+
+        $cloud = Cloudder::upload($file, null);
+        $c = Cloudder::getResult();
+        $url = $c["url"];
+
+        $image = new Report_image; 
+        //$image->report_id = $id;
+        $image->url = $url;
+        //$image->image_type = $request->file->getClientOriginalExtension();
+        $image->image_type = $type;
+        $image->created_by = Auth::user()->id;
+        $image->save();
         //Mail::to("usama52966@gmail.com")->send(new SendEmail());
         $report = new Report;
         $report->created_by = Auth::user()->id;

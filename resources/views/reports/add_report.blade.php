@@ -335,7 +335,7 @@
 	        headers: {'X-CSRF-TOKEN': $('#csrf-token').val()},
 	   		processData:false,
 	   		success:function(data){
-	   			console.log(data);
+	   			
 	   		}
 		})
 	});
