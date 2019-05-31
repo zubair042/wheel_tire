@@ -2,6 +2,8 @@
 
 @section('content')
 
+<?php //echo "<pre>"; print_r($user); exit;?>
+
 <script src="{{asset('global_assets/js/plugins/media/fancybox.min.js') }}"></script>
 
 <div class="row">
@@ -21,7 +23,16 @@
 						</a>
 						<div class="card" style="margin-top:12px;">
 							<div class="card-header">
-								<h6 class="card-title text-secondary">Comments:</h6>
+								<div class="row">
+									<div class="col-md-9">
+										<h6 class="card-title text-secondary">Comments:</h6>
+									</div>
+									<div class="col-md-3">
+										<?php if($user->user_role == 3) { ?>
+										<input type="file" name="" id="imageToUpload">
+										<?php } ?>
+									</div>
+								</div>
 							</div>
 							<div class="card-body">
 								<span class="text-primary font-weight-semibold">John Smith : </span><span>Torque wrench was missing</span>
@@ -239,6 +250,29 @@ $('#file').on('click',function(e){
 	}
 	
 });
+
+$('#imageToUpload').on('change',function(e){
+		
+		//e.preventDefault();
+		alert(e);
+		var name = $(this).attr('name');
+		var formD = new FormData();
+		formD.append('file', $(this)[0].files[0]);
+		formD.append("name",name);
+
+		$.ajax({
+			url: "{{ route('add_image') }}",
+			type: "post",
+			data: formD,
+			contentType: false,
+	        cache: false,
+	        headers: {'X-CSRF-TOKEN': $('#csrf-token').val()},
+	   		processData:false,
+	   		success:function(data){
+	   			
+	   		}
+		})
+	});
 </script>
 
 @endsection
