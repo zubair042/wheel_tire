@@ -8,6 +8,7 @@ use App\Account;
 use App\Report;
 use App\Location;
 use Illuminate\Support\Facades\Mail;
+use JD\Cloudder\Facades\Cloudder;
 use App\Mail\SendEmail;
 use App\Comment;
 use App\Report_image;
@@ -94,6 +95,8 @@ class Reports extends Controller
      */
     public function store(Request $request)
     {
+        $input=$request->all();
+        return $input;
  
         $this->validate($request,[
            'file'=>'required',
@@ -115,6 +118,8 @@ class Reports extends Controller
         $image->image_type = $type;
         $image->created_by = Auth::user()->id;
         $image->save();
+
+
         //Mail::to("usama52966@gmail.com")->send(new SendEmail());
         $report = new Report;
         $report->created_by = Auth::user()->id;

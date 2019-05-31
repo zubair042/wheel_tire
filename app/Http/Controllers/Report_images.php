@@ -39,26 +39,26 @@ class Report_images extends Controller
     public function store(Request $request)
     {
         //echo"<pre>";print_r($request->all());exit;
-        $this->validate($request,[
-           'file'=>'required',
-        ]);
+        // $this->validate($request,[
+        //    'file'=>'required',
+        // ]);
 
-        // Test path
-        //$file = "https://cdn.pixabay.com/photo/2014/06/03/19/38/board-361516__340.jpg";
-        $type = $request->input('name');
-        $file = $request->file('file')->getRealPath();
+        // // Test path
+        // //$file = "https://cdn.pixabay.com/photo/2014/06/03/19/38/board-361516__340.jpg";
+        // $type = $request->input('name');
+        // $file = $request->file('file')->getRealPath();
 
-        $cloud = Cloudder::upload($file, null);
-        $c = Cloudder::getResult();
-        $url = $c["url"];
+        // $cloud = Cloudder::upload($file, null);
+        // $c = Cloudder::getResult();
+        // $url = $c["url"];
 
-        $image = new Report_image; 
-        //$image->report_id = $id;
-        $image->url = $url;
-        //$image->image_type = $request->file->getClientOriginalExtension();
-        $image->image_type = $type;
-        $image->created_by = Auth::user()->id;
-        $image->save();
+        // $image = new Report_image; 
+        // //$image->report_id = $id;
+        // $image->url = $url;
+        // //$image->image_type = $request->file->getClientOriginalExtension();
+        // $image->image_type = $type;
+        // $image->created_by = Auth::user()->id;
+        // $image->save();
         // $file = $request->file('file');
         // $file = $request->file;
         // if ($request->hasFile('file')) {

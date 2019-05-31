@@ -51,11 +51,13 @@
 									 	<img src="{{asset('global_assets/images/placeholders/fr1.png')}}" width="82%" height="100%" alt="">
 									 	<a href="javascript:;">
 									 		<input type="image" name="power_unit_left_stear" class="chooseImage" src="{{asset('global_assets/images/image.png')}}">
-									 		<input type="file" name="power_unit_left_stear" id="power_unit_left_stear" class="uploadImages" style="display: none;">
+									 		
+									 		<input type="file" name="power_unit_left_stear[]" id="power_unit_left_stear" class="uploadImages" style="display: none;" multiple="">
+									 		
 									 	</a>
 									 	<a href="javascript:;">
 									 		<input type="image" style="float: right;" name="power_unit_right_stear" class="chooseImage" src="{{asset('global_assets/images/image.png')}}">
-									 		<input type="file" name="power_unit_right_stear" id="power_unit_right_stear" class="uploadImages" style="display: none;">
+									 		<input type="file" name="power_unit_right_stear[]" id="power_unit_right_stear" class="uploadImages" style="display: none;" multiple="">
 									 	</a>
 									</div>
 
@@ -81,11 +83,11 @@
 									 	<img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt="">
 									 	<a href="javascript:;">
 									 		<input type="image" name="power_unit_left_front" class="chooseImage" src="{{asset('global_assets/images/image.png')}}">
-									 		<input type="file" name="power_unit_left_front" id="power_unit_left_front" class="uploadImages" style="display: none;">
+									 		<input type="file" name="power_unit_left_front[]" id="power_unit_left_front" class="uploadImages" style="display: none;" multiple="">
 									 	</a>
 									 	<a href="javascript:;">
 									 		<input type="image" style="float: right;" name="power_unit_right_front" class="chooseImage" src="{{asset('global_assets/images/image.png')}}">
-									 		<input type="file" name="power_unit_right_front" id="power_unit_right_front" class="uploadImages" style="display: none;">
+									 		<input type="file" name="power_unit_right_front[]" id="power_unit_right_front" class="uploadImages" style="display: none;" multiple="">
 									 	</a>
 									</div>
 
@@ -111,11 +113,11 @@
 										<img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt="">
 										<a href="javascript:;">
 									 		<input type="image" name="power_unit_left_rear" class="chooseImage" src="{{asset('global_assets/images/image.png')}}">
-									 		<input type="file" name="power_unit_left_rear" id="power_unit_left_rear" class="uploadImages" style="display: none;">
+									 		<input type="file" name="power_unit_left_rear[]" id="power_unit_left_rear" class="uploadImages" style="display: none;" multiple="">
 									 	</a>
 									 	<a href="javascript:;">
 									 		<input type="image" style="float: right;" name="power_unit_right_rear" class="chooseImage" src="{{asset('global_assets/images/image.png')}}">
-									 		<input type="file" name="power_unit_right_rear" id="power_unit_right_rear" class="uploadImages" style="display: none;">
+									 		<input type="file" name="power_unit_right_rear[]" id="power_unit_right_rear" class="uploadImages" style="display: none;" multiple="">
 									 	</a>
 									</div>
 
@@ -156,11 +158,11 @@
 
 									 	<a href="javascript:;">
 									 		<input type="image" name="trailer_left_front" class="chooseImage" src="{{asset('global_assets/images/image.png')}}">
-									 		<input type="file" name="trailer_left_front" id="trailer_left_front" class="uploadImages" style="display: none;">
+									 		<input type="file" name="trailer_left_front[]" id="trailer_left_front" class="uploadImages" style="display: none;" multiple="">
 									 	</a>
 									 	<a href="javascript:;">
 									 		<input type="image" style="float: right;" name="trailer_right_front" class="chooseImage" src="{{asset('global_assets/images/image.png')}}">
-									 		<input type="file" name="trailer_right_front" id="trailer_right_front" class="uploadImages" style="display: none;">
+									 		<input type="file" name="trailer_right_front[]" id="trailer_right_front" class="uploadImages" style="display: none;" multiple="">
 									 	</a>
 									</div>
 
@@ -186,11 +188,11 @@
 										<img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt="">
 										<a href="javascript:;">
 											<input type="image" src="{{asset('global_assets/images/image.png')}}" name="trailer_left_rear" class="chooseImage">
-											<input type="file" name="trailer_left_rear" id="trailer_left_rear" class="uploadImages" style="display: none;">
+											<input type="file" name="trailer_left_rear[]" id="trailer_left_rear" class="uploadImages" style="display: none;" multiple="">
 										</a>
 										<a href="javascript:;">
 											<input type="image" style="float: right;" src="{{asset('global_assets/images/image.png')}}" name="trailer_right_rear" class="chooseImage">
-											<input type="file" name="trailer_right_rear" id="trailer_right_rear" class="uploadImages" style="display: none;">
+											<input type="file" name="trailer_right_rear[]" id="trailer_right_rear" class="uploadImages" style="display: none;" multiple="">
 										</a>
 									</div>
 
@@ -322,12 +324,22 @@
 		
 		//e.preventDefault();
 		var name = $(this).attr('name');
-		var formD = new FormData();
-		formD.append('file', $(this)[0].files[0]);
+		// var formD = new FormData();
+		// formD.append('file', $(this)[0].files);
+
+		let formD = new FormData();
+	    let TotalImages = $(this)[0].files.length;  //Total Images
+	    let images = $(this)[0];  
+
+	    for (let i = 0; i < TotalImages; i++) {
+	        formD.append('file', images.files[i]);
+	    }
+	    formD.append('files', TotalImages);
+
 		formD.append("name",name);
 
 		$.ajax({
-			url: "{{ route('add_image') }}",
+			url: "{{ route('save_reports') }}",
 			type: "post",
 			data: formD,
 			contentType: false,
@@ -335,7 +347,7 @@
 	        headers: {'X-CSRF-TOKEN': $('#csrf-token').val()},
 	   		processData:false,
 	   		success:function(data){
-	   			
+	   			console.log(data);
 	   		}
 		})
 	});
