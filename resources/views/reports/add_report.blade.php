@@ -274,7 +274,7 @@
 		</div>
 	</div>
 </div>
-<input type="text" value="{{ csrf_token() }}" id="csrf-token">
+<input type="hidden" value="{{ csrf_token() }}" id="csrf-token">
 <script type="text/javascript">
 	$('.form-check-input-styled-danger').uniform({
         wrapperClass: 'border-danger-600 text-danger-800'
@@ -321,8 +321,10 @@
 	$('.uploadImages').on('change',function(e){
 		
 		//e.preventDefault();
+		var name = $(this).attr('name');
 		var formD = new FormData();
-		formD.append(''+$(this).attr('name')+'', $(this)[0].files[0]);
+		formD.append('file', $(this)[0].files[0]);
+		formD.append("name",name);
 
 		$.ajax({
 			url: "{{ route('add_image') }}",
@@ -333,7 +335,7 @@
 	        headers: {'X-CSRF-TOKEN': $('#csrf-token').val()},
 	   		processData:false,
 	   		success:function(data){
-
+	   			console.log(data);
 	   		}
 		})
 	});

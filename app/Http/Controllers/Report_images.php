@@ -38,39 +38,27 @@ class Report_images extends Controller
      */
     public function store(Request $request)
     {
-        // $this->validate($request,[
-        //    'file'=>'required',
-        // ]);
-       // $f = $request->all();
-        // Live path
-        //$file = $request->file('file')->getRealPath();
-        //$files = $_FILES;
-        $result = array();
-        foreach($_FILES as $name => $fileArray) {
-            if (is_array($fileArray['name'])) {
-               return $fileArray['name'];
-            } else {
-                $result[$name][] = $fileArray;
-            }
-        }
-    //return $result;
-        echo "<pre>"; print_r($value);exit;
-        
+        //echo"<pre>";print_r($request->all());exit;
+        $this->validate($request,[
+           'file'=>'required',
+        ]);
+
         // Test path
         //$file = "https://cdn.pixabay.com/photo/2014/06/03/19/38/board-361516__340.jpg";
-       
+        $type = $request->input('name');
+        $file = $request->file('file')->getRealPath();
+
         $cloud = Cloudder::upload($file, null);
         $c = Cloudder::getResult();
         $url = $c["url"];
 
         $image = new Report_image; 
-        $image->report_id = $id;
+        //$image->report_id = $id;
         $image->url = $url;
         //$image->image_type = $request->file->getClientOriginalExtension();
-        $image->image_type = $request->input('type');
+        $image->image_type = $type;
         $image->created_by = Auth::user()->id;
         $image->save();
-        return redirect()->back()->with('success','Image added Successfully');
         // $file = $request->file('file');
         // $file = $request->file;
         // if ($request->hasFile('file')) {
