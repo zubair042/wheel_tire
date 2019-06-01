@@ -18,8 +18,8 @@
 			<div class="card-body">
 				<div class="row">
 					<div class="col-md-8">
-						<a href="#" class="d-inline-block">
-							<img src="{{asset('')}}global_assets/images/placeholders/cover.jpg" class="img-fluid" alt="">
+						<a href="#" class="d-inline-block" id="upload_image">
+							<img src="{{asset('')}}global_assets/images/placeholders/cover.jpg" id="static_image" class="img-fluid" alt="">
 						</a>
 						<div class="card" style="margin-top:12px;">
 							<div class="card-header">
@@ -207,6 +207,7 @@
 	</div>
 </div>
 
+<input type="hidden" value="{{ csrf_token() }}" id="csrf-token">
 
 <script type="text/javascript">
 	$('[data-popup="lightbox1"]').fancybox({
@@ -254,12 +255,10 @@ $('#file').on('click',function(e){
 $('#imageToUpload').on('change',function(e){
 		
 		//e.preventDefault();
-		alert(e);
 		var name = $(this).attr('name');
 		var formD = new FormData();
 		formD.append('file', $(this)[0].files[0]);
 		formD.append("name",name);
-
 		$.ajax({
 			url: "{{ route('add_image') }}",
 			type: "post",
@@ -269,7 +268,10 @@ $('#imageToUpload').on('change',function(e){
 	        headers: {'X-CSRF-TOKEN': $('#csrf-token').val()},
 	   		processData:false,
 	   		success:function(data){
-	   			
+				   $('#upload_image').html(data.image);
+				   $('#static_image').hide();
+				   console.log(data);
+				  // $("#uploadedImage").html(data);
 	   		}
 		})
 	});
