@@ -132,10 +132,6 @@ class Reports extends Controller
         }
         //$type = $request->input('name');
        
-        
-
-
-
 
       //  if (isset($files)) {
         //     echo "<pre>"; print_r($files); exit;
