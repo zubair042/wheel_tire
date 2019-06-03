@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Comment;
+use DB;
 use Auth;
 
 class Comments extends Controller
@@ -36,12 +37,18 @@ class Comments extends Controller
      */
     public function store(Request $request ,$id=null)
     {
-        $comment = new Comment;
-        $comment->report_id = $request->input('report_id');
-        $comment->comments = $request->input('comments');
-        $comment->created_by = Auth::user()->id;
+        $comment                = new Comment;
+        $comment->report_id     = $request->input('report_id');
+        $comment->comments      = $request->input('comments');
+        $comment->created_by    = Auth::user()->id;
         $comment->save();
-        return redirect('/reports')->with('success',"Comment added successfully");
+
+        $comments   = DB::table('reports')
+                        ->where('id',$request->input('report_id'))
+                        ->update(['last_user_comments' => $request->input('comments') ]);
+
+
+        return redirect()->back()->with('success',"Comment added successfully");
     }
 
     /**

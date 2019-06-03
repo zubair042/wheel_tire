@@ -44,7 +44,7 @@
 						        <td style="text-align: center;">{{ $detail->weight }}</td>
 						        <td>{{ $detail->first_name." ".$detail->last_name }}</td>
 						        <td class="text-center">
-						        	<?php if (!empty($detail->comments)) { ?>
+						        	<?php if (!empty($detail->last_user_comments)) { ?>
 						        		<i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i>
 						        	<?php } ?>
 				        		</td>
