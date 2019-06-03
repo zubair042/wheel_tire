@@ -47,7 +47,7 @@ class Reports extends Controller
                         ->join('comments','reports.id','=','comments.report_id','left outer')
                         ->join('users',"reports.signature_by","=","users.id",'left outer')
                         ->select('reports.*','locations.location_name','comments.comments','users.first_name','users.last_name')
-                        //->orderBy('reports.id','DESC')
+                        //->orderBy('reports.created_at','desc')
                         ->get();
         }
         return view('reports/index', compact("report_detail"));
