@@ -2,35 +2,25 @@
 
 @section('content')
 
-<style type="text/css">
-	h1 {
-		padding: 0;
-		margin: 0 8px;
-		font-size: 24px;
-		color: #2679b5;
-	}
-</style>
-
 <script src="{{asset('global_assets/js/plugins/forms/styling/switch.min.js')}}"></script>
 <script src="{{asset('global_assets/js/plugins/forms/styling/switchery.min.js')}}"></script>
 <script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
 <script src="{{asset('global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
 
-<?php // print_r($user->id); ?>
 <div class="row">
 	<div class="col-md-12">
-		<div class="card" style="padding: 12px;">
+		<div class="card card-body">
 			<div class="row">
 				<div class="col-md-12">
-					<h1>User<small> <i class="icon-arrow-right5"></i>Edit User</small></h1>
+					<div class="page-header-content header-elements-inline">
+						<div class="page-title">
+							<h5>
+								<i class="icon-pencil mr-2"></i> <span class="font-weight-semibold">Users</span> - Edit User
+							</h5>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<hr align="left">
-				</div>
-			</div>
-
 			<form method="POST" action="{{ url('/user/edit/'.$user->id) }}" id="adit_user_form">
 				{{ csrf_field() }}
 
@@ -48,7 +38,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="row">
 					<div class="col-md-2 offset-md-3">
 						<span class="input-group-text">
@@ -59,9 +49,9 @@
 						<select class="custom-select1" name="user_role">
 							@if(count($user_roles) > 0)
 							@foreach($user_roles as $role)
-							<option value="{{ $role->id }}" <?php if ($role->id == $user->user_role){
-									echo 'selected="selected"';
-								} ?>><span>{{ $role->description }}</span></option>
+							<option value="{{ $role->id }}" <?php if ($role->id == $user->user_role) {
+																echo 'selected="selected"';
+															} ?>><span>{{ $role->description }}</span></option>
 							@endforeach
 							@endif
 						</select>
@@ -97,7 +87,7 @@
 						<input type="text" name="email" value="{{ $user->email }}" class="form-control">
 					</div>
 				</div>
-				<div class="row">
+				<div class="row form-group">
 					<div class="col-md-2 offset-md-3">
 						<span class="input-group-text">
 							<p>Password</p>
@@ -107,10 +97,10 @@
 						<input type="password" name="password" value="{{ $user->password }}" class="form-control">
 					</div>
 				</div>
-				<div class="row" style="text-align: center;margin:30px 0;">
+				<div class="row" align="center">
 					<div class="col-md-9 offset-md-1">
-						<button type="submit" style="background-color: #4f99c6!important;margin-right: 12px;" class="btn btn-primary legitRipple"><i class="icon-checkmark mr-2"></i>Update</button>
-						<button type="button" style="background-color: #8b9aa3!important;margin-left: 12px;" class="btn btn-primary legitRipple" onclick="resetForm();"><i class="icon-reset mr-2"></i>Reset</button>
+						<button type="submit" class="btn btn-primary legitRipple"><i class="icon-checkmark mr-2"></i>Update</button>
+						<button type="button" class="btn btn-danger legitRipple" onclick="resetForm();"><i class="icon-reset mr-2"></i>Reset</button>
 					</div>
 				</div>
 			</form>

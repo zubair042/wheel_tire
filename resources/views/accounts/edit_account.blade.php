@@ -14,7 +14,7 @@
 					<div class="page-header-content header-elements-inline">
 						<div class="page-title">
 							<h5>
-								<i class="icon-magazine mr-2"></i> <span class="font-weight-semibold">Account</span> - Edit Account
+								<i class="icon-pencil mr-2"></i> <span class="font-weight-semibold">Accounts</span> - Edit Account
 							</h5>
 						</div>
 
