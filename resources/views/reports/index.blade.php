@@ -7,28 +7,23 @@
 		<div class="card">
 			<div class="row">
 				<div class="col-md-12">
-					<div style="list-style: none; background-color: #40a6ff" class="media">
-						<div class="media-body" style="padding-left: 5px;">
-							<p><h2 style="color: white;">WHEEL / TIRE INSTALLATION REPORT</h2></p>
+					<div class="media bg-primary">
+						<div class="page-header-content">
+							<p><h2 class="text-white">WHEEL / TIRE INSTALLATION REPORT</h2></p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- <div class="row" style="margin-top: 40px; padding-left: 20px;">
-				<div class="col-md-12">
-					<p style="color: #4d52ff">Latest Reports</p>
-				</div>
-			</div> -->
 			<div class="datatable-scroll">
 				<table class="table" id="main-datatable">
 				    <thead>
 				      <tr>
-				        <th style="text-align: center;"><i style="margin-right: 8px;"></i>DATE</th>
-				        <th><i style="margin-right: 8px;"></i>UNIT NUMBER</th>
-				        <th><i style="margin-right: 8px;"></i>LOCATION</th>
-				        <th><i style="margin-right: 8px;"></i>TECHNICIAN</th>
-				        <th><i style="margin-right: 8px;"></i>TORQUE AMOUNT</th>
-				        <th><i style="margin-right: 8px;"></i>2ND SIGNATURE</th>
+				        <th class="text-center"><i></i>DATE</th>
+				        <th><i></i>UNIT NUMBER</th>
+				        <th><i></i>LOCATION</th>
+				        <th><i></i>TECHNICIAN</th>
+				        <th><i></i>TORQUE AMOUNT</th>
+				        <th><i></i>2ND SIGNATURE</th>
 				        <th class="text-center">COMMENT</th>
 				      </tr>
 				    </thead>
@@ -37,15 +32,15 @@
 				    		@foreach($report_detail as $detail)
 				    		<tr>
 				    			<!-- <td>{{ $detail->id }}</td> -->
-						        <td width="200px" style="text-align: center;"><a href="{{ url('report/view/'.$detail->id)}}" class="btn btn-success btn-sm legitRipple" style="margin-right: 10px; background-color: #4ec88a">View</a><?php echo date("Y M d",strtotime($detail->created_at)); ?></td>
-						        <td style="text-align: center;">{{ $detail->report_unit_num}}</td>
-						        <td style="text-align: center;"><?php if (isset($detail->location_name)) {echo $detail->location_name;} ?></td>
-						        <td style="text-align: center;">{{ $detail->name }}</td>
-						        <td style="text-align: center;">{{ $detail->weight }}</td>
+						        <td width="200px" class="text-center"><a href="{{ url('report/view/'.$detail->id)}}" class="btn btn-success btn-sm legitRipple m-2">View</a><?php echo date("Y M d",strtotime($detail->created_at)); ?></td>
+						        <td class="text-center">{{ $detail->report_unit_num}}</td>
+						        <td class="text-center"><?php if (isset($detail->location_name)) {echo $detail->location_name;} ?></td>
+						        <td class="text-center">{{ $detail->name }}</td>
+						        <td class="text-center">{{ $detail->weight }}</td>
 						        <td>{{ $detail->first_name." ".$detail->last_name }}</td>
 						        <td class="text-center">
 						        	<?php if (!empty($detail->last_user_comments)) { ?>
-						        		<i class="icon-checkmark3 mr-3 icon-2x" style="color: #526fff;"></i>
+						        		<i class="icon-checkmark3 mr-3 icon-2x text-primary"></i>
 						        	<?php } ?>
 				        		</td>
 						     </tr>
