@@ -30,7 +30,14 @@ class Report_images extends Controller
     {
         //
     }
-
+    public function saveImage($data){
+        $image                   = new Report_image; 
+        $image->report_id        = $data['report_id'];
+        $image->image_type       = $data['image_type'];
+        $image->url              = $data['url'];
+        $image->created_by       = Auth::user()->id;
+        $image->save();
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -41,38 +48,27 @@ class Report_images extends Controller
     {
         $this->validate($request,[
            'file'=>'required',
+           'report_id'=>'required',
+           'image_type'=>'required'
         ]);
 
-        // Test path
-        //$file = "https://cdn.pixabay.com/photo/2014/06/03/19/38/board-361516__340.jpg";
-        //$type = $request->input('name');
-        $file = $request->file('file')->getRealPath();
 
-        $cloud = Cloudder::upload($file, null);
-        $c = Cloudder::getResult();
-        $url = $c["url"];
+        $file                   = $request->file('file')->getRealPath();
+        $cloud                  = Cloudder::upload($file, null);
+        $c                      = Cloudder::getResult();
+        $url                    = $c["url"];
 
-        $image = new Report_image; 
-        //$image->report_id = $id;
-        $image->url = $url;
-        $image->image_type = $request->file->getClientOriginalExtension();
-        //$image->image_type = $type;
-        $image->created_by = Auth::user()->id;
+        $image                  = new Report_image; 
+        $image->report_id       = $request->report_id;
+        $image->url             = $url;
+        //$image->image_type      = $request->file->getClientOriginalExtension();
+        $image->image_type      = $request->image_type;
+        $image->created_by      = Auth::user()->id;
         $image->save();
         $id = DB::getPdo()->lastInsertId();
         $image = Report_image::find($id);
         $upload_image = $image->url;
-        //dd($upload_image);
         return response()->json(['image' => '<img src="'.$upload_image.'" class="img-fluid"  alt="">']);
-        // $file = $request->file('file');
-        // $file = $request->file;
-        // if ($request->hasFile('file')) {
-        //     $file_name = $request->file->getClientOriginalName();
-        //     $path = $request->file->storeAs('uploads',$file_name);
-        //     $file = new Report_image;
-        //     $file->url = $path;
-        //     //$file->save();
-        // }
     }
 
     /**
