@@ -26,7 +26,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<hr align="left" >
+					<hr allign="left" >
 				</div>
 			</div>
 			<form method="post" action="{{ route('save_accounts')}}" id="add_accounts_form" >
