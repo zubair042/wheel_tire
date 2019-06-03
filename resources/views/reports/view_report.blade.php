@@ -12,7 +12,7 @@
 			}
 		}
 	}
-?>								
+?>	
 
 <script src="{{asset('global_assets/js/plugins/media/fancybox.min.js') }}"></script>
 
@@ -65,7 +65,7 @@
 						<label class="font-weight-black">Unit Number:</label>
 						<p>{{ $report_detail->report_unit_num }}</p>
 						<label class="font-weight-black">Location:</label>
-						<p></p>
+						<p> {{ $report_detail->location_name }} </p>
 						<label class="font-weight-black">Wheel Lug Nuts Torqued To:</label>
 						<p>{{ $report_detail->weight }} Lbs</p>
 						<label class="font-weight-black">Second Signature:</label>
@@ -85,6 +85,36 @@
 					</div>
 				</div>
 
+				<?php if ($report_detail->vehicle_type == 'power_unit') { ?>
+
+				<div class="card" style="margin-top: 8px;background: #63af81">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-12" style="text-align: center;color: #f9f9f9;">
+								<h4 class="font-weight-semibold" >STEER WHEEL POSITION</h4>
+							</div>
+						</div>
+						<div class="row">
+							<?php if (count($images) > 0) {
+								foreach ($images as $image) { 
+									if ($image->image_type == 'power_unit_left_stear' || $image->image_type == 'power_unit_right_stear'){ ?>
+										<div class="col-md-3">
+											<div class="card-img-actions m-1">
+												<img class="card-img img-fluid" src="{{ $image->url }}" alt="">
+												<div class="card-img-actions-overlay card-img">
+													<a href="{{ $image->url }}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
+														<i class="icon-plus3"></i>
+													</a>
+												</div>
+											</div>
+										</div>
+							<?php	}
+								}
+							} ?>
+						</div>
+					</div>
+				</div>
+				<?php } ?>
 				<div class="card" style="margin-top: 8px;background: #63af81">
 					<div class="card-body">
 						<div class="row">
@@ -95,7 +125,7 @@
 						<div class="row">
 							<?php if (count($images) > 0) {
 								foreach ($images as $image) { 
-									if ($image->image_type == 'trailer_left_front' || $image->image_type == 'trailer_right_front'){ ?>
+									if ($image->image_type == 'trailer_left_front' || $image->image_type == 'trailer_right_front' && $image->image_type == 'power_unit_left_front' || $image->image_type == 'power_unit_left_front'){ ?>
 										<div class="col-md-3">
 											<div class="card-img-actions m-1">
 												<img class="card-img img-fluid" src="{{ $image->url }}" alt="">
@@ -121,7 +151,7 @@
 							<div class="row">
 								<?php if (count($images) > 0) {
 									foreach ($images as $image) { 
-										if ($image->image_type == 'trailer_left_rear' || $image->image_type == 'trailer_right_rear'){ ?>
+										if ($image->image_type == 'trailer_left_front' || $image->image_type == 'trailer_right_front' && $image->image_type == 'power_unit_left_front' || $image->image_type == 'power_unit_left_front'){ ?>
 											<div class="col-md-3">
 												<div class="card-img-actions m-1">
 													<img class="card-img img-fluid" src="{{ $image->url }}" alt="">
