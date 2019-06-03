@@ -33,7 +33,7 @@
 				        	<td><span>{{ $detail->account_type}}</span></td>
 				        	<td><span>{{ $detail->account_phone }}</span></td>
 				        	<td>{{ $detail->account_email }}</td>	
-									<td align="right"><a href="{{url('account/edit/'.$detail->id) }}">
+									<td class="text-right"><a href="{{url('account/edit/'.$detail->id) }}">
 									<i class="icon-pencil mr-3 icon-1x text-success"></i></a>
 									<a onclick="del_account(<?php echo $detail->id; ?>)" href="javascript:;">
 									<i class="icon-bin mr-3 icon-1x text-danger"></i></a></td>

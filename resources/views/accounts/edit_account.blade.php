@@ -156,7 +156,7 @@
 						<input type="text" name="note" value="{{ $account->account_notes }}" class="form-control">
 					</div>
 				</div>
-				<div class="row" align="center">
+				<div class="row text-center">
 					<div class="col-md-9 offset-md-1">
 						<button type="submit" class="btn btn-primary legitRipple btn1"><i class="icon-checkmark mr-2"></i>Update</button>
 						<button type="button" class="btn btn-danger legitRipple btn2" onclick="resetForm();"><i class="icon-reset mr-2"></i>Reset</button>
