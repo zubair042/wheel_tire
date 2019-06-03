@@ -265,8 +265,8 @@
 				    	</div>
 				    </div>
 				    <div class="row" style="text-align: center;margin:30px 0;">
-				    	<div class="col-md-12" style="text-align: center;">
-				    		<button type="submit" style="background-color: #4f99c6!important;margin-right: 12px;" class="btn btn-primary legitRipple"><i class="icon-checkmark mr-2"></i>Submit</button>
+				    	<div class="col-md-12 " style="text-align: center;">
+				    		<button type="submit" class="btn bg-teal btn-ladda btn-ladda-spinner ladda-button legitRipple"><i class="icon-checkmark mr-2"></i>Submit</button>
 						</button>
 				    	</div>
 				    </div>
