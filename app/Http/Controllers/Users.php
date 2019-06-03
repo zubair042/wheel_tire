@@ -148,7 +148,7 @@ class Users extends Controller
     public function update(Request $request, $id)
     {
         $users = User::find($id);
-        $users->account_id = $request->input('account_id');
+        //$users->account_id = $request->input('account_id');
         $users->user_role = $request->input('user_role');
         $users->first_name = $request->input('first_name');
         $users->last_name = $request->input('last_name');
