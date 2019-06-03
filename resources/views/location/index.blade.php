@@ -6,9 +6,9 @@
 			<div class="card">
 				<div class="row">
 					<div class="col-md-12">
-						<div style="list-style: none; background-color: #40a6ff" class="media">
-							<div class="media-body" style="padding-left: 5px;">
-								<p><h2 style="color: white;">Results for "Latest Registered Locations"</h2></p>
+						<div class="media bg-primary">
+							<div class="page-header-content">
+								<p><h2 class="text-white">Results for "Latest Registered Locations"</h2></p>
 							</div>
 						</div>
 					</div>
@@ -26,7 +26,7 @@
 							    	<tr>
 							        	<td><span>{{ $detail->id }}</span></td>
 							        	<td><span>{{ $detail->location_name }}</span></td>
-							        	<td style="text-align: right;"><a href="{{ url('/location/edit/'.$detail->id) }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a onclick="del_location(<?php echo $detail->id ?>)" href="javascript:;"><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
+							        	<td align="right"><a href="{{ url('/location/edit/'.$detail->id) }}"><i class="icon-pencil mr-3 icon-1x text-success"></i></a><a onclick="del_location(<?php echo $detail->id ?>)" href="javascript:;"><i class="icon-bin mr-3 icon-1x text-danger"></i></a></td>
 						      		</tr>
 				      			@endforeach
 				    		@endif

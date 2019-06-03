@@ -2,23 +2,13 @@
 @section('content')
 <?php //echo "<pre>";print_r($account_detail);exit; ?>
 
-<style>
-	.ls {
-		list-style: none;
-		background-color: #40a6ff;
-	}
-	.pl{
-		padding-left: 5px;
-	}
-</style>
-
 <div class="row">
 	<div class="col-md-12">
 		<div class="card">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="media ls">
-						<div class="media-body pl">
+					<div class="media bg-primary">
+						<div class="page-header-content">
 							<p><h2 class="text-white" >Results for "Registered Accounts"</h2></p>
 						</div>
 					</div>
