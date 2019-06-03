@@ -13,6 +13,10 @@
 		color: #2679b5;
 		font-size: 15px;
 	}
+	.btn1{
+		background-color: #4f99c6!important;
+		margin-right: 12px;
+	}
 </style>
 
 <script src="{{asset('global_assets/js/plugins/forms/styling/switch.min.js')}}"></script>
@@ -169,8 +173,8 @@
 			    </div> -->
 			    <div class="row" style="text-align: center;margin:30px 0;">
 			    	<div class="col-md-9 offset-md-1">
-			    		<button type="submit" style="background-color: #4f99c6!important;margin-right: 12px;" class="btn btn-primary legitRipple"><i class="icon-checkmark mr-2"></i>Update</button>
-			    		<button type="button" style="background-color: #8b9aa3!important;margin-left: 12px;" class="btn btn-primary legitRipple" onclick="resetForm();"><i class="icon-reset mr-2"></i>Reset</button>
+			    		<button type="submit" class="btn btn-primary legitRipple btn1"><i class="icon-checkmark mr-2"></i>Update</button>
+			    		<button type="button" class="btn btn-danger legitRipple btn2" onclick="resetForm();"><i class="icon-reset mr-2"></i>Reset</button>
 			    	</div>
 			    </div>
 		    </form>

@@ -1,14 +1,25 @@
 @extends('layouts.app')
 @section('content')
 <?php //echo "<pre>";print_r($account_detail);exit; ?>
+
+<style>
+	.ls {
+		list-style: none;
+		background-color: #40a6ff;
+	}
+	.pl{
+		padding-left: 5px;
+	}
+</style>
+
 <div class="row">
 	<div class="col-md-12">
 		<div class="card">
 			<div class="row">
 				<div class="col-md-12">
-					<div style="list-style: none; background-color: #40a6ff" class="media">
-						<div class="media-body" style="padding-left: 5px;">
-							<p><h2 style="color: white;">Results for "Registered Accounts"</h2></p>
+					<div class="media ls">
+						<div class="media-body pl">
+							<p><h2 class="text-white" >Results for "Registered Accounts"</h2></p>
 						</div>
 					</div>
 				</div>
@@ -32,7 +43,10 @@
 				        	<td><span>{{ $detail->account_type}}</span></td>
 				        	<td><span>{{ $detail->account_phone }}</span></td>
 				        	<td>{{ $detail->account_email }}</td>	
-				        	<td style="text-align: right;"><a href="{{url('account/edit/'.$detail->id) }}"><i style="color: #69aa46!important;" class="icon-pencil mr-3 icon-1x"></i></a><a onclick="del_account(<?php echo $detail->id; ?>)" href="javascript:;"><i style="color: red;" class="icon-bin mr-3 icon-1x"></i></a></td>
+									<td align="right"><a href="{{url('account/edit/'.$detail->id) }}">
+									<i class="icon-pencil mr-3 icon-1x text-success"></i></a>
+									<a onclick="del_account(<?php echo $detail->id; ?>)" href="javascript:;">
+									<i class="icon-bin mr-3 icon-1x text-danger"></i></a></td>
 			      		</tr>	
 				    		@endforeach
 				    	@endif
