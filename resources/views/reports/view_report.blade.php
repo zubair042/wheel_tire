@@ -23,10 +23,10 @@
 				<div class="col-md-12">
 					<span class="font-weight-semibold" style="font-size: 30px;">Wheel/Tire Installation Report</span>
 					<?php if ($user->user_role == 3 && $report_detail->signature == 0) { ?>
-						<a href="javascript:;" type="button"  class="btn btn-danger text-right" onclick="delete_report(<?php echo $report_detail->id; ?>)" >Delete</a>
+						<a href="javascript:;" type="button"  class="btn btn-danger float-right" onclick="delete_report(<?php echo $report_detail->id; ?>)" >Delete</a>
 					<?php } ?>
 					
-					<span class="font-weight-semibold" style="float: right;color: #5543e8;font-size: 15px;">ID: {{ $report_detail->id }}</span>
+					<span class="font-weight-semibold float-right text-primary font-size-lg" style="margin: 8px">ID: {{ $report_detail->id }}</span>
 					<input type="hidden" value={{ $report_detail->id }} id="reportId">
 				</div>
 			</div>
