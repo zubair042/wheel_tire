@@ -47,7 +47,7 @@ class Reports extends Controller
                         ->join('comments','reports.id','=','comments.report_id','left outer')
                         ->join('users',"reports.signature_by","=","users.id",'left outer')
                         ->select('reports.*','locations.location_name','comments.comments','users.first_name','users.last_name')
-                        //->orderBy('reports.id','DESC')
+                        //->orderBy('reports.created_at','desc')
                         ->get();
         }
         return view('reports/index', compact("report_detail"));
@@ -60,16 +60,17 @@ class Reports extends Controller
      */
     public function create()
     {
-        $account_id = Auth::user()->account_id;
+        $account_id         = Auth::user()->account_id;
+
         if(Auth::user()->user_role != 1){
             $manager_detail = DB::table('users')
-                        ->where('user_role',3)
-                        ->where('account_id',$account_id)
-                        ->get();
+                                ->where('user_role',3)
+                                ->where('account_id',$account_id)
+                                ->get();
         }else{
             $manager_detail = DB::table('users')
-                            ->where('user_role',3)
-                            ->get();
+                                ->where('user_role',3)
+                                ->get();
         }
         
         /*
@@ -179,22 +180,26 @@ class Reports extends Controller
     public function show($id)
     {
         // $report_detail = Report::find($id);
-        $report_detail = DB::table('reports')
+        $report_detail  = DB::table('reports')
                             ->join('users','reports.signature_by','=','users.id','left outer')
+                            ->join('locations','reports.location_id','=','locations.id','left outer')
                             ->where('reports.id',$id)
-                            ->select('reports.*','users.first_name','users.last_name')
+                            ->select('reports.*','users.first_name','users.last_name','locations.location_name')
                             ->first();
-        $user = DB::table('users')
-                    ->where('user_role',Auth::user()->user_role)
-                    ->where('id',Auth::user()->id)
-                    ->first();
-        $comment = DB::table('comments')
-                    ->where('report_id',$report_detail->id)
-                    //->where('created_by',Auth::user()->id)
-                    ->first();
-        $images = DB::table('report_images')
-                    ->where('report_id',$report_detail->id)
-                    ->get();         
+
+        $user           = DB::table('users')
+                            ->where('user_role',Auth::user()->user_role)
+                            ->where('id',Auth::user()->id)
+                            ->first();
+
+        $comment        = DB::table('comments')
+                            ->where('report_id',$report_detail->id)
+                            ->first();
+
+        $images         = DB::table('report_images')
+                            ->where('report_id',$report_detail->id)
+                            ->get(); 
+
         return view('reports/view_report',compact(['report_detail','user','comment','images']));
     }
 
@@ -234,19 +239,19 @@ class Reports extends Controller
 
     public function signature()
     {
-        $signed = DB::table('reports')
-                    ->where('id',$_POST['id'])
-                    ->update(['signature' => 1 , 'signature_by'=> Auth::user()->id , 'signature_on' => date('Y-m-d H:i:s')]);
+        $signed     = DB::table('reports')
+                        ->where('id',$_POST['id'])
+                        ->update(['signature' => 1 , 'signature_by'=> Auth::user()->id , 'signature_on' => date('Y-m-d H:i:s')]);
 
     }
     public function uploadCloudinary($fileArr){
-        $returnVal = array();
+        $returnVal      = array();
         if ($fileArr!=null){
             foreach($fileArr as $file){
-                $cloudFile = $file->getRealPath();
-                $cloud = Cloudder::upload($cloudFile, null);
-                $c = Cloudder::getResult();
-                $url = $c["url"];
+                $cloudFile  = $file->getRealPath();
+                $cloud      = Cloudder::upload($cloudFile, null);
+                $c          = Cloudder::getResult();
+                $url        = $c["url"];
                 array_push($returnVal, $url);
             }
         }

@@ -62,12 +62,11 @@
 <script type="text/javascript">
 	$("#main-datatable").DataTable({
 		autoWidth: false,
+		order: [0, "desc"],
 		columnDefs: [{ 
-			orderable: true,
+			orderable: false,
 			width: 100,
-			targets: [ 6 ],
-			order: [2, "desc"],
-   			//bSort: false,
+			targets: [ 6 ]
 		}],
 		dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
 		language: {
