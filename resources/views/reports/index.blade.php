@@ -14,11 +14,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="row" style="margin-top: 40px; padding-left: 20px;">
+			<!-- <div class="row" style="margin-top: 40px; padding-left: 20px;">
 				<div class="col-md-12">
 					<p style="color: #4d52ff">Latest Reports</p>
 				</div>
-			</div>
+			</div> -->
 			<div class="datatable-scroll">
 				<table class="table" id="main-datatable">
 				    <thead>
@@ -65,7 +65,9 @@
 		columnDefs: [{ 
 			orderable: true,
 			width: 100,
-			targets: [ 6 ]
+			targets: [ 6 ],
+			order: [2, "desc"],
+   			//bSort: false,
 		}],
 		dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
 		language: {
