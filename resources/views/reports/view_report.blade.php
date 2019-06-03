@@ -57,9 +57,7 @@
 								<span class="text-primary font-weight-semibold">{{ $comment->first_name." ".$comment->last_name}} : </span><span>{{ $comment->comments }}</span><br>
 								@endforeach
 								@endif
-								<!-- <span class="text-primary font-weight-semibold">John Smith : </span><span>Torque wrench was missing</span>
-								<br>
-								<span class="text-success font-weight-semibold">Bob Jones : </span><span>John say the torque wrench was not in the shop</span> -->
+								
 							</div>
 						</div>
 					</div>
@@ -72,20 +70,24 @@
 						<p> {{ $report_detail->location_name }} </p>
 						<label class="font-weight-black">Wheel Lug Nuts Torqued To:</label>
 						<p>{{ $report_detail->weight }} Lbs</p>
-						<label class="font-weight-black">Second Signature:</label>
-						<p>{{ $report_detail->first_name." ".$report_detail->last_name }}</p>
-						<!-- <p><?php // if (isset($comment->comments)) {echo $comment->comments ; } ?></p> -->
+						<label class="font-weight-black">Second Signature:</label><br>
+						<?php if ($report_detail->signature == 1) { ?>
+							<p>{{ $report_detail->first_name." ".$report_detail->last_name }}</p>
+						<?php }else{ ?>
+						
 						<?php if ($user->user_role == 2 || $user->user_role == 3) { ?>
 						<a href="javascript:;" type="button" id="signature_btn"  class="btn btn-primary rounded-round legitRipple"<?php if ($user->user_role == 3) { ?>
 							 onclick="add_signature(<?php echo $report_detail->id; ?>)"
 						<?php } ?> >
 							Apply Signature</a>
+						<?php } } ?>
+
 						<button type="button" class="btn btn-danger rounded-round legitRipple" 
 						<?php if ($user->user_role == 3) { ?>
 							data-toggle="modal" data-target="#modal_comment"
 						<?php } ?>>
 							Add Comment</button>
-						<?php } ?>
+						
 					</div>
 				</div>
 
