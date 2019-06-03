@@ -15,14 +15,8 @@
 					<div class="page-header-content header-elements-inline">
 						<div class="page-title">
 							<h5>
-								<i class="icon-magazine mr-2"></i> <span class="font-weight-semibold">Account</span> - Add Account
+								<i class="icon-magazine mr-2"></i> <span class="font-weight-semibold">Accounts</span> - Add Account
 							</h5>
-						</div>
-
-						<div class="header-elements">
-							<h6>
-								<span class="text-primary">Account ID:</span>
-							</h6>
 						</div>
 					</div>
 				</div>
