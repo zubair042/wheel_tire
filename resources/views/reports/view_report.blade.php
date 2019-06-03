@@ -2,7 +2,17 @@
 
 @section('content')
 
-<?php //echo "<pre>"; print_r($user); exit;?>
+<?php 
+	$main_image = '';
+	if (count($images) > 0) {
+		foreach ($images as $image) { 
+			if ($image->image_type == 'main_image'){
+				$main_image = $image->url;
+				break;
+			}
+		}
+	}
+?>								
 
 <script src="{{asset('global_assets/js/plugins/media/fancybox.min.js') }}"></script>
 
@@ -13,13 +23,21 @@
 				<div class="col-md-12">
 					<span class="font-weight-semibold" style="font-size: 30px;">Wheel/Tire Installation Report</span>
 					<span class="font-weight-semibold" style="float: right;color: #5543e8;font-size: 15px;">ID: {{ $report_detail->id }}</span>
+					<input type="hidden" value={{ $report_detail->id }} id="reportId">
 				</div>
 			</div>
 			<div class="card-body">
 				<div class="row">
 					<div class="col-md-8">
 						<a href="#" class="d-inline-block" id="upload_image">
-							<img src="{{asset('')}}global_assets/images/placeholders/cover.jpg" id="static_image" class="img-fluid" alt="">
+							<?php if($main_image == ''){ ?>
+								<img src="{{asset('')}}global_assets/images/placeholders/cover.jpg" id="static_image" class="img-fluid" alt="">
+							<?php } 
+							else { ?>
+								<img src=<?php echo $main_image?> id="static_image" class="img-fluid" alt="">
+							<?php 
+							}
+							?>
 						</a>
 						<div class="card" style="margin-top:12px;">
 							<div class="card-header">
@@ -28,8 +46,8 @@
 										<h6 class="card-title text-secondary">Comments:</h6>
 									</div>
 									<div class="col-md-3">
-										<?php if($user->user_role == 3) { ?>
-										<input type="file" name="" id="imageToUpload">
+										<?php if($user->user_role == 3 && $main_image=='') { ?>
+											<input type="file" name="" id="imageToUpload">
 										<?php } ?>
 									</div>
 								</div>
@@ -66,122 +84,66 @@
 						<?php } ?>
 					</div>
 				</div>
+
 				<div class="card" style="margin-top: 8px;background: #63af81">
 					<div class="card-body">
 						<div class="row">
 							<div class="col-md-12" style="text-align: center;color: #f9f9f9;">
-								<h4 class="font-weight-semibold" > LEFT FRONT WHEEL POSITION</h4>
+								<h4 class="font-weight-semibold" >FRONT WHEEL POSITION</h4>
 							</div>
-							<!-- <div class="col-md-3">
-								<input type="file" name="file" id="file">
-								<span id="upload_image"></span>
-								<form method="post" enctype="multipart/form-data" action="{{ url('/report/view/'.$report_detail->id ) }}">
-									{{ csrf_field() }}
-									<input type="file" name="file">
-									<input type="hidden" name="type" value="left_front">
-									<button type="submit" name="upload" >Upload</button>
-								</form>
-							</div> -->
 						</div>
 						<div class="row">
 							<?php if (count($images) > 0) {
-								foreach ($images as $image) { ?>
-
-							
-							<div class="col-md-3">
-								<div class="card-img-actions m-1">
-									<img class="card-img img-fluid" src="{{ $image->url }}" alt="">
-									<div class="card-img-actions-overlay card-img">
-										<a href="{{ $image->url }}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
-											<i class="icon-plus3"></i>
-										</a>
-									</div>
-								</div>
-							</div>
+								foreach ($images as $image) { 
+									if ($image->image_type == 'trailer_left_front' || $image->image_type == 'trailer_right_front'){ ?>
+										<div class="col-md-3">
+											<div class="card-img-actions m-1">
+												<img class="card-img img-fluid" src="{{ $image->url }}" alt="">
+												<div class="card-img-actions-overlay card-img">
+													<a href="{{ $image->url }}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
+														<i class="icon-plus3"></i>
+													</a>
+												</div>
+											</div>
+										</div>
 							<?php	}
+								}
 							} ?>
-							<!-- <div class="col-md-3">
-								<div class="card-img-actions m-1">
-									<img class="card-img img-fluid" src="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" alt="">
-									<div class="card-img-actions-overlay card-img">
-										<a href="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
-											<i class="icon-plus3"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="card-img-actions m-1">
-									<img class="card-img img-fluid" src="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" alt="">
-									<div class="card-img-actions-overlay card-img">
-										<a href="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
-											<i class="icon-plus3"></i>
-										</a>
-									</div>
-								</div>
-							</div> -->
-						</div>
-						<div class="row" style="margin-top: 15px;">
-							<div class="col-md-12" style="text-align: center;color: #f9f9f9;">
-								<h4 class="font-weight-semibold" > RIGHT REAR WHEEL POSITION</h4>
-							</div>
-							<!-- <div class="col-md-3">
-								<form method="post" action="{{ url('/report/view/'.$report_detail->id ) }}">
-									<input type="file" name="file">
-									<input type="hidden" name="type" value="right_rear">
-									<input type="hidden" name="_token" value="{{ csrf_token() }}">
-									<button type="submit" name="upload" >Upload</button>
-								</form>
-							</div> -->
-						</div>
-						<div class="row">
-							<!-- <div class="col-md-3">
-								<div class="card-img-actions m-1">
-									<img class="card-img img-fluid" src="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" alt="">
-									<div class="card-img-actions-overlay card-img">
-										<a href="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
-											<i class="icon-plus3"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="card-img-actions m-1">
-									<img class="card-img img-fluid" src="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" alt="">
-									<div class="card-img-actions-overlay card-img">
-										<a href="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
-											<i class="icon-plus3"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="card-img-actions m-1">
-									<img class="card-img img-fluid" src="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" alt="">
-									<div class="card-img-actions-overlay card-img">
-										<a href="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
-											<i class="icon-plus3"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="card-img-actions m-1">
-									<img class="card-img img-fluid" src="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" alt="">
-									<div class="card-img-actions-overlay card-img">
-										<a href="{{asset('global_assets/images/placeholders/placeholder.jpg')}}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
-											<i class="icon-plus3"></i>
-										</a>
-									</div>
-								</div>
-							</div> -->
 						</div>
 					</div>
+				</div>
+				<div class="card" style="margin-top: 8px;background: #63af81">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-12" style="text-align: center;color: #f9f9f9;">
+								<h4 class="font-weight-semibold">REAR WHEEL POSITION</h4>
+							</div>
+							<div class="row">
+								<?php if (count($images) > 0) {
+									foreach ($images as $image) { 
+										if ($image->image_type == 'trailer_left_rear' || $image->image_type == 'trailer_right_rear'){ ?>
+											<div class="col-md-3">
+												<div class="card-img-actions m-1">
+													<img class="card-img img-fluid" src="{{ $image->url }}" alt="">
+													<div class="card-img-actions-overlay card-img">
+														<a href="{{ $image->url }}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
+															<i class="icon-plus3"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+								<?php	}
+									}
+								} ?>
+							</div>
+						</div>
+					</div>
+					
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+
 
 <div id="modal_comment" class="modal fade" tabindex="-1">
 	<div class="modal-dialog">
@@ -256,9 +218,12 @@ $('#imageToUpload').on('change',function(e){
 		
 		//e.preventDefault();
 		var name = $(this).attr('name');
+		var reportId = $("#reportId").val();
 		var formD = new FormData();
 		formD.append('file', $(this)[0].files[0]);
 		formD.append("name",name);
+		formD.append("report_id",reportId);
+		formD.append("image_type","main_image");
 		$.ajax({
 			url: "{{ route('add_image') }}",
 			type: "post",

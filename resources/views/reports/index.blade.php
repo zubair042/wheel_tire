@@ -14,11 +14,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="row" style="margin-top: 40px; padding-left: 20px;">
+			<!-- <div class="row" style="margin-top: 40px; padding-left: 20px;">
 				<div class="col-md-12">
 					<p style="color: #4d52ff">Latest Reports</p>
 				</div>
-			</div>
+			</div> -->
 			<div class="datatable-scroll">
 				<table class="table" id="main-datatable">
 				    <thead>
@@ -36,7 +36,7 @@
 				    	@if (count($report_detail) > 0)
 				    		@foreach($report_detail as $detail)
 				    		<tr>
-				    			
+				    			<!-- <td>{{ $detail->id }}</td> -->
 						        <td width="200px" style="text-align: center;"><a href="{{ url('report/view/'.$detail->id)}}" class="btn btn-success btn-sm legitRipple" style="margin-right: 10px; background-color: #4ec88a">View</a><?php echo date("Y M d",strtotime($detail->created_at)); ?></td>
 						        <td style="text-align: center;">{{ $detail->report_unit_num}}</td>
 						        <td style="text-align: center;"><?php if (isset($detail->location_name)) {echo $detail->location_name;} ?></td>
@@ -65,7 +65,9 @@
 		columnDefs: [{ 
 			orderable: true,
 			width: 100,
-			targets: [ 6 ]
+			targets: [ 6 ],
+			order: [2, "desc"],
+   			//bSort: false,
 		}],
 		dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
 		language: {
@@ -75,6 +77,7 @@
 			paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
 		}
 	});
+
 </script>
 
 
