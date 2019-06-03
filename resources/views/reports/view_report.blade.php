@@ -13,6 +13,7 @@
 		}
 	}
 ?>	
+<?php //echo "<pre>";print_r($report_detail);exit; ?>
 <script src="{{asset('global_assets/js/plugins/media/fancybox.min.js') }}"></script>
 
 <div class="row">
@@ -21,6 +22,10 @@
 			<div class="card-header">
 				<div class="col-md-12">
 					<span class="font-weight-semibold" style="font-size: 30px;">Wheel/Tire Installation Report</span>
+					<?php if ($user->user_role == 3 && $report_detail->signature == 0) { ?>
+						<a href="javascript:;" type="button"  class="btn btn-danger text-right" onclick="delete_report(<?php echo $report_detail->id; ?>)" >Delete</a>
+					<?php } ?>
+					
 					<span class="font-weight-semibold" style="float: right;color: #5543e8;font-size: 15px;">ID: {{ $report_detail->id }}</span>
 					<input type="hidden" value={{ $report_detail->id }} id="reportId">
 				</div>
@@ -279,6 +284,22 @@ $('#imageToUpload').on('change',function(e){
 	   		}
 		})
 	});
+
+	function delete_report(id){
+		if (confirm('Are you sure you want to Delete Report')) {
+		$.ajax({
+			type: "post",
+			url: "{{ route('delete_report') }}",
+			data: {'id': id, "_token": "{{ csrf_token() }}"},
+			success:function(data){
+				alert('Report Deleted successfully!');
+				window.location.replace('{{ url("/reports")}}');
+			}
+		})
+	}else{
+		alert('Report Canceled');
+	}
+	}
 </script>
 
 @endsection

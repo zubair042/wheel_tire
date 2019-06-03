@@ -3,6 +3,10 @@
 @section('content')
 <script src="{{asset('global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
 <script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
+<script src="{{ asset('global_assets/js/plugins/buttons/spin.min.js') }} "></script>
+<script src="{{ asset('global_assets/js/plugins/buttons/ladda.min.js') }}"></script>
+<script src="{{ asset('global_assets/js/demo_pages/components_buttons.js') }}"></script>
+
 <style type="text/css">
 	.chooseImage{
 		float: left;
@@ -156,7 +160,7 @@
 									<div class="media-body" style="text-align: center;">
 									 	<img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt="">
 
-									 	<a href="javascript:;">
+									 	<a>
 									 		<input type="image" name="trailer_left_front" class="chooseImage" src="{{asset('global_assets/images/image.png')}}">
 									 		<input type="file" name="trailer_left_front[]" id="trailer_left_front" style="display: none;" multiple="">
 									 	</a>
@@ -266,8 +270,9 @@
 				    </div>
 				    <div class="row" style="text-align: center;margin:30px 0;">
 				    	<div class="col-md-12 " style="text-align: center;">
-				    		<button type="submit" class="btn bg-teal btn-ladda btn-ladda-spinner ladda-button legitRipple"><i class="icon-checkmark mr-2"></i>Submit</button>
-						</button>
+				    		<button type="submit" class="btn btn-primary btn-ladda btn-ladda-spinner" data-style="expand-right" id="submit123" data-spinner-color="#ffff"
+				    		onclick="spinner();"><i class="icon-checkmark mr-2"></i>Submit</button>
+						
 				    	</div>
 				    </div>
 			    </div>
@@ -278,6 +283,19 @@
 </div>
 <input type="hidden" value="{{ csrf_token() }}" id="csrf-token">
 <script type="text/javascript">
+
+$("#submit1232222").on("click", function(){
+	var l = Ladda.create( document.querySelector( '#submit' ) );
+	l.start();
+	// setTimeout(function(){
+	// 	l.stop();
+	// }, 3000);
+})
+	function spinner(){
+		var l = Ladda.create( document.querySelector('#submit') );
+		l.start();
+	}
+
 	$('.form-check-input-styled-danger').uniform({
         wrapperClass: 'border-danger-600 text-danger-800'
     });
@@ -320,33 +338,15 @@
 
 	
 
-	// $('.uploadImages').on('change',function(e){
-		
-	// 	//e.preventDefault();
-	// 	var name = $(this).attr('name');
-	// 	var formD = new FormData();
-	// 	formD.append('file', $(this)[0].files);
-
-	// 	formD.append("name",name);
-
-	// 	$.ajax({
-	// 		url: "{{ route('save_reports') }}",
-	// 		type: "post",
-	// 		data: formD,
-	// 		contentType: false,
-	//         cache: false,
-	//         headers: {'X-CSRF-TOKEN': $('#csrf-token').val()},
-	//    		processData:false,
-	//    		success:function(data){
-	//    			console.log(data);
-	//    		}
-	// 	})
-	// });
-
 	$(".chooseImage").on("click", function(e){
 		var name = $(this).attr("name");
 		$("#"+name+"").click();
-	})
+		e.preventDefault();
+	});
+
+	
 </script>
+
+
 
 @endsection 

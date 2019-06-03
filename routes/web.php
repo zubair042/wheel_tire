@@ -15,6 +15,7 @@ Route::get('/', 'Dashboard@index')->name('dashboard');
 Route::get('/reports','Reports@index');
 Route::get('/report/add','Reports@create');
 Route::get('/report/view/{id}','Reports@show');
+Route::post('/report/destroy','Reports@destroy')->name('delete_report');
 Route::post('/add_report','Reports@store')->name('save_reports');
 
 Route::post('/add_account','Accounts@store')->name('save_accounts');

@@ -253,8 +253,9 @@ class Reports extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy()
-    {
-
+    {  
+        $report = Report::find($_POST['id']);
+        $report->delete();
     }
 
     public function signature()
