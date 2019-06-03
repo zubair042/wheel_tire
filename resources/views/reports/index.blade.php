@@ -62,7 +62,7 @@
 <script type="text/javascript">
 	$("#main-datatable").DataTable({
 		autoWidth: false,
-		order: [0, "desc"],
+		order: [0, "asc"],
 		columnDefs: [{ 
 			orderable: false,
 			width: 100,

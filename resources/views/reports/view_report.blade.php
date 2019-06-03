@@ -13,7 +13,6 @@
 		}
 	}
 ?>	
-
 <script src="{{asset('global_assets/js/plugins/media/fancybox.min.js') }}"></script>
 
 <div class="row">
@@ -53,9 +52,14 @@
 								</div>
 							</div>
 							<div class="card-body">
-								<span class="text-primary font-weight-semibold">John Smith : </span><span>Torque wrench was missing</span>
+								@if(count($comments) > 0)
+								@foreach($comments as $comment)
+								<span class="text-primary font-weight-semibold">{{ $comment->first_name." ".$comment->last_name}} : </span><span>{{ $comment->comments }}</span><br>
+								@endforeach
+								@endif
+								<!-- <span class="text-primary font-weight-semibold">John Smith : </span><span>Torque wrench was missing</span>
 								<br>
-								<span class="text-success font-weight-semibold">Bob Jones : </span><span>John say the torque wrench was not in the shop</span>
+								<span class="text-success font-weight-semibold">Bob Jones : </span><span>John say the torque wrench was not in the shop</span> -->
 							</div>
 						</div>
 					</div>
@@ -70,10 +74,10 @@
 						<p>{{ $report_detail->weight }} Lbs</p>
 						<label class="font-weight-black">Second Signature:</label>
 						<p>{{ $report_detail->first_name." ".$report_detail->last_name }}</p>
-						<p><?php if (isset($comment->comments)) {echo $comment->comments ; } ?></p>
+						<!-- <p><?php // if (isset($comment->comments)) {echo $comment->comments ; } ?></p> -->
 						<?php if ($user->user_role == 2 || $user->user_role == 3) { ?>
-						<a href="javascript:;" type="button" class="btn btn-primary rounded-round legitRipple"<?php if ($user->user_role == 3) { ?>
-							onclick="add_signature(<?php echo $report_detail->id; ?>)"
+						<a href="javascript:;" type="button" id="signature_btn"  class="btn btn-primary rounded-round legitRipple"<?php if ($user->user_role == 3) { ?>
+							 onclick="add_signature(<?php echo $report_detail->id; ?>)"
 						<?php } ?> >
 							Apply Signature</a>
 						<button type="button" class="btn btn-danger rounded-round legitRipple" 
@@ -217,7 +221,8 @@ function add_signature(id){
 			data: {'id': id, "_token": "{{ csrf_token() }}"},
 			success:function(data){
 				alert('Signature added successfully!');
-				location.reload();
+				$('#signature_btn').hide();
+				// location.reload();
 			}
 		})
 	}else{
@@ -265,7 +270,7 @@ $('#imageToUpload').on('change',function(e){
 	   		success:function(data){
 				   $('#upload_image').html(data.image);
 				   $('#static_image').hide();
-				   console.log(data);
+				   // console.log(data);
 				  // $("#uploadedImage").html(data);
 	   		}
 		})

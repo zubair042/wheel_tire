@@ -95,6 +95,26 @@ class Reports extends Controller
      */
     public function store(Request $request)
     {
+        // if($request->input('trailer_left_front') == 1){
+        // } 
+        // if($request->input('trailer_right_front') == 1){
+        // } 
+        // if($request->input('trailer_left_rear') == 1){
+        // } 
+        // if($request->input('trailer_right_rear') == 1){
+        // } 
+        // if($request->input('power_unit_left_stear') == 1){
+        // } 
+        // if($request->input('power_unit_right_stear') == 1){
+        // } 
+        // if($request->input('power_unit_left_front') == 1){
+        // } 
+        // if($request->input('power_unit_right_front') == 1){
+        // } 
+        // if($request->input('power_unit_left_rear') == 1){
+        // } 
+        // if($request->input('power_unit_right_rear') == 1){
+        // }            
         $power_unit_left_stear  = $request->file('power_unit_left_stear');
         $power_unit_right_stear = $request->file('power_unit_right_stear');
         $power_unit_left_front  = $request->file('power_unit_left_front');
@@ -192,15 +212,17 @@ class Reports extends Controller
                             ->where('id',Auth::user()->id)
                             ->first();
 
-        $comment        = DB::table('comments')
+        $comments        = DB::table('comments')
+                            ->join('users','users.id','=','comments.created_by')
                             ->where('report_id',$report_detail->id)
-                            ->first();
+                            ->get();
+                            //dd($comments);
 
         $images         = DB::table('report_images')
                             ->where('report_id',$report_detail->id)
                             ->get(); 
 
-        return view('reports/view_report',compact(['report_detail','user','comment','images']));
+        return view('reports/view_report',compact(['report_detail','user','comments','images']));
     }
 
     /**
