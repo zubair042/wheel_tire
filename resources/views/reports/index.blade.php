@@ -37,7 +37,11 @@
 						        <td class="text-center"><?php if (isset($detail->location_name)) {echo $detail->location_name;} ?></td>
 						        <td class="text-center">{{ $detail->name }}</td>
 						        <td class="text-center">{{ $detail->weight }}</td>
+						        <?php if ($detail->signature != 1) { ?>
+						        <td><span class="text-danger">Pending</span></td>
+						        <?php }else{ ?>
 						        <td>{{ $detail->first_name." ".$detail->last_name }}</td>
+						    	<?php } ?>
 						        <td class="text-center">
 						        	<?php if (!empty($detail->last_user_comments)) { ?>
 						        		<i class="icon-checkmark3 mr-3 icon-2x text-primary"></i>

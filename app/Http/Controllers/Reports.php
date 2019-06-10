@@ -34,10 +34,10 @@ class Reports extends Controller
             $account_id = Auth::user()->account_id;
             $report_detail = DB::table('reports')
                         ->join('accounts','reports.account_id','=','accounts.id')
-                        ->join('users',"reports.signature_by","=","users.id",'left outer')                        
+                        ->join('users',"reports.signature_by","=","users.id",'left outer')
+                        ->join('locations','reports.location_id','=','locations.id')
                         ->where('reports.account_id',$account_id)
-                        ->select('reports.*','users.first_name','users.last_name')
-                        //->orderBy('reports.id','DESC')
+                        ->select('reports.*','users.first_name','locations.location_name','users.last_name')
                         ->get();
         }
         else{
