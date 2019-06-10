@@ -26,14 +26,18 @@ class Locations extends Controller
         if (Auth::user()->user_role != 1) { //Other than Global Admin
             $account_id = Auth::user()->account_id;
             $location_detail = DB::table('locations')
-                        ->join('accounts',"locations.account_id","=","accounts.id")
-                        ->where('account_id',$account_id)
-                        ->select('locations.*')
-                        ->get();
-                        
+                                ->join('accounts',"locations.account_id","=","accounts.id")
+                                ->join('users','locations.user_id','=','users.id')
+                                ->where('locations.account_id',$account_id)
+                                ->select('locations.*','accounts.account_name','users.first_name','users.last_name')
+                                ->get();
         }
         else{
-            $location_detail = Location::all();
+            $location_detail = DB::table('locations')
+                                ->join('accounts','locations.account_id','=','accounts.id')
+                                ->join('users','locations.user_id','=','users.id')
+                                ->select('locations.*','accounts.account_name','users.first_name','users.last_name')
+                                ->get(); 
         }
         return view('location/index')->with('location_detail',$location_detail);
     }
@@ -50,9 +54,9 @@ class Locations extends Controller
                             ->where('id',Auth::user()->account_id)
                             ->get();
         }else{
-            $customers = Account::all();
+            $customers = Account::all();  
         }
-        return view('location/add_location')->with('customers',$customers);
+        return view('location/add_location',compact('customers'));
     }
 
     /**
@@ -67,6 +71,7 @@ class Locations extends Controller
         $location = new Location;
         $location->created_by = Auth::user()->id;
         $location->account_id = $request->input('account_id');
+        $location->user_id = $request->input('user_id');
         //$location->customer_type = $request->input('customer_type');
         $location->location_name = $request->input('location_name');
         $location->save();
@@ -139,5 +144,14 @@ class Locations extends Controller
                 ->select('locations.*')
                 ->get();        
         return $location;
+    }
+    public function getUserById(){
+        $users = DB::table('users')
+                    ->join('accounts','users.account_id','=','accounts.id')
+                    ->where('users.user_role', 3)
+                    ->where('accounts.id', $_POST['id'])
+                    ->select('users.*')
+                    ->get();
+        return $users;
     }
 }

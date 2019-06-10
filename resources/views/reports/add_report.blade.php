@@ -223,59 +223,58 @@
 			    </div>
 			    <div class="row">
 			    	<div class="col-md-12">
-			    		
-				    <div class="row form-group">
-				    	<div class="col-md-2 offset-md-5">
-				    		<div class="input-group">
-								<input type="text" name="weight"  class="form-control" required="">
-								<span class="input-group-append">
-									<span class="input-group-text" style="font-family:arial black; color: gray; font-size: 20px;">lbs.</span>
-								</span>
-							</div>
-				    	</div>
-				    </div>
-				    <div class="row form-group">
-				    	<div class="col-md-2 offset-md-5">
-				    		<input type="text" name="unit_number" class="form-control" placeholder="Unit Number" required="">
-				    	</div>
-				    </div>
-				    <div class="row form-group">
-				    	<div class="col-md-2 offset-md-5">
-				    		<input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-				    	</div>
-				    </div>
-				    <div class="row form-group">
-				    	<div class="col-md-2 offset-md-5">
-				    		<select name="manager_id" id="manager_id" class="select_select2_select" onchange="getLocationById()">
-				    			<option disabled selected hidden>Select Manager</option>
-				    			@if(count($manager_detail) > 0)
-				    				@foreach($manager_detail as $manager)
-				    					<option value="{{ $manager->id }}"><span>{{ $manager->first_name." ".$manager->last_name }}</span></option>
-				    				@endforeach
-				    			@endif
-				    		</select>
-				    	</div>
-				    </div>
-				    <div class="row form-group">
-				    	<div class="col-md-2 offset-md-5">
-				    		<select name="location_id" id="manager-location" class="select_select2_select">
-				    			<option disabled selected hidden>Select Location</option>
-				    		</select>
-				    	</div>
-				    </div>
+					    <div class="row form-group">
+					    	<div class="col-md-2 offset-md-5">
+					    		<div class="input-group">
+									<input type="text" name="weight"  class="form-control" required="">
+									<span class="input-group-append">
+										<span class="input-group-text" style="font-family:arial black; color: gray; font-size: 20px;">lbs.</span>
+									</span>
+								</div>
+					    	</div>
+					    </div>
+					    <div class="row form-group">
+					    	<div class="col-md-2 offset-md-5">
+					    		<input type="text" name="unit_number" class="form-control" placeholder="Unit Number" required="">
+					    	</div>
+					    </div>
+					    <div class="row form-group">
+					    	<div class="col-md-2 offset-md-5">
+					    		<input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+					    	</div>
+					    </div>
+					    <div class="row form-group">
+					    	<div class="col-md-2 offset-md-5">
+					    		<select name="manager_id" id="manager_id" class="select_select2_select" onchange="getLocationById()">
+					    			<option disabled selected hidden>Select Manager</option>
+					    			@if(count($manager_detail) > 0)
+					    				@foreach($manager_detail as $manager)
+					    					<option value="{{ $manager->id }}"><span>{{ $manager->first_name." ".$manager->last_name }}</span></option>
+					    				@endforeach
+					    			@endif
+					    		</select>
+					    	</div>
+					    </div>
+					    <div class="row form-group">
+					    	<div class="col-md-2 offset-md-5">
+					    		<select name="location_id" id="manager-location" class="select_select2_select">
+					    			<option disabled selected hidden>Select Location</option>
+					    		</select>
+					    	</div>
+					    </div>
 
-				    <div class="row form-group">
-				    	<div class="col-md-2 offset-md-5">
-				    		<input type="text" name="comments" class="form-control" placeholder="Comments">
-				    	</div>
-				    </div>
+					    <div class="row form-group">
+					    	<div class="col-md-2 offset-md-5">
+					    		<input type="text" name="comments" class="form-control" placeholder="Comments">
+					    	</div>
+					    </div>
 
-				    <div class="row text-center">
-				    	<div class="col-md-12">
-				    		<button type="submit" class="btn btn-primary btn-ladda btn-ladda-spinner" data-style="expand-right" id="submit123" data-spinner-color="#ffff"
-				    		onclick="spinner();"><i class="icon-checkmark mr-2"></i>Submit</button>
-				    	</div>
-				    </div>
+					    <div class="row text-center">
+					    	<div class="col-md-12">
+					    		<button type="submit" class="btn btn-primary btn-ladda btn-ladda-spinner" data-style="expand-right" id="submit123" data-spinner-color="#ffff"
+					    		onclick="spinner();"><i class="icon-checkmark mr-2"></i>Submit</button>
+					    	</div>
+					    </div>
 			    	</div>
 			    </div>
 			</form>

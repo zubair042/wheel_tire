@@ -38,7 +38,7 @@
 								<img src="{{asset('')}}global_assets/images/placeholders/cover.jpg" id="static_image" class="img-fluid" alt="">
 							<?php } 
 							else { ?>
-								<img src=<?php echo $main_image?> id="static_image" class="img-fluid" alt="">
+								<img src=<?php echo $main_image ?> id="static_image" class="img-fluid" alt="">
 							<?php 
 							}
 							?>

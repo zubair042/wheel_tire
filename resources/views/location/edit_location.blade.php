@@ -47,9 +47,9 @@
 						<select class="select_select2_select2" name="customer_type" value="choose..">
 							@if(count($customers) > 0)
 							@foreach($customers as $customer)
-							<option value="{{ $customer->id}}" <?php if ($customer->id == $location->customer_type) {
-																	echo 'selected="selected"';
-																} ?>><span>{{ $customer->account_name }}</span></option>
+							<option value="{{ $customer->id}}" <?php if ($customer->id == $location->account_id) {
+									echo 'selected="selected"';
+								} ?>><span>{{ $customer->account_name }}</span></option>
 							@endforeach
 							@endif
 						</select>
