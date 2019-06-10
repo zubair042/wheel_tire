@@ -77,6 +77,8 @@
 						<p>{{ $report_detail->weight }} Lbs</p>
 						<label class="font-weight-black">Second Signature:</label>
 						<p>{{ $report_detail->first_name." ".$report_detail->last_name }}</p>
+						<label class="font-weight-black">Tech Comment:</label>
+						<p>{{$report_detail->comment}}</p>
 						
 						<?php if ($user->user_role == 2 || $user->user_role == 3) { ?>
 							<?php if ($report_detail->signature != 1) { ?>
