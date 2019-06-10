@@ -42,12 +42,25 @@
 						</span>
 					</div>
 					<div class="col-md-3">
-						<select class="select_select2_select2" name="account_id">
+						<select class="select_select2_select2" name="account_id" id="account_id" onchange="getUserById()">
+							<option disabled selected hidden>Select Company</option>
 							@if(count($customers) > 0)
 							@foreach($customers as $customer)
 							<option value="{{ $customer->id}}"><span>{{ $customer->account_name }}</span></option>
 							@endforeach
 							@endif
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text">
+							<p>Manager</p>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<select class="select_select2_select2" name="user_id" id="user_id">
+							<option disabled selected hidden>Select Manger</option>
 						</select>
 					</div>
 				</div>
@@ -80,6 +93,26 @@
 
 	function resetForm() {
 		document.getElementById("add_location_form").reset();
+	}
+
+	function getUserById(){
+		var id = $('#account_id').val();
+		$.ajax({
+			type: "post",
+			url: "{{ route('show-manager') }}",
+			data: {id: id, "_token": "{{ csrf_token() }}"},
+			success:function(d){
+				$('#user_id').html('').select({data: []});
+				for (var i = 0; i <= d.length; i++) {
+					var id = d[i].id;
+					var name = d[i].first_name+' '+d[i].last_name;
+					var option = new Option(name,id,false,false);
+					$("#user_id").append(option).trigger('change');
+					//$("#manager-location").append($("<option/>").val(id).text(name));
+
+				}
+			}
+		})
 	}
 </script>
 

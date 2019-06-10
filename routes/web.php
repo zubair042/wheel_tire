@@ -36,6 +36,7 @@ Route::get('/location/edit/{id}','Locations@edit');
 Route::post('/location/edit/{id}','Locations@update');
 Route::post('/location/destroy','Locations@destroy')->name('destroy-location');
 Route::post('/report/add','Locations@getLocationById')->name('manager-location');
+Route::post('/locations/add','Locations@getUserById')->name('show-manager');
 
 
 Route::get('/user/add','Users@create');

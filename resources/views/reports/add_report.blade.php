@@ -276,7 +276,6 @@
 				    		onclick="spinner();"><i class="icon-checkmark mr-2"></i>Submit</button>
 				    	</div>
 				    </div>
-			    <!-- </div> -->
 			    </div>
 			</form>
 		</div>

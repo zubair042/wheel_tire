@@ -108,7 +108,7 @@
 						<input type="text" name="last_name" class="form-control">
 					</div>
 				</div>
-				<div id="manager_location">
+				<div id="manager_location" style="display: none;">
 					<div class="row">
 						<div class="col-md-2 offset-md-3">
 							<span class="input-group-text">
