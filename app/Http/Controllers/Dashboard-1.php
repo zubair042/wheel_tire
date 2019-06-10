@@ -35,6 +35,6 @@ class Dashboard extends Controller
                         //->orderBy('reports.created_at','desc')
                         ->get();
         }
-        return view('reports/index', compact("report_detail"));
+        return view('dashboard/index', compact("report_detail"));
     }
 }
