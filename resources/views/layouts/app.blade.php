@@ -14,6 +14,7 @@ $user_role = DB::table('user_roles')
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <!-- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
     <meta charset="utf-8">
@@ -29,6 +30,7 @@ $user_role = DB::table('user_roles')
     <link href="{{asset('')}}assets/css/layout.min.css" rel="stylesheet" type="text/css">
     <link href="{{asset('')}}assets/css/components.min.css" rel="stylesheet" type="text/css">
     <link href="{{asset('')}}assets/css/colors.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('')}}assets/css/site.css" rel="stylesheet">
     <!-- /global stylesheets -->
 
     <!-- Core JS files -->
@@ -62,9 +64,7 @@ $user_role = DB::table('user_roles')
     <!-- Main navbar -->
     <div class="navbar navbar-expand-md navbar-dark bg-indigo navbar-static">
         <div class="navbar-brand">
-            <a href="{{ url('/')}}" class="d-inline-block">
-                <img style="height: 20px;" src="{{asset('')}}global_assets/images/wheel_app_logo.png" alt="">
-            </a>
+            <img src="{{asset('')}}global_assets/images/wheel_app_logo.png" alt="">
         </div>
 
         <div class="d-md-none">
@@ -142,14 +142,6 @@ $user_role = DB::table('user_roles')
                 <div class="card card-sidebar-mobile">
                     <ul class="nav nav-sidebar" data-nav-type="accordion">
                         <!-- Main -->
-                        <li class="nav-item">
-                            <a href="{{ route('dashboard') }}" class="nav-link active">
-                                <i class="icon-home4"></i>
-                                <span>
-                                    Dashboard
-                                </span>
-                            </a>
-                        </li>
                         <li class="nav-item nav-item-submenu <?php if (!in_array('reports', $roles)) {
                                                                     echo 'hide';
                                                                 } ?>">
@@ -210,12 +202,7 @@ $user_role = DB::table('user_roles')
 
                 <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
                     <div class="d-flex">
-                        <div class="breadcrumb">
-                            <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
-                            <span class="breadcrumb-item active">Dashboard</span>
-                        </div>
 
-                        <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
                     </div>
                 </div>
             </div>
@@ -229,27 +216,15 @@ $user_role = DB::table('user_roles')
             <!-- /content area -->
 
 
-            <!-- Footer -->
-            <div class="navbar navbar-expand-lg navbar-light">
-                <div class="text-center d-lg-none w-100">
-                    <button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse" data-target="#navbar-footer">
-                        <i class="icon-unfold mr-2"></i>
-                        Footer
-                    </button>
-                </div>
 
-                <div class="navbar-collapse collapse" id="navbar-footer">
-                    <span class="navbar-text">
-                        &copy 2019
-                    </span>
-
-                </div>
-            </div>
-            <!-- /footer -->
         </div>
         <!-- /main content -->
+
     </div>
     <!-- /page content -->
+    <!-- Footer -->
+    <div class="text-center custom-footer">©copy 2019</div>
+    <!-- /footer -->
 </body>
 
 </html>
