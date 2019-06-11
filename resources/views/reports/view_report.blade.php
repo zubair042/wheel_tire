@@ -21,6 +21,7 @@
 		<div class="card">
 			<div class="card-header">
 				<div class="col-md-12">
+					<button type="button" class="btn btn-outline-success legitRipple"><i class="icon-cog3 mr-2"></i> Hoverable</button>
 					<span class="font-weight-semibold" style="font-size: 30px;">Wheel/Tire Installation Report</span>
 					<?php if ($user->user_role == 3 && $report_detail->signature == 0) { ?>
 						<a href="javascript:;" type="button"  class="btn btn-danger float-right" onclick="delete_report(<?php echo $report_detail->id; ?>)" >Delete</a>
