@@ -38,6 +38,16 @@
 				<div class="row">
 					<div class="col-md-2 offset-md-3">
 						<span class="input-group-text">
+							<p>Location Name</p>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<input type="text" name="location_name" id="" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text">
 							<p>Customer</p>
 						</span>
 					</div>
@@ -55,6 +65,46 @@
 				<div class="row">
 					<div class="col-md-2 offset-md-3">
 						<span class="input-group-text">
+							<p>First Name</p>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<input type="text" name="first_name" id="" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text">
+							<p>Last Name</p>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<input type="text" name="last_name" id="" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text">
+							<p>Email</p>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<input type="text" name="email" id="" class="form-control">
+					</div>
+				</div>
+				<div class="row form-group">
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text">
+							<p>Password</p>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<input type="password" name="password" id="" class="form-control">
+					</div>
+				</div>
+				<!-- <div class="row">
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text">
 							<p>Manager</p>
 						</span>
 					</div>
@@ -63,18 +113,8 @@
 							<option disabled selected hidden>Select Manger</option>
 						</select>
 					</div>
-				</div>
-				<div class="row form-group">
-					<div class="col-md-2 offset-md-3">
-						<span class="input-group-text">
-							<p>Location Name</p>
-						</span>
-					</div>
-					<div class="col-md-3">
-						<input type="text" name="location_name" id="" class="form-control">
-					</div>
-				</div>
-				<div class="row" align="center" >
+				</div> -->
+				<div class="row text-center">
 					<div class="col-md-9 offset-md-1">
 						<button type="submit" class="btn btn-primary legitRipple"><i class="icon-checkmark mr-2"></i>Submit</button>
 						<button type="button" class="btn btn-danger legitRipple" onclick="resetForm();"><i class="icon-reset mr-2"></i>Reset</button>
