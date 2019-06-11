@@ -48,7 +48,7 @@
 										<div class="form-check form-check-inline form-check-right">
 											<label class="form-check-label">
 												<span class="font-size-lg">Left Steer Wheel</span>
-												<input type="checkbox" class="form-check-input-styled-danger"  name="power_unit_left_stear" value="1" data-fouc="">
+												<input type="checkbox" class="form-check-input-styled-danger" name="power_unit_left_stear" value="1" data-fouc="">
 											</label>
 										</div>
 									</div>
@@ -336,14 +336,16 @@ $("#submit1232222").on("click", function(){
 		})
 	}
 
-	
-
 	$(".chooseImage").on("click", function(e){
 		var name = $(this).attr("name");
-		$("#"+name+"").click();
-		//$("input[name='"+name+"']").prop('checked',true);	
-		//$("."+name+"").prop('checked',true);	
+		$("#"+name+"").click();	
 		e.preventDefault();
+	});
+
+	$(".chooseImage").next("input").on("change", function(){
+		var inp_name = $(this).attr("id");
+		$('input[name='+inp_name+']').prop('checked',true);
+		$.uniform.update('input[name='+inp_name+']');
 	});
 
 	

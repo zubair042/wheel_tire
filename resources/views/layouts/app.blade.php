@@ -117,8 +117,8 @@ $user_role = DB::table('user_roles')
 
     <!-- Page content -->
     <div class="page-content">
-
-        @section('sidebar')
+        <?php if (Auth::user()->user_role != 3) { ?>
+         @section('sidebar')
         <!-- Main sidebar -->
         <div class="sidebar sidebar-light sidebar-main sidebar-expand-md">
 
@@ -191,7 +191,9 @@ $user_role = DB::table('user_roles')
             <!-- /sidebar content -->
         </div>
         <!-- /main sidebar -->
-        @show
+        @show   
+        <?php } ?>
+        
 
 
         <!-- Main content -->
