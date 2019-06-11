@@ -252,13 +252,11 @@ class Reports extends Controller
             foreach($fileArr as $file){
                 $cloudFile  = $file->getRealPath();
                 $type       = $file->getClientOriginalExtension();
-                if ($type == 'mp4') 
+                if ($type == 'mp4'|| $type == 'flv'|| $type == 'avi'|| $type == 'mkv') 
                 {
-                    $cloud      = Cloudder::upload($cloudFile, array('resource_type' => 'video',"public_id" => "ygzxwxmflekucvqcrb8c",
-                          "version" => 1427018743,
-                          "signature" => "4618ba7c3461b6531cb9d2f16b06ce672af793b6"));
+                    $cloud      = Cloudder::uploadVideo($cloudFile, null);
                 }
-                else if($type == 'png' || $type == 'jpeg' || $type == 'jpg')
+                else if($type == 'png' || $type == 'jpeg' || $type == 'jpg' || $type == 'gif' || $type == 'tiff')
                 {
                     $cloud      = Cloudder::upload($cloudFile, null);
                 } 
