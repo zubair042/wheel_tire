@@ -21,8 +21,10 @@
 		<div class="card">
 			<div class="card-header">
 				<div class="col-md-12">
-					<a href="{{ url('reports') }}"><button type="button" class="btn btn-outline-success legitRipple"><i class="icon-arrow-left8 mr-2"></i>Back</button></a>
+					<?php if ($user->user_role == 3) { ?>
+						<a href="{{ url('reports') }}"><button type="button" class="btn btn-outline-success legitRipple"><i class="icon-arrow-left8 mr-2"></i>Back</button></a>
 					&nbsp;&nbsp;
+					<?php } ?>
 					<span class="font-weight-semibold" style="font-size: 30px;">Wheel/Tire Installation Report</span>
 					<?php if ($user->user_role == 3 && $report_detail->signature == 0) { ?>
 						<!-- <a href="javascript:;" type="button"  class="btn btn-danger float-right" onclick="delete_report(<?php //echo $report_detail->id; ?>)" >Delete</a> -->
@@ -145,7 +147,7 @@
 									if ($image->image_type == 'trailer_left_front' || $image->image_type == 'trailer_right_front'  || $image->image_type == 'power_unit_left_front'  || $image->image_type == 'power_unit_right_front'){ ?>
 										<div class="col-md-3">
 											<div class="card-img-actions m-1">
-												<img class="card-img img-fluid" src="{{ $image->url }}" alt="">
+												<img class="card-img img-fluid" style="height: 200px;" src="{{ $image->url }}" alt="">
 												<div class="card-img-actions-overlay card-img">
 													<a href="{{ $image->url }}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
 														<i class="icon-plus3"></i>
@@ -172,7 +174,7 @@
 									if ($image->image_type == 'trailer_right_rear' || $image->image_type == 'trailer_left_rear' || $image->image_type == 'power_unit_left_rear' || $image->image_type == 'power_unit_right_rear'){ ?>
 										<div class="col-md-3">
 											<div class="card-img-actions m-1">
-												<img class="card-img img-fluid" src="{{ $image->url }}" alt="">
+												<img class="card-img img-fluid" style="height: 200px;" src="{{ $image->url }}" alt="">
 												<div class="card-img-actions-overlay card-img">
 													<a href="{{ $image->url }}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
 														<i class="icon-plus3"></i>

@@ -32,11 +32,11 @@
 					<div class="form-check form-check-inline form-check-right">
 						<label class="form-check-label">
 							<span class="font-weight-semibold">POWER UNIT</span>
-							<div class=""><span class="checked"><input type="radio" id="power_unit_radio" class="form-check-input-styled-danger" name="vehicle_type" value="power_unit" data-fouc=""></span></div>
+							<div class=""><span class=""><input type="radio" id="power_unit_radio" class="form-check-input-styled-danger" name="vehicle_type" value="power_unit" data-fouc=""></span></div>
 						</label>
 					</div>
 				</div>
-				<div class="row" id="trailer_html" style="display:none;margin-top: 10px;padding: 12px;">
+				<div class="row" id="power_unit_html" style="display:none; margin-top: 10px;padding: 12px;">
 					<div class="row">
 						<div class="col-md-12" style="background-color: #fafafa;">
 							<div class="col-md-8 offset-md-2">
@@ -141,7 +141,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row" id="power_unit_html" style="margin-top: 10px;padding: 12px;">
+				<div class="row" id="trailer_html" style="margin-top: 10px;padding: 12px;">
 					<div class="row">
 						<div class="col-md-12" style="background-color: #fafafa;">
 							<div class="col-md-8 offset-md-2">
@@ -300,16 +300,14 @@ $("#submit1232222").on("click", function(){
         wrapperClass: 'border-danger-600 text-danger-800'
     });
     $('#trailer_radio').click(function(){
-        if($("#trailer_html").css("display","block")){
-            $("#trailer_html").css("display","none");
-            $("#power_unit_html").css("display","block");
-        }
+        $("#trailer_html").css("display","block");
+        $("#power_unit_html").css("display","none");
+        
     });
     $('#power_unit_radio').click(function(){
-        if($("#trailer_html").css("display","none")){
-            $("#trailer_html").css("display","block");
-            $("#power_unit_html").css("display","none");
-        }
+        $("#trailer_html").css("display","none");
+        $("#power_unit_html").css("display","block");
+        
     });
     $('.select_select2_select').select2({
 	    minimumResultsForSearch: Infinity
