@@ -25,7 +25,7 @@
 					&nbsp;&nbsp;
 					<span class="font-weight-semibold" style="font-size: 30px;">Wheel/Tire Installation Report</span>
 					<?php if ($user->user_role == 3 && $report_detail->signature == 0) { ?>
-						<a href="javascript:;" type="button"  class="btn btn-danger float-right" onclick="delete_report(<?php echo $report_detail->id; ?>)" >Delete</a>
+						<!-- <a href="javascript:;" type="button"  class="btn btn-danger float-right" onclick="delete_report(<?php //echo $report_detail->id; ?>)" >Delete</a> -->
 					<?php } ?>
 					
 					<span class="font-weight-semibold float-right text-primary font-size-lg" style="margin: 8px">ID: {{ $report_detail->id }}</span>
@@ -78,7 +78,7 @@
 						<label class="font-weight-black">Wheel Lug Nuts Torqued To:</label>
 						<p>{{ $report_detail->weight }} Lbs</p>
 						<label class="font-weight-black">Second Signature:</label>
-						<p>{{ $report_detail->first_name." ".$report_detail->last_name }}</p>
+						<p><?php if($report_detail->signature == 1){echo "I have visually inspected this technician's work and it appears to have been completed to proper industry standards."; } ?></p>
 						<label class="font-weight-black">Tech Comment:</label>
 						<p>{{$report_detail->comment}}</p>
 						
@@ -236,11 +236,9 @@ function add_signature(id){
 			success:function(data){
 				alert('Signature added successfully!');
 				$('#signature_btn').hide();
-				// location.reload();
+				location.reload();
 			}
 		})
-	}else{
-		alert('Signature Cancel');
 	}
 }
 
