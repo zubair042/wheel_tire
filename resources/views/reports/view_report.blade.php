@@ -91,7 +91,7 @@
 							<?php } ?>
 						
 						<button type="button" class="btn btn-danger rounded-round legitRipple" 
-						<?php if ($user->user_role == 3) { ?>
+						<?php if ($user->user_role == 2 || $user->user_role == 3) { ?>
 							data-toggle="modal" data-target="#modal_comment"
 						<?php } ?>>
 							Add Comment</button>
