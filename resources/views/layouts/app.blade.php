@@ -149,7 +149,7 @@ $user_role = DB::table('user_roles')
 
                             <ul class="nav nav-group-sub" data-submenu-title="Reports">
                                 <li class="nav-item"><a href="{{ url('reports') }}" class="nav-link active">View All Reports</a></li>
-                                <li class="nav-item"><a href="{{ url('report/add') }}" class="nav-link">Add New</a></li>
+                                <li class="nav-item <?php if (!in_array('add_report', $roles)){ echo 'hide'; } ?>"><a href="{{ url('report/add') }}" class="nav-link">Add New</a></li>
                             </ul>
                         </li>
                         <li class="nav-item nav-item-submenu <?php if (!in_array('users', $roles)) {

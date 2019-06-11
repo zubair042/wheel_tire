@@ -92,27 +92,7 @@ class Reports extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        // if($request->input('trailer_left_front') == 1){
-        // } 
-        // if($request->input('trailer_right_front') == 1){
-        // } 
-        // if($request->input('trailer_left_rear') == 1){
-        // } 
-        // if($request->input('trailer_right_rear') == 1){
-        // } 
-        // if($request->input('power_unit_left_stear') == 1){
-        // } 
-        // if($request->input('power_unit_right_stear') == 1){
-        // } 
-        // if($request->input('power_unit_left_front') == 1){
-        // } 
-        // if($request->input('power_unit_right_front') == 1){
-        // } 
-        // if($request->input('power_unit_left_rear') == 1){
-        // } 
-        // if($request->input('power_unit_right_rear') == 1){
-        // }            
+    {         
         $power_unit_left_stear  = $request->file('power_unit_left_stear');
         $power_unit_right_stear = $request->file('power_unit_right_stear');
         $power_unit_left_front  = $request->file('power_unit_left_front');
@@ -267,10 +247,21 @@ class Reports extends Controller
     }
     public function uploadCloudinary($fileArr){
         $returnVal      = array();
+        //array('resource_type' => 'video')
         if ($fileArr!=null){
             foreach($fileArr as $file){
                 $cloudFile  = $file->getRealPath();
-                $cloud      = Cloudder::upload($cloudFile, null);
+                $type       = $file->getClientOriginalExtension();
+                if ($type == 'mp4') 
+                {
+                    $cloud      = Cloudder::upload($cloudFile, array('resource_type' => 'video',"public_id" => "ygzxwxmflekucvqcrb8c",
+                          "version" => 1427018743,
+                          "signature" => "4618ba7c3461b6531cb9d2f16b06ce672af793b6"));
+                }
+                else if($type == 'png' || $type == 'jpeg' || $type == 'jpg')
+                {
+                    $cloud      = Cloudder::upload($cloudFile, null);
+                } 
                 $c          = Cloudder::getResult();
                 $url        = $c["url"];
                 array_push($returnVal, $url);
