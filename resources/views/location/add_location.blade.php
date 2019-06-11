@@ -135,25 +135,25 @@
 		document.getElementById("add_location_form").reset();
 	}
 
-	function getUserById(){
-		var id = $('#account_id').val();
-		$.ajax({
-			type: "post",
-			url: "{{ route('show-manager') }}",
-			data: {id: id, "_token": "{{ csrf_token() }}"},
-			success:function(d){
-				$('#user_id').html('').select({data: []});
-				for (var i = 0; i <= d.length; i++) {
-					var id = d[i].id;
-					var name = d[i].first_name+' '+d[i].last_name;
-					var option = new Option(name,id,false,false);
-					$("#user_id").append(option).trigger('change');
-					//$("#manager-location").append($("<option/>").val(id).text(name));
+	// function getUserById(){
+	// 	var id = $('#account_id').val();
+	// 	$.ajax({
+	// 		type: "post",
+	// 		url: "{{ route('show-manager') }}",
+	// 		data: {id: id, "_token": "{{ csrf_token() }}"},
+	// 		success:function(d){
+	// 			$('#user_id').html('').select({data: []});
+	// 			for (var i = 0; i <= d.length; i++) {
+	// 				var id = d[i].id;
+	// 				var name = d[i].first_name+' '+d[i].last_name;
+	// 				var option = new Option(name,id,false,false);
+	// 				$("#user_id").append(option).trigger('change');
+	// 				//$("#manager-location").append($("<option/>").val(id).text(name));
 
-				}
-			}
-		})
-	}
+	// 			}
+	// 		}
+	// 	})
+	// }
 </script>
 
 

@@ -27,10 +27,9 @@ if (count($images) > 0) {
 					&nbsp;&nbsp;
 					<?php } ?>
 					<span class="font-weight-semibold" style="font-size: 30px;">Wheel/Tire Installation Report</span>
-					<?php if ($user->user_role == 3 && $report_detail->signature == 0) { ?>
-						<!-- <a href="javascript:;" type="button"  class="btn btn-danger float-right" onclick="delete_report(<?php
-																																?>)" >Delete</a> -->
-					<?php } ?>
+					<?php //if ($user->user_role == 3 && $report_detail->signature == 0) { ?>
+						<!-- <a href="javascript:;" type="button"  class="btn btn-danger float-right" onclick="delete_report(<?php?>)" >Delete</a> -->
+					<?php //} ?>
 
 					<span class="font-weight-semibold float-right text-primary font-size-lg" style="margin: 8px">ID: {{ $report_detail->id }}</span>
 					<input type="hidden" value={{ $report_detail->id }} id="reportId">
@@ -51,7 +50,7 @@ if (count($images) > 0) {
 						<div class="card" style="margin-top:12px;">
 							<div class="card-header">
 								<div class="row">
-									<div class="col-md-2">
+									<div class="col-md-9">
 										<h6 class="card-title text-secondary">Comments:</h6>
 										@if(count($comments) > 0)
 										@foreach($comments as $comment)
