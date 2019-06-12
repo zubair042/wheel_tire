@@ -244,7 +244,7 @@
 					    </div>
 					    <div class="row form-group">
 					    	<div class="col-md-2 offset-md-5">
-					    		<select name="manager_id" id="manager_id" class="select_select2_select" onchange="getLocationById()">
+					    		<select name="manager_id" onchange="getLocationById()" id="manager_id" class="select_select2_select">
 					    			<option disabled selected hidden>Select Manager</option>
 					    			@if(count($manager_detail) > 0)
 					    				@foreach($manager_detail as $manager)
@@ -254,7 +254,7 @@
 					    		</select>
 					    	</div>
 					    </div>
-					    <div class="row form-group">
+					    <div class="row form-group d-none">
 					    	<div class="col-md-2 offset-md-5">
 					    		<select name="location_id" id="manager-location" class="select_select2_select">
 					    			<option disabled selected hidden>Select Location</option>

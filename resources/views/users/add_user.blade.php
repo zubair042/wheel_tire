@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<?php // print_r($locations);exit; ?>
 <script src="{{asset('global_assets/js/plugins/forms/styling/switch.min.js')}}"></script>
 <script src="{{asset('global_assets/js/plugins/forms/styling/switchery.min.js')}}"></script>
 <script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
