@@ -123,10 +123,11 @@ class Reports extends Controller
         $manager_email                  = $manager_info->email;
         $report->save();
         $reportId                       = $report->id;
+        $report_detail                  = $report;
 
         // $emails = ['usama52966@gmail.com'];
         // $message = 'asdfasdf';
-        Mail::send('emails.welcome', [], function($message) use ($manager_email){    
+        Mail::send('emails.welcome', ["report_detail"=>$report_detail], function($message) use ($manager_email){    
             $message->to($manager_email)->subject('wheels.mobilemaintaince');
         });
         var_dump( Mail:: failures());
