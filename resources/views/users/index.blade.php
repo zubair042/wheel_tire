@@ -2,6 +2,12 @@
 
 @section('content')
 <?php //echo "<pre>";print_r($user_detail);exit; ?>
+<?php
+$user_role = DB::table('user_roles')
+    ->where('id', Auth::user()->user_role)
+	->first();
+	//dd($user_role);
+?>
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card">
@@ -35,8 +41,12 @@
 					        	<td>{{ $detail->account_name }}</td>
 					        	<td>{{ $detail->description }}</td>
 								<td>{{date("Y-M-d", strtotime($detail->created_at))}}</td>
-								@if ($detail->user_role != 1)
+								@if ($user_role->id == 1)
 								<td class="text-right"><a href="{{ url('/user/edit/'.$detail->id) }}"><i class="icon-pencil mr-3 icon-1x text-success"></i></a><a onclick="del_user(<?php echo $detail->id ?>)" href="javascript:;"><i class="icon-bin mr-3 icon-1x text-danger" onclick="checkDelete();"></i></a></td>
+								@else 
+									@if ($detail->user_role != 1)
+									<td class="text-right"><a href="{{ url('/user/edit/'.$detail->id) }}"><i class="icon-pencil mr-3 icon-1x text-success"></i></a><a onclick="del_user(<?php echo $detail->id ?>)" href="javascript:;"><i class="icon-bin mr-3 icon-1x text-danger" onclick="checkDelete();"></i></a></td>
+									@endif
 								@endif
 				      		</tr>
 				      		@endforeach
