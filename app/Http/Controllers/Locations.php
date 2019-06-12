@@ -72,7 +72,7 @@ class Locations extends Controller
         $location->account_id = $request->input('account_id');
         //$location->user_id = $request->input('user_id');
         $location->location_name = $request->input('location_name');
-        $location->user_name = $request->input('user_name');
+        //$location->user_name = $request->input('user_name');
         $location->email = $request->input('email');
         $location->password = bcrypt($request->input('password'));
         $location->address = $request->input('address');
