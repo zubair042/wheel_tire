@@ -1,5 +1,4 @@
 <p>
-    
     Hello <?php echo $report_detail->name; ?>, <br>
     This is to inform you that a <?php echo $report_detail->vehicle_type; ?> report has been added. <br>
     Report ID = <?php echo $report_detail->id; ?> <br>

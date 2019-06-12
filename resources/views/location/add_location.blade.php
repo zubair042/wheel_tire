@@ -65,26 +65,6 @@
 				<div class="row">
 					<div class="col-md-2 offset-md-3">
 						<span class="input-group-text">
-							<p>First Name</p>
-						</span>
-					</div>
-					<div class="col-md-3">
-						<input type="text" name="first_name" id="" class="form-control">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-2 offset-md-3">
-						<span class="input-group-text">
-							<p>Last Name</p>
-						</span>
-					</div>
-					<div class="col-md-3">
-						<input type="text" name="last_name" id="" class="form-control">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-2 offset-md-3">
-						<span class="input-group-text">
 							<p>Email</p>
 						</span>
 					</div>
@@ -100,6 +80,46 @@
 					</div>
 					<div class="col-md-3">
 						<input type="password" name="password" id="" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text">
+							<p>Address</p>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<input type="text" name="address" id="" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text">
+							<p>City</p>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<input type="text" name="city" id="" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text">
+							<p>State</p>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<input type="text" name="state" id="" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text">
+							<p>Zip</p>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<input type="text" name="zip" id="" class="form-control">
 					</div>
 				</div>
 				<!-- <div class="row">

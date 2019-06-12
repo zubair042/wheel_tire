@@ -70,6 +70,7 @@ class Users extends Controller
         $locations = DB::table('locations')
                         ->where('account_id', $account_id)
                         ->get();
+                        dd($locations);
         $user_comapany_name = DB::table('users')
                         ->where("account_id", $account_id)
                         ->where('user_role', Auth::user()->user_role)

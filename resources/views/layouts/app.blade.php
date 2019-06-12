@@ -225,7 +225,7 @@ $user_role = DB::table('user_roles')
     </div>
     <!-- /page content -->
     <!-- Footer -->
-    <div class="text-center custom-footer">©copyright 2019</div>
+    <div class="text-center custom-footer">©Copyright 2019</div>
     <!-- /footer -->
 </body>
 
