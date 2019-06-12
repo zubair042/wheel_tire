@@ -45,6 +45,15 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+        // changing here
+        // 'user' => [
+        //     'driver' => 'session',
+        //     'provider' => 'users',
+        // ],
+        // 'location' => [
+        //     'driver' => 'session',
+        //     'provider' => 'locations',
+        // ],
     ],
 
     /*
@@ -69,6 +78,12 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+        // changing here
+        // 'locations' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\Location::class,
+        // ],
+
 
         // 'users' => [
         //     'driver' => 'database',

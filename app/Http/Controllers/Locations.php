@@ -67,17 +67,18 @@ class Locations extends Controller
      */
     public function store(Request $request)
     {
-        
         $location = new Location;
         $location->created_by = Auth::user()->id;
         $location->account_id = $request->input('account_id');
         //$location->user_id = $request->input('user_id');
         $location->location_name = $request->input('location_name');
-        $location->first_name = $request->input('first_name');
-        $location->last_name = $request->input('last_name');
+        $location->user_name = $request->input('user_name');
         $location->email = $request->input('email');
         $location->password = bcrypt($request->input('password'));
-        //$location->customer_type = $request->input('customer_type');
+        $location->address = $request->input('address');
+        $location->city = $request->input('city');
+        $location->state = $request->input('state');
+        $location->zip = $request->input('zip');
         $location->save();
         return redirect('/location')->with('success',"Location added successfully");
     }

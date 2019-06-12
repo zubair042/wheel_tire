@@ -18,6 +18,7 @@
 				<table class="table" id="main-datatable">
 				    <thead>
 				      <tr>
+				        <th class="d-none"><i></i>ID</th>
 				        <th class="text-center"><i></i>DATE</th>
 				        <th><i></i>UNIT NUMBER</th>
 				        <th><i></i>LOCATION</th>
@@ -31,7 +32,7 @@
 				    	@if (count($report_detail) > 0)
 				    		@foreach($report_detail as $detail)
 				    		<tr>
-				    			<!-- <td>{{ $detail->id }}</td> -->
+				    			<td class="d-none">{{ $detail->id }}</td>
 						        <td width="200px" class="text-center"><a href="{{ url('report/view/'.$detail->id)}}" class="btn btn-success btn-sm legitRipple m-2">View</a><?php echo date("Y M d",strtotime($detail->created_at)); ?></td>
 						        <td class="text-center">{{ $detail->report_unit_num}}</td>
 						        <td class="text-center"><?php if (isset($detail->location_name)) {echo $detail->location_name;} ?></td>
@@ -61,11 +62,11 @@
 <script type="text/javascript">
 	$("#main-datatable").DataTable({
 		autoWidth: false,
-		order: [0, "asc"],
+		order: [0, "desc"],
 		columnDefs: [{ 
 			orderable: false,
 			width: 100,
-			targets: [ 6 ]
+			targets: [ 7 ]
 		}],
 		dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
 		language: {

@@ -53,7 +53,7 @@ class Users extends Controller
     public function create()
     {
         $account_id = Auth::user()->account_id;
-        //dd($account_id);
+        // dd($account_id);
         if (Auth::user()->user_role == 1) { // Global Admin
             $customers = Account::all();
             $user_roles = DB::table('user_roles')->get();
@@ -70,6 +70,7 @@ class Users extends Controller
         $locations = DB::table('locations')
                         ->where('account_id', $account_id)
                         ->get();
+                       // dd($locations);
         $user_comapany_name = DB::table('users')
                         ->where("account_id", $account_id)
                         ->where('user_role', Auth::user()->user_role)
