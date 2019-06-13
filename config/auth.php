@@ -46,10 +46,10 @@ return [
             'provider' => 'users',
         ],
         // changing here
-        'location' => [
-            'driver' => 'session',
-            'provider' => 'locations',
-        ],
+        // 'location' => [
+        //     'driver' => 'session',
+        //     'provider' => 'locations',
+        // ],
     ],
 
     /*
@@ -75,10 +75,10 @@ return [
             'model' => App\User::class,
         ],
         // changing here
-        'locations' => [
-            'driver' => 'eloquent',
-            'model' => App\Location::class,
-        ],
+        // 'locations' => [
+        //     'driver' => 'database',
+        //     'table' => 'locations',
+        // ],
 
         // 'users' => [
         //     'driver' => 'database',
@@ -107,6 +107,11 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
+        // 'locations' => [
+        //     'provider' => 'locations',
+        //     'table' => 'password_resets',
+        //     'expire' => 60,
+        // ],
     ],
 
 ];

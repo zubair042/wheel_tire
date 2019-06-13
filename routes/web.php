@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'Dashboard@index')->name('dashboard');
+//Route::get('/reports','Reports@index')->middleware('permission');
 Route::get('/reports','Reports@index');
 Route::get('/report/add','Reports@create');
 Route::get('/report/view/{id}','Reports@show');

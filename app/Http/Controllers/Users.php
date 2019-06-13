@@ -31,6 +31,7 @@ class Users extends Controller
                         ->join('accounts',"users.account_id","=","accounts.id")
                         ->join('user_roles',"users.user_role","=","user_roles.id")
                         ->where('account_id',$account_id)
+                        ->where('users.user_role', '!=' , 4)
                         ->select('users.*','accounts.account_name','user_roles.description')
                         ->get();
         }
@@ -39,6 +40,7 @@ class Users extends Controller
             $user_detail = DB::table('users')
                         ->join('accounts',"users.account_id","=","accounts.id")
                         ->join('user_roles',"users.user_role","=","user_roles.id")
+                        ->where('users.user_role', '!=' , 4)
                         ->select('users.*','accounts.account_name','user_roles.description')
                         ->get();
         }
@@ -56,19 +58,19 @@ class Users extends Controller
         // dd($account_id);
         if (Auth::user()->user_role == 1) { // Global Admin
             $customers = Account::all();
-            $user_roles = DB::table('user_roles')->get();
         }
         else{
             $customers = DB::table('accounts')
                         ->where('id', $account_id)
                         ->get();
-
-            $user_roles = DB::table('user_roles')
-                        ->where("is_visible",1)
-                        ->get();
         }
-        $locations = DB::table('locations')
+
+        $locations  = DB::table('locations')
                         ->where('account_id', $account_id)
+                        ->get();
+
+         $user_roles = DB::table('user_roles')
+                        ->where("is_visible",1)
                         ->get();
                         
         $user_comapany_name = DB::table('users')

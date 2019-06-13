@@ -37,6 +37,16 @@
 						</div>
 					</div>
 				</div>
+				<div class="row form-group">
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text">
+							<p>Location Name</p>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<input type="text" name="location_name" id="" value="{{ $location->location_name }}" class="form-control">
+					</div>
+				</div>
 				<div class="row">
 					<div class="col-md-2 offset-md-3">
 						<span class="input-group-text">
@@ -44,7 +54,7 @@
 						</span>
 					</div>
 					<div class="col-md-3">
-						<select class="select_select2_select2" name="customer_type" value="choose..">
+						<select class="select_select2_select2" name="account_id" value="choose..">
 							@if(count($customers) > 0)
 							@foreach($customers as $customer)
 							<option value="{{ $customer->id}}" <?php if ($customer->id == $location->account_id) {
@@ -55,14 +65,74 @@
 						</select>
 					</div>
 				</div>
-				<div class="row form-group">
+				<div class="row">
 					<div class="col-md-2 offset-md-3">
 						<span class="input-group-text">
-							<p>Location Name</p>
+							<p>User Name</p>
 						</span>
 					</div>
 					<div class="col-md-3">
-						<input type="text" name="location_name" id="" value="{{ $location->location_name }}" class="form-control">
+						<input type="text" name="username" value="{{ $location->user_name }}" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text">
+							<p>Email</p>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<input type="text" name="email" value="{{ $location->email }}" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text">
+							<p>Password</p>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<input type="password" name="password" value="{{ $location->password }}" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text">
+							<p>Address</p>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<input type="text" name="address" value="{{ $location->address }}" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text">
+							<p>City</p>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<input type="text" name="city" value="{{ $location->city }}" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text">
+							<p>State</p>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<input type="text" name="state" value="{{ $location->state }}" class="form-control">
+					</div>
+				</div>
+				<div class="row form-group">
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text">
+							<p>Zip</p>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<input type="text" name="zip" value="{{ $location->zip }}" class="form-control">
 					</div>
 				</div>
 				<div class="row" align="center">

@@ -25,7 +25,7 @@ class Reports extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth', 'permission']);
+        $this->middleware(['auth','permission']);
     }
     
     public function index()
@@ -70,17 +70,6 @@ class Reports extends Controller
                                 ->where('user_role',3)
                                 ->get();
         }
-        
-        /*
-        else if(Auth::user()->user_role == 2){ // Administrator
-            $location = DB::table('locations')
-                        ->where('account_id', Auth::user()->account_id)
-                        ->get();
-        }
-        else if(Auth::user()->user_role == 1){ // Global Administrator
-            $location = DB::table('locations')
-                        ->get();
-        }*/
         return view('reports/add_report')->with('manager_detail',$manager_detail);
 
     }
@@ -105,7 +94,7 @@ class Reports extends Controller
         $trailer_right_rear     = $request->file('trailer_right_rear');
 
 
-        //Mail::to("usama52966@gmail.com")->send(new SendEmail());
+
         $report = new Report;
         $report->created_by             = Auth::user()->id;
         $report->account_id             = Auth::user()->account_id;
@@ -119,7 +108,11 @@ class Reports extends Controller
         $report->name                   = $request->input('name');
         $report->manager_id             = $request->input('manager_id');
         $report->comment                = $request->input('comments');
+        
+        // Get User
         $manager_info                   = User::find($report->manager_id);
+        //$report->location_id            = $manager_info->location_id;
+        //dd($report->location_id);
         $manager_email                  = $manager_info->email;
         //dd($report);
         $report->save();
@@ -168,7 +161,8 @@ class Reports extends Controller
             }
         }
         $reporturl = '/report/view/'.$reportId;
-        return redirect($reporturl)->with('success','Reports Added Successfully');
+        //return redirect($reporturl)->with('success','Reports Added Successfully');
+        return redirect()->back()->with('success','Reports Added Successfully');
     }
 
     /**

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Closure;
 use DB;
 use App\Module_permission;
+use User;
 
 class user_permission
 {
@@ -17,6 +18,16 @@ class user_permission
      */
     public function handle($request, Closure $next, $guard = null)
     {
+
+        // if(Auth::User()->user_role==4){
+        //     return redirect('/report/add');
+        // }
+        // if (Auth::User()->user_role == 3) {
+        //     return redirect('/reports');
+        // } 
+
+
+        
         // $UserPermissions = Module_permission::getPermissions(Auth::User()->user_role);
         // //dd($UserPermissions);
         // $UserPer = [];
