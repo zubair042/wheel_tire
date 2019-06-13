@@ -259,6 +259,7 @@
 					    		<select name="location_id" id="manager-location" class="select_select2_select">
 					    			<option disabled selected hidden>Select Location</option>
 					    		</select>
+					    		<!-- <input type="text" name="location_id" id="manager-location" class="form-control" placeholder=""> -->
 					    	</div>
 					    </div>
 
@@ -331,8 +332,7 @@ $("#submit1232222").on("click", function(){
 					var name = d[i].location_name;
 					var option = new Option(name,id,false,false);
 					$("#manager-location").append(option).trigger('change');
-					//$("#manager-location").append($("<option/>").val(id).text(name));
-
+					//$('#manager-location').val($('#manager-location').val() + name);
 				}
 			}
 		})

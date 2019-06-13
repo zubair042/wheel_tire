@@ -19,7 +19,7 @@
 					      <th>ID</th>
 					      <th>Location Name</th>
 					      <th>Company Name</th>
-					      <th>Manager</th>
+					      <!-- <th>Manager</th> -->
 					      <th></th>
 					    </thead>
 					    <tbody>
@@ -29,7 +29,7 @@
 							        	<td><span>{{ $detail->id }}</span></td>
 							        	<td><span>{{ $detail->location_name }}</span></td>
 							        	<td><span>{{ $detail->account_name }}</span></td>
-							        	<td><span>{{ $detail->first_name." ".$detail->last_name }}</span></td>
+							        	<!-- <td><span></span></td> -->
 							        	<td align="right"><a href="{{ url('/location/edit/'.$detail->id) }}"><i class="icon-pencil mr-3 icon-1x text-success"></i></a><a onclick="del_location(<?php echo $detail->id ?>)" href="javascript:;"><i class="icon-bin mr-3 icon-1x text-danger"></i></a></td>
 						      		</tr>
 				      			@endforeach
@@ -50,7 +50,7 @@ $("#main-datatable-users").DataTable({
 	columnDefs: [{ 
 		orderable: false,
 		//width: 100,
-		targets: [ 4 ]
+		targets: [ 3 ]
 	}],
 	dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
 	language: {
@@ -73,8 +73,6 @@ function del_location(id){
 				location.reload();
 			}
 		})
-	}else{
-		alert('Delete Cancel');
 	}
 }
 </script>

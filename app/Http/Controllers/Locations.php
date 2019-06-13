@@ -27,16 +27,16 @@ class Locations extends Controller
             $account_id = Auth::user()->account_id;
             $location_detail = DB::table('locations')
                                 ->join('accounts',"locations.account_id","=","accounts.id")
-                                ->join('users','locations.user_id','=','users.id')
+                                //->join('users','locations.user_id','=','users.id')
                                 ->where('locations.account_id',$account_id)
-                                ->select('locations.*','accounts.account_name','users.first_name','users.last_name')
+                                ->select('locations.*','accounts.account_name')
                                 ->get();
         }
         else{
             $location_detail = DB::table('locations')
                                 ->join('accounts','locations.account_id','=','accounts.id')
-                                ->join('users','locations.user_id','=','users.id')
-                                ->select('locations.*','accounts.account_name','users.first_name','users.last_name')
+                                //->join('users','locations.user_id','=','users.id')
+                                ->select('locations.*','accounts.account_name')
                                 ->get(); 
         }
         return view('location/index')->with('location_detail',$location_detail);
@@ -72,7 +72,7 @@ class Locations extends Controller
         $location->account_id = $request->input('account_id');
         //$location->user_id = $request->input('user_id');
         $location->location_name = $request->input('location_name');
-        $location->user_name = $request->input('user_name');
+        //$location->user_name = $request->input('user_name');
         $location->email = $request->input('email');
         $location->password = bcrypt($request->input('password'));
         $location->address = $request->input('address');

@@ -9,6 +9,20 @@ use Auth;
 
 class LoginController extends Controller
 {
+
+    // public function login(Request $request){
+    //     $credentials = ['email' => $request->email, 'password' => $request->password];
+    //     if(Auth::attempt($credentials)){
+    //         return redirect('/');
+    //     }
+    //     //$throttles = $this->isUsingThrottlesLoginsTrait();
+    //     //dd(Auth::guard('location')->attempt($credentials, $request->has('remember')));
+    //     if (Auth::guard('location')->attempt($credentials, $request->has('remember'))) {
+    //         return $this->handleUserWasAuthenticated($request, array());
+    //     }
+    //     //Auth::guard('location')->attempt($credentials);
+    //     //return redirect('/');
+    // }
     
     /*
     |--------------------------------------------------------------------------
@@ -28,7 +42,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-   
+
     protected function authenticated(Request $request, $user) {
         if ($user->user_role == 1) {
             return redirect('/');
@@ -44,9 +58,13 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+
         $this->middleware('guest')->except('logout');
-        // $this->middleware('guest:user')->except('logout');
-        // $this->middleware('guest:location')->except('logout');
+        // if (Auth::guard('location')->attempt($credentials, $request->has('remember'))) {
+        //     return $this->handleUserWasAuthenticated($request, $throttles);
+        // }
+        //$this->middleware('guest:user')->except('logout');
+        //$this->middleware('guest:location')->except('logout');
         
     }
 }

@@ -7,7 +7,7 @@ foreach ($Permissions as $p) {
 ?>
 <?php
 $user_role = DB::table('user_roles')
-    ->where('id', Auth::user()->user_role)
+    ->where('id', Auth::user()->user_role )
     ->first();
 //dd($user_role);
 ?>

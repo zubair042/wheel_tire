@@ -52,7 +52,7 @@
 						</span>
 					</div>
 					<div class="col-md-3">
-						<select class="select_select2_select2" name="account_id" id="account_id" onchange="getUserById()">
+						<select class="select_select2_select2" name="account_id" id="account_id">
 							<option disabled selected hidden>Select Company</option>
 							@if(count($customers) > 0)
 							@foreach($customers as $customer)
