@@ -65,6 +65,16 @@
 				<div class="row">
 					<div class="col-md-2 offset-md-3">
 						<span class="input-group-text">
+							<p>User Name</p>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<input type="text" name="username" id="" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text">
 							<p>Email</p>
 						</span>
 					</div>

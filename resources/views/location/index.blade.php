@@ -30,7 +30,7 @@
 							        	<td><span>{{ $detail->location_name }}</span></td>
 							        	<td><span>{{ $detail->account_name }}</span></td>
 							        	<!-- <td><span></span></td> -->
-							        	<td align="right"><a href="{{ url('/location/edit/'.$detail->id) }}"><i class="icon-pencil mr-3 icon-1x text-success"></i></a><a onclick="del_location(<?php echo $detail->id ?>)" href="javascript:;"><i class="icon-bin mr-3 icon-1x text-danger"></i></a></td>
+							        	<td align="right"><a href="{{ url('/location/edit/'.$detail->id) }}"><i class="icon-pencil mr-3 icon-1x text-success"></i></a><a onclick="del_location(<?php echo $detail->id.",".$detail->user_id; ?>)" href="javascript:;"><i class="icon-bin mr-3 icon-1x text-danger"></i></a></td>
 						      		</tr>
 				      			@endforeach
 				    		@endif
@@ -62,13 +62,14 @@ $("#main-datatable-users").DataTable({
 });
 
 
-function del_location(id){ 
+function del_location(id,user_id){
 	if (confirm('Are you sure you want to delete')) {
 		$.ajax({
 			type: "post",
 			url: "{{ route('destroy-location') }}",
-			data: {'id': id, "_token": "{{ csrf_token() }}"},
+			data: {"id": id, "user_id":user_id, "_token": "{{ csrf_token() }}"},
 			success:function(data){
+				// console.log(data);
 				alert('Location deleted successfully!');
 				location.reload();
 			}

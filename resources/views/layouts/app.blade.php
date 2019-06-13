@@ -117,7 +117,7 @@ $user_role = DB::table('user_roles')
 
     <!-- Page content -->
     <div class="page-content">
-        <?php if (Auth::user()->user_role != 3) { ?>
+        <?php if (Auth::user()->user_role != 3 && Auth::user()->user_role != 4 ) { ?>
          @section('sidebar')
         <!-- Main sidebar -->
         <div class="sidebar sidebar-light sidebar-main sidebar-expand-md">

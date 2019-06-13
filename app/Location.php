@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+//namespace App;
 
 // use Illuminate\Database\Eloquent\Model;
 
@@ -9,14 +9,16 @@ namespace App;
 //     //
 // }
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+/*use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;*/
+namespace App;
+use Illuminate\Database\Eloquent\Model;
 
-class Location extends Authenticatable
+
+class Location extends Model
 {
-    use Notifiable;
 
-    //protected $guard = 'location';
+    protected $guard = 'location';
 
     protected $fillable = [
         'location_name', 'first_name', 'last_name', 'email', 'password', 'account_id'

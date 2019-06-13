@@ -67,19 +67,31 @@ class Locations extends Controller
      */
     public function store(Request $request)
     {
+        $user = new User;
+        $user->account_id   = $request->input('account_id');
+        $user->location_id  = 0;
+        $user->email        = $request->input('email');
+        $user->user_role    = 4;
+        $user->first_name   = $request->input('username');
+        $user->last_name    = '';
+        $user->password     = bcrypt($request->input('password'));
+        $user->created_by   = Auth::user()->id;
+        $user->save();
+
         $location = new Location;
-        $location->created_by = Auth::user()->id;
-        $location->account_id = $request->input('account_id');
-        //$location->user_id = $request->input('user_id');
-        $location->location_name = $request->input('location_name');
-        //$location->user_name = $request->input('user_name');
-        $location->email = $request->input('email');
-        $location->password = bcrypt($request->input('password'));
-        $location->address = $request->input('address');
-        $location->city = $request->input('city');
-        $location->state = $request->input('state');
-        $location->zip = $request->input('zip');
+        $location->created_by       = Auth::user()->id;
+        $location->account_id       = $request->input('account_id');
+        $location->user_id          = $user->id;
+        $location->location_name    = $request->input('location_name');
+        $location->user_name        = $request->input('username');
+        $location->email            = $request->input('email');
+        $location->password         = bcrypt($request->input('password'));
+        $location->address          = $request->input('address');
+        $location->city             = $request->input('city');
+        $location->state            = $request->input('state');
+        $location->zip              = $request->input('zip');
         $location->save();
+
         return redirect('/location')->with('success',"Location added successfully");
     }
 
@@ -123,11 +135,27 @@ class Locations extends Controller
     public function update(Request $request, $id)
     {
         $location = Location::find($id);
-        $location->created_by = auth()->user()->id;
-        $location->customer_type = $request->input('customer_type');
-        $location->location_name = $request->input('location_name');
-        //dd($location);
+        $location->created_by       = Auth::user()->id;
+        $location->account_id       = $request->input('account_id');
+        $location->location_name    = $request->input('location_name');
+        $location->user_name        = $request->input('username');
+        $location->email            = $request->input('email');
+        $location->password         = bcrypt($request->input('password'));
+        $location->address          = $request->input('address');
+        $location->city             = $request->input('city');
+        $location->state            = $request->input('state');
+        $location->zip              = $request->input('zip');
         $location->save();
+
+        $user = User::find($location->user_id);
+        $user->account_id   = $request->input('account_id');
+        $user->email        = $request->input('email');
+        $user->first_name   = $request->input('username');
+        $user->last_name    = '';
+        $user->password     = bcrypt($request->input('password'));
+        $user->created_by   = Auth::user()->id;
+        $user->save();
+
         return redirect('/location')->with('success',"Location updated successfully");
     }
     /**
@@ -137,9 +165,11 @@ class Locations extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy()
-    {   //print_r($_POST['id']);exit;
+    {   //print_r($_POST);exit;
         $location = Location::find($_POST['id']);
         $location->delete();
+        $user = User::find($_POST['user_id']);
+        $user->delete();
         //return redirect('/location')->with('danger',"Location Deleted Successfully");
     }
     public function getLocationById(){

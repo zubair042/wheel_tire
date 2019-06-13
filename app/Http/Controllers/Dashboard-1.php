@@ -13,6 +13,14 @@ use App\Module_permission;
 class Dashboard extends Controller
 {
 	public function __construct(){
+        //dd(Auth::guard('location')->check());
+        // if(Auth::guard('location')->id()){
+        //     $this->middleware(['guest:location']);
+        // }else{
+        //     $this->middleware(['auth', 'permission']);
+        // }
+        //dd(Auth::guard('location'));
+        
         $this->middleware(['auth', 'permission']);
     }
 
