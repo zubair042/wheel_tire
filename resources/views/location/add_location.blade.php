@@ -72,7 +72,7 @@
 						<input type="text" name="email" id="" class="form-control">
 					</div>
 				</div>
-				<div class="row form-group">
+				<div class="row">
 					<div class="col-md-2 offset-md-3">
 						<span class="input-group-text">
 							<p>Password</p>
@@ -112,7 +112,7 @@
 						<input type="text" name="state" id="" class="form-control">
 					</div>
 				</div>
-				<div class="row">
+				<div class="row form-group">
 					<div class="col-md-2 offset-md-3">
 						<span class="input-group-text">
 							<p>Zip</p>
