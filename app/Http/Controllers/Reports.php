@@ -121,14 +121,15 @@ class Reports extends Controller
         $report->comment                = $request->input('comments');
         $manager_info                   = User::find($report->manager_id);
         $manager_email                  = $manager_info->email;
+        //dd($report);
         $report->save();
         $reportId                       = $report->id;
         $report_detail                  = $report;
 
         // $emails = ['usama52966@gmail.com'];
         // $message = 'asdfasdf';
-        Mail::send('emails.welcome', ["report_detail"=>$report_detail], function($message) use ($manager_email){    
-            $message->to($manager_email)->subject('wheels.mobilemaintaince');
+        Mail::send('emails.add_report_email', ["report_detail"=>$report_detail,"manager_info"=>$manager_info], function($message) use ($manager_email,$report_detail){    
+            $message->to($manager_email)->subject("New ".$report_detail->vehicle_type." report ".$report_detail->id." has been created");
         });
         var_dump( Mail:: failures());
         //Mail::to($manager_email)->send(new SendEmail());

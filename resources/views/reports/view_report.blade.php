@@ -21,18 +21,21 @@ if (count($images) > 0) {
 	<div class="col-md-12">
 		<div class="card">
 			<div class="card-header">
-				<div class="col-md-12">
-					<?php if ($user->user_role == 3) { ?>
-						<a href="{{ url('reports') }}"><button type="button" class="btn btn-outline-success legitRipple"><i class="icon-arrow-left8 mr-2"></i>Back</button></a>
-					&nbsp;&nbsp;
-					<?php } ?>
-					<span class="font-weight-semibold" style="font-size: 30px;">Wheel/Tire Installation Report</span>
-					<?php //if ($user->user_role == 3 && $report_detail->signature == 0) { ?>
-						<!-- <a href="javascript:;" type="button"  class="btn btn-danger float-right" onclick="delete_report(<?php?>)" >Delete</a> -->
-					<?php //} ?>
-
-					<span class="font-weight-semibold float-right text-primary font-size-lg" style="margin: 8px">ID: {{ $report_detail->id }}</span>
-					<input type="hidden" value={{ $report_detail->id }} id="reportId">
+				<div class="row">
+					<div class="col-md-10">
+						<?php if ($user->user_role == 3) { ?>
+							<a href="{{ url('reports') }}"><button type="button" class="btn btn-outline-success legitRipple"><i class="icon-arrow-left8 mr-2"></i>Back</button></a>
+						&nbsp;&nbsp;
+						<?php } ?>
+						<h1 class="mb-0 font-weight-semibold ml-2">Wheel/Tire Installation Report</h1>
+						<?php //if ($user->user_role == 3 && $report_detail->signature == 0) { ?>
+							<!-- <a href="javascript:;" type="button"  class="btn btn-danger float-right" onclick="delete_report(<?php?>)" >Delete</a> -->
+						<?php //} ?>
+					</div>
+					<div class="col-md-2">
+						<span class="font-weight-semibold float-right text-primary font-size-lg m-2">ID: {{ $report_detail->id }}</span>
+						<input type="hidden" value={{ $report_detail->id }} id="reportId">
+					</div>
 				</div>
 			</div>
 			<div class="card-body">
@@ -47,7 +50,7 @@ if (count($images) > 0) {
 						}
 						?>
 						</a>
-						<div class="card" style="margin-top:12px;">
+						<div class="card mt-10">
 							<div class="card-header">
 								<div class="row">
 									<div class="col-md-9">
@@ -71,7 +74,7 @@ if (count($images) > 0) {
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4" style="margin-top: 5px;">
+					<div class="col-md-4">
 						<label class="font-weight-black">Work Performed By:</label>
 						<p>{{ $report_detail->name }}</p>
 						<label class="font-weight-black">Unit Number:</label>
@@ -81,33 +84,33 @@ if (count($images) > 0) {
 						<label class="font-weight-black">Wheel Lug Nuts Torqued To:</label>
 						<p>{{ $report_detail->weight }} Lbs</p>
 						<label class="font-weight-black">Second Signature:</label>
-						<p><?php if ($report_detail->signature == 1) {
-								echo "I have visually inspected this technician's work and it appears to have been completed to proper industry standards.";
-							} ?></p>
+						<p>{{ $report_detail->first_name." ".$report_detail->last_name }}</p>
 						<label class="font-weight-black">Tech Comment:</label>
-						<p>{{$report_detail->comment}}</p>
+						<p class="form-group">{{$report_detail->comment}}</p>
 
 						<?php if ($user->user_role == 2 || $user->user_role == 3) { ?>
+							<button type="button" class="btn btn-danger rounded-round legitRipple" <?php if ($user->user_role == 2 || $user->user_role == 3) { ?> data-toggle="modal" data-target="#modal_comment" <?php } ?>>
+								Add Comment</button><br><br>
 							<?php if ($report_detail->signature != 1) { ?>
 
 								<a href="javascript:;" type="button" id="signature_btn" class="btn btn-primary rounded-round legitRipple" <?php if ($user->user_role == 3) { ?> onclick="add_signature(<?php echo $report_detail->id; ?>)" <?php } ?>>
-									Apply Signature</a>
+									Apply Signature</a> 
+									<p class=" mt-10">I have visually inspected this technician's work and it appears to have been completed to proper industry standards.</p>
 
 							<?php } ?>
 
-							<button type="button" class="btn btn-danger rounded-round legitRipple" <?php if ($user->user_role == 2 || $user->user_role == 3) { ?> data-toggle="modal" data-target="#modal_comment" <?php } ?>>
-								Add Comment</button>
+							
 
 						<?php } ?>
 					</div>
 				</div>
 
 				<?php if ($report_detail->vehicle_type == 'power_unit') { ?>
-					<div class="card" style="margin-top: 8px;background: #63af81">
+					<div class="card mt-10 bg-success-300">
 						<div class="card-body">
 							<div class="row">
-								<div class="col-md-12" style="text-align: center;color: #f9f9f9;">
-									<h4 class="font-weight-semibold">STEER WHEEL POSITION</h4>
+								<div class="col-md-12 text-center">
+									<h4 class="font-weight-semibold text-white">STEER WHEEL POSITION</h4>
 								</div>
 							</div>
 							<div class="row">
@@ -116,7 +119,7 @@ if (count($images) > 0) {
 										if ($image->image_type == 'power_unit_left_stear' || $image->image_type == 'power_unit_right_stear') { ?>
 											<div class="col-md-3">
 												<div class="card-img-actions m-1">
-													<img class="card-img img-fluid" src="{{ $image->url }}" alt="">
+													<img class="card-img img-fluid h-200" src="{{ $image->url }}" alt="">
 													<div class="card-img-actions-overlay card-img">
 														<a href="{{ $image->url }}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
 															<i class="icon-plus3"></i>
@@ -132,11 +135,11 @@ if (count($images) > 0) {
 					</div>
 				<?php } ?>
 
-				<div class="card" style="margin-top: 8px;background: #63af81">
+				<div class="card mt-10 bg-success-300">
 					<div class="card-body">
 						<div class="row">
-							<div class="col-md-12" style="text-align: center;color: #f9f9f9;">
-								<h4 class="font-weight-semibold">FRONT WHEEL POSITION</h4>
+							<div class="col-md-12 text-center">
+								<h4 class="font-weight-semibold text-white">FRONT WHEEL POSITION</h4>
 							</div>
 						</div>
 						<div class="row">
@@ -145,7 +148,7 @@ if (count($images) > 0) {
 									if ($image->image_type == 'trailer_left_front' || $image->image_type == 'trailer_right_front'  || $image->image_type == 'power_unit_left_front'  || $image->image_type == 'power_unit_right_front') { ?>
 										<div class="col-md-3">
 											<div class="card-img-actions m-1">
-												<img class="card-img img-fluid" style="height: 200px;" src="{{ $image->url }}" alt="">
+												<img class="card-img img-fluid h-200" src="{{ $image->url }}" alt="">
 												<div class="card-img-actions-overlay card-img">
 													<a href="{{ $image->url }}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
 														<i class="icon-plus3"></i>
@@ -159,11 +162,11 @@ if (count($images) > 0) {
 						</div>
 					</div>
 				</div>
-				<div class="card" style="margin-top: 8px;background: #63af81">
+				<div class="card mt-10 bg-success-300">
 					<div class="card-body">
 						<div class="row">
-							<div class="col-md-12" style="text-align: center;color: #f9f9f9;">
-								<h4 class="font-weight-semibold">REAR WHEEL POSITION</h4>
+							<div class="col-md-12 text-white">
+								<h4 class="font-weight-semibold text-center">REAR WHEEL POSITION</h4>
 							</div>
 						</div>
 						<div class="row">
@@ -172,7 +175,7 @@ if (count($images) > 0) {
 									if ($image->image_type == 'trailer_right_rear' || $image->image_type == 'trailer_left_rear' || $image->image_type == 'power_unit_left_rear' || $image->image_type == 'power_unit_right_rear') { ?>
 										<div class="col-md-3">
 											<div class="card-img-actions m-1">
-												<img class="card-img img-fluid" style="height: 200px;" src="{{ $image->url }}" alt="">
+												<img class="card-img img-fluid h-200" src="{{ $image->url }}" alt="">
 												<div class="card-img-actions-overlay card-img">
 													<a href="{{ $image->url }}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
 														<i class="icon-plus3"></i>
@@ -181,8 +184,8 @@ if (count($images) > 0) {
 											</div>
 										</div>
 									<?php	}
-							}
-						} ?>
+								}
+							} ?>
 						</div>
 					</div>
 				</div>
