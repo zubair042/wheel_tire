@@ -25,12 +25,14 @@ if (count($images) > 0) {
 					<div class="col-md-10">
 						<?php if ($user->user_role == 3) { ?>
 							<a href="{{ url('reports') }}"><button type="button" class="btn btn-outline-success legitRipple"><i class="icon-arrow-left8 mr-2"></i>Back</button></a>
-						&nbsp;&nbsp;
+							&nbsp;&nbsp;
 						<?php } ?>
 						<h1 class="mb-0 font-weight-semibold ml-2">Wheel/Tire Installation Report</h1>
-						<?php //if ($user->user_role == 3 && $report_detail->signature == 0) { ?>
-							<!-- <a href="javascript:;" type="button"  class="btn btn-danger float-right" onclick="delete_report(<?php?>)" >Delete</a> -->
-						<?php //} ?>
+						<?php 
+						?>
+						<!-- <a href="javascript:;" type="button"  class="btn btn-danger float-right" onclick="delete_report(<? php ?>)" >Delete</a> -->
+						<?php 
+						?>
 					</div>
 					<div class="col-md-2">
 						<span class="font-weight-semibold float-right text-primary font-size-lg m-2">ID: {{ $report_detail->id }}</span>
@@ -88,18 +90,19 @@ if (count($images) > 0) {
 						<label class="font-weight-black">Tech Comment:</label>
 						<p class="form-group">{{$report_detail->comment}}</p>
 
+						
 						<?php if ($user->user_role == 2 || $user->user_role == 3) { ?>
-							<button type="button" class="btn btn-danger rounded-round legitRipple" <?php if ($user->user_role == 2 || $user->user_role == 3) { ?> data-toggle="modal" data-target="#modal_comment" <?php } ?>>
-								Add Comment</button><br><br>
-							<?php if ($report_detail->signature != 1) { ?>
-
-								<a href="javascript:;" type="button" id="signature_btn" class="btn btn-primary rounded-round legitRipple" <?php if ($user->user_role == 3) { ?> onclick="add_signature(<?php echo $report_detail->id; ?>)" <?php } ?>>
-									Apply Signature</a> 
+							
+							<?php if ($user->user_role == 3) { ?>
+								<?php if ($report_detail->signature != 1) { ?>
 									<p class=" mt-10">I have visually inspected this technician's work and it appears to have been completed to proper industry standards.</p>
 
+									<a href="javascript:;" type="button" id="signature_btn" class="btn btn-primary rounded-round legitRipple" <?php if ($user->user_role == 3) { ?> onclick="add_signature(<?php echo $report_detail->id; ?>)" <?php } ?>>
+										Apply Signature</a>
+								<?php } ?>
 							<?php } ?>
-
-							
+							<button type="button" class="btn btn-danger rounded-round legitRipple" <?php if ($user->user_role == 2 || $user->user_role == 3) { ?> data-toggle="modal" data-target="#modal_comment" <?php } ?>>
+								Add Comment</button>
 
 						<?php } ?>
 					</div>
@@ -184,8 +187,8 @@ if (count($images) > 0) {
 											</div>
 										</div>
 									<?php	}
-								}
-							} ?>
+							}
+						} ?>
 						</div>
 					</div>
 				</div>
