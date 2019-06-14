@@ -116,16 +116,24 @@
 							</span>
 						</div>
 						<div class="col-md-3">
-							<select class="custom-select2" name="location_id">
-								<option disabled selected hidden>Select Location</option>
+							<!-- <div class="form-group">
+								<label>Default select</label>
+								<select class="form-control multiselect" multiple="multiple" data-fouc>
+									<option value="cheese">Cheese</option>
+									<option value="tomatoes">Tomatoes</option>
+									<option value="mozarella">Mozzarella</option>
+									<option value="mushrooms">Mushrooms</option>
+								</select>
+							</div> -->
+							<select class="form-control multiselect" name="location_id[]" multiple="multiple">
 								@if(count($locations) > 0)
 								@foreach($locations as $location)
 								<option value="{{ $location->id }}"><span>{{ $location->location_name }}</span></option>
 								@endforeach
 								@endif
-
 							</select>
 						</div>
+						
 					</div>
 				</div>
 				<div class="row">
@@ -171,6 +179,7 @@
 	$('.custom-select2').select2({
 		minimumResultsForSearch: Infinity
 	});
+	$('.multiselect').multiselect();
 
 
 	function resetForm() {
