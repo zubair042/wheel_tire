@@ -89,10 +89,11 @@ class Users extends Controller
      */
     public function store(Request $request)
     {
+        
         $users = new User;
         $users->created_by = Auth::user()->id;
         $users->account_id = $request->input('account_id');
-        $users->location_id = $request->input('location_id');
+        $users->location_id = json_encode($request->input('location_id'));
         $users->user_role = $request->input('user_role');
         $users->first_name = $request->input('first_name');
         $users->last_name = $request->input('last_name');

@@ -260,7 +260,7 @@
 					    		</select>
 					    	</div>
 					    </div>
-					    <div class="row form-group d-none">
+					    <div class="row form-group">
 					    	<div class="col-md-2 offset-md-5">
 					    		<select name="location_id" id="manager-location" class="select_select2_select">
 					    			<option disabled selected hidden>Select Location</option>
@@ -277,6 +277,7 @@
 
 					    <div class="row text-center">
 					    	<div class="col-md-12">
+					    		<button type="button" class="btn btn-light" data-toggle="modal" data-target="#modal_full">Launch <i class="icon-play3 ml-2"></i></button>
 					    		<button type="submit" class="btn btn-primary btn-ladda btn-ladda-spinner" data-style="expand-right" id="submit123" data-spinner-color="#ffff"
 					    		onclick="spinner();"><i class="icon-checkmark mr-2"></i>Submit</button>
 					    	</div>
@@ -287,6 +288,34 @@
 		</div>
 	</div>
 </div>
+
+<div id="modal_full" class="modal fade" tabindex="-1">
+					<div class="modal-dialog modal-full">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title font-weight-semibold">Confirm Report</h4>
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+							</div>
+
+							<div class="modal-body">
+								<h6 class="font-weight-semibold">Text in a modal</h6>
+								<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+								<hr>
+
+								<h6 class="font-weight-semibold">Another paragraph</h6>
+								<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+								<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+							</div>
+
+							<div class="modal-footer">
+								<button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+								<button type="button" class="btn bg-primary">Save changes</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
 <input type="hidden" value="{{ csrf_token() }}" id="csrf-token">
 <script type="text/javascript">
 
