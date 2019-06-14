@@ -9,6 +9,8 @@ foreach ($Permissions as $p) {
 $user_role = DB::table('user_roles')
     ->where('id', Auth::user()->user_role )
     ->first();
+//$t = DB::table("locations")->get();
+//echo "<pre>"; print_r($t); exit;
 //dd($user_role);
 ?>
 <!DOCTYPE html>
@@ -102,8 +104,12 @@ $user_role = DB::table('user_roles')
                     <div class="dropdown-menu dropdown-menu-right">
                         <p class="dropdown-item">You are login as {{ $user_role->description }}</p>
                         <div class="dropdown-divider"></div>
+                        
+                        <?php if (Auth::user()->user_role != 4) { ?>
                         <a href="{{url('profile/change_password/'.Auth::user()->id)}}" class="dropdown-item"><i class="icon-cog5"></i>
                             Change password</a>
+                        <?php } ?>
+                        
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}

@@ -59,7 +59,6 @@ class Reports extends Controller
     public function create()
     {
         $account_id         = Auth::user()->account_id;
-
         if(Auth::user()->user_role != 1){
             $manager_detail = DB::table('users')
                                 ->where('user_role',3)
