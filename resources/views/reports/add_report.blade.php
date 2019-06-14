@@ -195,7 +195,7 @@
 								<div class="media-body">
 									<!-- <img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt=""> -->
 									<a href="javascript:;">
-										<input type="image" src="{{asset('global_assets/images/tire_img.jpg')}}" style="width: 25%; margin-right: unset;"" name="trailer_left_rear" class="chooseImage">
+										<input type="image" src="{{asset('global_assets/images/tire_img.jpg')}}" style="width: 25%; margin-right: unset;" name="trailer_left_rear" class="chooseImage">
 										<input type="file" name="trailer_left_rear[]" id="trailer_left_rear" class="d-none" multiple="">
 									</a>
 									<input type="image" name="power_unit_left_stear" style="width: 42%; margin-top: 15%; float: left;" class="align-self-center" src="{{asset('global_assets/images/line1.png')}}">
@@ -277,7 +277,7 @@
 
 					    <div class="row text-center">
 					    	<div class="col-md-12">
-					    		<button type="button" class="btn btn-light" data-toggle="modal" data-target="#modal_full">Launch <i class="icon-play3 ml-2"></i></button>
+					    		<!-- <button type="button" id="display_data" class="btn btn-light" data-toggle="modal" data-target="#modal_full">Launch <i class="icon-play3 ml-2"></i></button> -->
 					    		<button type="submit" class="btn btn-primary btn-ladda btn-ladda-spinner" data-style="expand-right" id="submit123" data-spinner-color="#ffff"
 					    		onclick="spinner();"><i class="icon-checkmark mr-2"></i>Submit</button>
 					    	</div>
@@ -290,42 +290,36 @@
 </div>
 
 <div id="modal_full" class="modal fade" tabindex="-1">
-					<div class="modal-dialog modal-full">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h4 class="modal-title font-weight-semibold">Confirm Report</h4>
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-							</div>
+	<div class="modal-dialog modal-full">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title font-weight-semibold">Confirm Report</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
 
-							<div class="modal-body">
-								<h6 class="font-weight-semibold">Text in a modal</h6>
-								<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+			<div class="modal-body">
+				<h6 class="font-weight-semibold">Text in a modal</h6>
+				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
 
-								<hr>
+				<hr>
 
-								<h6 class="font-weight-semibold">Another paragraph</h6>
-								<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-								<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-							</div>
+				<h6 class="font-weight-semibold">Another paragraph</h6>
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+			</div>
 
-							<div class="modal-footer">
-								<button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
-								<button type="button" class="btn bg-primary">Save changes</button>
-							</div>
-						</div>
-					</div>
-				</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-link" 
+				data-dismiss="modal">Close</button>
+				<button type="button" class="btn bg-primary">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 <input type="hidden" value="{{ csrf_token() }}" id="csrf-token">
 <script type="text/javascript">
 
-$("#submit1232222").on("click", function(){
-	var l = Ladda.create( document.querySelector( '#submit' ) );
-	l.start();
-	// setTimeout(function(){
-	// 	l.stop();
-	// }, 3000);
-})
 	function spinner(){
 		var l = Ladda.create( document.querySelector('#submit') );
 		l.start();
@@ -373,6 +367,8 @@ $("#submit1232222").on("click", function(){
 		})
 	}
 
+
+
 	$(".chooseImage").on("click", function(e){
 		var name = $(this).attr("name");
 		$("#"+name+"").click();	
@@ -385,6 +381,21 @@ $("#submit1232222").on("click", function(){
 		$.uniform.update('input[name='+inp_name+']');
 	});
 
+	// function readURL(input) {
+	//   	if (input.files && input.files[0]) {
+	//     	var reader = new FileReader();
+	    
+	//     	reader.onload = function(e) {
+	//       		$('#blah').attr('src', e.target.result);
+	//     	}
+	    
+	//     	reader.readAsDataURL(input.files[0]);
+	//   	}
+	// }
+
+	// $("#imgInp").change(function() {
+	//   	readURL(this);
+	// });
 	
 </script>
 
