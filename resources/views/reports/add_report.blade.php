@@ -56,12 +56,13 @@
 									<div class="media-body text-center">
 									 	<!-- <img src="{{asset('global_assets/images/placeholders/fr1.png')}}" width="82%" height="100%" alt=""> -->
 									 	<a href="javascript:;">
-									 		<input type="image" name="power_unit_left_stear" style="width: 15%" class="chooseImage" src="{{asset('global_assets/images/tire1.jpg')}}">
+									 		<input type="image" name="power_unit_left_stear" style="width: 13%; margin-right: unset;" class="chooseImage" src="{{asset('global_assets/images/tire1.jpg')}}">
 									 		<input type="file" name="power_unit_left_stear[]" id="power_unit_left_stear" class="d-none" multiple="">
 									 		
-									 	</a>
+										</a>
+										<input type="image" name="power_unit_left_stear" style="width: 66%; margin-top: 14%; float: left;" class="align-self-center" src="{{asset('global_assets/images/line1.png')}}">
 									 	<a href="javascript:;">
-									 		<input type="image" name="power_unit_right_stear" style="width: 15%" class="chooseImage float-right" src="{{asset('global_assets/images/tire1.jpg')}}">
+									 		<input type="image" name="power_unit_right_stear" style="width: 13%; margin-left: unset;" class="chooseImage float-right" src="{{asset('global_assets/images/tire1.jpg')}}">
 									 		<input type="file" name="power_unit_right_stear[]" id="power_unit_right_stear" class="d-none" multiple="">
 									 	</a>
 									</div>
@@ -87,12 +88,12 @@
 									<div class="media-body text-center">
 									 	<!-- <img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt=""> -->
 									 	<a href="javascript:;">
-									 		<input type="image" name="power_unit_left_front" style="width: 25%" class="chooseImage" src="{{asset('global_assets/images/tire_img.jpg')}}">
+									 		<input type="image" name="power_unit_left_front" style="width: 25%; margin-right: unset;" class="chooseImage" src="{{asset('global_assets/images/tire_img.jpg')}}">
 									 		<input type="file" name="power_unit_left_front[]" id="power_unit_left_front" class="d-none" multiple="">
 									 	</a>
-									 	<!-- <img src="{{asset('global_assets/images/line.png')}}" class=""  alt=""> -->
+									 	<input type="image" name="power_unit_left_stear" style="width: 42%; margin-top: 15%; float: left;" class="align-self-center" src="{{asset('global_assets/images/line1.png')}}">
 									 	<a href="javascript:;">
-									 		<input type="image" name="power_unit_right_front" class="chooseImage float-right" style="width: 25%" src="{{asset('global_assets/images/tire_img.jpg')}}">
+									 		<input type="image" name="power_unit_right_front" class="chooseImage" style="width: 25%; margin-left: unset;" src="{{asset('global_assets/images/tire_img.jpg')}}">
 									 		<input type="file" name="power_unit_right_front[]" id="power_unit_right_front" class="d-none" multiple="">
 									 	</a>
 									</div>
@@ -118,11 +119,12 @@
 									<div class="media-body">
 										<!-- <img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt=""> -->
 										<a href="javascript:;">
-									 		<input type="image" name="power_unit_left_rear" class="chooseImage" style="width: 25%" src="{{asset('global_assets/images/tire_img.jpg')}}">
+									 		<input type="image" name="power_unit_left_rear" class="chooseImage" style="width: 25%; margin-right: unset;" src="{{asset('global_assets/images/tire_img.jpg')}}">
 									 		<input type="file" name="power_unit_left_rear[]" id="power_unit_left_rear" class="d-none" multiple="">
-									 	</a>
+										 </a>
+										 <input type="image" name="power_unit_left_stear" style="width: 42%; margin-top: 15%; float: left;" class="align-self-center" src="{{asset('global_assets/images/line1.png')}}">
 									 	<a href="javascript:;">
-									 		<input type="image" name="power_unit_right_rear" style="width: 25%" class="chooseImage float-right" src="{{asset('global_assets/images/tire_img.jpg')}}">
+									 		<input type="image" name="power_unit_right_rear" style="width: 25%; margin-left: unset;" class="chooseImage float-right" src="{{asset('global_assets/images/tire_img.jpg')}}">
 									 		<input type="file" name="power_unit_right_rear[]" id="power_unit_right_rear" class="d-none" multiple="">
 									 	</a>
 									</div>
@@ -162,11 +164,12 @@
 								 	<!-- <img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt=""> -->
 
 								 	<a>
-								 		<input type="image" name="trailer_left_front" class="chooseImage" style="width: 25%" src="{{asset('global_assets/images/tire_img.jpg')}}">
+								 		<input type="image" name="trailer_left_front" class="chooseImage" style="width: 25%; margin-right: unset;" src="{{asset('global_assets/images/tire_img.jpg')}}">
 								 		<input type="file" name="trailer_left_front[]" id="trailer_left_front" class="d-none" multiple="">
-								 	</a>
+									 </a>
+									 <input type="image" name="power_unit_left_stear" style="width: 42%; margin-top: 15%; float: left;" class="align-self-center" src="{{asset('global_assets/images/line1.png')}}">
 								 	<a href="javascript:;">
-								 		<input type="image" name="trailer_right_front" class="chooseImage float-right" style="width: 25%" src="{{asset('global_assets/images/tire_img.jpg')}}">
+								 		<input type="image" name="trailer_right_front" class="chooseImage float-right" style="width: 25%; margin-left: unset;" src="{{asset('global_assets/images/tire_img.jpg')}}">
 								 		<input type="file" name="trailer_right_front[]" id="trailer_right_front" class="d-none" multiple="">
 								 	</a>
 								</div>
@@ -192,12 +195,13 @@
 								<div class="media-body">
 									<!-- <img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt=""> -->
 									<a href="javascript:;">
-										<input type="image" src="{{asset('global_assets/images/tire_img.jpg')}}" style="width: 25%" name="trailer_left_rear" class="chooseImage">
+										<input type="image" src="{{asset('global_assets/images/tire_img.jpg')}}" style="width: 25%; margin-right: unset;"" name="trailer_left_rear" class="chooseImage">
 										<input type="file" name="trailer_left_rear[]" id="trailer_left_rear" class="d-none" multiple="">
 									</a>
+									<input type="image" name="power_unit_left_stear" style="width: 42%; margin-top: 15%; float: left;" class="align-self-center" src="{{asset('global_assets/images/line1.png')}}">
 									<!-- <img src="{{asset('global_assets/images/line.png')}}"> -->
 									<a href="javascript:;">
-										<input type="image" src="{{asset('global_assets/images/tire_img.jpg')}}" style="width: 25%" name="trailer_right_rear" class="chooseImage float-right">
+										<input type="image" src="{{asset('global_assets/images/tire_img.jpg')}}" style="width: 25%; margin-left: unset;" name="trailer_right_rear" class="chooseImage float-right">
 										<input type="file" name="trailer_right_rear[]" id="trailer_right_rear" class="d-none" multiple="">
 									</a>
 								</div>
