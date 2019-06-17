@@ -277,7 +277,7 @@
 
 					    <div class="row text-center">
 					    	<div class="col-md-12">
-					    		<!-- <button type="button" id="display_data" class="btn btn-light" data-toggle="modal" data-target="#modal_full">Launch <i class="icon-play3 ml-2"></i></button> -->
+					    		<button type="button" id="display_data" class="btn btn-light" data-toggle="modal" data-target="#modal_full">Launch <i class="icon-play3 ml-2"></i></button>
 					    		<button type="submit" class="btn btn-primary btn-ladda btn-ladda-spinner" data-style="expand-right" id="submit123" data-spinner-color="#ffff"
 					    		onclick="spinner();"><i class="icon-checkmark mr-2"></i>Submit</button>
 					    	</div>
@@ -396,6 +396,9 @@
 	// $("#imgInp").change(function() {
 	//   	readURL(this);
 	// });
+	$('#display_data').on('click', function(e){
+		$('input[name]=unit_number').val();
+	});
 	
 </script>
 
