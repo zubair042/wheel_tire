@@ -15,12 +15,19 @@
     font-size: 20px;
 }
 .custom-style{
-    width: 66%; 
-    margin-top: 14%; 
+    width: 43%; 
+    margin-top: 16%; 
     float: left;
 }
 .custom-style-1{
     width: 42%; 
     margin-top: 15%; 
     float: left;
+}
+.chooseImage{
+    float: left;
+    margin: 0 4%;
+}
+.img-width{
+    width: 29%;
 }
