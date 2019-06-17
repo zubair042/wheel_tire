@@ -295,7 +295,7 @@
 						<div class="row form-group">
 							<div class="col-md-2 offset-md-5">
 								<div class="input-group">
-									<input type="text" name="weight" class="form-control" required="">
+									<input type="text" name="weight1" class="form-control" required="">
 									<span class="input-group-append">
 										<span class="input-group-text c-font">lbs.</span>
 									</span>
@@ -304,20 +304,17 @@
 						</div>
 						<div class="row form-group">
 							<div class="col-md-2 offset-md-5">
-								<input type="text" name="unit_number" class="form-control" placeholder="Unit Number" required="">
+								<input type="text" name="unit_number1" class="form-control" placeholder="Unit Number" required="">
 							</div>
 						</div>
 						<div class="row form-group">
 							<div class="col-md-2 offset-md-5">
-								<input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+								<input type="text" name="name1" class="form-control" placeholder="Your Name" required="">
 							</div>
 						</div>
 						<div class="row form-group">
 							<div class="col-md-2 offset-md-5">
-								<select name="manager_id" id="manager_id" class="select_select2_select">
-									<option disabled selected hidden>Select Manager</option>
-									<option value=""><span></span></option>
-								</select>
+								<input type="text" name="manager_id1" class="form-control" placeholder="Manager name" required="">
 							</div>
 						</div>
 						<div class="row form-group">
@@ -330,7 +327,7 @@
 						</div>
 						<div class="row form-group">
 							<div class="col-md-2 offset-md-5">
-								<input type="text" name="comments" class="form-control" placeholder="Comments">
+								<input type="text" name="comment1" class="form-control" placeholder="Comments">
 							</div>
 						</div>
 					</div>
@@ -349,6 +346,9 @@
 									<div class="card-img-actions-overlay card-img">
 										<a href="" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
 											<i class="icon-plus3"></i>
+										</a>&nbsp;&nbsp;
+										<a href="" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
+											<i class="icon-bin2"></i>
 										</a>
 									</div>
 								</div>
@@ -370,6 +370,9 @@
 									<div class="card-img-actions-overlay card-img">
 										<a href="" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
 											<i class="icon-plus3"></i>
+										</a>&nbsp;&nbsp;
+										<a href="" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
+											<i class="icon-bin2"></i>
 										</a>
 									</div>
 								</div>
@@ -391,6 +394,9 @@
 									<div class="card-img-actions-overlay card-img">
 										<a href="" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
 											<i class="icon-plus3"></i>
+										</a>&nbsp;&nbsp;
+										<a href="" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
+											<i class="icon-bin2"></i>
 										</a>
 									</div>
 								</div>
@@ -493,8 +499,9 @@
 		var weight = $('input[name=weight]').val();
 		var unit_number = $('input[name=unit_number]').val();
 		var name = $('input[name=name]').val();
-		var manager_id = $('input[name=manager_id]').val();
 		var comments = $('input[name=comments]').val();
+		var manager_id = $('#manager_id :selected').text();
+		alert(manager_id);
 
 		var input = $('input[name=trailer_left_front]').val();
 		if ($('input[name=trailer_left_front]').files && $('input[name=trailer_left_front]').files[0]) {
@@ -506,8 +513,12 @@
 	    
 	    	reader.readAsDataURL(input.files[0]);
 	  	}
-		//var unit_number1 = $('input[name=unit_number1]').val(unit_number);
-
+		var unit_number1 = $('input[name=unit_number1]').val(unit_number);
+		var weight1 = $('input[name=weight1]').val(weight);
+		var name1 = $('input[name=name1]').val(name);
+		var manager_id1 = $('input[name=manager_id1]').val(manager_id);
+		var comment1 = $('input[name=comment1]').val(comments);
+		//wrapperClassvar manager_id1 = $('select').prop('selectedIndex', 3);
 		//console.log(comments);
 
 	});
