@@ -305,6 +305,7 @@
 
 				<h6 class="font-weight-semibold">Another paragraph</h6>
 				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<img id="blah" src="#" alt="your image" />
 				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
 			</div>
 
@@ -355,6 +356,8 @@
 			url: "{{ route('manager-location') }}",
 			data: {id: id, "_token": "{{ csrf_token() }}"},
 			success:function(d){
+				console.log(d);
+				//return fasle;
 				$('#manager-location').html('').select({data: []});
 				for (var i = 0; i <= d.length; i++) {
 					var id = d[i].id;
@@ -397,7 +400,25 @@
 	//   	readURL(this);
 	// });
 	$('#display_data').on('click', function(e){
-		$('input[name]=unit_number').val();
+		var weight = $('input[name=weight]').val();
+		var unit_number = $('input[name=unit_number]').val();
+		var name = $('input[name=name]').val();
+		var manager_id = $('input[name=manager_id]').val();
+		var comments = $('input[name=comments]').val();
+
+		var input = $('input[name=trailer_left_front]').val();
+		if ($('input[name=trailer_left_front]').files && $('input[name=trailer_left_front]').files[0]) {
+	    	var reader = new FileReader();
+	    
+	    	reader.onload = function(e) {
+	      		$('#blah').attr('src', e.target.result);
+	    	}
+	    
+	    	reader.readAsDataURL(input.files[0]);
+	  	}
+		//var unit_number1 = $('input[name=unit_number1]').val(unit_number);
+
+		//console.log(comments);
 	});
 	
 </script>

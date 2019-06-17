@@ -173,11 +173,20 @@ class Locations extends Controller
         //return redirect('/location')->with('danger',"Location Deleted Successfully");
     }
     public function getLocationById(){
-        $location = DB::table('locations')
-                ->join('users','locations.id','=','users.location_id')
+        $user = DB::table('users')
+                ->where('id', $_POST['id'])
+                ->first();
+        $location_id = json_decode($user->location_id);
+        //$location_data = array();
+        foreach ($location_id as $id) {
+            $location = DB::table('locations')
+                ->join('users','locations.account_id','=', 'users.account_id')
+                ->where('locations.id', $id)
                 ->where('users.id', $_POST['id'])
                 ->select('locations.*')
-                ->get();        
+                ->get();
+        //array_push($location_data, $location);
+        }
         return $location;
     }
     public function getUserById(){
