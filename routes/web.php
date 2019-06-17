@@ -56,9 +56,9 @@ Route::post('/profile/change_password/{id}','Profile@update');
 
 Route::post('/reports/view','Report_images@store')->name('add_image');
 
-// Route::get('emails/report_detail_view', function () {
-//     return view('emails/report_detail_view');
-// });
+Route::get('emails/report_detail_view/{id}', function () {
+    return view('emails/report_detail_view');
+});
 
 
 
