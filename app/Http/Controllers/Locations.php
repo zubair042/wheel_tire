@@ -27,19 +27,23 @@ class Locations extends Controller
             $account_id = Auth::user()->account_id;
             $location_detail = DB::table('locations')
                                 ->join('accounts',"locations.account_id","=","accounts.id")
-                                // ->join('users','locations.account_id','=','users.account_id')
                                 ->where('locations.account_id',$account_id)
                                 ->select('locations.*','accounts.account_name')
                                 ->get();
-            //dd($users);
+
+            foreach($location_detail as $key=>$val):
+                $location_detail[$key]->users = DB::table("users")->where("location_id", "like", "%".$val->id."%")->get();
+            endforeach;
         }
         else{
             $location_detail = DB::table('locations')
                                 ->join('accounts','locations.account_id','=','accounts.id')
-                                // ->join('users','locations.account_id','=','users.account_id')
                                 ->select('locations.*','accounts.account_name')
                                 ->get(); 
-                                //dd($location_detail);
+                                
+            foreach($location_detail as $key=>$val):
+                $location_detail[$key]->users = DB::table("users")->where("location_id", "like", "%".$val->id."%")->get();
+            endforeach;
         }
         return view('location/index')->with('location_detail',$location_detail);
     }

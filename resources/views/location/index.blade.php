@@ -19,7 +19,7 @@
 					      <th>ID</th>
 					      <th>Location Name</th>
 					      <th>Company Name</th>
-					      <!-- <th>Manager</th> -->
+					      <th>Manager</th>
 					      <th></th>
 					    </thead>
 					    <tbody>
@@ -29,7 +29,12 @@
 							        	<td><span>{{ $detail->id }}</span></td>
 							        	<td><span>{{ $detail->location_name }}</span></td>
 							        	<td><span>{{ $detail->account_name }}</span></td>
-							        	<!-- <td><span></span></td> -->
+							        	<td><span>
+							        		@foreach($detail->users as $manager)
+							        			{{ $manager->first_name." ".$manager->last_name }} ,
+							        		@endforeach
+
+							        	</span></td>
 							        	<td align="right"><a href="{{ url('/location/edit/'.$detail->id) }}"><i class="icon-pencil mr-3 icon-1x text-success"></i></a><a onclick="del_location(<?php echo $detail->id.",".$detail->user_id; ?>)" href="javascript:;"><i class="icon-bin mr-3 icon-1x text-danger"></i></a></td>
 						      		</tr>
 				      			@endforeach
