@@ -267,7 +267,7 @@
 
 						<div class="row text-center">
 							<div class="col-md-12">
-								<button type="button" id="display_data" class="btn btn-light" data-toggle="modal" data-target="#modal_full">Launch <i class="icon-play3 ml-2"></i></button>
+								<button type="button" id="display_data" class="btn btn-light" data-toggle="modal" data-target="#modal_full">Test preview<i class="icon-play3 ml-2"></i></button>
 								<button type="submit" class="btn btn-primary btn-ladda btn-ladda-spinner" data-style="expand-right" id="submit123" data-spinner-color="#ffff" onclick="spinner();"><i class="icon-checkmark mr-2"></i>Submit</button>
 							</div>
 						</div>
@@ -332,24 +332,26 @@
 						</div>
 					</div>
 				</div>
-				<div class="card mt-10 bg-success-300">
-					<div class="card-body">
-						<div class="row">
-							<div class="col-md-12 text-center">
-								<h4 class="font-weight-semibold text-white">STEER WHEEL POSITION</h4>
+				<div class="steer_wheel" style="display:none;">
+					<div class="card mt-10 bg-success-300">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-md-12 text-center">
+									<h4 class="font-weight-semibold text-white">STEER WHEEL POSITION</h4>
+								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-3">
-								<div class="card-img-actions m-1">
-									<img class="card-img img-fluid h-200" alt="">
-									<div class="card-img-actions-overlay card-img">
-										<a href="" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
-											<i class="icon-plus3"></i>
-										</a>&nbsp;&nbsp;
-										<a href="" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
-											<i class="icon-bin2"></i>
-										</a>
+							<div class="row">
+								<div class="col-md-3">
+									<div class="card-img-actions m-1">
+										<img class="card-img img-fluid h-200" alt="">
+										<div class="card-img-actions-overlay card-img">
+											<a href="" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
+												<i class="icon-plus3"></i>
+											</a>&nbsp;&nbsp;
+											<a href="" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
+												<i class="icon-bin2"></i>
+											</a>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -449,14 +451,19 @@
 		$.ajax({
 			type: "post",
 			url: "{{ route('manager-location') }}",
-			data: {id: id, "_token": "{{ csrf_token() }}"},
-			success:function(d){
+			data: {
+				id: id,
+				"_token": "{{ csrf_token() }}"
+			},
+			success: function(d) {
 				console.log(d);
 				//return fasle;
-				$('#manager-location').html('').select({data: []});
+				$('#manager-location').html('').select({
+					data: []
+				});
 
 				for (var i = 0; i <= d.length; i++) {
-					var id = d[i].id;	
+					var id = d[i].id;
 					var name = d[i].location_name;
 					var option = new Option(name, id, false, false);
 					$("#manager-location").append(option).trigger('change');
@@ -496,29 +503,36 @@
 	//   	readURL(this);
 	// });
 
-	$('#display_data').on('click', function(e){
+	$('#display_data').on('click', function(e) {
 		var weight = $('input[name=weight]').val();
 		var unit_number = $('input[name=unit_number]').val();
 		var name = $('input[name=name]').val();
 		var comments = $('input[name=comments]').val();
 		var manager_id = $('#manager_id :selected').text();
-		alert(manager_id);
+		var radio = $("input[name='vehicle_type']:checked").val();
+		if (radio === 'power_unit') {
+            $('.steer_wheel').show();
+        } else {
+			$('.steer_wheel').hide();
+		}
+		//alert(radio);
 
 		var input = $('input[name=trailer_left_front]').val();
 		if ($('input[name=trailer_left_front]').files && $('input[name=trailer_left_front]').files[0]) {
-	    	var reader = new FileReader();
-	    
-	    	reader.onload = function(e) {
-	      		$('#blah').attr('src', e.target.result);
-	    	}
-	    
-	    	reader.readAsDataURL(input.files[0]);
-	  	}
+			var reader = new FileReader();
+
+			reader.onload = function(e) {
+				$('#blah').attr('src', e.target.result);
+			}
+
+			reader.readAsDataURL(input.files[0]);
+		}
 		var unit_number1 = $('input[name=unit_number1]').val(unit_number);
 		var weight1 = $('input[name=weight1]').val(weight);
 		var name1 = $('input[name=name1]').val(name);
 		var manager_id1 = $('input[name=manager_id1]').val(manager_id);
 		var comment1 = $('input[name=comment1]').val(comments);
+		var vehicle = $('input[name=comment1]').val(radio);
 		//wrapperClassvar manager_id1 = $('select').prop('selectedIndex', 3);
 		//console.log(comments);
 
