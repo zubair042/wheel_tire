@@ -9,3 +9,18 @@
 .h-200{
     height: 200px;
 }
+.c-font{
+    font-family:arial black; 
+    color: gray; 
+    font-size: 20px;
+}
+.custom-style{
+    width: 66%; 
+    margin-top: 14%; 
+    float: left;
+}
+.custom-style-1{
+    width: 42%; 
+    margin-top: 15%; 
+    float: left;
+}
