@@ -27,17 +27,19 @@ class Locations extends Controller
             $account_id = Auth::user()->account_id;
             $location_detail = DB::table('locations')
                                 ->join('accounts',"locations.account_id","=","accounts.id")
-                                //->join('users','locations.user_id','=','users.id')
+                                // ->join('users','locations.account_id','=','users.account_id')
                                 ->where('locations.account_id',$account_id)
                                 ->select('locations.*','accounts.account_name')
                                 ->get();
+            //dd($users);
         }
         else{
             $location_detail = DB::table('locations')
                                 ->join('accounts','locations.account_id','=','accounts.id')
-                                //->join('users','locations.user_id','=','users.id')
+                                // ->join('users','locations.account_id','=','users.account_id')
                                 ->select('locations.*','accounts.account_name')
                                 ->get(); 
+                                //dd($location_detail);
         }
         return view('location/index')->with('location_detail',$location_detail);
     }
@@ -166,31 +168,29 @@ class Locations extends Controller
      */
     public function destroy()
     {   //print_r($_POST);exit;
-        $location = Location::find($_POST['id']);
+        $location   = Location::find($_POST['id']);
         $location->delete();
         $user = User::find($_POST['user_id']);
         $user->delete();
         //return redirect('/location')->with('danger',"Location Deleted Successfully");
     }
     public function getLocationById(){
-        $user = DB::table('users')
-                ->where('id', $_POST['id'])
-                ->first();
-        $location_id = json_decode($user->location_id);
-        //$location_data = array();
-        foreach ($location_id as $id) {
-            $location = DB::table('locations')
-                ->join('users','locations.account_id','=', 'users.account_id')
-                ->where('locations.id', $id)
-                ->where('users.id', $_POST['id'])
-                ->select('locations.*')
-                ->get();
-        //array_push($location_data, $location);
-        }
+        $user           = DB::table('users')
+                            ->where('id', $_POST['id'])
+                            ->first();
+        $location_id    = json_decode($user->location_id);
+
+        $location       = DB::table('locations')
+                            ->join('users','locations.account_id','=', 'users.account_id')
+                            ->where('users.id', $_POST['id'])
+                            ->whereIn('locations.id',$location_id)
+                            ->select('locations.*')
+                            ->get();
         return $location;
+
     }
     public function getUserById(){
-        $users = DB::table('users')
+        $users  = DB::table('users')
                     ->join('accounts','users.account_id','=','accounts.id')
                     ->where('users.user_role', 3)
                     ->where('accounts.id', $_POST['id'])

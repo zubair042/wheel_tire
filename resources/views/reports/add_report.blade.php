@@ -448,8 +448,9 @@
 				console.log(d);
 				//return fasle;
 				$('#manager-location').html('').select({data: []});
+
 				for (var i = 0; i <= d.length; i++) {
-					var id = d[i].id;
+					var id = d[i].id;	
 					var name = d[i].location_name;
 					var option = new Option(name, id, false, false);
 					$("#manager-location").append(option).trigger('change');
