@@ -46,13 +46,13 @@
 									<div class="media-body text-center">
 										<!-- <img src="{{asset('global_assets/images/placeholders/fr1.png')}}" width="82%" height="100%" alt=""> -->
 										<a href="javascript:;">
-											<input type="image" name="power_unit_left_stear" style="width: 13%; margin-right: unset; margin-left: 34px;" class="chooseImage" src="{{asset('global_assets/images/tire1.jpg')}}">
+											<input type="image" name="power_unit_left_stear" style="width: 13%; margin-right: unset; margin-left: 16%;" class="chooseImage" src="{{asset('global_assets/images/tire1.jpg')}}">
 											<input type="file" name="power_unit_left_stear[]" id="power_unit_left_stear" class="d-none" multiple="">
 
 										</a>
 										<input type="image" name="" class="align-self-center custom-style" src="{{asset('global_assets/images/line1.png')}}">
 										<a href="javascript:;">
-											<input type="image" name="power_unit_right_stear" style="width: 13%; margin-left: unset;  margin-right: 37px;" class="chooseImage float-right" src="{{asset('global_assets/images/tire1.jpg')}}">
+											<input type="image" name="power_unit_right_stear" style="width: 13%; margin-left: unset;  margin-right: 15%;" class="chooseImage float-right" src="{{asset('global_assets/images/tire1.jpg')}}">
 											<input type="file" name="power_unit_right_stear[]" id="power_unit_right_stear" class="d-none" multiple="">
 										</a>
 									</div>
@@ -155,7 +155,7 @@
 
 									<a>
 										<input type="image" name="trailer_left_front" class="chooseImage" style="width: 25%; margin-right: unset;" src="{{asset('global_assets/images/tire_img.jpg')}}">
-										<input type="file" name="trailer_left_front[]" id="trailer_left_front" class="d-none" multiple="">
+										<input type="file" onchange="readURL();" name="trailer_left_front[]" id="trailer_left_front" class="d-none" multiple="">
 									</a>
 									<input type="image" name="" class="align-self-center custom-style-1" src="{{asset('global_assets/images/line1.png')}}">
 									<a href="javascript:;">
@@ -250,7 +250,7 @@
 								</select>
 							</div>
 						</div>
-						<div class="row form-group">
+						<div class="row form-group d-none">
 							<div class="col-md-2 offset-md-5">
 								<select name="location_id" id="manager-location" class="select_select2_select">
 									<option disabled selected hidden>Select Location</option>
@@ -391,10 +391,14 @@
 								<h4 class="font-weight-semibold text-white">REAR WHEEL POSITION</h4>
 							</div>
 						</div>
+
+  <img id="blah" src="#" alt="your image" />
+  <div id="image_preview"></div>
 						<div class="row">
 							<div class="col-md-3">
 								<div class="card-img-actions m-1">
-									<img class="card-img img-fluid h-200" alt="">
+
+									<img class="card-img img-fluid h-200"  alt="">
 									<div class="card-img-actions-overlay card-img">
 										<a href="" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
 											<i class="icon-plus3"></i>
@@ -535,6 +539,23 @@
 		var preview_location = $('.preview_location').text(location_id);
 		var preview_comments = $('.preview_comment').text(comments);
 	});
+
+	function readURL() {
+	  // if (input.files && input.files[0]) {
+	  //   var reader = new FileReader();
+	    
+	  //   reader.onload = function(e) {
+	  //     $('#blah').attr('src', e.target.result);
+	  //   }
+	    
+	  //   reader.readAsDataURL(input.files[0]);
+	  // }
+	  var total_file=document.getElementById("trailer_left_front").files.length;
+		 for(var i=0;i<total_file;i++){
+		  $('#image_preview').append("<img src='"+URL.createObjectURL(event.target.files[i])+"'><br>");
+		}
+	}
+	
 </script>
 
 
