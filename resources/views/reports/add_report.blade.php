@@ -44,7 +44,6 @@
 									</div>
 
 									<div class="media-body text-center">
-										<!-- <img src="{{asset('global_assets/images/placeholders/fr1.png')}}" width="82%" height="100%" alt=""> -->
 										<a href="javascript:;">
 											<input type="image" name="power_unit_left_stear" style="width: 13%; margin-right: unset; margin-left: 16%;" class="chooseImage" src="{{asset('global_assets/images/tire1.jpg')}}">
 											<input type="file" name="power_unit_left_stear[]" id="power_unit_left_stear" class="d-none" multiple="">
@@ -155,7 +154,7 @@
 
 									<a>
 										<input type="image" name="trailer_left_front" class="chooseImage" style="width: 25%; margin-right: unset;" src="{{asset('global_assets/images/tire_img.jpg')}}">
-										<input type="file" onchange="readURL();" name="trailer_left_front[]" id="trailer_left_front" class="d-none" multiple="">
+										<input type="file" name="trailer_left_front[]" id="trailer_left_front" class="d-none" multiple="">
 									</a>
 									<input type="image" name="" class="align-self-center custom-style-1" src="{{asset('global_assets/images/line1.png')}}">
 									<a href="javascript:;">
@@ -334,7 +333,67 @@
 						<p name="" class="preview_comment" contenteditable="true"></p>
 					</div>
 				</div>
-				<div class="steer_wheel" style="display:none;">
+				<div class="row" id="trailer">
+					<div class="col-md-12" >
+						<h3 class="text-center">Trailer Images</h3>
+						<div class="row" id="trailer_left_front_image">
+							
+						</div>
+					</div>
+
+					<div class="col-md-12" >
+						<div class="row" id="trailer_right_front_image">
+							
+						</div>
+					</div>
+					<div class="col-md-12" >
+						<div class="row" id="trailer_left_rear_image">
+							
+						</div>
+					</div>
+					<div class="col-md-12" >
+						<div class="row" id="trailer_right_rear_image">
+							
+						</div>
+					</div>
+				</div>
+				<div class="row" id="power_unit">
+					<div class="col-md-12" >
+						<h3 class="text-center">Power Unit Images</h3>
+						<div class="row" >
+							<div class="row" id="power_unit_left_stear_image">
+							
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-12" >
+						<div class="row" id="power_unit_right_stear_image">
+							
+						</div>
+					</div>
+					<div class="col-md-12" >
+						<div class="row" id="power_unit_left_front_image">
+							
+						</div>
+					</div>
+					<div class="col-md-12" >
+						<div class="row" id="power_unit_right_front_image">
+							
+						</div>
+					</div>
+					<div class="col-md-12" >
+						<div class="row" id="power_unit_left_rear_image">
+							
+						</div>
+					</div>
+					<div class="col-md-12" >
+						<div class="row" id="power_unit_right_rear_image">
+							
+						</div>
+					</div>
+				</div>
+				<!-- <div class="steer_wheel" style="display:none;">
 					<div class="card mt-10 bg-success-300">
 						<div class="card-body">
 							<div class="row">
@@ -391,9 +450,6 @@
 								<h4 class="font-weight-semibold text-white">REAR WHEEL POSITION</h4>
 							</div>
 						</div>
-
-  <img id="blah" src="#" alt="your image" />
-  <div id="image_preview"></div>
 						<div class="row">
 							<div class="col-md-3">
 								<div class="card-img-actions m-1">
@@ -411,7 +467,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 
 			<div class="modal-footer">
@@ -493,22 +549,6 @@
 		$.uniform.update('input[name=' + inp_name + ']');
 	});
 
-	// function readURL(input) {
-	//   	if (input.files && input.files[0]) {
-	//     	var reader = new FileReader();
-
-	//     	reader.onload = function(e) {
-	//       		$('#blah').attr('src', e.target.result);
-	//     	}
-
-	//     	reader.readAsDataURL(input.files[0]);
-	//   	}
-	// }
-
-	// $("#imgInp").change(function() {
-	//   	readURL(this);
-	// });
-
 	$('#display_data').on('click', function(e) {
 		var weight = $('input[name=weight]').val();
 		var unit_number = $('input[name=unit_number]').val();
@@ -540,21 +580,18 @@
 		var preview_comments = $('.preview_comment').text(comments);
 	});
 
-	function readURL() {
-	  // if (input.files && input.files[0]) {
-	  //   var reader = new FileReader();
-	    
-	  //   reader.onload = function(e) {
-	  //     $('#blah').attr('src', e.target.result);
-	  //   }
-	    
-	  //   reader.readAsDataURL(input.files[0]);
-	  // }
-	  var total_file=document.getElementById("trailer_left_front").files.length;
-		 for(var i=0;i<total_file;i++){
-		  $('#image_preview').append("<img src='"+URL.createObjectURL(event.target.files[i])+"'><br>");
-		}
-	}
+
+	$(".d-none").on("change", function(e){
+		var input = $(this);
+		$("#"+input.attr('id')+"_image").html('');
+		$.each($(this)[0].files, function(k, v){
+			var reader = new FileReader();
+			reader.onload = function(f){
+				$("#"+input.attr('id')+"_image").append('<div class="col-md-3"><img src="'+f.target.result+'" style="width:100%;height:80%"></div>');
+			}
+			reader.readAsDataURL(v);
+		});
+	});
 	
 </script>
 
