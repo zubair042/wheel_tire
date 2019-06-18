@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 //use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Auth;
+use App\User;
+use Carbon\Carbon;
 
 class LoginController extends Controller
 {
@@ -71,6 +73,38 @@ class LoginController extends Controller
             return redirect('/report/add');
         }
     }
+	
+	public function authentication(){
+		return view('auth/authentication');
+	}
+	
+	public function authentication_check(Request $request){
+		$user = Auth::User();
+		$current_time 	= Carbon::now();
+		$current_time 	= Carbon::parse($current_time);
+		$auth_time 		= Carbon::parse($user->authentication_time);
+		$totalDuration 	= $auth_time->diffInSeconds($current_time);
+		if($user->authentication_code==$request->code){
+			if($totalDuration<=300){
+				$user = User::find(Auth::User()->id);
+				$user->authentication_status = 'Y';
+				$user->save();
+	
+				if ($user->user_role == 1) {
+					return redirect('/');
+				} else if ($user->user_role == 2 || $user->user_role == 3) {
+					return redirect('/reports');
+				} elseif ($user->user_role == 4) {
+					return redirect('/report/add');
+				}
+			}else{
+				return \Redirect::back()->withErrors(['Your code is expire now. Please login again.']);
+			}
+			
+		}else{
+			return \Redirect::back()->withErrors(['Your code is not match with our database.']);
+		}
+	}
 
     /**
      * Create a new controller instance.
