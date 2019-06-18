@@ -83,7 +83,15 @@ class LoginController extends Controller
 			$user = User::find(Auth::User()->id);
 			$user->authentication_status = 'Y';
 			$user->save();
-			return redirect('/');
+
+			if ($user->user_role == 1) {
+				return redirect('/');
+			} else if ($user->user_role == 2 || $user->user_role == 3) {
+				return redirect('/reports');
+			} elseif ($user->user_role == 4) {
+				return redirect('/report/add');
+			}
+			
 		}else{
 			return \Redirect::back()->withErrors(['Your code is not match with our database.']);
 		}

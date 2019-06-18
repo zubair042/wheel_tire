@@ -26,10 +26,9 @@ class EmailAuthenticate
 				$user->save();
 				if(env('DB_PASSWORD', false)!=""){
 					$name = Auth::User()->first_name." ".Auth::User()->last_name;
-					$email = Auth::User()->email;
 					$data = array("name"=> $name, "code" => $random_string);
 					Mail::send('emails.authmail', $data, function($message) {
-					   $message->to($email, $name)->subject
+					   $message->to(Auth::User()->email, Auth::User()->first_name." ".Auth::User()->last_name)->subject
 						  ('Your authentication code');
 					   $message->from('inf@mobilemaintenance.com', 'Wheel Tire');
 					});			
