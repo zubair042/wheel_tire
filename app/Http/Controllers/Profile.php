@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
 
 
 class Profile extends Controller
@@ -95,4 +96,18 @@ class Profile extends Controller
     {
         //
     }
+	
+	public function authentication(Request $request, $id){
+        $user = User::find($id);
+        $user->authentication = $request->authentication;
+        $user->save();
+	}
+	
+	public function logout(){
+        $user = User::find(Auth::User()->id);
+        $user->authentication_code = NULL;
+        $user->save();
+		Auth::logout();
+		return redirect('/login');
+	}
 }

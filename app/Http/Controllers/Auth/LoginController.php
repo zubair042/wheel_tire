@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 //use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Auth;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -71,6 +72,22 @@ class LoginController extends Controller
             return redirect('/report/add');
         }
     }
+	
+	public function authentication(){
+		return view('auth/authentication');
+	}
+	
+	public function authentication_check(Request $request){
+		$user = Auth::User();
+		if($user->authentication_code==$request->code){
+			$user = User::find(Auth::User()->id);
+			$user->authentication_status = 'Y';
+			$user->save();
+			return redirect('/');
+		}else{
+			return \Redirect::back()->withErrors(['Your code is not match with our database.']);
+		}
+	}
 
     /**
      * Create a new controller instance.
