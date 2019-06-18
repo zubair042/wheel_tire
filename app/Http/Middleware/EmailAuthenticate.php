@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Auth, Mail;
 use App\User;
+use Carbon\Carbon;
 
 class EmailAuthenticate
 {
@@ -23,6 +24,7 @@ class EmailAuthenticate
 				$user = User::find(Auth::User()->id);
 				$user->authentication_code = $random_string;
 				$user->authentication_status = 'N';
+				$user->authentication_time = Carbon::now();
 				$user->save();
 				if(env('DB_PASSWORD', false)!=""){
 					$name = Auth::User()->first_name." ".Auth::User()->last_name;
