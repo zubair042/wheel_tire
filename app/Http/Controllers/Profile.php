@@ -106,6 +106,7 @@ class Profile extends Controller
 	public function logout(){
         $user = User::find(Auth::User()->id);
         $user->authentication_code = NULL;
+        $user->authentication_status = "N";
         $user->save();
 		Auth::logout();
 		return redirect('/login');

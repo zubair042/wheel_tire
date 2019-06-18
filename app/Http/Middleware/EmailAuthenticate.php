@@ -17,9 +17,8 @@ class EmailAuthenticate
      */
     public function handle($request, Closure $next)
     {
-		if (Auth::User()->authentication == true) {
-			
-			if(Auth::User()->authentication_code==NULL){
+		if (Auth::User()->authentication == "true") {
+			if(Auth::User()->authentication_code==NULL && Auth::User()->authentication_status=="N"){
 				$random_string = $this->generateRandomString(5);
 				$user = User::find(Auth::User()->id);
 				$user->authentication_code = $random_string;
