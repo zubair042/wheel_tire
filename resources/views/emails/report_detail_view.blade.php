@@ -1,5 +1,4 @@
 <?php //print_r($_POST); exit; ?>
-$mail  = App\Report::find($id);
 <div class="row" style="text-align:center;">
     <div class="col-md-12">
         <h1>Report</h1>

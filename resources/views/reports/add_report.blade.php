@@ -293,7 +293,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="row form-group">
-							<div class="col-md-2 offset-md-5">
+							<div class="col-md-4 offset-md-4">
 								<div class="input-group">
 									<input type="text" name="weight1" class="form-control" required="">
 									<span class="input-group-append">
@@ -303,30 +303,28 @@
 							</div>
 						</div>
 						<div class="row form-group">
-							<div class="col-md-2 offset-md-5">
+							<div class="col-md-4 offset-md-4">
 								<input type="text" name="unit_number1" class="form-control" placeholder="Unit Number" required="">
 							</div>
 						</div>
 						<div class="row form-group">
-							<div class="col-md-2 offset-md-5">
+							<div class="col-md-4 offset-md-4">
 								<input type="text" name="name1" class="form-control" placeholder="Your Name" required="">
 							</div>
 						</div>
 						<div class="row form-group">
-							<div class="col-md-2 offset-md-5">
-								<input type="text" name="manager_id1" class="form-control" placeholder="Manager name" required="">
+							<div class="col-md-4 offset-md-4">
+								<input type="text" name="manager_id1" class="form-control" placeholder="Manager name" required="" disabled>
 							</div>
 						</div>
 						<div class="row form-group">
-							<div class="col-md-2 offset-md-5">
-								<select name="location_id" id="manager-location" class="select_select2_select">
-									<option disabled selected hidden>Select Location</option>
-								</select>
+							<div class="col-md-4 offset-md-4">
+								<input type="text" name="location_id" id="manager-location" class="form-control" disabled>
 								<!-- <input type="text" name="location_id" id="manager-location" class="form-control" placeholder=""> -->
 							</div>
 						</div>
 						<div class="row form-group">
-							<div class="col-md-2 offset-md-5">
+							<div class="col-md-4 offset-md-4">
 								<input type="text" name="comment1" class="form-control" placeholder="Comments">
 							</div>
 						</div>
@@ -509,6 +507,8 @@
 		var name = $('input[name=name]').val();
 		var comments = $('input[name=comments]').val();
 		var manager_id = $('#manager_id :selected').text();
+		var location_id = $('#manager-location :selected').text();
+		//alert(location_id);
 		var radio = $("input[name='vehicle_type']:checked").val();
 		if (radio === 'power_unit') {
             $('.steer_wheel').show();
@@ -531,11 +531,8 @@
 		var weight1 = $('input[name=weight1]').val(weight);
 		var name1 = $('input[name=name1]').val(name);
 		var manager_id1 = $('input[name=manager_id1]').val(manager_id);
+		var location_id1 = $('input[name=location_id]').val(location_id);
 		var comment1 = $('input[name=comment1]').val(comments);
-		var vehicle = $('input[name=comment1]').val(radio);
-		//wrapperClassvar manager_id1 = $('select').prop('selectedIndex', 3);
-		//console.log(comments);
-
 	});
 </script>
 

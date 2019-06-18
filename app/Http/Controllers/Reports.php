@@ -9,7 +9,7 @@ use App\Report;
 use App\Location;
 use Illuminate\Support\Facades\Mail;
 use JD\Cloudder\Facades\Cloudder;
-use App\Mail\SendEmail;
+//use App\Mail\SendEmail;
 use App\Comment;
 use App\Report_image;
 use Auth;
