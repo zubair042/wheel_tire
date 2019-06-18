@@ -32,7 +32,7 @@ class EmailAuthenticate
 					Mail::send('emails.authmail', $data, function($message) {
 					   $message->to(Auth::User()->email, Auth::User()->first_name." ".Auth::User()->last_name)->subject
 						  ('Your authentication code');
-					   $message->from('inf@mobilemaintenance.com', 'Wheel Tire');
+					   $message->from('info@mobilemaintenance.com', 'Wheel Tire');
 					});			
 				}
 				return redirect('authenticate');
@@ -47,7 +47,7 @@ class EmailAuthenticate
     }
 	
 	function generateRandomString($length = 10) {
-		$characters = '0123456789abcdefghijklmnopqrstuvwxyz';
+		$characters = '0123456789';
 		$charactersLength = strlen($characters);
 		$randomString = '';
 		for ($i = 0; $i < $length; $i++) {
