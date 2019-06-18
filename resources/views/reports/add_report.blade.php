@@ -267,7 +267,7 @@
 
 						<div class="row text-center">
 							<div class="col-md-12">
-								<button type="button" id="display_data" class="btn btn-light" data-toggle="modal" data-target="#modal_full">Test preview<i class="icon-play3 ml-2"></i></button>
+								<button type="button" id="display_data" class="btn btn-light" data-toggle="modal" data-target="#modal_full">Preview Report</button>
 								<button type="submit" class="btn btn-primary btn-ladda btn-ladda-spinner" data-style="expand-right" id="submit123" data-spinner-color="#ffff" onclick="spinner();"><i class="icon-checkmark mr-2"></i>Submit</button>
 							</div>
 						</div>
@@ -282,52 +282,56 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
+				<h2 class="modal-title font-weight-semibold form-group">Report Confirmation</h2>
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
 			<div class="modal-body">
-				<div class="row form-group">
-					<div class="col-md-12 text-center">
-						<h2 class="modal-title font-weight-semibold form-group">Report Confirmation</h2>
+				<div class="row">
+					<div class="col-md-2">
+						<strong class="font-weight-semibold">Weight:</strong>
+					</div>
+					<div class="col-md-2">
+						<p name="" class="preview_weight" contenteditable="true">lbs</p>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-12">
-						<div class="row form-group">
-							<div class="col-md-4 offset-md-4">
-								<div class="input-group">
-									<input type="text" name="weight1" class="form-control" required="">
-									<span class="input-group-append">
-										<span class="input-group-text c-font">lbs.</span>
-									</span>
-								</div>
-							</div>
-						</div>
-						<div class="row form-group">
-							<div class="col-md-4 offset-md-4">
-								<input type="text" name="unit_number1" class="form-control" placeholder="Unit Number" required="">
-							</div>
-						</div>
-						<div class="row form-group">
-							<div class="col-md-4 offset-md-4">
-								<input type="text" name="name1" class="form-control" placeholder="Your Name" required="">
-							</div>
-						</div>
-						<div class="row form-group">
-							<div class="col-md-4 offset-md-4">
-								<input type="text" name="manager_id1" class="form-control" placeholder="Manager name" required="" disabled>
-							</div>
-						</div>
-						<div class="row form-group">
-							<div class="col-md-4 offset-md-4">
-								<input type="text" name="location_id" id="manager-location" class="form-control" disabled>
-								<!-- <input type="text" name="location_id" id="manager-location" class="form-control" placeholder=""> -->
-							</div>
-						</div>
-						<div class="row form-group">
-							<div class="col-md-4 offset-md-4">
-								<input type="text" name="comment1" class="form-control" placeholder="Comments">
-							</div>
-						</div>
+					<div class="col-md-2">
+						<strong class="font-weight-semibold">Unit Number:</strong>
+					</div>
+					<div class="col-md-2">
+						<p name="unit_number_preview" class="unit_number_preview" contenteditable="true"></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">
+						<strong class="font-weight-semibold">Technician Name:</strong>
+					</div>
+					<div class="col-md-2">
+						<p name="" class="preview_tech_name" contenteditable="true"></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">
+						<strong class="font-weight-semibold">Manager:</strong>
+					</div>
+					<div class="col-md-2">
+						<p name="" class="preview_manager"></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">
+						<strong class="font-weight-semibold">Location:</strong>
+					</div>
+					<div class="col-md-2">
+						<p name="" class="preview_location"></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">
+						<strong class="font-weight-semibold">Comments:</strong>
+					</div>
+					<div class="col-md-4">
+						<p name="" class="preview_comment" contenteditable="true"></p>
 					</div>
 				</div>
 				<div class="steer_wheel" style="display:none;">
@@ -508,15 +512,12 @@
 		var comments = $('input[name=comments]').val();
 		var manager_id = $('#manager_id :selected').text();
 		var location_id = $('#manager-location :selected').text();
-		//alert(location_id);
 		var radio = $("input[name='vehicle_type']:checked").val();
 		if (radio === 'power_unit') {
-            $('.steer_wheel').show();
-        } else {
+			$('.steer_wheel').show();
+		} else {
 			$('.steer_wheel').hide();
 		}
-		//alert(radio);
-
 		var input = $('input[name=trailer_left_front]').val();
 		if ($('input[name=trailer_left_front]').files && $('input[name=trailer_left_front]').files[0]) {
 			var reader = new FileReader();
@@ -527,12 +528,12 @@
 
 			reader.readAsDataURL(input.files[0]);
 		}
-		var unit_number1 = $('input[name=unit_number1]').val(unit_number);
-		var weight1 = $('input[name=weight1]').val(weight);
-		var name1 = $('input[name=name1]').val(name);
-		var manager_id1 = $('input[name=manager_id1]').val(manager_id);
-		var location_id1 = $('input[name=location_id]').val(location_id);
-		var comment1 = $('input[name=comment1]').val(comments);
+		var preview_weight = $('.preview_weight').text(weight + ' lbs');
+		var unit_number_preview = $('.unit_number_preview').text(unit_number);
+		var preview_tech_name = $('.preview_tech_name').text(name);
+		var peview_manager = $('.preview_manager').text(manager_id);
+		var preview_location = $('.preview_location').text(location_id);
+		var preview_comments = $('.preview_comment').text(comments);
 	});
 </script>
 
