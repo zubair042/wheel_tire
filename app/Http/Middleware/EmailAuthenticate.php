@@ -25,11 +25,13 @@ class EmailAuthenticate
 				$user->authentication_status = 'N';
 				$user->save();
 				if(env('DB_PASSWORD', false)!=""){
-					$data = array('name'=>"First Last");
+					$name = Auth::User()->first_name." ".Auth::User()->last_name;
+					$email = Auth::User()->email;
+					$data = array("name"=> $name, "code" => $random_string);
 					Mail::send('emails.authmail', $data, function($message) {
-					   $message->to('comet_nice2@yahoo.com', 'Tutorials Point')->subject
-						  ('Laravel HTML Testing Mail');
-					   $message->from('xyz@gmail.com','First Last');
+					   $message->to($email, $name)->subject
+						  ('Your authentication code');
+					   $message->from('inf@mobilemaintenance.com', 'Wheel Tire');
 					});			
 				}
 				return redirect('authenticate');
