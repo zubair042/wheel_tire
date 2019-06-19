@@ -23,10 +23,10 @@ if (count($images) > 0) {
 			<div class="card-header">
 				<div class="row">
 					<div class="col-md-10">
-						<?php if ($user->user_role == 3) { ?>
-							<a href="{{ url('reports') }}"><button type="button" class="btn btn-outline-success legitRipple"><i class="icon-arrow-left8 mr-2"></i>Back</button></a>
-							&nbsp;&nbsp;
-						<?php } ?>
+						<?php //if ($user->user_role == 3) { ?>
+							<!-- <a href="{{ url('reports') }}"><button type="button" class="btn btn-outline-success legitRipple"><i class="icon-arrow-left8 mr-2"></i>Back</button></a>
+							&nbsp;&nbsp; -->
+						<?php //} ?>
 						<h1 class="mb-0 font-weight-semibold ml-2">Wheel/Tire Installation Report</h1>
 						<?php 
 						?>
@@ -43,18 +43,18 @@ if (count($images) > 0) {
 			<div class="card-body">
 				<div class="row">
 					<div class="col-md-8">
-						<a href="javascript:;" class="d-inline-block">
-							<?php if ($user->user_role == 3 && $main_image == '') { ?>
-								<!-- <a href="javascript:;"> -->
-									<input type="image" src="{{asset('')}}global_assets/images/image_uploader.png" id="uploadImage" class="img-fluid chooseFile" alt="">
-									<input type="file" name="uploadImage" id="imageToUpload" class="d-none">
-								<!-- </a> -->
-							<?php } else { ?>
-								<img src="{{asset('')}}global_assets/images/image_uploader.png" id="static_image" class="img-fluid" alt="">
-							<?php
-						}
-						?>
-						</a>
+						<!-- <a href="javascript:;" class="d-inline-block"> -->
+						<?php if ($main_image == '' && $user->user_role == 3) { ?>
+							<a href="javascript:;" id="static_image">
+								<input type="image" src="{{asset('')}}global_assets/images/image_uploader.png" id="uploadImage" class="img-fluid chooseFile" alt="">
+								<input type="file" name="uploadImage" id="imageToUpload" class="d-none">
+							</a>
+						<?php }elseif ($main_image == '' && $user->user_role != 3) { ?>
+							<img src="{{asset('')}}global_assets/images/image_uploader.png" class="img-fluid" alt="">
+						<?php } else { ?>								
+							<img src="<?php echo $main_image ?>" class="img-fluid" alt="">
+						<?php } ?>
+						<!-- </a> -->
 						<div class="card mt-10">
 							<div class="card-header">
 								<div class="row">
