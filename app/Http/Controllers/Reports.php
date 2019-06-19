@@ -107,7 +107,7 @@ class Reports extends Controller
         $report->name                   = $request->input('name');
         $report->manager_id             = $request->input('manager_id');
         $report->comment                = $request->input('comments');
-        
+        //dd($report);
         // Get User
         $manager_info                   = User::find($report->manager_id);
         //$report->location_id            = $manager_info->location_id;

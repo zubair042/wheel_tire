@@ -28,10 +28,10 @@ if (count($images) > 0) {
 							&nbsp;&nbsp;
 						<?php } ?>
 						<h1 class="mb-0 font-weight-semibold ml-2">Wheel/Tire Installation Report</h1>
-						<?php 
+						<?php
 						?>
 						<!-- <a href="javascript:;" type="button"  class="btn btn-danger float-right" onclick="delete_report(<? php ?>)" >Delete</a> -->
-						<?php 
+						<?php
 						?>
 					</div>
 					<div class="col-md-2">
@@ -90,9 +90,9 @@ if (count($images) > 0) {
 						<label class="font-weight-black">Tech Comment:</label>
 						<p class="form-group">{{$report_detail->comment}}</p>
 
-						
+
 						<?php if ($user->user_role == 2 || $user->user_role == 3) { ?>
-							
+
 							<?php if ($user->user_role == 3) { ?>
 								<?php if ($report_detail->signature != 1) { ?>
 									<p class=" mt-10">I have visually inspected this technician's work and it appears to have been completed to proper industry standards.</p>

@@ -266,8 +266,8 @@
 
 						<div class="row text-center">
 							<div class="col-md-12">
-								<button type="button" id="display_data" class="btn btn-light" data-toggle="modal" data-target="#modal_full">Preview Report</button>
-								<button type="submit" class="btn btn-primary btn-ladda btn-ladda-spinner" data-style="expand-right" id="submit123" data-spinner-color="#ffff" onclick="spinner();"><i class="icon-checkmark mr-2"></i>Submit</button>
+								<!-- <button type="button" id="display_data" class="btn btn-light" data-toggle="modal" data-target="#modal_full">Preview Report</button> -->
+								<button type="button" class="btn btn-primary btn-ladda btn-ladda-spinner" data-toggle="modal" data-target="#modal_full" data-style="expand-right" id="display_data" data-spinner-color="#ffff" onclick="spinner();"><i class="icon-checkmark mr-2"></i>Submit</button>
 							</div>
 						</div>
 					</div>
@@ -284,211 +284,145 @@
 				<h2 class="modal-title font-weight-semibold form-group">Report Confirmation</h2>
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
-			<div class="modal-body">
-				<div class="row">
-					<div class="col-md-2">
-						<strong class="font-weight-semibold">Weight:</strong>
-					</div>
-					<div class="col-md-2">
-						<p name="" class="preview_weight" contenteditable="true">lbs</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-2">
-						<strong class="font-weight-semibold">Unit Number:</strong>
-					</div>
-					<div class="col-md-2">
-						<p name="unit_number_preview" class="unit_number_preview" contenteditable="true"></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-2">
-						<strong class="font-weight-semibold">Technician Name:</strong>
-					</div>
-					<div class="col-md-2">
-						<p name="" class="preview_tech_name" contenteditable="true"></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-2">
-						<strong class="font-weight-semibold">Manager:</strong>
-					</div>
-					<div class="col-md-2">
-						<p name="" class="preview_manager">No manager selected</p>
-					</div>
-				</div>
-				<div class="row d-none">
-					<div class="col-md-2">
-						<strong class="font-weight-semibold">Location:</strong>
-					</div>
-					<div class="col-md-2">
-						<p name="" class="preview_location"></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-2">
-						<strong class="font-weight-semibold">Comments:</strong>
-					</div>
-					<div class="col-md-4">
-						<p name="" class="preview_comment" contenteditable="true"></p>
-					</div>
-				</div>
-				<div class="row" id="trailer">
-					<div class="col-md-12">
-						<h3 class="text-center">Trailer Images</h3>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6">
-						<h4 class="text-center">Left Front</h4>
-						<div class="row" id="trailer_left_front_image">
-
+			<!-- <form id="trailer_powerunit" method="POST" action="{{ route('save_reports') }}" enctype="multipart/form-data">-->
+				<div class="modal-body">
+					<input type="hidden" name="vehicle_type" id="preview_vehicle">
+					<div class="row">
+						<div class="col-md-2">
+							<strong class="font-weight-semibold">Weight:</strong>
+						</div>
+						<div class="col-md-2">
+							<p name="weight" class="preview_weight" contenteditable="true"></p>
+							<input type="hidden" name="weight" id="weight">
 						</div>
 					</div>
-					<div class="col-md-6">
-						<h4 class="text-center">Right Front</h4>
-						<div class="row" id="trailer_right_front_image">
-
+					<div class="row">
+						<div class="col-md-2">
+							<strong class="font-weight-semibold">Unit Number:</strong>
+						</div>
+						<div class="col-md-2">
+							<p name="" class="unit_number_preview" contenteditable="true"></p>
+							<input type="hidden" name="unit_number" id="report_unit_num">
 						</div>
 					</div>
-					<div class="col-md-6">
-						<h4 class="text-center">Left Rear</h4>
-						<div class="row" id="trailer_left_rear_image">
-
+					<div class="row">
+						<div class="col-md-2">
+							<strong class="font-weight-semibold">Technician Name:</strong>
+						</div>
+						<div class="col-md-2">
+							<p name="" class="preview_tech_name" contenteditable="true"></p>
+							<input type="hidden" name="name" id="name">
 						</div>
 					</div>
-					<div class="col-md-6">
-						<h4 class="text-center">Right Rear</h4>
-						<div class="row" id="trailer_right_rear_image">
-
+					<div class="row">
+						<div class="col-md-2">
+							<strong class="font-weight-semibold">Manager:</strong>
+						</div>
+						<div class="col-md-2">
+							<p name="" class="preview_manager_text"></p>
+							<input type="hidden" name="manager_id" id="preview_manager_id">
 						</div>
 					</div>
-				</div>
-				<div class="row" id="power_unit">
-					<div class="col-md-12">
-						<h3 class="text-center">Power Unit Images</h3>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6">
-						<h4 class="text-center">Left Steer</h4>
-						<div class="row" id="power_unit_left_stear_image">
-
+					<div class="row ">
+						<div class="col-md-2">
+							<strong class="font-weight-semibold">Location:</strong>
+						</div>
+						<div class="col-md-2">
+							<p name="" class="preview_location_text" contenteditable="true"></p>
+							<input type="hidden" name="location_id" class="preview_location">
+							
 						</div>
 					</div>
-
-					<div class="col-md-6">
-						<h4 class="text-center">Right Steer</h4>
-						<div class="row" id="power_unit_right_stear_image">
-
+					<div class="row">
+						<div class="col-md-2">
+							<strong class="font-weight-semibold">Comments:</strong>
+						</div>
+						<div class="col-md-4">
+							<p name="" class="preview_comment" contenteditable="true"></p>
+							<input type="hidden" name="comments" id="comment">
 						</div>
 					</div>
-					<div class="col-md-6">
-						<h4 class="text-center">Left Front</h4>
-						<div class="row" id="power_unit_left_front_image">
-
+					<div class="row" id="trailer">
+						<div class="col-md-12">
+							<h3 class="text-center">Trailer Images</h3>
 						</div>
 					</div>
-					<div class="col-md-6">
-						<h4 class="text-center">Right Steer</h4>
-						<div class="row" id="power_unit_right_front_image">
+					<div class="row">
+						<div class="col-md-6">
+							<h4 class="text-center">Left Front</h4>
+							<div class="row" id="trailer_left_front_image">
 
-						</div>
-					</div>
-					<div class="col-md-6">
-						<h4 class="text-center">Left Raer</h4>
-						<div class="row" id="power_unit_left_rear_image">
-
-						</div>
-					</div>
-					<div class="col-md-6">
-						<h4 class="text-center">Right Rear</h4>
-						<div class="row" id="power_unit_right_rear_image">
-
-						</div>
-					</div>
-				</div>
-				<!-- <div class="steer_wheel" style="display:none;">
-					<div class="card mt-10 bg-success-300">
-						<div class="card-body">
-							<div class="row">
-								<div class="col-md-12 text-center">
-									<h4 class="font-weight-semibold text-white">STEER WHEEL POSITION</h4>
-								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-3">
-									<div class="card-img-actions m-1">
-										<img class="card-img img-fluid h-200" alt="">
-										<div class="card-img-actions-overlay card-img">
-											<a href="" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
-												<i class="icon-plus3"></i>
-											</a>&nbsp;&nbsp;
-											<a href="" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
-												<i class="icon-bin2"></i>
-											</a>
-										</div>
-									</div>
-								</div>
+						</div>
+						<div class="col-md-6">
+							<h4 class="text-center">Right Front</h4>
+							<div class="row" id="trailer_right_front_image">
+
+							</div>
+						</div>
+						<div class="col-md-6">
+							<h4 class="text-center">Left Rear</h4>
+							<div class="row" id="trailer_left_rear_image">
+
+							</div>
+						</div>
+						<div class="col-md-6">
+							<h4 class="text-center">Right Rear</h4>
+							<div class="row" id="trailer_right_rear_image">
+
+							</div>
+						</div>
+					</div>
+					<div class="row" id="power_unit">
+						<div class="col-md-12">
+							<h3 class="text-center">Power Unit Images</h3>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<h4 class="text-center">Left Steer</h4>
+							<div class="row" id="power_unit_left_stear_image">
+
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<h4 class="text-center">Right Steer</h4>
+							<div class="row" id="power_unit_right_stear_image">
+
+							</div>
+						</div>
+						<div class="col-md-6">
+							<h4 class="text-center">Left Front</h4>
+							<div class="row" id="power_unit_left_front_image">
+
+							</div>
+						</div>
+						<div class="col-md-6">
+							<h4 class="text-center">Right Steer</h4>
+							<div class="row" id="power_unit_right_front_image">
+
+							</div>
+						</div>
+						<div class="col-md-6">
+							<h4 class="text-center">Left Raer</h4>
+							<div class="row" id="power_unit_left_rear_image">
+
+							</div>
+						</div>
+						<div class="col-md-6">
+							<h4 class="text-center">Right Rear</h4>
+							<div class="row" id="power_unit_right_rear_image">
+
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="card mt-10 bg-success-300">
-					<div class="card-body">
-						<div class="row">
-							<div class="col-md-12 text-center">
-								<h4 class="font-weight-semibold text-white">FRONT WHEEL POSITION</h4>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-3">
-								<div class="card-img-actions m-1">
-									<img class="card-img img-fluid h-200" alt="">
-									<div class="card-img-actions-overlay card-img">
-										<a href="" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
-											<i class="icon-plus3"></i>
-										</a>&nbsp;&nbsp;
-										<a href="" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
-											<i class="icon-bin2"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+					<button type="button" onclick="submitForm()" class="btn bg-primary">Submit Report</button>
 				</div>
-				<div class="card mt-10 bg-success-300">
-					<div class="card-body">
-						<div class="row">
-							<div class="col-md-12 text-center">
-								<h4 class="font-weight-semibold text-white">REAR WHEEL POSITION</h4>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-3">
-								<div class="card-img-actions m-1">
-
-									<img class="card-img img-fluid h-200"  alt="">
-									<div class="card-img-actions-overlay card-img">
-										<a href="" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
-											<i class="icon-plus3"></i>
-										</a>&nbsp;&nbsp;
-										<a href="" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
-											<i class="icon-bin2"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div> -->
-			</div>
-
-			<div class="modal-footer">
-				<button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
-				<button type="button" class="btn bg-primary">Save changes</button>
-			</div>
 		</div>
 	</div>
 </div>
@@ -565,35 +499,42 @@
 	});
 
 	$('#display_data').on('click', function(e) {
+		// var vehicle_type = $('input[name=vehicle_type]').val();
+		// alert(vehicle_type);
 		var weight = $('input[name=weight]').val();
 		var unit_number = $('input[name=unit_number]').val();
 		var name = $('input[name=name]').val();
 		var comments = $('input[name=comments]').val();
-		var manager_id = $('#manager_id :selected').text();
-		var location_id = $('#manager-location :selected').text();
+		var manager_text = $('#manager_id :selected').text();
+		var manager_id = $('#manager_id :selected').val();
+		var location_text = $('#manager-location :selected').text();
+		var location_id = $('#manager-location').val();
 		var radio = $("input[name='vehicle_type']:checked").val();
 		if (radio === 'power_unit') {
 			$('.steer_wheel').show();
 		} else {
 			$('.steer_wheel').hide();
 		}
-		var input = $('input[name=trailer_left_front]').val();
-		if ($('input[name=trailer_left_front]').files && $('input[name=trailer_left_front]').files[0]) {
-			var reader = new FileReader();
 
-			reader.onload = function(e) {
-				$('#blah').attr('src', e.target.result);
-			}
-
-			reader.readAsDataURL(input.files[0]);
-		}
+		var preview_vehicle_type = $('#preview_vehicle').val(radio);
 		var preview_weight = $('.preview_weight').text(weight + ' lbs');
+		$('#weight').val(weight);
 		var unit_number_preview = $('.unit_number_preview').text(unit_number);
+		$('#report_unit_num').val(unit_number);
 		var preview_tech_name = $('.preview_tech_name').text(name);
-		var peview_manager = $('.preview_manager').text(manager_id);
-		var preview_location = $('.preview_location').text(location_id);
+		$('#name').val(name);
+		var peview_manager_text = $('.preview_manager_text').text(manager_text);
+		var peview_manager_id = $('#preview_manager_id').val(manager_id);
+		//$('#manager_id').val(manager_text);
+		var preview_location_text = $('.preview_location_text').text(location_text);
+		var preview_location = $('.preview_location').val(location_id);
 		var preview_comments = $('.preview_comment').text(comments);
+		$('#comment').val(comments);
 	});
+
+	function submitForm(){
+		$("#trailer_powerunit").submit();
+	}
 
 
 	$(".d-none").on("change", function(e) {
