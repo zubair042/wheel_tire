@@ -314,10 +314,10 @@
 						<strong class="font-weight-semibold">Manager:</strong>
 					</div>
 					<div class="col-md-2">
-						<p name="" class="preview_manager"></p>
+						<p name="" class="preview_manager">No manager selected</p>
 					</div>
 				</div>
-				<div class="row">
+				<div class="row d-none">
 					<div class="col-md-2">
 						<strong class="font-weight-semibold">Location:</strong>
 					</div>
@@ -334,62 +334,77 @@
 					</div>
 				</div>
 				<div class="row" id="trailer">
-					<div class="col-md-12" >
+					<div class="col-md-12">
 						<h3 class="text-center">Trailer Images</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<h4 class="text-center">Left Front</h4>
 						<div class="row" id="trailer_left_front_image">
-							
-						</div>
-					</div>
 
-					<div class="col-md-12" >
+						</div>
+					</div>
+					<div class="col-md-6">
+						<h4 class="text-center">Right Front</h4>
 						<div class="row" id="trailer_right_front_image">
-							
+
 						</div>
 					</div>
-					<div class="col-md-12" >
+					<div class="col-md-6">
+						<h4 class="text-center">Left Rear</h4>
 						<div class="row" id="trailer_left_rear_image">
-							
+
 						</div>
 					</div>
-					<div class="col-md-12" >
+					<div class="col-md-6">
+						<h4 class="text-center">Right Rear</h4>
 						<div class="row" id="trailer_right_rear_image">
-							
+
 						</div>
 					</div>
 				</div>
 				<div class="row" id="power_unit">
-					<div class="col-md-12" >
+					<div class="col-md-12">
 						<h3 class="text-center">Power Unit Images</h3>
-						<div class="row" >
-							<div class="row" id="power_unit_left_stear_image">
-							
-							</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<h4 class="text-center">Left Steer</h4>
+						<div class="row" id="power_unit_left_stear_image">
+
 						</div>
 					</div>
 
-					<div class="col-md-12" >
+					<div class="col-md-6">
+						<h4 class="text-center">Right Steer</h4>
 						<div class="row" id="power_unit_right_stear_image">
-							
+
 						</div>
 					</div>
-					<div class="col-md-12" >
+					<div class="col-md-6">
+						<h4 class="text-center">Left Front</h4>
 						<div class="row" id="power_unit_left_front_image">
-							
+
 						</div>
 					</div>
-					<div class="col-md-12" >
+					<div class="col-md-6">
+						<h4 class="text-center">Right Steer</h4>
 						<div class="row" id="power_unit_right_front_image">
-							
+
 						</div>
 					</div>
-					<div class="col-md-12" >
+					<div class="col-md-6">
+						<h4 class="text-center">Left Raer</h4>
 						<div class="row" id="power_unit_left_rear_image">
-							
+
 						</div>
 					</div>
-					<div class="col-md-12" >
+					<div class="col-md-6">
+						<h4 class="text-center">Right Rear</h4>
 						<div class="row" id="power_unit_right_rear_image">
-							
+
 						</div>
 					</div>
 				</div>
@@ -581,18 +596,17 @@
 	});
 
 
-	$(".d-none").on("change", function(e){
+	$(".d-none").on("change", function(e) {
 		var input = $(this);
-		$("#"+input.attr('id')+"_image").html('');
-		$.each($(this)[0].files, function(k, v){
+		$("#" + input.attr('id') + "_image").html('');
+		$.each($(this)[0].files, function(k, v) {
 			var reader = new FileReader();
-			reader.onload = function(f){
-				$("#"+input.attr('id')+"_image").append('<div class="col-md-3"><img src="'+f.target.result+'" style="width:100%;height:80%"></div>');
+			reader.onload = function(f) {
+				$("#" + input.attr('id') + "_image").append('<div class="col-md-6"><img src="' + f.target.result + '" style="width:100%;height:80%"></div>');
 			}
 			reader.readAsDataURL(v);
 		});
 	});
-	
 </script>
 
 
