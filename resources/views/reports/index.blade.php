@@ -44,7 +44,7 @@
 						        <td>{{ $detail->first_name." ".$detail->last_name }}</td>
 						    	<?php } ?>
 						        <td class="text-center">
-						        	<?php if (!empty($detail->last_user_comments)) { ?>
+						        	<?php if ($detail->comment) { ?>
 						        		<i class="icon-checkmark3 mr-3 icon-2x text-primary"></i>
 						        	<?php } ?>
 				        		</td>
