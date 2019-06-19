@@ -100,8 +100,8 @@ if (count($images) > 0) {
 								<?php if ($report_detail->signature != 1) { ?>
 									<p class=" mt-10">I have visually inspected this technician's work and it appears to have been completed to proper industry standards.</p>
 
-									<button type="button" id="signature_btn" class="btn btn-primary rounded-round legitRipple" <?php if ($user->user_role == 3) { ?> onclick="add_signature(<?php echo $report_detail->id; ?>)" <?php } ?>>
-										Apply Signature</button>
+									<a href="javascript:;" type="button" id="signature_btn" class="btn btn-primary rounded-round legitRipple" <?php if ($user->user_role == 3) { ?> onclick="add_signature(<?php echo $report_detail->id; ?>)" <?php } ?>>
+										Apply Signature</a>
 								<?php } ?>
 							<?php } ?>
 							<button type="button" class="btn btn-danger rounded-round legitRipple" <?php if ($user->user_role == 2 || $user->user_role == 3) { ?> data-toggle="modal" data-target="#modal_comment" <?php } ?>>
