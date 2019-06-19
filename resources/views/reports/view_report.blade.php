@@ -43,11 +43,14 @@ if (count($images) > 0) {
 			<div class="card-body">
 				<div class="row">
 					<div class="col-md-8">
-						<a href="#" class="d-inline-block" id="upload_image">
-							<?php if ($main_image == '') { ?>
-								<img src="{{asset('')}}global_assets/images/placeholders/cover.jpg" id="static_image" class="img-fluid" alt="">
+						<a href="javascript:;" class="d-inline-block">
+							<?php if ($user->user_role == 3 && $main_image == '') { ?>
+								<!-- <a href="javascript:;"> -->
+									<input type="image" src="{{asset('')}}global_assets/images/image_uploader.png" id="uploadImage" class="img-fluid chooseFile" alt="">
+									<input type="file" name="uploadImage" id="imageToUpload" class="d-none">
+								<!-- </a> -->
 							<?php } else { ?>
-								<img src=<?php echo $main_image ?> id="static_image" class="img-fluid" alt="">
+								<img src="{{asset('')}}global_assets/images/image_uploader.png" id="static_image" class="img-fluid" alt="">
 							<?php
 						}
 						?>
@@ -64,13 +67,13 @@ if (count($images) > 0) {
 										@endif
 									</div>
 									<div class="col-md-3 text-right">
-										<?php if ($user->user_role == 3 && $main_image == '') { ?>
-											<a href="javascript:;">
+										<?php //if ($user->user_role == 3 && $main_image == '') { ?>
+											<!-- <a href="javascript:;">
 												<input type="image" id="uploadImage" class="chooseFile h-50" src="{{asset('global_assets/images/image.png')}}">
 												<input type="file" name="uploadImage" id="imageToUpload" class="d-none">
-											</a>
+											</a> -->
 											<!-- <input type="file" name="" id="imageToUpload"> -->
-										<?php } ?>
+										<?php //} ?>
 									</div>
 								</div>
 							</div>
@@ -117,10 +120,13 @@ if (count($images) > 0) {
 								</div>
 							</div>
 							<div class="row">
-								<?php if (count($images) > 0) {
+								<div class="col-md-6">
+									<h4 class="font-weight-semibold text-white text-center">LEFT STEER WHEEL</h4>
+									<div class="row">
+										<?php if (count($images) > 0) {
 									foreach ($images as $image) {
-										if ($image->image_type == 'power_unit_left_stear' || $image->image_type == 'power_unit_right_stear') { ?>
-											<div class="col-md-3">
+										if ($image->image_type == 'power_unit_left_stear') { ?>
+											<div class="col-md-6">
 												<div class="card-img-actions m-1">
 													<img class="card-img img-fluid h-200" src="{{ $image->url }}" alt="">
 													<div class="card-img-actions-overlay card-img">
@@ -131,8 +137,31 @@ if (count($images) > 0) {
 												</div>
 											</div>
 										<?php	}
-								}
-							} ?>
+									}
+									} ?>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<h4 class="font-weight-semibold text-white text-center">RIGHT STEER WHEEL</h4>
+									<div class="row">
+										<?php if (count($images) > 0) {
+									foreach ($images as $image) {
+										if ($image->image_type == 'power_unit_right_stear') { ?>
+											<div class="col-md-6">
+												<div class="card-img-actions m-1">
+													<img class="card-img img-fluid h-200" src="{{ $image->url }}" alt="">
+													<div class="card-img-actions-overlay card-img">
+														<a href="{{ $image->url }}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
+															<i class="icon-plus3"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+										<?php	}
+									}
+									} ?>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -142,14 +171,17 @@ if (count($images) > 0) {
 					<div class="card-body">
 						<div class="row">
 							<div class="col-md-12 text-center">
-								<h4 class="font-weight-semibold text-white">FRONT WHEEL POSITION</h4>
+								<h5 class="font-weight-semibold text-white">FRONT WHEEL POSITION</h5>
 							</div>
 						</div>
 						<div class="row">
-							<?php if (count($images) > 0) {
+							<div class="col-md-6">
+								<h4 class="font-weight-semibold text-white text-center">LEFT FRONT WHEEL</h4>
+								<div class="row">
+									<?php if (count($images) > 0) {
 								foreach ($images as $image) {
-									if ($image->image_type == 'trailer_left_front' || $image->image_type == 'trailer_right_front'  || $image->image_type == 'power_unit_left_front'  || $image->image_type == 'power_unit_right_front') { ?>
-										<div class="col-md-3">
+									if ($image->image_type == 'trailer_left_front' || $image->image_type == 'power_unit_left_front') { ?>
+										<div class="col-md-6">
 											<div class="card-img-actions m-1">
 												<img class="card-img img-fluid h-200" src="{{ $image->url }}" alt="">
 												<div class="card-img-actions-overlay card-img">
@@ -160,8 +192,31 @@ if (count($images) > 0) {
 											</div>
 										</div>
 									<?php	}
-							}
-						} ?>
+								}
+								} ?>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<h5 class="font-weight-semibold text-white text-center">RIGHT FRONT WHEEL</h5>
+								<div class="row">
+									<?php if (count($images) > 0) {
+								foreach ($images as $image) {
+									if ($image->image_type == 'trailer_right_front'  || $image->image_type == 'power_unit_right_front') { ?>
+										<div class="col-md-6">
+											<div class="card-img-actions m-1">
+												<img class="card-img img-fluid h-200" src="{{ $image->url }}" alt="">
+												<div class="card-img-actions-overlay card-img">
+													<a href="{{ $image->url }}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
+														<i class="icon-plus3"></i>
+													</a>
+												</div>
+											</div>
+										</div>
+									<?php	}
+								}
+								} ?>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -173,10 +228,13 @@ if (count($images) > 0) {
 							</div>
 						</div>
 						<div class="row">
-							<?php if (count($images) > 0) {
+							<div class="col-md-6">
+								<h5 class="font-weight-semibold text-white text-center">LEFT REAR WHEEL</h5>
+								<div class="row">
+									<?php if (count($images) > 0) {
 								foreach ($images as $image) {
-									if ($image->image_type == 'trailer_right_rear' || $image->image_type == 'trailer_left_rear' || $image->image_type == 'power_unit_left_rear' || $image->image_type == 'power_unit_right_rear') { ?>
-										<div class="col-md-3">
+									if ($image->image_type == 'trailer_left_rear' || $image->image_type == 'power_unit_left_rear') { ?>
+										<div class="col-md-6">
 											<div class="card-img-actions m-1">
 												<img class="card-img img-fluid h-200" src="{{ $image->url }}" alt="">
 												<div class="card-img-actions-overlay card-img">
@@ -187,8 +245,32 @@ if (count($images) > 0) {
 											</div>
 										</div>
 									<?php	}
-							}
-						} ?>
+								}
+								} ?>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<h5 class="font-weight-semibold text-white text-center">RIGHT REAR WHEEL</h5>
+								<div class="row">
+									<?php if (count($images) > 0) {
+								foreach ($images as $image) {
+									if ($image->image_type == 'trailer_right_rear' || $image->image_type == 'power_unit_right_rear') { ?>
+										<div class="col-md-6">
+											<div class="card-img-actions m-1">
+												<img class="card-img img-fluid h-200" src="{{ $image->url }}" alt="">
+												<div class="card-img-actions-overlay card-img">
+													<a href="{{ $image->url }}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
+														<i class="icon-plus3"></i>
+													</a>
+												</div>
+											</div>
+										</div>
+									<?php	}
+								}
+								} ?>
+								</div>
+							</div>
+							
 						</div>
 					</div>
 				</div>
