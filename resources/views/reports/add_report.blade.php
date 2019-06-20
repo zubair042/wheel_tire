@@ -292,8 +292,7 @@
 							<strong class="font-weight-semibold">Weight:</strong>
 						</div>
 						<div class="col-md-2">
-							<p name="weight" class="preview_weight" contenteditable="true"></p>
-							<input type="hidden" name="weight" id="weight">
+							<p name="weight" class="preview_weight" ></p>
 						</div>
 					</div>
 					<div class="row">
@@ -301,8 +300,7 @@
 							<strong class="font-weight-semibold">Unit Number:</strong>
 						</div>
 						<div class="col-md-2">
-							<p name="" class="unit_number_preview" contenteditable="true"></p>
-							<input type="hidden" name="unit_number" id="report_unit_num">
+							<p name="" class="unit_number_preview" ></p>
 						</div>
 					</div>
 					<div class="row">
@@ -310,8 +308,7 @@
 							<strong class="font-weight-semibold">Technician Name:</strong>
 						</div>
 						<div class="col-md-2">
-							<p name="" class="preview_tech_name" contenteditable="true"></p>
-							<input type="hidden" name="name" id="name">
+							<p name="" class="preview_tech_name" ></p>
 						</div>
 					</div>
 					<div class="row">
@@ -320,7 +317,6 @@
 						</div>
 						<div class="col-md-2">
 							<p name="" class="preview_manager_text"></p>
-							<input type="hidden" name="manager_id" id="preview_manager_id">
 						</div>
 					</div>
 					<div class="row ">
@@ -328,9 +324,7 @@
 							<strong class="font-weight-semibold">Location:</strong>
 						</div>
 						<div class="col-md-2">
-							<p name="" class="preview_location_text" contenteditable="true"></p>
-							<input type="hidden" name="location_id" class="preview_location">
-							
+							<p name="" class="preview_location_text"></p>
 						</div>
 					</div>
 					<div class="row">
@@ -338,8 +332,7 @@
 							<strong class="font-weight-semibold">Comments:</strong>
 						</div>
 						<div class="col-md-4">
-							<p name="" class="preview_comment" contenteditable="true"></p>
-							<input type="hidden" name="comments" id="comment">
+							<p name="" class="preview_comment"></p>
 						</div>
 					</div>
 					<div class="row" id="trailer">
