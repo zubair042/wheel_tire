@@ -6,7 +6,10 @@
 <script src="{{ asset('global_assets/js/plugins/buttons/spin.min.js') }} "></script>
 <script src="{{ asset('global_assets/js/plugins/buttons/ladda.min.js') }}"></script>
 <script src="{{ asset('global_assets/js/demo_pages/components_buttons.js') }}"></script>
-
+<textarea style="display: none" id="reportTypes"><?php echo json_encode($data); ?></textarea>
+<script type="text/javascript">
+	$vehicleType = JSON.parse($("#reportTypes").html());
+</script>
 <div class="row">
 	<div class="col-md-12">
 		<div class="card card-body">
@@ -266,8 +269,7 @@
 
 						<div class="row text-center">
 							<div class="col-md-12">
-								<!-- <button type="button" id="display_data" class="btn btn-light" data-toggle="modal" data-target="#modal_full">Preview Report</button> -->
-								<button type="button" class="btn btn-primary btn-ladda btn-ladda-spinner" data-toggle="modal" data-target="#modal_full" data-style="expand-right" id="display_data" data-spinner-color="#ffff" onclick="spinner();"><i class="icon-checkmark mr-2"></i>Submit</button>
+								<button type="button" class="btn btn-primary btn-ladda btn-ladda-spinner" data-toggle="modal" data-target="#modal_full" data-style="expand-right" id="display_data" data-spinner-color="#ffff" onclick="showReportType()"><i class="icon-checkmark mr-2"></i>Submit</button>
 							</div>
 						</div>
 					</div>
@@ -335,81 +337,82 @@
 							<p name="" class="preview_comment"></p>
 						</div>
 					</div>
-					<div class="row" id="trailer">
+					<div id="imagesArea"></div>
+					<!-- <div class="row" id="trailer">
 						<div class="col-md-12">
-							<h3 class="text-center">Trailer Images</h3>
+							<h3 class="text-center mt-10">Trailer Images</h3>
 						</div>
-					</div>
-					<div class="row">
+					</div> -->
+					<!-- <div class="row">
 						<div class="col-md-6">
-							<h4 class="text-center">Left Front</h4>
+							<h4 class="text-center mt-10">Left Front</h4>
 							<div class="row" id="trailer_left_front_image">
 
 							</div>
 						</div>
 						<div class="col-md-6">
-							<h4 class="text-center">Right Front</h4>
+							<h4 class="text-center mt-10">Right Front</h4>
 							<div class="row" id="trailer_right_front_image">
 
 							</div>
 						</div>
 						<div class="col-md-6">
-							<h4 class="text-center">Left Rear</h4>
+							<h4 class="text-center mt-10">Left Rear</h4>
 							<div class="row" id="trailer_left_rear_image">
 
 							</div>
 						</div>
 						<div class="col-md-6">
-							<h4 class="text-center">Right Rear</h4>
+							<h4 class="text-center mt-10">Right Rear</h4>
 							<div class="row" id="trailer_right_rear_image">
 
 							</div>
 						</div>
-					</div>
-					<div class="row" id="power_unit">
+					</div> -->
+					<!-- <div class="row" id="power_unit">
 						<div class="col-md-12">
-							<h3 class="text-center">Power Unit Images</h3>
+							<h3 class="text-center mt-10">Power Unit Images</h3>
 						</div>
-					</div>
-					<div class="row">
+					</div> -->
+					<!-- <div class="row">
 						<div class="col-md-6">
-							<h4 class="text-center">Left Steer</h4>
+							<h4 class="text-center mt-10">Left Steer</h4>
 							<div class="row" id="power_unit_left_stear_image">
 
 							</div>
 						</div>
 
 						<div class="col-md-6">
-							<h4 class="text-center">Right Steer</h4>
+							<h4 class="text-center mt-10">Right Steer</h4>
 							<div class="row" id="power_unit_right_stear_image">
 
 							</div>
 						</div>
 						<div class="col-md-6">
-							<h4 class="text-center">Left Front</h4>
+							<h4 class="text-center mt-10">Left Front</h4>
 							<div class="row" id="power_unit_left_front_image">
 
 							</div>
 						</div>
 						<div class="col-md-6">
-							<h4 class="text-center">Right Steer</h4>
+							<h4 class="text-center mt-10">Right Steer</h4>
 							<div class="row" id="power_unit_right_front_image">
 
 							</div>
 						</div>
 						<div class="col-md-6">
-							<h4 class="text-center">Left Raer</h4>
+							<h4 class="text-center mt-10">Left Raer</h4>
 							<div class="row" id="power_unit_left_rear_image">
 
 							</div>
 						</div>
 						<div class="col-md-6">
-							<h4 class="text-center">Right Rear</h4>
+							<h4 class="text-center mt-10">Right Rear</h4>
 							<div class="row" id="power_unit_right_rear_image">
 
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 
 				<div class="modal-footer">
@@ -422,6 +425,10 @@
 
 <input type="hidden" value="{{ csrf_token() }}" id="csrf-token">
 <script type="text/javascript">
+
+	
+
+
 	function spinner() {
 		var l = Ladda.create(document.querySelector('#submit'));
 		l.start();
@@ -529,18 +536,60 @@
 		$("#trailer_powerunit").submit();
 	}
 
+	function showReportType(){
+		var typeArray;
+		if($("#trailer_radio").is(":checked")==true){
+			typeArray = $vehicleType.trailer;
+		}else if($("#power_unit_radio").is(":checked")==true){
+			typeArray = $vehicleType.power_unit;
+		}
+		html = '<div class="row" align="center"><div class="col-md-12"><h2><b>'+typeArray.imageHeading+'</b></h2></div></div>';
+		html += '<div class="row">';
+		$.each(typeArray.imagesType, function(k, v){
+			if($("#"+k+"")[0].files.length>0){
+				html += '<div class="col-md-6" align="center" id="'+k+'_image">';
+					html += '<h5><b>'+v+'</b></h5>';
+					//html += load_images(k,v, html);
+				html += '</div>';
+			}
+		});
+		html += '</div>';
 
-	$(".d-none").on("change", function(e) {
-		var input = $(this);
-		$("#" + input.attr('id') + "_image").html('');
-		$.each($(this)[0].files, function(k, v) {
+		$("#imagesArea").html(html);
+		$.each(typeArray.imagesType, function(k1, v1){
+			load_images(k1,v1);
+		});
+	}
+
+	function load_images(slug, title){
+		var files = $("#"+slug+"")[0].files;
+		$.each(files, function(k, v){
 			var reader = new FileReader();
-			reader.onload = function(f) {
-				$("#" + input.attr('id') + "_image").append('<div class="col-md-6"><img src="' + f.target.result + '" style="width:100%;height:80%"></div>');
+ 			reader.onload = function(f) {
+ 				$("#" + slug + "_image").append('<div class="col-md-6"><img src="' + f.target.result + '" style="width:100%;height:150px;padding:5px"></div>');
 			}
 			reader.readAsDataURL(v);
 		});
-	});
+	}
+
+
+	// $(".d-none").on("change", function(e) {
+	// 	var input = $(this);
+	// 	$("#" + input.attr('id') + "_image").html('');
+	// 	$.each($(this)[0].files, function(k, v) {
+	// 		var extension = v.name.split(".");
+	// 		extension = extension[extension.length-1];
+	// 		var reader = new FileReader();
+ // 			reader.onload = function(f) {
+ // 				if (extension == 'png' || extension == 'jpg' || extension == 'jpeg' || extension == 'gif') {
+ // 					$("#" + input.attr('id') + "_image").append('<div class="col-md-6"><img src="' + f.target.result + '" style="width:100%;height:150px;padding:5px"></div>');
+ // 				}else if (extension == 'mp4' || extension == 'flv' || extension == 'avi' || extension == 'mkv') {
+ // 					$("#" + input.attr('id') + "_image").append('<div class="col-md-6"><video style="height:130px;width:200px;" controls><source src="' + f.target.result + '" ></video></div>');
+ // 				}
+	// 		}
+	// 		reader.readAsDataURL(v);
+	// 	});
+	// });
 </script>
 
 

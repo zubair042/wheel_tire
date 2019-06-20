@@ -69,7 +69,11 @@ class Reports extends Controller
                                 ->where('user_role',3)
                                 ->get();
         }
-        return view('reports/add_report')->with('manager_detail',$manager_detail);
+
+        $data['trailer'] = \App\Report::reportsTypeAndImages('trailer');
+        $data['power_unit'] = \App\Report::reportsTypeAndImages('power_unit');
+
+        return view('reports/add_report')->with('manager_detail',$manager_detail)->with('data', $data);
 
     }
 
@@ -172,7 +176,22 @@ class Reports extends Controller
      */
     public function show($id)
     {
-        // $report_detail = Report::find($id);
+
+        // $trailerArray = array(
+        //     "trailer_left_front"=>"Left Front Wheel",
+        //     "trailer_right_front"=>"Right Front Wheel",
+        //     "trailer_left_rear"=>"Left Rear Wheel",
+        //     "trailer_right_rear"=>"Right Rear Wheel"
+        // );
+        // $powerUnitArray = array(
+        //     "power_unit_left_front"=>"Left Front Wheel",
+        //     "power_unit_right_front"=>"Right Front Wheel",
+        //     "power_unit_left_rear"=>"Left Rear Wheel",
+        //     "power_unit_right_rear"=>"Right Rear Wheel",
+        //     "power_unit_left_stear"=>"Left Steer Wheel",
+        //     "power_unit_right_stear"=>"Right Steer Wheel"
+        // );
+        
         $report_detail  = DB::table('reports')
                             ->join('users','reports.signature_by','=','users.id','left outer')
                             ->join('locations','reports.location_id','=','locations.id','left outer')
@@ -189,13 +208,15 @@ class Reports extends Controller
                             ->join('users','users.id','=','comments.created_by')
                             ->where('report_id',$report_detail->id)
                             ->get();
-                            //dd($comments);
 
-        $images         = DB::table('report_images')
-                            ->where('report_id',$report_detail->id)
-                            ->get(); 
-
-        return view('reports/view_report',compact(['report_detail','user','comments','images']));
+        // $images         = DB::table('report_images')
+        //                     ->where('report_id',$report_detail->id)
+        //                     ->get();
+        $reportType = \App\Report::reportsTypeAndImages($report_detail->vehicle_type);
+        $reportType['images'] = \App\Report::get_images_by_report_id($report_detail->id, $reportType['imagesType']);
+        $reportType['main_image'] = \App\Report::get_main_image($report_detail->id);
+        //dd($reportType['imageHeading']);
+        return view('reports/view_report',compact(['report_detail','user','comments','reportType']));
     }
 
     /**
