@@ -69,7 +69,11 @@ class Reports extends Controller
                                 ->where('user_role',3)
                                 ->get();
         }
-        return view('reports/add_report')->with('manager_detail',$manager_detail);
+        $user               = DB::table('users')
+                            ->where('user_role',Auth::user()->user_role)
+                            ->where('id',Auth::user()->id)
+                            ->first();
+        return view('reports/add_report',compact("user","manager_detail"));
 
     }
 
