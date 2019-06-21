@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<?php //print_r($user); exit;?>
 <script src="{{asset('global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
 <script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
 <script src="{{ asset('global_assets/js/plugins/buttons/spin.min.js') }} "></script>
@@ -283,7 +284,6 @@
 				<h2 class="modal-title font-weight-semibold form-group">Report Confirmation</h2>
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
-			<!-- <form id="trailer_powerunit" method="POST" action="{{ route('save_reports') }}" enctype="multipart/form-data">-->
 				<div class="modal-body">
 					<input type="hidden" name="vehicle_type" id="preview_vehicle">
 					<div class="row">
@@ -291,125 +291,51 @@
 							<strong class="font-weight-semibold">Weight:</strong>
 						</div>
 						<div class="col-md-2">
-							<p name="weight" class="preview_weight" ></p>
+							<span name="weight" class="preview_weight" ></span>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row mt-10">
 						<div class="col-md-2">
 							<strong class="font-weight-semibold">Unit Number:</strong>
 						</div>
 						<div class="col-md-2">
-							<p name="" class="unit_number_preview" ></p>
+							<span name="" class="unit_number_preview" ></span>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row mt-10">
 						<div class="col-md-2">
 							<strong class="font-weight-semibold">Technician Name:</strong>
 						</div>
 						<div class="col-md-2">
-							<p name="" class="preview_tech_name" ></p>
+							<span name="" class="preview_tech_name" ></span>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row mt-10">
 						<div class="col-md-2">
 							<strong class="font-weight-semibold">Manager:</strong>
 						</div>
 						<div class="col-md-2">
-							<p name="" class="preview_manager_text"></p>
+							<span name="" class="preview_manager_text"></span>
 						</div>
 					</div>
-					<div class="row ">
-						<div class="col-md-2">
-							<strong class="font-weight-semibold">Location:</strong>
-						</div>
-						<div class="col-md-2">
-							<p name="" class="preview_location_text"></p>
-						</div>
-					</div>
-					<div class="row">
+					<?php if($user->user_role == 3) {?>
+						<div class="row mt-10">
+							<div class="col-md-2">
+								<strong class="font-weight-semibold">Location:</strong>
+							</div>
+							<div class="col-md-2">
+								<span name="" class="preview_location_text"></span>
+							</div>
+					<?php }?>
+					<div class="row mt-10" id="comment_show" style="display:none;">
 						<div class="col-md-2">
 							<strong class="font-weight-semibold">Comments:</strong>
 						</div>
 						<div class="col-md-4">
-							<p name="" class="preview_comment"></p>
+							<span name="" class="preview_comment"></span>
 						</div>
 					</div>
 					<div id="imagesArea"></div>
-					<!-- <div class="row" id="trailer">
-						<div class="col-md-12">
-							<h3 class="text-center mt-10">Trailer Images</h3>
-						</div>
-					</div> -->
-					<!-- <div class="row">
-						<div class="col-md-6">
-							<h4 class="text-center mt-10">Left Front</h4>
-							<div class="row" id="trailer_left_front_image">
-
-							</div>
-						</div>
-						<div class="col-md-6">
-							<h4 class="text-center mt-10">Right Front</h4>
-							<div class="row" id="trailer_right_front_image">
-
-							</div>
-						</div>
-						<div class="col-md-6">
-							<h4 class="text-center mt-10">Left Rear</h4>
-							<div class="row" id="trailer_left_rear_image">
-
-							</div>
-						</div>
-						<div class="col-md-6">
-							<h4 class="text-center mt-10">Right Rear</h4>
-							<div class="row" id="trailer_right_rear_image">
-
-							</div>
-						</div>
-					</div> -->
-					<!-- <div class="row" id="power_unit">
-						<div class="col-md-12">
-							<h3 class="text-center mt-10">Power Unit Images</h3>
-						</div>
-					</div> -->
-					<!-- <div class="row">
-						<div class="col-md-6">
-							<h4 class="text-center mt-10">Left Steer</h4>
-							<div class="row" id="power_unit_left_stear_image">
-
-							</div>
-						</div>
-
-						<div class="col-md-6">
-							<h4 class="text-center mt-10">Right Steer</h4>
-							<div class="row" id="power_unit_right_stear_image">
-
-							</div>
-						</div>
-						<div class="col-md-6">
-							<h4 class="text-center mt-10">Left Front</h4>
-							<div class="row" id="power_unit_left_front_image">
-
-							</div>
-						</div>
-						<div class="col-md-6">
-							<h4 class="text-center mt-10">Right Steer</h4>
-							<div class="row" id="power_unit_right_front_image">
-
-							</div>
-						</div>
-						<div class="col-md-6">
-							<h4 class="text-center mt-10">Left Raer</h4>
-							<div class="row" id="power_unit_left_rear_image">
-
-							</div>
-						</div>
-						<div class="col-md-6">
-							<h4 class="text-center mt-10">Right Rear</h4>
-							<div class="row" id="power_unit_right_rear_image">
-
-							</div>
-						</div>
-					</div> -->
 				</div>
 
 				<div class="modal-footer">
@@ -419,7 +345,7 @@
 		</div>
 	</div>
 </div>
-
+<button onclick="test()">Testing</button>
 <input type="hidden" value="{{ csrf_token() }}" id="csrf-token">
 <script type="text/javascript">
 
@@ -498,9 +424,19 @@
 		// var vehicle_type = $('input[name=vehicle_type]').val();
 		// alert(vehicle_type);
 		var weight = $('input[name=weight]').val();
+		if (weight > 0) {
+			var unit;
+			unit = " lbs";
+		} else {
+			unit = "";
+		}
 		var unit_number = $('input[name=unit_number]').val();
 		var name = $('input[name=name]').val();
 		var comments = $('input[name=comments]').val();
+		if(comments.length > 0) {
+			//alert(comments);
+			$('#comment_show').show();
+		}
 		var manager_text = $('#manager_id :selected').text();
 		var manager_id = $('#manager_id :selected').val();
 		var location_text = $('#manager-location :selected').text();
@@ -513,7 +449,7 @@
 		}
 
 		var preview_vehicle_type = $('#preview_vehicle').val(radio);
-		var preview_weight = $('.preview_weight').text(weight + ' lbs');
+		var preview_weight = $('.preview_weight').text(weight + unit);
 		$('#weight').val(weight);
 		var unit_number_preview = $('.unit_number_preview').text(unit_number);
 		$('#report_unit_num').val(unit_number);
@@ -521,7 +457,6 @@
 		$('#name').val(name);
 		var peview_manager_text = $('.preview_manager_text').text(manager_text);
 		var peview_manager_id = $('#preview_manager_id').val(manager_id);
-		//$('#manager_id').val(manager_text);
 		var preview_location_text = $('.preview_location_text').text(location_text);
 		var preview_location = $('.preview_location').val(location_id);
 		var preview_comments = $('.preview_comment').text(comments);
@@ -559,21 +494,49 @@
 
 	function load_images(slug, title){
 		var files = $("#"+slug+"")[0].files;
+		
+		if(files.length<=0){
+			console.log(files.length);
+			$.uniform.update($('input[name='+ slug +']').prop('checked', false));
+		}
 		$.each(files, function(k, v){
 			var extension = v.name.split('.');
 			extension = extension[extension.length-1];
 			var reader = new FileReader();
  			reader.onload = function(f) {
- 				if (extension == 'png' || extension == 'jpg' || extension == 'jpeg' || extension == 'gif') {
- 					$("#" + slug + "_image").append('<div class="col-md-6"><img src="' + f.target.result + '" style="width:100%;height:150px;padding:5px"></div>');	
- 				}else if (extension == 'mp4' || extension == 'flv' || extension == 'avi' || extension == 'mkv') {
- 					$("#" + slug + "_image").append('<div class="col-md-6"><video style="height:130px;width:200px;" controls><source src="' + f.target.result + '" ></video></div>');
- 				}
+ 				load_files_by_type(extension, slug, f.target.result, title, k);
 			}
 			reader.readAsDataURL(v);
 		});
 	}
+	function load_files_by_type(extension, slug, result, title, k){
+		if (extension == 'png' || extension == 'jpg' || extension == 'jpeg' || extension == 'gif') {
+			//$("#" + slug + "_image").append('<div class="col-md-6"><a href="javascript:;" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group"><img src="' + f.target.result + '"style="width:100%;height:150px;padding:5px"><i class="icon-eye2"></i></a></div>');	
+			$("#" + slug + "_image").append('<div class="col-md-5 card-img-actions m-1" id="'+slug+'_'+k+'"><img class="card-img img-fluid h-200" id="image_preview_remove" src="' + result + '" alt="" width="100"><div class="card-img-actions-overlay card-img"><a href="javascript:;" onclick="removeImage(\''+slug+'\', \''+k+'\', \''+title+'\')" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group"><i class="icon-bin2"></i></a></div></div>');	
+		}else if (extension == 'mp4' || extension == 'flv' || extension == 'avi' || extension == 'mkv') {
+			$("#" + slug + "_image").append('<div class="col-md-6"><video style="height:130px;width:200px;" controls><source src="' + f.target.result + '" ></video></div>');
+		}
+	}
+	function removeImage(slug, key, title){
+		$files = Array.from($("#"+slug+"")[0].files);
+		$.each($files, function(k, v){
+			if(k==key)
+				$files.splice(k, 1);
+		});
+		$("#"+slug+"").val('').clone(true);
+		$("#"+slug+"")[0].files = new FileListItem($files);
+		$("#"+slug+"_image").html('');
+		load_images(slug, title);
+	}
 
+	function FileListItem(a) {
+        a = [].slice.call(Array.isArray(a) ? a : arguments)
+        for (var c, b = c = a.length, d = !0; b-- && d;) d = a[b] instanceof File
+        if (!d) throw new TypeError("expected argument to FileList is File or array of File objects")
+        for (b = (new ClipboardEvent("")).clipboardData || new DataTransfer; c--;) b.items.add(a[c])
+        return b.files
+    }
+	
 	// $(".d-none").on("change", function(e) {
 	// 	var input = $(this);
 	// 	$("#" + input.attr('id') + "_image").html('');
@@ -591,6 +554,7 @@
 	// 		reader.readAsDataURL(v);
 	// 	});
 	// });
+
 </script>
 
 
