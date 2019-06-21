@@ -31,7 +31,7 @@ You have a tire/wheel end job to inspect, please see below for details.</p>
     </tbody>
 </table>
 
-<p><a href="{{ url('emails/report_detail_view/'.$report_detail->id) }}" target="_blank">Click</a> here to view report</p>
+<!-- <p><a href="{{ url('emails/report_detail_view/'.$report_detail->id) }}" target="_blank">Click</a> here to view report</p> -->
 
 <p>Thank you.</p>
 </div>
