@@ -185,13 +185,11 @@
 								</div>
 
 								<div class="media-body">
-									<!-- <img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt=""> -->
 									<a href="javascript:;">
 										<input type="image" src="{{asset('global_assets/images/tire_img.jpg')}}" style="width: 25%; margin-right: unset;" name="trailer_left_rear" class="chooseImage">
 										<input type="file" name="trailer_left_rear[]" id="trailer_left_rear" class="d-none" multiple="">
 									</a>
 									<input type="image" name="" class="align-self-center custom-style-1" src="{{asset('global_assets/images/line1.png')}}">
-									<!-- <img src="{{asset('global_assets/images/line.png')}}"> -->
 									<a href="javascript:;">
 										<input type="image" src="{{asset('global_assets/images/tire_img.jpg')}}" style="width: 25%; margin-left: unset;" name="trailer_right_rear" class="chooseImage float-right">
 										<input type="file" name="trailer_right_rear[]" id="trailer_right_rear" class="d-none" multiple="">
@@ -257,7 +255,6 @@
 								<select name="location_id" id="manager-location" class="select_select2_select">
 									<option disabled selected hidden>Select Location</option>
 								</select>
-								<!-- <input type="text" name="location_id" id="manager-location" class="form-control" placeholder=""> -->
 							</div>
 						</div>
 
@@ -458,7 +455,6 @@
 
 	function getLocationById() {
 		var id = $('#manager_id').val();
-		//$("#manager-location").select2("val","");
 		$.ajax({
 			type: "post",
 			url: "{{ route('manager-location') }}",
@@ -547,9 +543,9 @@
 		html += '<div class="row">';
 		$.each(typeArray.imagesType, function(k, v){
 			if($("#"+k+"")[0].files.length>0){
-				html += '<div class="col-md-6" align="center" id="'+k+'_image">';
+				html += '<div class="col-md-6" align="center" >';
 					html += '<h5><b>'+v+'</b></h5>';
-					//html += load_images(k,v, html);
+					html += '<div class="row" id="'+k+'_image"></div>';
 				html += '</div>';
 			}
 		});
@@ -564,14 +560,19 @@
 	function load_images(slug, title){
 		var files = $("#"+slug+"")[0].files;
 		$.each(files, function(k, v){
+			var extension = v.name.split('.');
+			extension = extension[extension.length-1];
 			var reader = new FileReader();
  			reader.onload = function(f) {
- 				$("#" + slug + "_image").append('<div class="col-md-6"><img src="' + f.target.result + '" style="width:100%;height:150px;padding:5px"></div>');
+ 				if (extension == 'png' || extension == 'jpg' || extension == 'jpeg' || extension == 'gif') {
+ 					$("#" + slug + "_image").append('<div class="col-md-6"><img src="' + f.target.result + '" style="width:100%;height:150px;padding:5px"></div>');	
+ 				}else if (extension == 'mp4' || extension == 'flv' || extension == 'avi' || extension == 'mkv') {
+ 					$("#" + slug + "_image").append('<div class="col-md-6"><video style="height:130px;width:200px;" controls><source src="' + f.target.result + '" ></video></div>');
+ 				}
 			}
 			reader.readAsDataURL(v);
 		});
 	}
-
 
 	// $(".d-none").on("change", function(e) {
 	// 	var input = $(this);

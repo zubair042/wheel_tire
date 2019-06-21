@@ -220,7 +220,9 @@ class Reports extends Controller
         //                     ->where('report_id',$report_detail->id)
         //                     ->get();
         $reportType = \App\Report::reportsTypeAndImages($report_detail->vehicle_type);
+        
         $reportType['images'] = \App\Report::get_images_by_report_id($report_detail->id, $reportType['imagesType']);
+
         $reportType['main_image'] = \App\Report::get_main_image($report_detail->id);
         //dd($reportType['imageHeading']);
         return view('reports/view_report',compact(['report_detail','user','comments','reportType']));

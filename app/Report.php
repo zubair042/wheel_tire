@@ -17,7 +17,7 @@ class Report extends Model
     public static function get_main_image($reportId){
         $mainImage = DB::table("report_images")->where(array("report_id"=>$reportId, "image_type"=>"main_image"))->first();
         $imageUrl = '';
-        if(count($mainImage)>0){
+        if(!empty($mainImage) && count($mainImage)>0){
             $imageUrl = $mainImage->url;
         }
         return $imageUrl;
@@ -44,12 +44,12 @@ class Report extends Model
         }elseif($reportType=="power_unit"){
             $imageHeading = "Power Unit Images";
             $imagesType = array(
+                    "power_unit_left_stear"=>"Left Steer Wheel",
+                "power_unit_right_stear"=>"Right Steer Wheel",
                 "power_unit_left_front"=>"Left Front Wheel",
                 "power_unit_right_front"=>"Right Front Wheel",
                 "power_unit_left_rear"=>"Left Rear Wheel",
-                "power_unit_right_rear"=>"Right Rear Wheel",
-                "power_unit_left_stear"=>"Left Steer Wheel",
-                "power_unit_right_stear"=>"Right Steer Wheel"
+                "power_unit_right_rear"=>"Right Rear Wheel"
             );
         }
 

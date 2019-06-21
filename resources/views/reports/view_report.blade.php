@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <script src="{{asset('global_assets/js/plugins/media/fancybox.min.js') }}"></script>
 
@@ -70,7 +69,6 @@
 						<label class="font-weight-black">Tech Comment:</label>
 						<p class="form-group">{{$report_detail->comment}}</p>
 
-
 						<?php if ($user->user_role == 2 || $user->user_role == 3) { ?>
 
 							<?php if ($user->user_role == 3) { ?>
@@ -87,9 +85,6 @@
 						<?php } ?>
 					</div>
 				</div>
-
-
-
 				<div class="card mt-10 bg-success-300">
 					<div class="card-body">
 						<div class="row">
@@ -108,7 +103,7 @@
 										<img class="card-img img-fluid h-200" src="{{$val1->url}}" alt="" width="100">
 										<div class="card-img-actions-overlay card-img">
 											<a href="{{$val1->url}}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
-												<i class="icon-plus3"></i>
+												<i class="icon-eye2"></i>
 											</a>
 										</div>
 									</div>
@@ -120,46 +115,6 @@
 						</div>
 					</div>
 				</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-				
-
 			</div>
 		</div>
 	</div>
