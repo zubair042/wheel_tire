@@ -280,77 +280,69 @@
 <div id="modal_full" class="modal fade" tabindex="-1">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
-			<div class="modal-header">
-				<h2 class="modal-title font-weight-semibold form-group">Report Confirmation</h2>
+			<div class="modal-header bg-dark" align="center">
+				<h2 class="modal-title font-weight-semibold form-group" style="text-transform: uppercase;font-weight: bold;">Report Confirmation</h2>
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
-				<div class="modal-body">
-					<input type="hidden" name="vehicle_type" id="preview_vehicle">
+				<div class="modal-body" style="background-color:#eeeded !important;">
 					<div class="row">
-						<div class="col-md-2">
-							<strong class="font-weight-semibold">Weight:</strong>
-						</div>
-						<div class="col-md-2">
-							<span name="weight" class="preview_weight" ></span>
-						</div>
-					</div>
-					<div class="row mt-10">
-						<div class="col-md-2">
-							<strong class="font-weight-semibold">Unit Number:</strong>
-						</div>
-						<div class="col-md-2">
-							<span name="" class="unit_number_preview" ></span>
-						</div>
-					</div>
-					<div class="row mt-10">
-						<div class="col-md-2">
-							<strong class="font-weight-semibold">Technician Name:</strong>
-						</div>
-						<div class="col-md-2">
-							<span name="" class="preview_tech_name" ></span>
-						</div>
-					</div>
-					<div class="row mt-10">
-						<div class="col-md-2">
-							<strong class="font-weight-semibold">Manager:</strong>
-						</div>
-						<div class="col-md-2">
-							<span name="" class="preview_manager_text"></span>
-						</div>
-					</div>
-					<?php if($user->user_role == 3) {?>
-						<div class="row mt-10">
-							<div class="col-md-2">
-								<strong class="font-weight-semibold">Location:</strong>
-							</div>
-							<div class="col-md-2">
-								<span name="" class="preview_location_text"></span>
-							</div>
-					<?php }?>
-					<div class="row mt-10" id="comment_show" style="display:none;">
-						<div class="col-md-2">
-							<strong class="font-weight-semibold">Comments:</strong>
-						</div>
-						<div class="col-md-4">
-							<span name="" class="preview_comment"></span>
+						<div class="table-responsive col-md-8">
+							<table class="table">
+								<tbody>
+									<tr>
+										<td><b>Weight</b></td>
+										<td><div contenteditable="true" class="content-editable">Test</div></td>
+									</tr>
+									<tr>
+										<td><b>Unit Number</b></td>
+										<td><div contenteditable="true" class="content-editable">Test</div></td>
+									</tr>
+									<tr>
+										<td><b>Technician Name</b></td>
+										<td><div contenteditable="true" class="content-editable">Test</div></td>
+									</tr>
+									<tr>
+										<td><b>Manager</b></td>
+										<td>
+											<select class="form-control form-control-uniform" data-fouc>
+				                                <option value="opt1">Styled select box</option>
+				                                <option value="opt2">Option 2</option>
+				                                <option value="opt3">Option 3</option>
+				                                <option value="opt4">Option 4</option>
+				                                <option value="opt5">Option 5</option>
+				                                <option value="opt6">Option 6</option>
+				                                <option value="opt7">Option 7</option>
+				                                <option value="opt8">Option 8</option>
+				                            </select>
+										</td>
+									</tr>
+									<tr>
+										<td><b>Comments</b></td>
+										<td><div contenteditable="true" class="content-editable">Test</div></td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
 					</div>
-					<div id="imagesArea"></div>
+					<hr>
+					<div class="row" id="imagesArea">
+						
+					</div>
+					</div>
 				</div>
 
-				<div class="modal-footer">
+				<div class="modal-footer" style="padding-top:2%;">
 					<button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
-					<button type="button" onclick="submitForm()" class="btn bg-primary">Submit Report</button>
+					<button type="button" onclick="submitForm()" class="btn bg-dark">Submit Report</button>
 				</div>
 		</div>
 	</div>
 </div>
-<button onclick="test()">Testing</button>
 <input type="hidden" value="{{ csrf_token() }}" id="csrf-token">
 <script type="text/javascript">
 
 	
-
+$('.form-control-uniform').uniform();
 
 	function spinner() {
 		var l = Ladda.create(document.querySelector('#submit'));
@@ -514,7 +506,7 @@
 			//$("#" + slug + "_image").append('<div class="col-md-6"><a href="javascript:;" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group"><img src="' + f.target.result + '"style="width:100%;height:150px;padding:5px"><i class="icon-eye2"></i></a></div>');	
 			$("#" + slug + "_image").append('<div class="col-md-5 card-img-actions m-1" id="'+slug+'_'+k+'"><img class="card-img img-fluid h-200" id="image_preview_remove" src="' + result + '" alt="" width="100"><div class="card-img-actions-overlay card-img"><a href="javascript:;" onclick="removeImage(\''+slug+'\', \''+k+'\', \''+title+'\')" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group"><i class="icon-bin2"></i></a></div></div>');	
 		}else if (extension == 'mp4' || extension == 'flv' || extension == 'avi' || extension == 'mkv') {
-			$("#" + slug + "_image").append('<div class="col-md-6"><video style="height:130px;width:200px;" controls><source src="' + f.target.result + '" ></video></div>');
+			$("#" + slug + "_image").append('<div class="col-md-6"><video style="height:130px;width:200px;" controls><source src="' + result + '" ></video></div>');
 		}
 	}
 	function removeImage(slug, key, title){

@@ -15,9 +15,11 @@ class Report extends Model
     }
 
     public static function get_main_image($reportId){
+        
         $mainImage = DB::table("report_images")->where(array("report_id"=>$reportId, "image_type"=>"main_image"))->first();
         $imageUrl = '';
-        if(!empty($mainImage) && count($mainImage)>0){
+        //echo "<pre>"; print_r($mainImage); exit;
+        if(!empty($mainImage)){
             $imageUrl = $mainImage->url;
         }
         return $imageUrl;
