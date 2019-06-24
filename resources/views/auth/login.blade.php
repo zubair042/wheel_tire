@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wheel Tire | Login</title>
 
 <!-- Global stylesheets -->
@@ -46,7 +46,7 @@ body {
   <!-- Main content --> 
   <div class="content-wrapper"> 
     
-      <div class="content d-flex align-items-center justify-content-center">
+      <div class="content d-flex align-items-center justify-content-center" align="center">
         <!-- <div class="col-md-4">
         </div> -->
         <div class="col-md-4">

@@ -218,7 +218,7 @@
             </div>
             <div class="row form-group">
               <div class="col-md-2 offset-md-5">
-                <select name="manager_id" onchange="getLocationById()" id="manager_id" class="select_select2_select input_fields">
+                <select name="manager_id" onchange="" id="manager_id" class="select_select2_select input_fields">
                   <option disabled selected hidden>Select Manager</option>
                   
                   
@@ -346,32 +346,32 @@
 		minimumResultsForSearch: Infinity
 	});
 
-	function getLocationById() {
-		var id = $('#manager_id').val();
-		$.ajax({
-			type: "post",
-			url: "{{ route('manager-location') }}",
-			data: {
-				id: id,
-				"_token": "{{ csrf_token() }}"
-			},
-			success: function(d) {
-				console.log(d);
-				//return fasle;
-				$('#manager-location').html('').select({
-					data: []
-				});
+	// function getLocationById() {
+	// 	var id = $('#manager_id').val();
+	// 	$.ajax({
+	// 		type: "post",
+	// 		url: "{{ route('manager-location') }}",
+	// 		data: {
+	// 			id: id,
+	// 			"_token": "{{ csrf_token() }}"
+	// 		},
+	// 		success: function(d) {
+	// 			console.log(d);
+	// 			//return fasle;
+	// 			$('#manager-location').html('').select({
+	// 				data: []
+	// 			});
 
-				for (var i = 0; i <= d.length; i++) {
-					var id = d[i].id;
-					var name = d[i].location_name;
-					var option = new Option(name, id, false, false);
-					$("#manager-location").append(option).trigger('change');
-					//$('#manager-location').val($('#manager-location').val() + name);
-				}
-			}
-		})
-	}
+	// 			for (var i = 0; i <= d.length; i++) {
+	// 				var id = d[i].id;
+	// 				var name = d[i].location_name;
+	// 				var option = new Option(name, id, false, false);
+	// 				$("#manager-location").append(option).trigger('change');
+	// 				//$('#manager-location').val($('#manager-location').val() + name);
+	// 			}
+	// 		}
+	// 	})
+	// }
 
 
 
