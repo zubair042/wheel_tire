@@ -162,7 +162,6 @@ class Reports extends Controller
                     $data['image_type']       = $type;
                     $data['url']              = $pic;
                     $data['create_by']        = Auth::user()->id;
-                    
                     $image = new Report_images;
                     $image->saveImage($data);
                 }
@@ -274,6 +273,7 @@ class Reports extends Controller
         if ($fileArr!=null){
             foreach($fileArr as $file){
                 $cloudFile  = $file->getRealPath();
+                //$size = cl_image_tag($cloudFile, array("quality"=>"auto"));
                 $type       = $file->getClientOriginalExtension();
                 if ($type == 'mp4'|| $type == 'flv'|| $type == 'avi'|| $type == 'mkv') 
                 {
