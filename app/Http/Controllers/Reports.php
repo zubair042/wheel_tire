@@ -128,7 +128,13 @@ class Reports extends Controller
         // $message = 'asdfasdf';
         Mail::send('emails.add_report_email', ["report_detail"=>$report_detail,"manager_info"=>$manager_info], function($message) use ($manager_email,$report_detail){    
             $message->to($manager_email)->subject("New ".$report_detail->vehicle_type." report ".$report_detail->id." has been created");
+            $message->from('info@mobilemaintenance.com', 'Wheel Tire');
         });
+        // Mail::send('emails.authmail', $data, function($message) {
+		// 			   $message->to(Auth::User()->email, Auth::User()->first_name." ".Auth::User()->last_name)->subject
+		// 				  ('Your authentication code');
+		// 			   $message->from('info@mobilemaintenance.com', 'Wheel Tire');
+		// 			});
         var_dump( Mail:: failures());
         //Mail::to($manager_email)->send(new SendEmail());
         //echo "<pre>"; print_r(new SendEmail()); exit;
@@ -217,8 +223,8 @@ class Reports extends Controller
         $reportType = \App\Report::reportsTypeAndImages($report_detail->vehicle_type);
         
         $reportType['images'] = \App\Report::get_images_by_report_id($report_detail->id, $reportType['imagesType']);
-
         $reportType['main_image'] = \App\Report::get_main_image($report_detail->id);
+
         //dd($reportType['imageHeading']);
         return view('reports/view_report',compact(['report_detail','user','comments','reportType']));
     }

@@ -26,15 +26,15 @@ class EmailAuthenticate
 				$user->authentication_status = 'N';
 				$user->authentication_time = Carbon::now();
 				$user->save();
-				if(env('DB_PASSWORD', false)!=""){
+				//if(env('DB_PASSWORD', false)!=""){
 					$name = Auth::User()->first_name." ".Auth::User()->last_name;
 					$data = array("name"=> $name, "code" => $random_string);
 					Mail::send('emails.authmail', $data, function($message) {
 					   $message->to(Auth::User()->email, Auth::User()->first_name." ".Auth::User()->last_name)->subject
 						  ('Your authentication code');
 					   $message->from('info@mobilemaintenance.com', 'Wheel Tire');
-					});			
-				}
+					});		
+				//}
 				return redirect('authenticate');
 			}
 			if(Auth::User()->authentication_status=='N'){

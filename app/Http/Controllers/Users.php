@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Account;
 use App\Location;
+use App\Role;
 use Auth;
 use DB;
 
@@ -99,6 +100,14 @@ class Users extends Controller
         $users->last_name = $request->input('last_name');
         $users->email = $request->input('email');
         $users->password = bcrypt($request->input('password'));
+        //$users->authentication = false;
+
+        $getManager = Role::where("description", "=", "Manager")->first();
+        //echo "<pre>"; print_r($getManager); exit;
+
+        if($request->user_role==$getManager->id){
+            $users->authentication = true;
+        }
         // $request->session()->put('user_id',$users->id);
         // $request->session()->put('user_role',$users->user_role);
         // $request->session()->put('account_id');
