@@ -36,7 +36,7 @@ class Report extends Model
 
     public static function reportsTypeAndImages($reportType){
         if($reportType=="trailer"){
-            $imageHeading = "Trailer Images";
+            $imageHeading = "Trailer";
             $imagesType = array(
                 "trailer_left_front"=>"Left Front Wheel",
                 "trailer_right_front"=>"Right Front Wheel",
@@ -44,7 +44,7 @@ class Report extends Model
                 "trailer_right_rear"=>"Right Rear Wheel"
             );
         }elseif($reportType=="power_unit"){
-            $imageHeading = "Power Unit Images";
+            $imageHeading = "Power Unit";
             $imagesType = array(
                     "power_unit_left_stear"=>"Left Steer Wheel",
                 "power_unit_right_stear"=>"Right Steer Wheel",

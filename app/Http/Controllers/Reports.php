@@ -125,20 +125,11 @@ class Reports extends Controller
         $reportId                       = $report->id;
         $report_detail                  = $report;
 
-        // Mail::send('emails.add_report_email', ["report_detail"=>$report_detail,"manager_info"=>$manager_info], function($message) use ($manager_email,$report_detail){    
-        //     $message->to($manager_email)->subject("New ".$report_detail->vehicle_type." report ".$report_detail->id." has been created");
-        //     $message->from('info@mobilemaintenance.com', 'Wheel Tire');
-        // });
-        // Mail::send('emails.authmail', $data, function($message) {
-		// 			   $message->to(Auth::User()->email, Auth::User()->first_name." ".Auth::User()->last_name)->subject
-		// 				  ('Your authentication code');
-		// 			   $message->from('info@mobilemaintenance.com', 'Wheel Tire');
-		// 			});
+        Mail::send('emails.add_report_email', ["report_detail"=>$report_detail,"manager_info"=>$manager_info], function($message) use ($manager_email,$report_detail){    
+            $message->to($manager_email)->subject("New ".$report_detail->vehicle_type." report ".$report_detail->id." has been created");
+            $message->from('info@mobilemaintenance.com', 'Wheel Tire');
+        });
         var_dump( Mail:: failures());
-        //Mail::to($manager_email)->send(new SendEmail());
-        //echo "<pre>"; print_r(new SendEmail()); exit;
-       
-       
        
         //upload photo to cloudnairy
         $picArr = array();
@@ -182,21 +173,6 @@ class Reports extends Controller
      */
     public function show($id)
     {
-
-        // $trailerArray = array(
-        //     "trailer_left_front"=>"Left Front Wheel",
-        //     "trailer_right_front"=>"Right Front Wheel",
-        //     "trailer_left_rear"=>"Left Rear Wheel",
-        //     "trailer_right_rear"=>"Right Rear Wheel"
-        // );
-        // $powerUnitArray = array(
-        //     "power_unit_left_front"=>"Left Front Wheel",
-        //     "power_unit_right_front"=>"Right Front Wheel",
-        //     "power_unit_left_rear"=>"Left Rear Wheel",
-        //     "power_unit_right_rear"=>"Right Rear Wheel",
-        //     "power_unit_left_stear"=>"Left Steer Wheel",
-        //     "power_unit_right_stear"=>"Right Steer Wheel"
-        // );
         
         $report_detail  = DB::table('reports')
                             ->join('users','reports.signature_by','=','users.id','left outer')
