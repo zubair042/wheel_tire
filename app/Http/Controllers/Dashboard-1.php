@@ -24,7 +24,7 @@ class Dashboard extends Controller
         $this->middleware(['auth', 'permission']);
     }
 
-    public function index(){
+    public function index(){ 
     	if (Auth::user()->user_role != 1) { //Other than Global Admin
             $account_id = Auth::user()->account_id;
             $report_detail = DB::table('reports')

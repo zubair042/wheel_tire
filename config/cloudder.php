@@ -27,4 +27,13 @@ return [
         'effect' => null
     ],
 
+    'image_transformation' => array("transformation"=>array(
+        array("quality"=>50)
+    )),
+
+    'video_transformation' => array("transformation"=>array(
+        array("width"=>100, "crop"=>"scale"),
+        array("dpr"=>2.0)
+    )),
+
 ];

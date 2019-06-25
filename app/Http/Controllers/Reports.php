@@ -8,7 +8,9 @@ use App\Account;
 use App\Report;
 use App\Location;
 use Illuminate\Support\Facades\Mail;
+
 use JD\Cloudder\Facades\Cloudder;
+
 //use App\Mail\SendEmail;
 use App\Comment;
 use App\Report_image;
@@ -123,10 +125,10 @@ class Reports extends Controller
         $reportId                       = $report->id;
         $report_detail                  = $report;
 
-        Mail::send('emails.add_report_email', ["report_detail"=>$report_detail,"manager_info"=>$manager_info], function($message) use ($manager_email,$report_detail){    
-            $message->to($manager_email)->subject("New ".$report_detail->vehicle_type." report ".$report_detail->id." has been created");
-            $message->from('info@mobilemaintenance.com', 'Wheel Tire');
-        });
+        // Mail::send('emails.add_report_email', ["report_detail"=>$report_detail,"manager_info"=>$manager_info], function($message) use ($manager_email,$report_detail){    
+        //     $message->to($manager_email)->subject("New ".$report_detail->vehicle_type." report ".$report_detail->id." has been created");
+        //     $message->from('info@mobilemaintenance.com', 'Wheel Tire');
+        // });
         // Mail::send('emails.authmail', $data, function($message) {
 		// 			   $message->to(Auth::User()->email, Auth::User()->first_name." ".Auth::User()->last_name)->subject
 		// 				  ('Your authentication code');
@@ -269,20 +271,15 @@ class Reports extends Controller
     }
     public function uploadCloudinary($fileArr){
         $returnVal      = array();
-        //array('resource_type' => 'video')
         if ($fileArr!=null){
             foreach($fileArr as $file){
                 $cloudFile  = $file->getRealPath();
-                //$size = cl_image_tag($cloudFile, array("quality"=>"auto"));
                 $type       = $file->getClientOriginalExtension();
-                if ($type == 'mp4'|| $type == 'flv'|| $type == 'avi'|| $type == 'mkv') 
-                {
-                    $cloud      = Cloudder::uploadVideo($cloudFile, null);
+                if ($type == 'mp4'|| $type == 'flv'|| $type == 'avi'|| $type == 'mkv') {
+                    Cloudder::uploadVideo($cloudFile, null, config('cloudder.video_transformation'));
+                }else if($type == 'png' || $type == 'jpeg' || $type == 'jpg' || $type == 'gif' || $type == 'tiff'){
+                    Cloudder::upload($file->getRealPath(), null, config('cloudder.image_transformation'));
                 }
-                else if($type == 'png' || $type == 'jpeg' || $type == 'jpg' || $type == 'gif' || $type == 'tiff')
-                {
-                    $cloud      = Cloudder::upload($cloudFile, null);
-                } 
                 $c          = Cloudder::getResult();
                 $url        = $c["url"];
                 array_push($returnVal, $url);
