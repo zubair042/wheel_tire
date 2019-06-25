@@ -1,15 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<?php //print_r($user); exit;?>
-<script src="{{asset('global_assets/js/plugins/forms/selects/select2.min.js')}}"></script> 
-<script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script> 
-<script src="{{ asset('global_assets/js/plugins/buttons/spin.min.js') }} "></script> 
-<script src="{{ asset('global_assets/js/plugins/buttons/ladda.min.js') }}"></script> 
+<?php 
+?>
+<script src="{{asset('global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
+<script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
+<script src="{{ asset('global_assets/js/plugins/buttons/spin.min.js') }} "></script>
+<script src="{{ asset('global_assets/js/plugins/buttons/ladda.min.js') }}"></script>
 <script src="{{ asset('global_assets/js/demo_pages/components_buttons.js') }}"></script>
 <textarea style="display: none" id="reportTypes"><?php echo json_encode($data); ?></textarea>
 <script type="text/javascript">
-	$vehicleType = JSON.parse($("#reportTypes").html());
+  $vehicleType = JSON.parse($("#reportTypes").html());
 </script>
 <div class="row">
   <div class="col-md-12">
@@ -19,18 +20,18 @@
         <div class="form-group mb-3 mb-md-2 text-center">
           <div class="form-check form-check-inline form-check-right">
             <label class="form-check-label">
-            <span class="font-weight-semibold">TRAILER</span>
-            <div class=""><span class="">
-              <input type="radio" id="trailer_radio" class="form-check-input-styled-danger" name="vehicle_type" value="trailer" checked="" data-fouc="">
-              </span></div>
+              <span class="font-weight-semibold">TRAILER</span>
+              <div class=""><span class="">
+                  <input type="radio" id="trailer_radio" class="form-check-input-styled-danger" name="vehicle_type" value="trailer" checked="" data-fouc="">
+                </span></div>
             </label>
           </div>
           <div class="form-check form-check-inline form-check-right">
             <label class="form-check-label">
-            <span class="font-weight-semibold">POWER UNIT</span>
-            <div class=""><span class="">
-              <input type="radio" id="power_unit_radio" class="form-check-input-styled-danger" name="vehicle_type" value="power_unit" data-fouc="">
-              </span></div>
+              <span class="font-weight-semibold">POWER UNIT</span>
+              <div class=""><span class="">
+                  <input type="radio" id="power_unit_radio" class="form-check-input-styled-danger" name="vehicle_type" value="power_unit" data-fouc="">
+                </span></div>
             </label>
           </div>
         </div>
@@ -50,13 +51,13 @@
                     </div>
                   </div>
                   <div class="media-body text-center"> <a href="javascript:;">
-                    <input type="image" name="power_unit_left_stear" style="width: 13%; margin-right: unset; margin-left: 16%;" class="chooseImage" src="{{asset('global_assets/images/tire1.jpg')}}">
-                    <input type="file" name="power_unit_left_stear[]" id="power_unit_left_stear" class="d-none" multiple>
+                      <input type="image" name="power_unit_left_stear" style="width: 13%; margin-right: unset; margin-left: 16%;" class="chooseImage" src="{{asset('global_assets/images/tire1.jpg')}}">
+                      <input type="file" name="power_unit_left_stear[]" id="power_unit_left_stear" class="d-none" multiple>
                     </a>
                     <input type="image" name="" class="align-self-center custom-style" src="{{asset('global_assets/images/line1.png')}}">
                     <a href="javascript:;">
-                    <input type="image" name="power_unit_right_stear" style="width: 13%; margin-left: unset;  margin-right: 15%;" class="chooseImage float-right" src="{{asset('global_assets/images/tire1.jpg')}}">
-                    <input type="file" name="power_unit_right_stear[]" id="power_unit_right_stear" class="d-none" multiple>
+                      <input type="image" name="power_unit_right_stear" style="width: 13%; margin-left: unset;  margin-right: 15%;" class="chooseImage float-right" src="{{asset('global_assets/images/tire1.jpg')}}">
+                      <input type="file" name="power_unit_right_stear[]" id="power_unit_right_stear" class="d-none" multiple>
                     </a> </div>
                   <div class="align-self-center ml-3 img-width">
                     <div class="form-check form-check-inline form-check-right">
@@ -74,16 +75,15 @@
                       </label>
                     </div>
                   </div>
-                  <div class="media-body text-center"> 
-                    <!-- <img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt=""> --> 
+                  <div class="media-body text-center">
                     <a href="javascript:;">
-                    <input type="image" name="power_unit_left_front" style="width: 25%; margin-right: unset;" class="chooseImage" src="{{asset('global_assets/images/tire_img.jpg')}}">
-                    <input type="file" name="power_unit_left_front[]" id="power_unit_left_front" class="d-none" multiple>
+                      <input type="image" name="power_unit_left_front" style="width: 25%; margin-right: unset;" class="chooseImage" src="{{asset('global_assets/images/tire_img.jpg')}}">
+                      <input type="file" name="power_unit_left_front[]" id="power_unit_left_front" class="d-none" multiple>
                     </a>
                     <input type="image" name="" class="custom-style-1 align-self-center" src="{{asset('global_assets/images/line1.png')}}">
                     <a href="javascript:;">
-                    <input type="image" name="power_unit_right_front" class="chooseImage" style="width: 25%; margin-left: unset;" src="{{asset('global_assets/images/tire_img.jpg')}}">
-                    <input type="file" name="power_unit_right_front[]" id="power_unit_right_front" class="d-none" multiple>
+                      <input type="image" name="power_unit_right_front" class="chooseImage" style="width: 25%; margin-left: unset;" src="{{asset('global_assets/images/tire_img.jpg')}}">
+                      <input type="file" name="power_unit_right_front[]" id="power_unit_right_front" class="d-none" multiple>
                     </a> </div>
                   <div class="align-self-center ml-3 img-width">
                     <div class="form-check form-check-inline form-check-right">
@@ -101,16 +101,15 @@
                       </label>
                     </div>
                   </div>
-                  <div class="media-body"> 
-                    <!-- <img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt=""> --> 
+                  <div class="media-body">
                     <a href="javascript:;">
-                    <input type="image" name="power_unit_left_rear" class="chooseImage" style="width: 25%; margin-right: unset;" src="{{asset('global_assets/images/tire_img.jpg')}}">
-                    <input type="file" name="power_unit_left_rear[]" id="power_unit_left_rear" class="d-none" multiple>
+                      <input type="image" name="power_unit_left_rear" class="chooseImage" style="width: 25%; margin-right: unset;" src="{{asset('global_assets/images/tire_img.jpg')}}">
+                      <input type="file" name="power_unit_left_rear[]" id="power_unit_left_rear" class="d-none" multiple>
                     </a>
                     <input type="image" name="" class="custom-style-1 align-self-center" src="{{asset('global_assets/images/line1.png')}}">
                     <a href="javascript:;">
-                    <input type="image" name="power_unit_right_rear" style="width: 25%; margin-left: unset;" class="chooseImage float-right" src="{{asset('global_assets/images/tire_img.jpg')}}">
-                    <input type="file" name="power_unit_right_rear[]" id="power_unit_right_rear" class="d-none" multiple>
+                      <input type="image" name="power_unit_right_rear" style="width: 25%; margin-left: unset;" class="chooseImage float-right" src="{{asset('global_assets/images/tire_img.jpg')}}">
+                      <input type="file" name="power_unit_right_rear[]" id="power_unit_right_rear" class="d-none" multiple>
                     </a> </div>
                   <div class="align-self-center ml-3 img-width">
                     <div class="form-check form-check-inline form-check-right">
@@ -141,17 +140,15 @@
                     </label>
                   </div>
                 </div>
-                <div class="media-body text-center"> 
-                  <!-- <img src="{{asset('global_assets/images/placeholders/fr.png')}}" class="" width="100%" height="100%" alt=""> --> 
-                  
+                <div class="media-body text-center">
                   <a>
-                  <input type="image" name="trailer_left_front" class="chooseImage" style="width: 25%; margin-right: unset;" src="{{asset('global_assets/images/tire_img.jpg')}}">
-                  <input type="file" name="trailer_left_front[]" id="trailer_left_front" class="d-none" multiple>
+                    <input type="image" name="trailer_left_front" class="chooseImage" style="width: 25%; margin-right: unset;" src="{{asset('global_assets/images/tire_img.jpg')}}">
+                    <input type="file" name="trailer_left_front[]" id="trailer_left_front" class="d-none" multiple>
                   </a>
                   <input type="image" name="" class="align-self-center custom-style-1" src="{{asset('global_assets/images/line1.png')}}">
                   <a href="javascript:;">
-                  <input type="image" name="trailer_right_front" class="chooseImage float-right" style="width: 25%; margin-left: unset;" src="{{asset('global_assets/images/tire_img.jpg')}}">
-                  <input type="file" name="trailer_right_front[]" id="trailer_right_front" class="d-none" multiple>
+                    <input type="image" name="trailer_right_front" class="chooseImage float-right" style="width: 25%; margin-left: unset;" src="{{asset('global_assets/images/tire_img.jpg')}}">
+                    <input type="file" name="trailer_right_front[]" id="trailer_right_front" class="d-none" multiple>
                   </a> </div>
                 <div class="align-self-center ml-3 img-width">
                   <div class="form-check form-check-inline form-check-right">
@@ -170,13 +167,13 @@
                   </div>
                 </div>
                 <div class="media-body"> <a href="javascript:;">
-                  <input type="image" src="{{asset('global_assets/images/tire_img.jpg')}}" style="width: 25%; margin-right: unset;" name="trailer_left_rear" class="chooseImage">
-                  <input type="file" name="trailer_left_rear[]" id="trailer_left_rear" class="d-none" multiple>
+                    <input type="image" src="{{asset('global_assets/images/tire_img.jpg')}}" style="width: 25%; margin-right: unset;" name="trailer_left_rear" class="chooseImage">
+                    <input type="file" name="trailer_left_rear[]" id="trailer_left_rear" class="d-none" multiple>
                   </a>
                   <input type="image" name="" class="align-self-center custom-style-1" src="{{asset('global_assets/images/line1.png')}}">
                   <a href="javascript:;">
-                  <input type="image" src="{{asset('global_assets/images/tire_img.jpg')}}" style="width: 25%; margin-left: unset;" name="trailer_right_rear" class="chooseImage float-right">
-                  <input type="file" name="trailer_right_rear[]" id="trailer_right_rear" class="d-none" multiple>
+                    <input type="image" src="{{asset('global_assets/images/tire_img.jpg')}}" style="width: 25%; margin-left: unset;" name="trailer_right_rear" class="chooseImage float-right">
+                    <input type="file" name="trailer_right_rear[]" id="trailer_right_rear" class="d-none" multiple>
                   </a> </div>
                 <div class="align-self-center ml-3 img-width">
                   <div class="form-check form-check-inline form-check-right">
@@ -220,19 +217,19 @@
               <div class="col-md-2 offset-md-5">
                 <select name="manager_id" onchange="" id="manager_id" class="select_select2_select input_fields">
                   <option disabled selected hidden>Select Manager</option>
-                  
-                  
-									@if(count($manager_detail) > 0)
-									@foreach($manager_detail as $manager)
-									
-                  
+
+
+                  @if(count($manager_detail) > 0)
+                  @foreach($manager_detail as $manager)
+
+
                   <option value="{{ $manager->id }}"><span>{{ $manager->first_name." ".$manager->last_name }}</span></option>
-                  
-                  
-									@endforeach
-									@endif
-								
-                
+
+
+                  @endforeach
+                  @endif
+
+
                 </select>
               </div>
             </div>
@@ -266,37 +263,45 @@
         <h2 class="modal-title font-weight-semibold form-group" style="text-transform: uppercase;font-weight: bold;">Report Confirmation</h2>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
-      <div class="modal-body" style="background-color:#eeeded !important;">
+      <div class="modal-body modal-bg">
         <div class="row">
           <div class="table-responsive col-md-8">
             <table class="table">
               <tbody>
                 <tr>
                   <td><b>Weight</b></td>
-                  <td><div contenteditable="true" class="content-editable" id="weight" onkeyup="show_input_fields_revert($(this))"></div></td>
+                  <td>
+                    <div contenteditable="true" class="content-editable" id="weight" onkeyup="show_input_fields_revert($(this))"></div>
+                  </td>
                 </tr>
                 <tr>
                   <td><b>Unit Number</b></td>
-                  <td><div contenteditable="true" class="content-editable" id="unit_number" onkeyup="show_input_fields_revert($(this))"></div></td>
+                  <td>
+                    <div contenteditable="true" class="content-editable" id="unit_number" onkeyup="show_input_fields_revert($(this))"></div>
+                  </td>
                 </tr>
                 <tr>
                   <td><b>Technician Name</b></td>
-                  <td><div contenteditable="true" class="content-editable" id="name" onkeyup="show_input_fields_revert($(this))"></div></td>
+                  <td>
+                    <div contenteditable="true" class="content-editable" id="name" onkeyup="show_input_fields_revert($(this))"></div>
+                  </td>
                 </tr>
                 <tr>
                   <td><b>Manager</b></td>
                   <td><select class="form-control form-control-uniform" data-fouc id="manager_id_popup" onchange="show_input_fields_revert($(this))">
-				  <option disabled selected hidden>Select Manager</option>
-				  @if(count($manager_detail) > 0)
-				  @foreach($manager_detail as $manager)
-				  <option value="{{ $manager->id }}"><span>{{ $manager->first_name." ".$manager->last_name }}</span></option>
-				  @endforeach
-				  @endif
+                      <option disabled selected hidden>Select Manager</option>
+                      @if(count($manager_detail) > 0)
+                      @foreach($manager_detail as $manager)
+                      <option value="{{ $manager->id }}"><span>{{ $manager->first_name." ".$manager->last_name }}</span></option>
+                      @endforeach
+                      @endif
                     </select></td>
                 </tr>
                 <tr>
                   <td><b>Comments</b></td>
-                  <td><div contenteditable="true" class="content-editable" id="comments" onkeyup="show_input_fields_revert($(this))"></div></td>
+                  <td>
+                    <div contenteditable="true" class="content-editable" id="comments" onkeyup="show_input_fields_revert($(this))"></div>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -304,9 +309,9 @@
         </div>
         <hr>
         <div id="imagesArea"> </div>
-        
+
       </div>
-      <div class="modal-footer" style="padding-top:2%;">
+      <div class="modal-footer mt-10">
         <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
         <button type="button" onclick="submitForm()" class="btn bg-dark">Submit Report</button>
       </div>
@@ -315,286 +320,167 @@
 </div>
 <input type="hidden" value="{{ csrf_token() }}" id="csrf-token">
 <script type="text/javascript">
+  function spinner() {
+    var l = Ladda.create(document.querySelector('#submit'));
+    l.start();
+  }
 
-	
+  $('.form-check-input-styled-danger').uniform({
+    wrapperClass: 'border-danger-600 text-danger-800'
+  });
 
-
-	function spinner() {
-		var l = Ladda.create(document.querySelector('#submit'));
-		l.start();
-	}
-
-	$('.form-check-input-styled-danger').uniform({
-		wrapperClass: 'border-danger-600 text-danger-800'
-	});
-
-	$('#trailer_radio').click(function() {
-		if ($('#power_unit_html').css("display", "block")) {
-			$("#trailer_html").css("display", "block");
-			$("#power_unit_html").css("display", "none");
-		}
-	});
-
-	$('#power_unit_radio').click(function() {
-		if ($('#trailer_html').css("display", "block")) {
-			$("#trailer_html").css("display", "none");
-			$("#power_unit_html").css("display", "block");
-		}
-	});
-
-	$('.select_select2_select').select2({
-		minimumResultsForSearch: Infinity
-	});
-
-	// function getLocationById() {
-	// 	var id = $('#manager_id').val();
-	// 	$.ajax({
-	// 		type: "post",
-	// 		url: "{{ route('manager-location') }}",
-	// 		data: {
-	// 			id: id,
-	// 			"_token": "{{ csrf_token() }}"
-	// 		},
-	// 		success: function(d) {
-	// 			console.log(d);
-	// 			//return fasle;
-	// 			$('#manager-location').html('').select({
-	// 				data: []
-	// 			});
-
-	// 			for (var i = 0; i <= d.length; i++) {
-	// 				var id = d[i].id;
-	// 				var name = d[i].location_name;
-	// 				var option = new Option(name, id, false, false);
-	// 				$("#manager-location").append(option).trigger('change');
-	// 				//$('#manager-location').val($('#manager-location').val() + name);
-	// 			}
-	// 		}
-	// 	})
-	// }
-
-
-
-	$(".chooseImage").on("click", function(e) {
-		var name = $(this).attr("name");
-		$("#" + name + "").click();
-		e.preventDefault();
-	});
-
-	$(".chooseImage").next("input").on("change", function() {
-		var inp_name = $(this).attr("id");
-		$('input[name=' + inp_name + ']').prop('checked', true);
-		$.uniform.update('input[name=' + inp_name + ']');
-	});
-
-	// $('#display_data').on('click', function(e) {
-	// 	// var vehicle_type = $('input[name=vehicle_type]').val();
-	// 	// alert(vehicle_type);
-	// 	var weight = $('input[name=weight]').val();
-	// 	if (weight > 0) {
-	// 		var unit;
-	// 		unit = " lbs";
-	// 	} else {
-	// 		unit = "";
-	// 	}
-	// 	var unit_number = $('input[name=unit_number]').val();
-	// 	var name = $('input[name=name]').val();
-	// 	var comments = $('input[name=comments]').val();
-	// 	if(comments.length > 0) {
-	// 		//alert(comments);
-	// 		$('#comment_show').show();
-	// 	}
-	// 	var manager_text = $('#manager_id :selected').text();
-	// 	var manager_id = $('#manager_id :selected').val();
-	// 	var location_text = $('#manager-location :selected').text();
-	// 	var location_id = $('#manager-location').val();
-	// 	var radio = $("input[name='vehicle_type']:checked").val();
-	// 	if (radio === 'power_unit') {
-	// 		$('.steer_wheel').show();
-	// 	} else {
-	// 		$('.steer_wheel').hide();
-	// 	}
-
-	// 	var preview_vehicle_type = $('#preview_vehicle').val(radio);
-	// 	var preview_weight = $('.preview_weight').text(weight + unit);
-	// 	$('#weight').val(weight);
-	// 	var unit_number_preview = $('.unit_number_preview').text(unit_number);
-	// 	$('#report_unit_num').val(unit_number);
-	// 	var preview_tech_name = $('.preview_tech_name').text(name);
-	// 	$('#name').val(name);
-	// 	var peview_manager_text = $('.preview_manager_text').text(manager_text);
-	// 	var peview_manager_id = $('#preview_manager_id').val(manager_id);
-	// 	var preview_location_text = $('.preview_location_text').text(location_text);
-	// 	var preview_location = $('.preview_location').val(location_id);
-	// 	var preview_comments = $('.preview_comment').text(comments);
-	// 	$('#comment').val(comments);
-	// });
-
-	function submitForm(){
-		$("#trailer_powerunit").submit();
-	}
-
-	function show_input_fields(){
-		var inputs = $(".input_fields");
-		$.each(inputs, function(){
-			var manager_id = $("#manager_id").val();
-			if($(this).attr("id")!="manager_id"){
-				$("#"+$(this).attr("name")+"").html($(this).val());
-			}
-			$("#manager_id_popup option[value="+manager_id+"]").prop('selected', true);
-		})
-	}
-
-	function show_input_fields_revert(e){
-		$("input[name="+e.attr('id')+"]").val(e.html());
-		if(e.attr("id")=="manager_id_popup"){
-			var manager_id = e.val();
-			$("#manager_id option[value="+manager_id+"]").prop('selected', true);
-			$('#manager_id').trigger('change');
-		}
-	}
-
-	function showReportType(){
-		show_input_fields();
-		var typeArray;
-		if($("#trailer_radio").is(":checked")==true){
-			typeArray = $vehicleType.trailer;
-		}else if($("#power_unit_radio").is(":checked")==true){
-			typeArray = $vehicleType.power_unit;
-		}
-		html = '<div class="row" align="center"><div class="col-md-12"><h2><b>'+typeArray.imageHeading+'</b></h2></div></div>';
-		html += '<div class="row">';
-		// $.each(typeArray.imagesType, function(k, v){
-		// 	if($("#"+k+"")[0].files.length>0){
-		// 		html += '<div class="col-md-6" align="center" >';
-		// 			html += '<h5><b>'+v+'</b></h5>';
-		// 			html += '<div class="row" id="'+k+'_image"></div>';
-		// 		html += '</div>';
-		// 	}
-		// });
-
-		$.each(typeArray.imagesType, function(k, v){
-			if($("#"+k+"")[0].files.length>0){
-				html += '<div class="col-md-6"><div class="card"><div class="card-header bg-transparent header-elements-inline"><h6 class="card-title">'+v+'</h6></div><div class="card-body"><div class="row" id="'+k+'_image"></div> </div><div class="card-footer"><div class="row" align="center"><div class="col-md-12"><input type="file" class="form-control-uniform" data-fouc multiple id="popup_upload_'+k+'" inputId="'+k+'" onchange="popup_file_upload($(this))"></div></div></div></div></div>';
-			}
-			
-		});
-		html += '</div>';
-
-		$("#imagesArea").html(html);
-		$('.form-control-uniform').uniform();
-		$.each(typeArray.imagesType, function(k1, v1){
-			load_images(k1,v1);
-		});
-	}
-
-	function popup_file_upload(input){
-		var typeArray;
-		var title;
-		var slug = input.attr("inputId");
-		var OFiles = Array.from($("#"+slug+"")[0].files);
-		var NFiles = Array.from(input[0].files);
-		var files = OFiles.concat(NFiles);
-
-
-		if($("#trailer_radio").is(":checked")==true){
-			typeArray = $vehicleType.trailer;
-		}else if($("#power_unit_radio").is(":checked")==true){
-			typeArray = $vehicleType.power_unit;
-		}
-		
-		$.each(typeArray.imagesType, function(k, v){
-			if(k==slug){
-				title = v;
-			}
-		});
-
-		
-		input.val('').clone(true);
-		$("#"+slug+"").val('').clone(true);
-		$("#"+slug+"")[0].files = new FileListItem(files);
-		$("#"+slug+"_image").html('');
-		load_images(slug, title);
-	}
-
-	// $(".popup_file_upload").on("change", function(e){
-	// 	var input = $(this);
-	// 	var slug = input.attr("inputId");
-	// 	$("#"+slug+"")[0].files;
-	// 	console.log($("#"+slug+"")[0].files)
-	// 	// $files = Array.from($("#"+slug+"")[0].files);
-	// 	// $.each($files, function(k, v){
-	// 	// 	if(k==key)
-	// 	// 		$files.splice(k, 1);
-	// 	// });
-	// 	// $("#"+slug+"").val('').clone(true);
-	// 	// $("#"+slug+"")[0].files = new FileListItem($files);
-	// 	// $("#"+slug+"_image").html('');
-	// 	// load_images(slug, title);
-	// })
-
-	function load_images(slug, title){
-		var files = $("#"+slug+"")[0].files;
-		if(files.length<=0){
-			$.uniform.update($('input[name='+ slug +']').prop('checked', false));
-		}
-		$.each(files, function(k, v){
-			var extension = v.name.split('.');
-			extension = extension[extension.length-1];
-			var reader = new FileReader();
- 			reader.onload = function(f) {
- 				load_files_by_type(extension, slug, f.target.result, title, k);
-			}
-			reader.readAsDataURL(v);
-		});
-	}
-	function load_files_by_type(extension, slug, result, title, k){
-		if (extension == 'png' || extension == 'jpg' || extension == 'jpeg' || extension == 'gif') {
-			//$("#" + slug + "_image").append('<div class="col-md-6"><a href="javascript:;" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group"><img src="' + f.target.result + '"style="width:100%;height:150px;padding:5px"><i class="icon-eye2"></i></a></div>');	
-			$("#" + slug + "_image").append('<div class="col-md-5 card-img-actions m-1" id="'+slug+'_'+k+'"><img class="card-img img-fluid" id="image_preview_remove" src="' + result + '" alt="" width="100"><div class="card-img-actions-overlay card-img"><a href="javascript:;" onclick="removeImage(\''+slug+'\', \''+k+'\', \''+title+'\')" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group"><i class="icon-bin2"></i></a></div></div>');	
-		}else if (extension == 'mp4' || extension == 'flv' || extension == 'avi' || extension == 'mkv') {
-			$("#" + slug + "_image").append('<div class="col-md-6"><video style="height:130px;width:200px;" controls><source src="' + result + '" ></video></div>');
-		}
-	}
-	function removeImage(slug, key, title){
-		$files = Array.from($("#"+slug+"")[0].files);
-		$.each($files, function(k, v){
-			if(k==key)
-				$files.splice(k, 1);
-		});
-		$("#"+slug+"").val('').clone(true);
-		$("#"+slug+"")[0].files = new FileListItem($files);
-		$("#"+slug+"_image").html('');
-		load_images(slug, title);
-	}
-
-	
-
-	function FileListItem(a) {
-        a = [].slice.call(Array.isArray(a) ? a : arguments)
-        for (var c, b = c = a.length, d = !0; b-- && d;) d = a[b] instanceof File
-        if (!d) throw new TypeError("expected argument to FileList is File or array of File objects")
-        for (b = (new ClipboardEvent("")).clipboardData || new DataTransfer; c--;) b.items.add(a[c])
-        return b.files
+  $('#trailer_radio').click(function() {
+    if ($('#power_unit_html').css("display", "block")) {
+      $("#trailer_html").css("display", "block");
+      $("#power_unit_html").css("display", "none");
     }
-	
-	// $(".d-none").on("change", function(e) {
-	// 	var input = $(this);
-	// 	$("#" + input.attr('id') + "_image").html('');
-	// 	$.each($(this)[0].files, function(k, v) {
-	// 		var extension = v.name.split(".");
-	// 		extension = extension[extension.length-1];
-	// 		var reader = new FileReader();
- // 			reader.onload = function(f) {
- // 				if (extension == 'png' || extension == 'jpg' || extension == 'jpeg' || extension == 'gif') {
- // 					$("#" + input.attr('id') + "_image").append('<div class="col-md-6"><img src="' + f.target.result + '" style="width:100%;height:150px;padding:5px"></div>');
- // 				}else if (extension == 'mp4' || extension == 'flv' || extension == 'avi' || extension == 'mkv') {
- // 					$("#" + input.attr('id') + "_image").append('<div class="col-md-6"><video style="height:130px;width:200px;" controls><source src="' + f.target.result + '" ></video></div>');
- // 				}
-	// 		}
-	// 		reader.readAsDataURL(v);
-	// 	});
-	// });
+  });
 
-</script> 
+  $('#power_unit_radio').click(function() {
+    if ($('#trailer_html').css("display", "block")) {
+      $("#trailer_html").css("display", "none");
+      $("#power_unit_html").css("display", "block");
+    }
+  });
+
+  $('.select_select2_select').select2({
+    minimumResultsForSearch: Infinity
+  });
+
+  $(".chooseImage").on("click", function(e) {
+    var name = $(this).attr("name");
+    $("#" + name + "").click();
+    e.preventDefault();
+  });
+
+  $(".chooseImage").next("input").on("change", function() {
+    var inp_name = $(this).attr("id");
+    $('input[name=' + inp_name + ']').prop('checked', true);
+    $.uniform.update('input[name=' + inp_name + ']');
+  });
+
+  function submitForm() {
+    $("#trailer_powerunit").submit();
+  }
+
+  function show_input_fields() {
+    var inputs = $(".input_fields");
+    $.each(inputs, function() {
+      var manager_id = $("#manager_id").val();
+      if ($(this).attr("id") != "manager_id") {
+        $("#" + $(this).attr("name") + "").html($(this).val());
+      }
+      $("#manager_id_popup option[value=" + manager_id + "]").prop('selected', true);
+    })
+  }
+
+  function show_input_fields_revert(e) {
+    $("input[name=" + e.attr('id') + "]").val(e.html());
+    if (e.attr("id") == "manager_id_popup") {
+      var manager_id = e.val();
+      $("#manager_id option[value=" + manager_id + "]").prop('selected', true);
+      $('#manager_id').trigger('change');
+    }
+  }
+
+  function showReportType() {
+    show_input_fields();
+    var typeArray;
+    if ($("#trailer_radio").is(":checked") == true) {
+      typeArray = $vehicleType.trailer;
+    } else if ($("#power_unit_radio").is(":checked") == true) {
+      typeArray = $vehicleType.power_unit;
+    }
+    html = '<div class="row" align="center"><div class="col-md-12"><h2><b>' + typeArray.imageHeading + '</b></h2></div></div>';
+    html += '<div class="row">';
+    $.each(typeArray.imagesType, function(k, v) {
+      if ($("#" + k + "")[0].files.length > 0) {
+        html += '<div class="col-md-6"><div class="card"><div class="card-header bg-transparent header-elements-inline"><h6 class="card-title">' + v + '</h6></div><div class="card-body"><div class="row" id="' + k + '_image"></div> </div><div class="card-footer"><div class="row" align="center"><div class="col-md-12"><input type="file" class="form-control-uniform" data-fouc multiple id="popup_upload_' + k + '" inputId="' + k + '" onchange="popup_file_upload($(this))"></div></div></div></div></div>';
+      }
+
+    });
+    html += '</div>';
+
+    $("#imagesArea").html(html);
+    $('.form-control-uniform').uniform();
+    $.each(typeArray.imagesType, function(k1, v1) {
+      load_images(k1, v1);
+    });
+  }
+
+  function popup_file_upload(input) {
+    var typeArray;
+    var title;
+    var slug = input.attr("inputId");
+    var OFiles = Array.from($("#" + slug + "")[0].files);
+    var NFiles = Array.from(input[0].files);
+    var files = OFiles.concat(NFiles);
+
+
+    if ($("#trailer_radio").is(":checked") == true) {
+      typeArray = $vehicleType.trailer;
+    } else if ($("#power_unit_radio").is(":checked") == true) {
+      typeArray = $vehicleType.power_unit;
+    }
+
+    $.each(typeArray.imagesType, function(k, v) {
+      if (k == slug) {
+        title = v;
+      }
+    });
+
+
+    input.val('').clone(true);
+    $("#" + slug + "").val('').clone(true);
+    $("#" + slug + "")[0].files = new FileListItem(files);
+    $("#" + slug + "_image").html('');
+    load_images(slug, title);
+  }
+
+  function load_images(slug, title) {
+    var files = $("#" + slug + "")[0].files;
+    if (files.length <= 0) {
+      $.uniform.update($('input[name=' + slug + ']').prop('checked', false));
+    }
+    $.each(files, function(k, v) {
+      var extension = v.name.split('.');
+      extension = extension[extension.length - 1];
+      var reader = new FileReader();
+      reader.onload = function(f) {
+        load_files_by_type(extension, slug, f.target.result, title, k);
+      }
+      reader.readAsDataURL(v);
+    });
+  }
+
+  function load_files_by_type(extension, slug, result, title, k) {
+    if (extension == 'png' || extension == 'jpg' || extension == 'jpeg' || extension == 'gif') {
+      $("#" + slug + "_image").append('<div class="col-md-5 card-img-actions m-1" id="' + slug + '_' + k + '"><img class="card-img img-fluid" id="image_preview_remove" src="' + result + '" alt="" width="100"><div class="card-img-actions-overlay card-img"><a href="javascript:;" onclick="removeImage(\'' + slug + '\', \'' + k + '\', \'' + title + '\')" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group"><i class="icon-bin2"></i></a></div></div>');
+    } else if (extension == 'mp4' || extension == 'flv' || extension == 'avi' || extension == 'mkv') {
+      $("#" + slug + "_image").append('<div class="col-md-6"><video style="height:130px;width:200px;" controls><source src="' + result + '" ></video></div>');
+    }
+  }
+
+  function removeImage(slug, key, title) {
+    $files = Array.from($("#" + slug + "")[0].files);
+    $.each($files, function(k, v) {
+      if (k == key)
+        $files.splice(k, 1);
+    });
+    $("#" + slug + "").val('').clone(true);
+    $("#" + slug + "")[0].files = new FileListItem($files);
+    $("#" + slug + "_image").html('');
+    load_images(slug, title);
+  }
+
+
+
+  function FileListItem(a) {
+    a = [].slice.call(Array.isArray(a) ? a : arguments)
+    for (var c, b = c = a.length, d = !0; b-- && d;) d = a[b] instanceof File
+    if (!d) throw new TypeError("expected argument to FileList is File or array of File objects")
+    for (b = (new ClipboardEvent("")).clipboardData || new DataTransfer; c--;) b.items.add(a[c])
+    return b.files
+  }
+</script>
 @endsection
