@@ -46,7 +46,7 @@ body {
   <!-- Main content --> 
   <div class="content-wrapper"> 
     
-      <div class="content d-flex align-items-center justify-content-center" align="center">
+      <div class="content d-flex align-items-center justify-content-center">
         <!-- <div class="col-md-4">
         </div> -->
         <div class="col-md-4">
