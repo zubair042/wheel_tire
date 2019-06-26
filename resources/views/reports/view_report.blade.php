@@ -105,11 +105,11 @@
 										if ($extension == 'mp4' || $extension == 'avi' || $extension == 'flv' || $extension == 'mkv') { ?>
 										<div class="col-md-5 card-img-actions m-1">
 										<video style="width:160%;" controls><source src="{{$val1->url}}" ></video>
-										<div class="card-img-actions-overlay card-img" style="width: 155%">
+										<!-- <div class="card-img-actions-overlay card-img" style="width: 155%">
 											<a href="{{$val1->url}}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
 												<i class="icon-eye2"></i>
 											</a>
-										</div>
+										</div> -->
 									</div>	
 										<?php }elseif ($extension == 'png' || $extension == 'jpg' || $extension == 'jpeg' || $extension == 'gif' || $extension == 'webp') { ?>
 										<div class="col-md-5 card-img-actions m-1">
