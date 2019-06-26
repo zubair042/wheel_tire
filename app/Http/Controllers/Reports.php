@@ -8,9 +8,7 @@ use App\Account;
 use App\Report;
 use App\Location;
 use Illuminate\Support\Facades\Mail;
-
 use JD\Cloudder\Facades\Cloudder;
-
 //use App\Mail\SendEmail;
 use App\Comment;
 use App\Report_image;
@@ -32,7 +30,14 @@ class Reports extends Controller
     
     public function index()
     {
-        if (Auth::user()->user_role != 1) { //Other than Global Admin
+        if (Auth::user()->user_role == 3) {
+            $report_detail = DB::table('reports')
+                            ->join('users','reports.manager_id','=','users.id')
+                            ->where('reports.manager_id', Auth::user()->id)
+                            ->select('reports.*','users.first_name','users.last_name')
+                            ->get();    
+        }
+        else if (Auth::user()->user_role == 2) { //Other than Global Admin
             $account_id = Auth::user()->account_id;
             $report_detail = DB::table('reports')
                         ->join('accounts','reports.account_id','=','accounts.id')
@@ -42,7 +47,7 @@ class Reports extends Controller
                         ->select('reports.*','users.first_name','locations.location_name','users.last_name')
                         ->get();
         }
-        else{
+        else if(Auth::user()->user_role == 1){
             $report_detail = DB::table('reports')
                         ->join('locations','reports.location_id','=','locations.id','left outer')
                         ->join('users',"reports.signature_by","=","users.id",'left outer')
@@ -88,7 +93,7 @@ class Reports extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {         
+    {
         $power_unit_left_stear  = $request->file('power_unit_left_stear');
         $power_unit_right_stear = $request->file('power_unit_right_stear');
         $power_unit_left_front  = $request->file('power_unit_left_front');
@@ -99,13 +104,16 @@ class Reports extends Controller
         $trailer_right_front    = $request->file('trailer_right_front');
         $trailer_left_rear      = $request->file('trailer_left_rear');
         $trailer_right_rear     = $request->file('trailer_right_rear');
-
-
-
+        
+        $location = Location::where('user_id',Auth::user()->id)->first();
+       // dd($location);
         $report = new Report;
         $report->created_by             = Auth::user()->id;
         $report->account_id             = Auth::user()->account_id;
-        $report->location_id            = $request->input('location_id');
+        $report->location_id            = 0;
+        if(Auth::user()->user_role == 4){
+            $report->location_id            = $location->id;
+        }
         $report->vehicle_type           = $request->input('vehicle_type');
         $report->steer_wheel_position   = $request->input('small_wheel');
         $report->front_wheel_position   = $request->input('front_wheel');
@@ -234,8 +242,8 @@ class Reports extends Controller
      */
     public function destroy()
     {  
-        $report = Report::find($_POST['id']);
-        $report->delete();
+        // $report = Report::find($_POST['id']);
+        // $report->delete();
     }
 
     public function signature()
@@ -250,6 +258,8 @@ class Reports extends Controller
         if ($fileArr!=null){
             foreach($fileArr as $file){
                 $cloudFile  = $file->getRealPath();
+                $size  = $file->getSize();
+                //dd($size);
                 $type       = $file->getClientOriginalExtension();
                 if ($type == 'mp4'|| $type == 'flv'|| $type == 'avi'|| $type == 'mkv') {
                     Cloudder::uploadVideo($cloudFile, null, config('cloudder.video_transformation'));

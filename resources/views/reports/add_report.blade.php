@@ -455,7 +455,7 @@
 
   function load_files_by_type(extension, slug, result, title, k) {
     if (extension == 'png' || extension == 'jpg' || extension == 'jpeg' || extension == 'gif') {
-      $("#" + slug + "_image").append('<div class="col-md-5 card-img-actions m-1" id="' + slug + '_' + k + '"><img class="card-img img-fluid" id="image_preview_remove" src="' + result + '" alt="" width="100"><div class="card-img-actions-overlay card-img"><a href="javascript:;" onclick="removeImage(\'' + slug + '\', \'' + k + '\', \'' + title + '\')" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group"><i class="icon-bin2"></i></a></div></div>');
+      $("#" + slug + "_image").append('<div class="col-md-5 card-img-actions m-1" id="' + slug + '_' + k + '"><img class="card-img img-fluid" id="image_preview_remove" src="' + result + '" alt="" width="100" style="height:140px"><div class="card-img-actions-overlay card-img"><a href="javascript:;" onclick="removeImage(\'' + slug + '\', \'' + k + '\', \'' + title + '\')" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group"><i class="icon-bin2"></i></a></div></div>');
     } else if (extension == 'mp4' || extension == 'flv' || extension == 'avi' || extension == 'mkv') {
       $("#" + slug + "_image").append('<div class="col-md-6"><video style="height:130px;width:200px;" controls><source src="' + result + '" ></video></div>');
     }

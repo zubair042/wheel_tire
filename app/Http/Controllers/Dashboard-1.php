@@ -13,14 +13,6 @@ use App\Module_permission;
 class Dashboard extends Controller
 {
 	public function __construct(){
-        //dd(Auth::guard('location')->check());
-        // if(Auth::guard('location')->id()){
-        //     $this->middleware(['guest:location']);
-        // }else{
-        //     $this->middleware(['auth', 'permission']);
-        // }
-        //dd(Auth::guard('location'));
-        
         $this->middleware(['auth', 'permission']);
     }
 
@@ -44,5 +36,10 @@ class Dashboard extends Controller
                         ->get();
         }
         return view('dashboard/index', compact("report_detail"));
+    }
+    public function store(Request $request){
+        $file = $request->file('file');
+        $destinationPath = 'uploads';
+        $file->move($destinationPath,$file->getClientOriginalName());
     }
 }
