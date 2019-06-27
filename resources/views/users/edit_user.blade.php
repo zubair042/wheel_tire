@@ -24,6 +24,7 @@
 			<form method="POST" action="{{ url('/user/edit/'.$user->id) }}" id="adit_user_form">
 				{{ csrf_field() }}
 
+				
 				<div class="row">
 					<div class="col-md-2 offset-md-3">
 						<span class="input-group-text">
@@ -38,7 +39,22 @@
 						</div>
 					</div>
 				</div>
-
+				<?php if ($user->user_role == 3) { ?>
+				<div class="row">
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text">
+							<p>Two-way Authentication</p>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<div class="form-check form-check-switch form-check-switch-left">
+							<label class="form-check-label d-flex align-items-center">
+								<input type="checkbox" name="authentication" data-on-text="On" data-off-text="Off" value="1" class="form-check-input-switch" data-size="small" @if($user->authentication == "true") checked @endif>
+							</label>
+						</div>
+					</div>
+				</div>
+				<?php } ?>
 				<div class="row">
 					<div class="col-md-2 offset-md-3">
 						<span class="input-group-text">
@@ -50,8 +66,8 @@
 							@if(count($user_roles) > 0)
 							@foreach($user_roles as $role)
 							<option value="{{ $role->id }}" <?php if ($role->id == $user->user_role) {
-																echo 'selected="selected"';
-															} ?>><span>{{ $role->description }}</span></option>
+								echo 'selected="selected"';
+							} ?>><span>{{ $role->description }}</span></option>
 							@endforeach
 							@endif
 						</select>
@@ -94,7 +110,8 @@
 						</span>
 					</div>
 					<div class="col-md-3">
-						<input type="password" name="password" value="{{ $user->password }}" class="form-control">
+						<input type="password" name="password" value="" class="form-control">
+						<code>If you don't want to change password, leave it Empty!</code>
 					</div>
 				</div>
 				<div class="row" align="center">

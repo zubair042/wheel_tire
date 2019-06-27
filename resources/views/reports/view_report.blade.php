@@ -30,8 +30,9 @@
 					<div class="col-md-8">
 						<!-- <a href="javascript:;" class="d-inline-block"> -->
 						<?php if ($reportType['main_image'] == '' && $user->user_role == 3) { ?>
-							<a href="javascript:;" id="static_image">
-								<input type="image" src="{{asset('')}}global_assets/images/image_uploader.png" id="uploadImage" class="img-fluid chooseFile" alt="">
+							<a href="javascript:;">
+								<input type="image" src="{{asset('')}}global_assets/images/image_uploader.png" id="uploadImage" class="img-fluid chooseFile static_image" alt="">
+								<img src="{{asset('')}}global_assets/images/spinner_small.gif"id="image_spin" style="display:none;width: 20%;margin:18% 40%">
 								<input type="file" name="uploadImage" id="imageToUpload" class="d-none">
 							</a>
 						<?php }elseif ($reportType['main_image'] == '' && $user->user_role != 3) { ?>
@@ -217,6 +218,8 @@
 		formD.append("name", name);
 		formD.append("report_id", reportId);
 		formD.append("image_type", "main_image");
+		$('.static_image').hide();
+		$('#image_spin').show();
 		$.ajax({
 			url: "{{ route('add_image') }}",
 			type: "post",
@@ -229,7 +232,7 @@
 			processData: false,
 			success: function(data) {
 				$('#upload_image').html(data.image);
-				$('#static_image').hide();
+				$('#image_spin').hide();
 				location.reload();
 				// console.log(data);
 				// $("#uploadedImage").html(data);

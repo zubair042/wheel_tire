@@ -37,9 +37,9 @@ class Dashboard extends Controller
         }
         return view('dashboard/index', compact("report_detail"));
     }
-    public function store(Request $request){
-        $file = $request->file('file');
-        $destinationPath = 'uploads';
-        $file->move($destinationPath,$file->getClientOriginalName());
-    }
+    // public function store(Request $request){
+    //     $file = $request->file('file');
+    //     $destinationPath = 'uploads';
+    //     $file->move($destinationPath,$file->getClientOriginalName());
+    // }
 }

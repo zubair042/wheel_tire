@@ -100,14 +100,14 @@ class Users extends Controller
         $users->last_name = $request->input('last_name');
         $users->email = $request->input('email');
         $users->password = bcrypt($request->input('password'));
-        //$users->authentication = false;
+        $users->authentication = 'false';
 
-        $getManager = Role::where("description", "=", "Manager")->first();
-        //echo "<pre>"; print_r($getManager); exit;
+        // $getManager = Role::where("description", "=", "Manager")->first();
+        // //echo "<pre>"; print_r($getManager); exit;
 
-        if($request->user_role==$getManager->id){
-            $users->authentication = true;
-        }
+        // if($request->user_role==$getManager->id){
+        //     $users->authentication = false;
+        // }
         // $request->session()->put('user_id',$users->id);
         // $request->session()->put('user_role',$users->user_role);
         // $request->session()->put('account_id');
@@ -162,11 +162,19 @@ class Users extends Controller
     {
         $users = User::find($id);
         //$users->account_id = $request->input('account_id');
+        if ($request->input('authentication') == 1) {
+            $users->authentication = true;
+            $users->authentication_status = 'N';
+        }else{
+            $users->authentication = 'false';
+        }
         $users->user_role = $request->input('user_role');
         $users->first_name = $request->input('first_name');
         $users->last_name = $request->input('last_name');
         $users->email = $request->input('email');
-        $users->password = bcrypt($request->input('password'));
+        if($request->password != ""){
+            $users->password = bcrypt($request->input('password'));
+        }
         $users->save();
         return redirect('/users')->with('success',"Update User successfully");
     }

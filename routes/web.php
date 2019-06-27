@@ -12,7 +12,6 @@
 */
 Route::group(['middleware' => ['email.auth']], function () {
 	Route::get('/', 'Dashboard@index')->name('dashboard');
-	Route::post('/dashbord', 'Dashboard@store')->name('file-save');
 	//Route::get('/reports','Reports@index')->middleware('permission');
 	Route::get('/reports','Reports@index');
 	Route::get('/report/add','Reports@create');
