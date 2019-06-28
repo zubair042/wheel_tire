@@ -95,6 +95,7 @@ class Users extends Controller
         $users->created_by = Auth::user()->id;
         $users->account_id = $request->input('account_id');
         $users->location_id = json_encode($request->input('location_id'));
+        //dd($users->location_id);
         $users->user_role = $request->input('user_role');
         $users->first_name = $request->input('first_name');
         $users->last_name = $request->input('last_name');
@@ -147,8 +148,13 @@ class Users extends Controller
             $customers = Account::all();
             $user_roles = DB::table('user_roles')->get();
         }
+        $locations = DB::table('locations')
+                    ->where('account_id', Auth::user()->account_id)
+                    ->get();
+                
         $user = User::find($id);
-        return view('users/edit_user', compact(['user','customers','user_roles']));
+        
+        return view('users/edit_user', compact(['user','customers','user_roles','locations']));
     }
 
     /**
@@ -171,6 +177,7 @@ class Users extends Controller
         $users->user_role = $request->input('user_role');
         $users->first_name = $request->input('first_name');
         $users->last_name = $request->input('last_name');
+        $users->location_id = json_encode($request->input('location_id'));
         $users->email = $request->input('email');
         if($request->password != ""){
             $users->password = bcrypt($request->input('password'));

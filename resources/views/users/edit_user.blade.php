@@ -2,6 +2,8 @@
 
 @section('content')
 
+<?php //sprint_r(json_decode($user->location_id));?>
+
 <script src="{{asset('global_assets/js/plugins/forms/styling/switch.min.js')}}"></script>
 <script src="{{asset('global_assets/js/plugins/forms/styling/switchery.min.js')}}"></script>
 <script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
@@ -24,7 +26,7 @@
 			<form method="POST" action="{{ url('/user/edit/'.$user->id) }}" id="adit_user_form">
 				{{ csrf_field() }}
 
-				
+
 				<div class="row">
 					<div class="col-md-2 offset-md-3">
 						<span class="input-group-text">
@@ -40,20 +42,20 @@
 					</div>
 				</div>
 				<?php if ($user->user_role == 3) { ?>
-				<div class="row">
-					<div class="col-md-2 offset-md-3">
-						<span class="input-group-text">
-							<p>Two-way Authentication</p>
-						</span>
-					</div>
-					<div class="col-md-3">
-						<div class="form-check form-check-switch form-check-switch-left">
-							<label class="form-check-label d-flex align-items-center">
-								<input type="checkbox" name="authentication" data-on-text="On" data-off-text="Off" value="1" class="form-check-input-switch" data-size="small" @if($user->authentication == "true") checked @endif>
-							</label>
+					<div class="row">
+						<div class="col-md-2 offset-md-3">
+							<span class="input-group-text">
+								<p>Two-way Authentication</p>
+							</span>
+						</div>
+						<div class="col-md-3">
+							<div class="form-check form-check-switch form-check-switch-left">
+								<label class="form-check-label d-flex align-items-center">
+									<input type="checkbox" name="authentication" data-on-text="On" data-off-text="Off" value="1" class="form-check-input-switch" data-size="small" @if($user->authentication == "true") checked @endif>
+								</label>
+							</div>
 						</div>
 					</div>
-				</div>
 				<?php } ?>
 				<div class="row">
 					<div class="col-md-2 offset-md-3">
@@ -66,8 +68,10 @@
 							@if(count($user_roles) > 0)
 							@foreach($user_roles as $role)
 							<option value="{{ $role->id }}" <?php if ($role->id == $user->user_role) {
-								echo 'selected="selected"';
-							} ?>><span>{{ $role->description }}</span></option>
+																echo 'selected="selected"';
+															} ?>>
+								<span>{{ $role->description }}</span>
+							</option>
 							@endforeach
 							@endif
 						</select>
@@ -93,6 +97,24 @@
 						<input type="text" name="last_name" value="{{ $user->last_name }}" class="form-control">
 					</div>
 				</div>
+				<div class="row" <?php if($user->user_role == 1) { ?> style="display: none;" <?php } ?>>
+					<div class="col-md-2 offset-md-3">
+						<span class="input-group-text">
+							<p>Location</p>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<select class="multiselect" name="location_id[]" multiple="multiple">
+						<?php $locals = json_decode($user->location_id); ?>
+						@if(count($locations) > 0)
+						@foreach($locations as $location)
+						<option value="{{ $location->id }}" <?php if(in_array($location->id , $locals)) {echo 'selected="selected"';} ?>><span>{{ $location->location_name }}</span></option>
+						@endforeach
+						@endif
+						</select>
+					</div>
+				</div>
+				
 				<div class="row">
 					<div class="col-md-2 offset-md-3">
 						<span class="input-group-text">
@@ -140,6 +162,7 @@
 		//alert();
 		document.getElementById("adit_user_form").reset();
 	}
+	$('.multiselect').multiselect();
 </script>
 
 @endsection
