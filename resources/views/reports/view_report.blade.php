@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 <script src="{{asset('global_assets/js/plugins/media/fancybox.min.js') }}"></script>
 
 <div class="row">
@@ -99,18 +100,12 @@
 							<div class="col-md-6">
 								<h5 class="font-weight-semibold text-white text-center"><?php echo $key; ?></h5>
 								<div class="row">
-									<?php foreach($val as $key1=>$val1): ?>
-										<?php //echo"<pre>";print_r(pathinfo($val1->url)['extension']); ?>
-										<?php $extension = pathinfo($val1->url)['extension'];
-										//echo $extension;exit;
+								<?php foreach($val as $key1=>$val1): ?>
+										<!-- <?php $extension = pathinfo($val1->url)['extension'];
+										
 										if ($extension == 'mp4' || $extension == 'avi' || $extension == 'flv' || $extension == 'mkv') { ?>
 										<div class="col-md-5 card-img-actions m-1">
 										<video style="width:160%;" controls><source src="{{$val1->url}}" ></video>
-										<!-- <div class="card-img-actions-overlay card-img" style="width: 155%">
-											<a href="{{$val1->url}}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox1" rel="group">
-												<i class="icon-eye2"></i>
-											</a>
-										</div> -->
 									</div>	
 										<?php }elseif ($extension == 'png' || $extension == 'jpg' || $extension == 'jpeg' || $extension == 'gif' || $extension == 'webp') { ?>
 										<div class="col-md-5 card-img-actions m-1">
@@ -122,9 +117,20 @@
 												</div>
 											</div>
 
+										<?php } ?> -->
+									<?php $extension = pathinfo($val1->url)['extension'];
+										if ($extension == 'mp4' || $extension == 'avi' || $extension == 'flv' || $extension == 'mkv') { ?>
+										<div class="col-md-5 card-img-actions m-1">
+											<a class="fancybox fancybox.iframe" href="{{$val1->url}}">
+												<video style="width: 100% !important" controls><source src="{{$val1->url}}" ></video>
+											</a>
+										</div>	
+										<?php }elseif ($extension == 'png' || $extension == 'jpg' || $extension == 'jpeg' || $extension == 'gif' || $extension == 'webp') { ?>
+											<div class="col-md-5 card-img-actions m-1">
+												<a rel="gallery" class="fancybox" href="{{$val1->url}}"><img class="card-img img-fluid h-200" src="{{$val1->url}}" alt=""/></a>
+											</div>
 										<?php } ?>
-									
-									<?php endforeach; ?>
+								<?php endforeach; ?>
 								</div>
 							</div>
 							<?php endif; ?>
@@ -165,6 +171,17 @@
 <input type="hidden" value="{{ csrf_token() }}" id="csrf-token">
 
 <script type="text/javascript">
+	$(".fancybox")
+	    .attr('rel', 'gallery')
+	    .fancybox({
+	        openEffect  : 'none',
+	        closeEffect : 'none',
+	        nextEffect  : 'none',
+	        prevEffect  : 'none',
+	        padding     : 0,
+	        margin      : [20, 60, 20, 60] // Increase left/right margin
+	    });
+
 	$('[data-popup="lightbox1"]').fancybox({
 		padding: 3
 	});

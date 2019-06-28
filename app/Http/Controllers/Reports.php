@@ -253,6 +253,7 @@ class Reports extends Controller
                         ->update(['signature' => 1 , 'signature_by'=> Auth::user()->id , 'signature_on' => date('Y-m-d H:i:s')]);
 
     }
+    // config('cloudder.video_transformation') for video optimization
     public function uploadCloudinary($fileArr){
         $returnVal      = array();
         if ($fileArr!=null){
@@ -262,7 +263,7 @@ class Reports extends Controller
                 //dd($size);
                 $type       = $file->getClientOriginalExtension();
                 if ($type == 'mp4'|| $type == 'flv'|| $type == 'avi'|| $type == 'mkv') {
-                    Cloudder::uploadVideo($cloudFile, null, config('cloudder.video_transformation'));
+                    Cloudder::uploadVideo($cloudFile, null);
                 }else if($type == 'png' || $type == 'jpeg' || $type == 'jpg' || $type == 'gif' || $type == 'tiff'){
                     Cloudder::upload($file->getRealPath(), null, config('cloudder.image_transformation'));
                 }
