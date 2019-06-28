@@ -64,7 +64,7 @@
 						</span>
 					</div>
 					<div class="col-md-3">
-						<select class="custom-select1" name="user_role">
+						<select class="custom-select1" id="set_location" onchange="setLocation()" name="user_role">
 							@if(count($user_roles) > 0)
 							@foreach($user_roles as $role)
 							<option value="{{ $role->id }}" <?php if ($role->id == $user->user_role) {
@@ -97,7 +97,8 @@
 						<input type="text" name="last_name" value="{{ $user->last_name }}" class="form-control">
 					</div>
 				</div>
-				<div class="row" <?php if($user->user_role == 1) { ?> style="display: none;" <?php } ?>>
+				<?php if ($user->user_role == 3) { ?>
+				<div class="row" id="manager_location">
 					<div class="col-md-2 offset-md-3">
 						<span class="input-group-text">
 							<p>Location</p>
@@ -114,6 +115,7 @@
 						</select>
 					</div>
 				</div>
+				<?php } ?>
 				
 				<div class="row">
 					<div class="col-md-2 offset-md-3">
@@ -163,6 +165,15 @@
 		document.getElementById("adit_user_form").reset();
 	}
 	$('.multiselect').multiselect();
+
+	function setLocation(){
+		var type = $('#set_location').val();
+		if (type != 3) {
+			$('#manager_location').hide();
+		}else if(type == 3){
+			$('#manager_location').show();
+		}
+	}
 </script>
 
 @endsection

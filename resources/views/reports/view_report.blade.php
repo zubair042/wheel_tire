@@ -122,7 +122,7 @@
 										if ($extension == 'mp4' || $extension == 'avi' || $extension == 'flv' || $extension == 'mkv') { ?>
 										<div class="col-md-5 card-img-actions m-1">
 											<a class="fancybox fancybox.iframe" href="{{$val1->url}}">
-												<video style="width: 100% !important" controls><source src="{{$val1->url}}" ></video>
+												<video style="width: 100% !important"><source src="{{$val1->url}}" ></video>
 											</a>
 										</div>	
 										<?php }elseif ($extension == 'png' || $extension == 'jpg' || $extension == 'jpeg' || $extension == 'gif' || $extension == 'webp') { ?>
