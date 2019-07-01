@@ -204,7 +204,7 @@
 	    .attr('rel', 'gallery')
 	    .fancybox({
 	        openEffect  : 'none',
-	        closeEffect : 'none',
+	        //closeEffect : 'none',
 	        nextEffect  : 'none',
 	        prevEffect  : 'none',
 	        padding     : 0,
