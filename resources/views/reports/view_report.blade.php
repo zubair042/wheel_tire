@@ -204,10 +204,12 @@
 	    .attr('rel', 'gallery')
 	    .fancybox({
 	        openEffect  : 'none',
-	        //closeEffect : 'none',
+	        closeEffect : 'fade',
 	        nextEffect  : 'none',
 	        prevEffect  : 'none',
+	        autoSize 	: 'true',
 	        padding     : 0,
+	        scrollOutside: 'false',
 	        margin      : [20, 60, 20, 60] // Increase left/right margin
 	    });
 

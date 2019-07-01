@@ -263,7 +263,7 @@ class Reports extends Controller
                 //dd($size);
                 $type       = $file->getClientOriginalExtension();
                 if ($type == 'mp4'|| $type == 'flv'|| $type == 'avi'|| $type == 'mkv') {
-                    Cloudder::uploadVideo($cloudFile, null);
+                    Cloudder::uploadVideo($cloudFile, null,config('cloudder.video_transformation'));
                 }else if($type == 'png' || $type == 'jpeg' || $type == 'jpg' || $type == 'gif' || $type == 'tiff'){
                     Cloudder::upload($file->getRealPath(), null, config('cloudder.image_transformation'));
                 }
