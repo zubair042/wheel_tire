@@ -127,7 +127,7 @@
 										</div>	
 										<?php }elseif ($extension == 'png' || $extension == 'jpg' || $extension == 'jpeg' || $extension == 'gif' || $extension == 'webp') { ?>
 											<div class="col-md-5 card-img-actions m-1">
-												<a rel="gallery" class="fancybox" href="{{$val1->url}}"><img class="card-img img-fluid h-200" src="{{$val1->url}}" alt=""/></a>
+												<a rel="gallery" class="fancybox" href="{{$val1->url}}"><img class="card-img img-fluid" style="height: 104px;" src="{{$val1->url}}" alt=""/></a>
 											</div>
 										<?php } ?>
 								<?php endforeach; ?>
@@ -169,7 +169,36 @@
 </div>
 
 <input type="hidden" value="{{ csrf_token() }}" id="csrf-token">
+<!--
+		padding: 3,
+		'width':1080,
+		'height':1921,
+		'autoSize' : false,
+		'type'   : 'iframe',
+		'scrolling'     : 'no',
+		/*
+		iframe : {
+			img : {
+				margin: 'auto',
+				display: 'block',
+				height : '1000px',
+			},
+			preload : false
+		},		*/
+        
+        /////////////////////////////////
+        
+    afterLoad  : function () {
+        $.extend(this, {
+            aspectRatio : false,
+            type    : 'html',
+            width   : '90%',
+            height  : '90%',
+            content : '<div class="fancybox-image" style="background-image:url(' + this.href + '); background-size: cover; background-position:50% 50%;background-repeat:no-repeat;height:100%;width:100%;" /></div>'
+        });
+    }        
 
+-->
 <script type="text/javascript">
 	$(".fancybox")
 	    .attr('rel', 'gallery')

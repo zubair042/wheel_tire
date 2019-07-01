@@ -62,6 +62,8 @@
 <script type="text/javascript">
 	$("#main-datatable").DataTable({
 		autoWidth: false,
+		// processing: true,
+  //       serverSide: true,
 		order: [0, "desc"],
 		columnDefs: [{ 
 			orderable: false,
