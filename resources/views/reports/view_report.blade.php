@@ -123,6 +123,7 @@
 										<div class="col-md-5 card-img-actions m-1">
 											<a class="fancybox fancybox.iframe" href="{{$val1->url}}">
 												<video style="width: 100% !important"><source src="{{$val1->url}}" ></video>
+												<i class="icon-play4 icon-play"></i>
 											</a>
 										</div>	
 										<?php }elseif ($extension == 'png' || $extension == 'jpg' || $extension == 'jpeg' || $extension == 'gif' || $extension == 'webp') { ?>

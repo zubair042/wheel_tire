@@ -32,7 +32,7 @@ return [
     )),
 
     'video_transformation' => array("transformation"=>array(
-        array("width"=>'100%', "crop"=>"scale"),
+        array("width"=>500, "crop"=>"scale"),
         array("dpr"=>2.0)
     )),
 
