@@ -32,8 +32,7 @@ return [
     )),
 
     'video_transformation' => array("transformation"=>array(
-        array("width"=>500, "crop"=>"scale"),
-        array("dpr"=>2.0)
+        array("quality"=>50)
     )),
 
 ];
