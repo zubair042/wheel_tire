@@ -29,6 +29,7 @@
 			<div class="card-body">
 				<div class="row">
 					<div class="col-md-8">
+						<div class="text-center">
 						<!-- <a href="javascript:;" class="d-inline-block"> -->
 						<?php if ($reportType['main_image'] == '' && $user->user_role == 3) { ?>
 							<a href="javascript:;">
@@ -42,6 +43,7 @@
 							<img src="<?php echo $reportType['main_image'] ?>" class="img-fluid" alt="">
 						<?php } ?>
 						<!-- </a> -->
+					</div>
 						<div class="card mt-10">
 							<div class="card-header">
 								<div class="row">
