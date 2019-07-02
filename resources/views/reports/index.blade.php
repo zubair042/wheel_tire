@@ -62,6 +62,7 @@
 		$('#main-datatable').DataTable( {
 			"processing": true,
 			"serverSide": true,
+			"order": [0, "desc"],
 			"ajax": "{{route('reports_view')}}"
 		});
 	});	
