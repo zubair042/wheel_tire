@@ -1,76 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
-	<?php //echo "<pre>";print_r($report_detail);exit; ?>
+<?php //echo "<pre>";print_r($report_detail);exit; ?>
 <div class="row">
-	<div class="col-md-12">
-		<div class="card">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="media bg-primary">
-						<div class="page-header-content">
-							<p><h2 class="text-white">WHEEL / TIRE INSTALLATION REPORT</h2></p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="datatable-scroll">
-				<table class="table" id="main-datatable">
-				    <thead>
-				      <tr>
-				        <th class="d-none"><i></i>ID</th>
-				        <th class="text-center"><i></i>DATE</th>
-				        <th><i></i>UNIT NUMBER</th>
-				        <th><i></i>LOCATION</th>
-				        <th><i></i>TECHNICIAN</th>
-				        <th><i></i>TORQUE AMOUNT</th>
-				        <th><i></i>2ND SIGNATURE</th>
-				        <th class="text-center">COMMENT</th>
-				      </tr>
-				    </thead>
-				    <tbody>
-				    	@if (count($report_detail) > 0)
-				    		@foreach($report_detail as $detail)
-				    		<tr>
-				    			<td class="d-none">{{ $detail->id }}</td>
-						        <td width="200px" class="text-center"><a href="{{ url('report/view/'.$detail->id)}}" class="btn btn-success btn-sm legitRipple m-2">View</a><?php echo date("Y M d",strtotime($detail->created_at)); ?></td>
-						        <td class="text-center">{{ $detail->report_unit_num}}</td>
-						        <td class="text-center"><?php if (isset($detail->location_name)) {echo $detail->location_name;} ?></td>
-						        <td class="text-center">{{ $detail->name }}</td>
-						        <td class="text-center">{{ $detail->weight }}</td>
-						        <?php if ($detail->signature != 1) { ?>
-						        <td><span class="badge badge-danger">Pending</span></td>
-						        <?php }else{ ?>
-						        <td>{{ $detail->first_name." ".$detail->last_name }}</td>
-						    	<?php } ?>
-						        <td class="text-center">
-						        	<?php if (!empty($detail->last_user_comments)) { ?>
-						        		<i class="icon-checkmark3 mr-3 icon-2x text-primary"></i>
-						        	<?php } ?>
-				        		</td>
-						     </tr>
-				    		@endforeach
-				    	@endif
-				    </tbody>
-			  	</table>
-			</div>
-		</div>
-	</div>
+  <div class="col-md-12">
+    <div class="card">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="media bg-primary">
+            <div class="page-header-content">
+              <p>
+              <h2 class="text-white">WHEEL / TIRE INSTALLATION REPORT</h2>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="datatable-scroll">
+        <table class="table" id="main-datatable">
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th class="text-center">DATE</th>
+              <th>UNIT NUMBER</th>
+              <th>LOCATION</th>
+              <th>TECHNICIAN</th>
+              <th>TORQUE AMOUNT</th>
+              <th>2ND SIGNATURE</th>
+              <th class="text-center">COMMENT</th>
+            </tr>
+          </thead>
+          
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
-
-<script src="{{asset('global_assets/js/plugins/tables/datatables/datatables.min.js') }}"></script>
+<script src="{{asset('global_assets/js/plugins/tables/datatables/datatables.min.js') }}"></script> 
 <script type="text/javascript">
-	$("#main-datatable").DataTable({
+	/*$("#main-datatable").DataTable({
 		autoWidth: false,
-		// processing: true,
-  // 		serverSide: true,
-  // 		ajax: {
-  // 			"url" : "{{ url('/reports') }}",
-		//     "type" : "POST",
-		//     "dataSrc": ""
-  // 			// url:"{{ url('/reports') }}",
-  // 			// type: "post"
-  // 		},
 		order: [0, "desc"],
 		columnDefs: [{ 
 			orderable: false,
@@ -84,10 +53,37 @@
 			lengthMenu: '<span>Show:</span> _MENU_',
 			paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
 		}
-	});
+	});*/
+	$(document).ready(function() {
+		$('#main-datatable').DataTable( {
+			"processing": true,
+			"serverSide": true,
+			"ajax": "{{route('reports_view')}}"
+		});
+	});	
 
 </script>
-
-
-
-@endsection
+<style>
+.m-2{
+	margin: .325rem !important;
+}
+.btn-group-sm>.btn, .btn-sm{
+	padding: .075rem .875rem !important;
+}
+.table td, .table th{
+	padding: 0px !important;	
+}
+.table td, .table th{
+	padding: 0px;	
+}
+.dataTable thead .sorting, .dataTable thead .sorting_asc, .dataTable thead .sorting_asc_disabled, .dataTable thead .sorting_desc, .dataTable thead .sorting_desc_disabled{
+	padding-right: 2.5rem !important;	
+}
+.dataTables_filter input{
+	padding-left: 10px !important;	
+}
+.datatable-scroll{
+	padding: 10px !important;	
+}
+</style>
+@endsection 

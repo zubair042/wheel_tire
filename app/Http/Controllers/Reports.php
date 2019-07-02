@@ -30,33 +30,57 @@ class Reports extends Controller
     
     public function index()
     {
-        if (Auth::user()->user_role == 3) {
-            $report_detail = DB::table('reports')
-                            ->join('users','reports.manager_id','=','users.id')
-                            ->where('reports.manager_id', Auth::user()->id)
-                            ->select('reports.*','users.first_name','users.last_name')
-                            ->get();    
-        }
-        else if (Auth::user()->user_role == 2) { //Other than Global Admin
-            $account_id = Auth::user()->account_id;
-            $report_detail = DB::table('reports')
-                        ->join('accounts','reports.account_id','=','accounts.id')
-                        ->join('users',"reports.signature_by","=","users.id",'left outer')
-                        ->join('locations','reports.location_id','=','locations.id')
-                        ->where('reports.account_id',$account_id)
-                        ->select('reports.*','users.first_name','locations.location_name','users.last_name')
-                        ->get();
-        }
-        else if(Auth::user()->user_role == 1){
-            $report_detail = DB::table('reports')
-                        ->join('locations','reports.location_id','=','locations.id','left outer')
-                        ->join('users',"reports.signature_by","=","users.id",'left outer')
-                        ->select('reports.*','locations.location_name','users.first_name','users.last_name')
-                        //->orderBy('reports.created_at','desc')
-                        ->get();
-        }
-        return view('reports/index', compact("report_detail"));
+        return view('reports/index');
     }
+	
+	public function reports_view(){
+
+		$table = 'reports_view';
+		$primaryKey = 'id';
+		$columns = array(
+			array(
+				'db'        => 'id',
+				'dt'        => 0,
+				'formatter' => function( $d, $row ) {
+					return '<a href="'.url('report/view/'.$d).'" class="btn btn-success btn-sm legitRipple m-2">View</a>';
+				}
+			),
+			array(
+				'db'        => 'created_at',
+				'dt'        => 1,
+				'formatter' => function( $d, $row ) {
+					return date( 'Y M d', strtotime($d));
+				}
+			),
+			array( 'db' => 'report_unit_num',  'dt' => 2 ),
+			array( 'db' => 'location_name',   'dt' => 3 ),
+			array( 'db' => 'name',     'dt' => 4 ),
+			array( 'db' => 'weight',     'dt' => 5 ),
+			array( 'db' => 'signature',     'dt' => 6 ),
+			array( 'db' => 'last_user_comments',     'dt' => 7 )
+		);
+		 
+		// SQL server connection information
+		$sql_details = array(
+			'user' => env('DB_USERNAME'),
+			'pass' => env('DB_PASSWORD'),
+			'db'   => env('DB_DATABASE'),
+			'host' => env('DB_HOST')
+		);
+		
+        if (Auth::user()->user_role == 3) {
+			$where = 'where manager_id = '.Auth::user()->id;
+        }else if (Auth::user()->user_role == 2) { //Other than Global Admin
+			$where = 'where manager_id = '.Auth::user()->account_id;
+        }else if(Auth::user()->user_role == 1){
+			$where = '';
+        }
+		 
+		require( base_path('ssp.class.php') );
+		echo json_encode(
+			\SSP::simple( $_GET, $sql_details, $table, $primaryKey, $columns, $where )
+		);		
+	}
 
     /**
      * Show the form for creating a new resource.
