@@ -40,7 +40,7 @@
 						<?php }elseif ($reportType['main_image'] == '' && $user->user_role != 3) { ?>
 							<img src="{{asset('')}}global_assets/images/image_uploader.png" class="img-fluid" alt="">
 						<?php } else { ?>								
-							<img src="<?php echo $reportType['main_image'] ?>" class="img-fluid" alt="">
+							<img src="<?php echo $reportType['main_image'] ?>" class="img-fluid" style="max-height: 400px">
 						<?php } ?>
 						<!-- </a> -->
 					</div>
