@@ -29,6 +29,7 @@
 			<div class="card-body">
 				<div class="row">
 					<div class="col-md-8">
+						<div class="text-center">
 						<!-- <a href="javascript:;" class="d-inline-block"> -->
 						<?php if ($reportType['main_image'] == '' && $user->user_role == 3) { ?>
 							<a href="javascript:;">
@@ -39,9 +40,10 @@
 						<?php }elseif ($reportType['main_image'] == '' && $user->user_role != 3) { ?>
 							<img src="{{asset('')}}global_assets/images/image_uploader.png" class="img-fluid" alt="">
 						<?php } else { ?>								
-							<img src="<?php echo $reportType['main_image'] ?>" class="img-fluid" alt="">
+							<img src="<?php echo $reportType['main_image'] ?>" class="img-fluid" style="max-height: 400px">
 						<?php } ?>
 						<!-- </a> -->
+					</div>
 						<div class="card mt-10">
 							<div class="card-header">
 								<div class="row">

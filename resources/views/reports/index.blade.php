@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<?php //echo "<pre>";print_r($report_detail);exit; ?>
 <div class="row">
   <div class="col-md-12">
     <div class="card">
@@ -41,17 +40,22 @@
 	/*$("#main-datatable").DataTable({
 		autoWidth: false,
 		order: [0, "desc"],
-		columnDefs: [{ 
+		columnDefs: [{
 			orderable: false,
 			width: 100,
-			targets: [ 7 ]
+			targets: [7]
 		}],
 		dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
 		language: {
 			search: '<span>Filter:</span> _INPUT_',
 			searchPlaceholder: 'Type to filter...',
 			lengthMenu: '<span>Show:</span> _MENU_',
-			paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
+			paginate: {
+				'first': 'First',
+				'last': 'Last',
+				'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;',
+				'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;'
+			}
 		}
 	});*/
 	$(document).ready(function() {
