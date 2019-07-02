@@ -62,15 +62,6 @@
 <script type="text/javascript">
 	$("#main-datatable").DataTable({
 		autoWidth: false,
-		// processing: true,
-  // 		serverSide: true,
-  // 		ajax: {
-  // 			"url" : "{{ url('/reports') }}",
-		//     "type" : "POST",
-		//     "dataSrc": ""
-  // 			// url:"{{ url('/reports') }}",
-  // 			// type: "post"
-  // 		},
 		order: [0, "desc"],
 		columnDefs: [{ 
 			orderable: false,
