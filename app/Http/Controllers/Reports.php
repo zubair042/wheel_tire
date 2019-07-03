@@ -150,16 +150,14 @@ class Reports extends Controller
         $report->comment                = $request->input('comments');
         // Get User
         $manager_info                   = User::find($report->manager_id);
-        $location                       = Location::find($report->location_id);
-        $location_name                  = $location->location_name;
-        //dd($report->location_id);
+        
         $manager_email                  = $manager_info->email;
         //dd($report);
         $report->save();
         $reportId                       = $report->id;
         $report_detail                  = $report;
 
-        Mail::send('emails.add_report_email', ["report_detail"=>$report_detail,"manager_info"=>$manager_info,"location_name"=>$location_name], function($message) use ($manager_email,$report_detail){    
+        Mail::send('emails.add_report_email', ["report_detail"=>$report_detail,"manager_info"=>$manager_info], function($message) use ($manager_email,$report_detail){    
             $message->to($manager_email)->subject("New ".$report_detail->vehicle_type." report ".$report_detail->id." has been created");
             $message->from('info@mobilemaintenance.com', 'Wheel Tire');
         });
