@@ -57,7 +57,7 @@ class Reports extends Controller
 			array( 'db' => 'name',     'dt' => 4 ),
 			array( 'db' => 'weight',     'dt' => 5 ),
 			array( 'db' => 'signature',     'dt' => 6 ),
-			array( 'db' => 'last_user_comments',     'dt' => 7 )
+			array( 'db' => 'comment',     'dt' => 7 )
 		);
 		 
 		// SQL server connection information
