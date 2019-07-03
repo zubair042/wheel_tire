@@ -135,6 +135,7 @@ class Reports extends Controller
         $report->created_by             = Auth::user()->id;
         $report->account_id             = Auth::user()->account_id;
         $report->location_id            = 0;
+
         if(Auth::user()->user_role == 4){
             $report->location_id            = $location->id;
         }
@@ -149,7 +150,8 @@ class Reports extends Controller
         $report->comment                = $request->input('comments');
         // Get User
         $manager_info                   = User::find($report->manager_id);
-        //$report->location_id            = $manager_info->location_id;
+        $location                       = Location::find($report->location_id);
+        $location_name                  = $location->location_name;
         //dd($report->location_id);
         $manager_email                  = $manager_info->email;
         //dd($report);
@@ -157,7 +159,7 @@ class Reports extends Controller
         $reportId                       = $report->id;
         $report_detail                  = $report;
 
-        Mail::send('emails.add_report_email', ["report_detail"=>$report_detail,"manager_info"=>$manager_info], function($message) use ($manager_email,$report_detail){    
+        Mail::send('emails.add_report_email', ["report_detail"=>$report_detail,"manager_info"=>$manager_info,"location_name"=>$location_name], function($message) use ($manager_email,$report_detail){    
             $message->to($manager_email)->subject("New ".$report_detail->vehicle_type." report ".$report_detail->id." has been created");
             $message->from('info@mobilemaintenance.com', 'Wheel Tire');
         });
