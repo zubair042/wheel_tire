@@ -130,7 +130,7 @@
 										</div>	
 										<?php }elseif ($extension == 'png' || $extension == 'jpg' || $extension == 'jpeg' || $extension == 'gif' || $extension == 'webp') { ?>
 											<div class="col-md-5 card-img-actions m-1">
-												<a rel="gallery" class="fancybox" href="{{$val1->url}}"><img class="card-img img-fluid" style="width: 85%" src="{{$val1->url}}" alt=""/></a>
+												<a rel="gallery" class="fancybox" href="{{$val1->url}}"><img class="card-img img-fluid" style="width: 90%;height: 90%" src="{{$val1->url}}" alt=""/></a>
 											</div>
 										<?php } ?>
 								<?php endforeach; ?>

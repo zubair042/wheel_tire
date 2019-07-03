@@ -1,3 +1,12 @@
+<?php
+if ($report_detail->location_id != 0) {
+    $location = App\Location::find($report_detail->location_id);
+    $location_name  = $location->location_name;
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html >
 <head>
@@ -93,6 +102,12 @@ table tr td {
           <td><?php echo $manager_info->first_name.' '.$manager_info->last_name; ?></td>
         </tr>
         <tr>
+          <td>Location</td>
+          <td><?php if (isset($location_name)) {
+              echo $location_name;
+          } ?></td>
+        </tr>
+        <tr style="background-color:#f3f2f1;">
           <td>Comments</td>
           <td><?php echo $report_detail->comment; ?></td>
         </tr>
