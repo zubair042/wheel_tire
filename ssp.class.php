@@ -256,6 +256,7 @@ class SSP {
 		$resFilterLength = self::sql_exec( $db, $bindings,
 			"SELECT COUNT(`{$primaryKey}`)
 			 FROM   `$table`
+			 $and
 			 $where"
 		);
 		$recordsFiltered = $resFilterLength[0][0];
@@ -263,7 +264,8 @@ class SSP {
 		// Total data set length
 		$resTotalLength = self::sql_exec( $db,
 			"SELECT COUNT(`{$primaryKey}`)
-			 FROM   `$table`"
+			 FROM   `$table`
+			 $and"
 		);
 		$recordsTotal = $resTotalLength[0][0];
 
