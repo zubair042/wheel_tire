@@ -9,10 +9,10 @@
 			<div class="card-header">
 				<div class="row">
 					<div class="col-md-10">
-						<?php //if ($user->user_role == 3) { ?>
-							<!-- <a href="{{ url('reports') }}"><button type="button" class="btn btn-outline-success legitRipple"><i class="icon-arrow-left8 mr-2"></i>Back</button></a>
-							&nbsp;&nbsp; -->
-						<?php //} ?>
+						<?php if ($user->user_role == 3) { ?>
+							<a href="{{ url('reports') }}"><button type="button" class="btn btn-outline-success legitRipple"><i class="icon-arrow-left8 mr-2"></i>Back</button></a>
+							&nbsp;&nbsp;
+						<?php } ?>
 						<h1 class="mb-0 font-weight-semibold ml-2">Wheel/Tire Installation Report</h1>
 						<?php
 						?>
@@ -130,7 +130,7 @@
 										</div>	
 										<?php }elseif ($extension == 'png' || $extension == 'jpg' || $extension == 'jpeg' || $extension == 'gif' || $extension == 'webp') { ?>
 											<div class="col-md-5 card-img-actions m-1">
-												<a rel="gallery" class="fancybox" href="{{$val1->url}}"><img class="card-img img-fluid" style="width: 85%" src="{{$val1->url}}" alt=""/></a>
+												<a rel="gallery" class="fancybox" href="{{$val1->url}}"><img class="card-img img-fluid" style="width: 90%;height: 90%" src="{{$val1->url}}" alt=""/></a>
 											</div>
 										<?php } ?>
 								<?php endforeach; ?>
