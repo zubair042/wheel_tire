@@ -57,7 +57,7 @@ class Reports extends Controller
 			array( 'db' => 'name',     'dt' => 4 ),
 			array( 'db' => 'weight',     'dt' => 5 ),
 			array( 'db' => 'signature',     'dt' => 6 ),
-			array( 'db' => 'comment',     'dt' => 7 )
+			array( 'db' => 'last_user_comments',     'dt' => 7 )
 		);
 		 
 		// SQL server connection information
@@ -135,6 +135,7 @@ class Reports extends Controller
         $report->created_by             = Auth::user()->id;
         $report->account_id             = Auth::user()->account_id;
         $report->location_id            = 0;
+
         if(Auth::user()->user_role == 4){
             $report->location_id            = $location->id;
         }
@@ -149,8 +150,7 @@ class Reports extends Controller
         $report->comment                = $request->input('comments');
         // Get User
         $manager_info                   = User::find($report->manager_id);
-        //$report->location_id            = $manager_info->location_id;
-        //dd($report->location_id);
+        
         $manager_email                  = $manager_info->email;
         //dd($report);
         $report->save();
