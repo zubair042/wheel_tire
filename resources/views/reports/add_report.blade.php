@@ -3,6 +3,11 @@
 @section('content')
 <?php 
 ?>
+<style type="text/css">
+  .form-group{
+    margin-bottom: .85rem;
+  }
+</style>
 <script src="{{asset('global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
 <script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
 <script src="{{ asset('global_assets/js/plugins/buttons/spin.min.js') }} "></script>
@@ -15,14 +20,14 @@
 <div class="row">
   <div class="col-md-12">
     <div class="card card-body">
-      <form id="trailer_powerunit" method="POST" action="{{ route('save_reports') }}" enctype="multipart/form-data">
+      <form id="trailer_powerunit" name="report_registration" method="POST" action="{{ route('save_reports') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group mb-3 mb-md-2 text-center">
           <div class="form-check form-check-inline form-check-right">
             <label class="form-check-label">
               <span class="font-weight-semibold">TRAILER</span>
               <div class=""><span class="">
-                  <input type="radio" id="trailer_radio" class="form-check-input-styled-danger" name="vehicle_type" value="trailer" checked="" data-fouc="">
+                  <input type="radio" id="trailer_radio" class="form-check-input-styled-danger" name="vehicle_type" value="Trailer" checked="" data-fouc="">
                 </span></div>
             </label>
           </div>
@@ -30,7 +35,7 @@
             <label class="form-check-label">
               <span class="font-weight-semibold">POWER UNIT</span>
               <div class=""><span class="">
-                  <input type="radio" id="power_unit_radio" class="form-check-input-styled-danger" name="vehicle_type" value="power_unit" data-fouc="">
+                  <input type="radio" id="power_unit_radio" class="form-check-input-styled-danger" name="vehicle_type" value="Power Unit" data-fouc="">
                 </span></div>
             </label>
           </div>
@@ -199,7 +204,7 @@
             <div class="row form-group">
               <div class="col-md-2 offset-md-5">
                 <div class="input-group">
-                  <input type="text" name="weight" class="form-control input_fields" required>
+                  <input type="text" name="weight" class="form-control input_fields" required id="add_form_weight">
                   <span class="input-group-append"> <span class="input-group-text c-font">lbs.</span> </span> </div>
               </div>
             </div>
@@ -215,7 +220,7 @@
             </div>
             <div class="row form-group">
               <div class="col-md-2 offset-md-5">
-                <select name="manager_id" onchange="" id="manager_id" class="select_select2_select input_fields">
+                <select name="manager_id" onchange="" id="manager_id" class="select_select2_select input_fields" required="">
                   <option disabled selected hidden>Select Manager</option>
 
 
@@ -247,7 +252,7 @@
             </div>
             <div class="row text-center">
               <div class="col-md-12">
-                <button type="button" class="btn btn-primary btn-ladda btn-ladda-spinner" data-toggle="modal" data-target="#modal_full" data-style="expand-right" id="display_data" data-spinner-color="#ffff" onclick="showReportType()"><i class="icon-checkmark mr-2"></i>Submit</button>
+                <button type="button" class="btn btn-primary btn-ladda btn-ladda-spinner" data-style="expand-right" id="display_data" data-spinner-color="#ffff" onclick="showReportType()"><i class="icon-checkmark mr-2"></i>Submit</button>
               </div>
             </div>
           </div>
@@ -271,7 +276,7 @@
                 <tr>
                   <td><b>Weight</b></td>
                   <td>
-                    <div contenteditable="true" class="content-editable" id="weight" onkeyup="show_input_fields_revert($(this))"></div>
+                    <div contenteditable="true" class="content-editable" id="weight" onkeyup="show_input_fields_revert($(this))" ></div>
                   </td>
                 </tr>
                 <tr>
@@ -319,7 +324,56 @@
   </div>
 </div>
 <input type="hidden" value="{{ csrf_token() }}" id="csrf-token">
+
 <script type="text/javascript">
+  
+  //$('#trailer_powerunit').
+
+  // $("#trailer_powerunit").validate({
+  //       rules: {
+  //           add_form_weight: "required",
+  //       },
+  //       messages: {
+  //           add_form_weight: "Please specify your name"
+  //       }
+  //   })
+  $("#trailer_powerunit").validate({
+      ignore: 'input[type=hidden], .select2-search__field', // ignore hidden fields
+      errorClass: 'validation-invalid-label',
+      successClass: 'validation-valid-label',
+      validClass: 'validation-valid-label',
+      highlight: function(element, errorClass) {
+          $(element).removeClass(errorClass);
+      },
+      unhighlight: function(element, errorClass) {
+          $(element).removeClass(errorClass);
+      },
+      // success: function(label) {
+      //     label.addClass('validation-valid-label').text('Success.'); // remove to hide Success message
+      // },
+      errorPlacement: function(error, element) {
+          if (element.parents().hasClass('form-check')) {
+              error.appendTo( element.parents('.form-check').parent() );
+          }
+          else if (element.parents().hasClass('form-group-feedback') || element.hasClass('select2-hidden-accessible')) {
+              error.appendTo( element.parent() );
+          }
+          else if (element.parent().is('.uniform-uploader, .uniform-select') || element.parents().hasClass('input-group')) {
+              error.appendTo( element.parent().parent() );
+          }
+          else {
+              error.insertAfter(element);
+          }
+      }
+    });
+
+  $('#display_data').on('click',function (e) {
+    var validator = $("#trailer_powerunit").valid();
+    if (validator == true) {
+      $('#modal_full').modal('show');
+    }
+  });
+
   function spinner() {
     var l = Ladda.create(document.querySelector('#submit'));
     l.start();

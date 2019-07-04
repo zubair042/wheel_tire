@@ -47,6 +47,7 @@ $user_role = DB::table('user_roles')
     <script src="{{asset('')}}global_assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
     <script src="{{asset('')}}global_assets/js/plugins/ui/moment/moment.min.js"></script>
     <script src="{{asset('')}}global_assets/js/plugins/pickers/daterangepicker.js"></script>
+    <script src="{{asset('')}}global_assets/js/plugins/forms/validation/validate.min.js"></script>
     <script src="{{asset('')}}assets/js/app.js"></script>
     <script src="{{asset('')}}global_assets/js/demo_pages/dashboard.js"></script>
     <!-- /theme JS files -->

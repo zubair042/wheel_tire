@@ -113,7 +113,7 @@ table tr td {
         </tr>
       </tbody>
     </table>
-    <p><a href=<?php echo "http://wheels.mobilemaintenance.com/report/view/".$report_detail->id; ?>>Click here</a> to see the report</p>
+    <p><a href=<?php echo "{{ url('report/view/') }}".$report_detail->id; ?>>Click here</a> to see the report</p>
     <p>Thank you.</p>
   </div>
 </div>
