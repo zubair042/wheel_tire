@@ -83,7 +83,7 @@ table tr td {
       <tbody>
         <tr style="background-color:#E9E9E9;">
           <td>Vehicle Type</td>
-          <td><?php echo $report_detail->vehicle_type; ?></td>
+          <td><?php echo ucfirst($report_detail->vehicle_type); ?></td>
         </tr>
         <tr>
           <td>Weight</td>
@@ -113,7 +113,7 @@ table tr td {
         </tr>
       </tbody>
     </table>
-    <p><a href=<?php echo "{{ url('report/view/') }}".$report_detail->id; ?>>Click here</a> to see the report</p>
+    <p><a href="{{ url('report/view/'.$report_detail->id) }}" >Click here</a> to see the report</p>
     <p>Thank you.</p>
   </div>
 </div>

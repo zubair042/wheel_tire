@@ -31,7 +31,7 @@
             <label class="form-check-label">
               <span class="font-weight-semibold">TRAILER</span>
               <div class=""><span class="">
-                  <input type="radio" id="trailer_radio" class="form-check-input-styled-danger" name="vehicle_type" value="Trailer" checked="" data-fouc="">
+                  <input type="radio" id="trailer_radio" class="form-check-input-styled-danger" name="vehicle_type" value="trailer" checked="" data-fouc="">
                 </span></div>
             </label>
           </div>
@@ -39,7 +39,7 @@
             <label class="form-check-label">
               <span class="font-weight-semibold">POWER UNIT</span>
               <div class=""><span class="">
-                  <input type="radio" id="power_unit_radio" class="form-check-input-styled-danger" name="vehicle_type" value="Power Unit" data-fouc="">
+                  <input type="radio" id="power_unit_radio" class="form-check-input-styled-danger" name="vehicle_type" value="power_unit" data-fouc="">
                 </span></div>
             </label>
           </div>
