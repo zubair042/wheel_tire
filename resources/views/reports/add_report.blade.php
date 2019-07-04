@@ -7,6 +7,10 @@
   .form-group{
     margin-bottom: .85rem;
   }
+  .table td{
+    border-top: none;
+    padding: .5rem 1.25rem; 
+  }
 </style>
 <script src="{{asset('global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
 <script src="{{ asset('global_assets/js/plugins/forms/styling/uniform.min.js') }}"></script>
