@@ -68,12 +68,11 @@ class Reports extends Controller
 			'host' => env('DB_HOST')
 		);
 		
+		$where = '';
         if (Auth::user()->user_role == 3) {
 			$where = 'where manager_id = '.Auth::user()->id;
         }else if (Auth::user()->user_role == 2) { //Other than Global Admin
-			$where = 'where manager_id = '.Auth::user()->account_id;
-        }else if(Auth::user()->user_role == 1){
-			$where = '';
+			$where = 'where account_id = '.Auth::user()->account_id;
         }
 		 
 		require( base_path('ssp.class.php') );

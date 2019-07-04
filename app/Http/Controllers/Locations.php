@@ -171,7 +171,7 @@ class Locations extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy()
-    {   
+    {   //print_r($_POST);exit;
         $location   = Location::find($_POST['id']);
         $location->delete();
         $user = User::find($_POST['user_id']);
@@ -181,6 +181,10 @@ class Locations extends Controller
         $location_user = DB::table('locations')
                             ->where('user_id', Auth::user()->id)
                             ->get();
+        //                     ->where('users.id', $_POST['id'])
+        //                     ->whereIn('locations.id',$location_id)
+        //                     ->select('locations.*')
+        //                     ->get();
         return $location_user;
 
     }

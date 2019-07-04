@@ -109,7 +109,7 @@
 						<?php $locals = json_decode($user->location_id); ?>
 						@if(count($locations) > 0)
 						@foreach($locations as $location)
-						<option value="{{ $location->id }}" <?php if(in_array($location->id , $locals)) {echo 'selected="selected"';} ?>><span>{{ $location->location_name }}</span></option>
+						<option value="{{ $location->id }}" <?php if(is_array($locals) && in_array($location->id , $locals)) {echo 'selected="selected"';} ?>><span>{{ $location->location_name }}</span></option>
 						@endforeach
 						@endif
 						</select>
