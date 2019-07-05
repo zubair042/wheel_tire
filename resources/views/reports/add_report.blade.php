@@ -331,16 +331,6 @@
 
 <script type="text/javascript">
   
-  //$('#trailer_powerunit').
-
-  // $("#trailer_powerunit").validate({
-  //       rules: {
-  //           add_form_weight: "required",
-  //       },
-  //       messages: {
-  //           add_form_weight: "Please specify your name"
-  //       }
-  //   })
   $("#trailer_powerunit").validate({
       ignore: 'input[type=hidden], .select2-search__field', // ignore hidden fields
       errorClass: 'validation-invalid-label',

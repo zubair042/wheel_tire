@@ -39,7 +39,7 @@ class Locations extends Controller
             $location_detail = DB::table('locations')
                                 ->join('accounts','locations.account_id','=','accounts.id')
                                 ->select('locations.*','accounts.account_name')
-                                ->get(); 
+                                ->get();  
                                 
             foreach($location_detail as $key=>$val):
                 $location_detail[$key]->users = DB::table("users")->where("location_id", "like", "%".$val->id."%")->get();
