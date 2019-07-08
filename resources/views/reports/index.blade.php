@@ -38,27 +38,7 @@
 </div>
 <script src="{{asset('global_assets/js/plugins/tables/datatables/datatables.min.js') }}"></script> 
 <script type="text/javascript">
-	/*$("#main-datatable").DataTable({
-		autoWidth: false,
-		order: [0, "desc"],
-		columnDefs: [{
-			orderable: false,
-			width: 100,
-			targets: [7]
-		}],
-		dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
-		language: {
-			search: '<span>Filter:</span> _INPUT_',
-			searchPlaceholder: 'Type to filter...',
-			lengthMenu: '<span>Show:</span> _MENU_',
-			paginate: {
-				'first': 'First',
-				'last': 'Last',
-				'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;',
-				'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;'
-			}
-		}
-	});*/
+
 	$(document).ready(function() {
 		$('#main-datatable').DataTable( {
 			"processing": true,
@@ -80,7 +60,8 @@
 	padding: 0px !important;	
 }
 .table td, .table th{
-	padding: 0px;	
+	padding: 0px;
+	text-align: center;	
 }
 .dataTable thead .sorting, .dataTable thead .sorting_asc, .dataTable thead .sorting_asc_disabled, .dataTable thead .sorting_desc, .dataTable thead .sorting_desc_disabled{
 	padding-right: 2.5rem !important;	

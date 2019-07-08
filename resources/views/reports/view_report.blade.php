@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
 <script src="{{asset('global_assets/js/plugins/media/fancybox.min.js') }}"></script>
 
 <div class="row">
@@ -14,11 +13,6 @@
 							&nbsp;&nbsp;
 						<?php } ?>
 						<h1 class="mb-0 font-weight-semibold ml-2">Wheel/Tire Installation Report</h1>
-						<?php
-						?>
-						<!-- <a href="javascript:;" type="button"  class="btn btn-danger float-right" onclick="delete_report(<? php ?>)" >Delete</a> -->
-						<?php
-						?>
 					</div>
 					<div class="col-md-2">
 						<span class="font-weight-semibold float-right text-primary font-size-lg m-2">ID: {{ $report_detail->id }}</span>
@@ -70,6 +64,11 @@
 						<p>{{ $report_detail->weight }} Lbs</p>
 						<label class="font-weight-black">Second Signature:</label>
 						<p>{{ $report_detail->first_name." ".$report_detail->last_name }}</p>
+						<label class="font-weight-black">Signature Date:</label>
+						<p>	@if($report_detail->signature_on != "")
+								{{ date('m/d/Y H:i A',strtotime($report_detail->signature_on)) }}
+							@endif
+						</p>
 						<label class="font-weight-black">Tech Comment:</label>
 						<p class="form-group">{{$report_detail->comment}}</p>
 
@@ -130,7 +129,7 @@
 										</div>	
 										<?php }elseif ($extension == 'png' || $extension == 'jpg' || $extension == 'jpeg' || $extension == 'gif' || $extension == 'webp') { ?>
 											<div class="col-md-5 card-img-actions m-1">
-												<a rel="gallery" class="fancybox" href="{{$val1->url}}"><img class="card-img img-fluid" style="width: 90%;height: 90%" src="{{$val1->url}}" alt=""/></a>
+												<a rel="gallery" class="fancybox" href="{{$val1->url}}"><img class="card-img img-fluid" style="width: 90%;height: 85%" src="{{$val1->url}}" alt=""/></a>
 											</div>
 										<?php } ?>
 								<?php endforeach; ?>

@@ -83,7 +83,7 @@ class Reports extends Controller
 				'db'        => 'created_at',
 				'dt'        => 1,
 				'formatter' => function( $d, $row ) {
-					return date( 'Y-m-d H:i:s A', strtotime($d));
+					return date( 'm/d/Y H:i A', strtotime($d));
 				}
 			),
 			array( 'db' => 'report_unit_num',  'dt' => 2 ),
@@ -97,8 +97,8 @@ class Reports extends Controller
                 'db'        => 'signature_on',
                 'dt'        => 7,
                 'formatter' => function($d, $row){
-                    if (count($d) > 0) {
-                        return date('Y-m-d H:i:s A', strtotime($d));
+                    if ($d != "") {
+                        return date('m/d/Y H:i A', strtotime($d));
                     }else{
                         return "";
                     }
