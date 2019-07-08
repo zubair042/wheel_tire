@@ -26,6 +26,7 @@
               <th>TECHNICIAN</th>
               <th>TORQUE AMOUNT</th>
               <th>2ND SIGNATURE</th>
+              <th>SIGNATURE UPDATE</th>
               <th class="text-center">COMMENT</th>
             </tr>
           </thead>

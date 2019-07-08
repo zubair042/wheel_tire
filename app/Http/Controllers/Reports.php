@@ -83,15 +83,28 @@ class Reports extends Controller
 				'db'        => 'created_at',
 				'dt'        => 1,
 				'formatter' => function( $d, $row ) {
-					return date( 'Y M d', strtotime($d));
+					return date( 'Y-m-d H:i:s A', strtotime($d));
 				}
 			),
 			array( 'db' => 'report_unit_num',  'dt' => 2 ),
 			array( 'db' => 'location_name',   'dt' => 3 ),
 			array( 'db' => 'name',     'dt' => 4 ),
 			array( 'db' => 'weight',     'dt' => 5 ),
-			array( 'db' => 'signature',     'dt' => 6 ),
-			array( 'db' => 'last_user_comments',     'dt' => 7 )
+            array( 'db' => 'signature',     'dt' => 6 ),
+            //array( 'db' => 'signature_on',     'dt' => 7 ),
+
+            array(
+                'db'        => 'signature_on',
+                'dt'        => 7,
+                'formatter' => function($d, $row){
+                    if (count($d) > 0) {
+                        return date('Y-m-d H:i:s A', strtotime($d));
+                    }else{
+                        return "";
+                    }
+                }
+            ),
+			array( 'db' => 'last_user_comments',     'dt' => 8 )
 		);
 		 
 		// SQL server connection information
