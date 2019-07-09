@@ -26,47 +26,12 @@ class Reports extends Controller
     public function __construct()
     {
         $this->middleware(['auth','permission']);
-    }
-
-    public function uniqify($array, $key) { 
-        $temp_array = array(); 
-        $i = 0; 
-        $key_array = array(); 
-        
-        foreach($array as $val) { 
-            if (!in_array($val->$key, $key_array)) { 
-                $key_array[$i] = $val->$key;
-                $temp_array[$i] = $val; 
-            } 
-            $i++; 
-        } 
-        return $temp_array; 
     } 
     
     public function index()
     {   
         return view('reports/index');
     }
-
-    // public function RawQueryReports(){
-    //     $locations = json_decode(Auth::user()->location_id);
-
-    //     $WHERE = '(';
-    //     if(count($locations)>0):
-    //         foreach($locations as $key=>$val):
-    //             if(count($locations)-1==$key){
-    //                 $WHERE .= "users.location_id LIKE '%".$val."%'";
-    //             }else{
-    //                 $WHERE .= "users.location_id LIKE '%".$val."%' OR ";
-    //             }
-                
-    //         endforeach;
-    //     endif;
-    //     $WHERE .= ') OR wheel_tire.users.id = '.Auth::user()->id.'';
-    //     $QUERY = "JOIN wheel_tire.users ON wheel_tire.users.id = wheel_tire.reports.manager_id WHERE ".$WHERE."";
-    //     //$result = DB::select(DB::raw($QUERY));
-    //     return $QUERY;
-    // }
 	
 	public function reports_view(){
 		$table = 'reports_view';
@@ -156,7 +121,7 @@ class Reports extends Controller
         $data['trailer'] = \App\Report::reportsTypeAndImages('trailer');
         $data['power_unit'] = \App\Report::reportsTypeAndImages('power_unit');
 
-        return view('reports/add_report')->with('manager_detail',$manager_detail)->with('data', $data)->with('user', $user);
+        return view('reports/add_report',compact(['manager_detail','data','user']));
     }
 
     /**
