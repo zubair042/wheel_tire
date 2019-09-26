@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2019 at 08:17 AM
+-- Generation Time: Sep 04, 2019 at 04:36 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.0.31
 
@@ -111,9 +111,12 @@ INSERT INTO `comments` (`id`, `report_id`, `comments`, `created_by`, `created_at
 (14, 13, 'New Comment for report 13', 7, '2019-06-03 09:03:54', '2019-06-03 09:03:54'),
 (13, 13, 'hi.\r\nthis is comment 1 on report 13', 7, '2019-06-03 08:01:12', '2019-06-03 08:01:12'),
 (12, 4, 'This is Comment', 7, '2019-05-29 05:35:21', '2019-05-29 05:35:21'),
+(28, 165, 'comment', 26, '2019-06-27 14:41:40', '2019-06-27 14:41:40'),
+(27, 159, 'comment', 27, '2019-06-26 10:45:30', '2019-06-26 10:45:30'),
 (26, 12, 'comment for report 12', 7, '2019-06-03 10:02:04', '2019-06-03 10:02:04'),
 (25, 12, 'new comment 12', 7, '2019-06-03 10:01:50', '2019-06-03 10:01:50'),
-(24, 11, 'new comment for report 11', 7, '2019-06-03 09:58:29', '2019-06-03 09:58:29');
+(24, 11, 'new comment for report 11', 7, '2019-06-03 09:58:29', '2019-06-03 09:58:29'),
+(29, 157, 'asas', 26, '2019-07-02 07:46:37', '2019-07-02 07:46:37');
 
 -- --------------------------------------------------------
 
@@ -335,68 +338,121 @@ CREATE TABLE `reports` (
 --
 
 INSERT INTO `reports` (`id`, `account_id`, `vehicle_type`, `front_wheel_position`, `rear_wheel_position`, `steer_wheel_position`, `location_id`, `report_unit_num`, `name`, `weight`, `manager_id`, `comment`, `last_user_comments`, `signature`, `signature_by`, `signature_on`, `created_by`, `created_at`, `updated_at`) VALUES
-(3, 2, 'trailer', 'LF', 'LR', 'LS', 6, '1000', 'Atif Amin', 150, 39, 'some comments', NULL, b'0', NULL, '2019-05-27 16:53:57', 37, '2019-05-23 02:41:15', '2019-05-23 07:41:15'),
-(4, 1, 'power_unit', 'LF', 'RR', 'RS', 0, 'unit 300', 'ray gross', 300, 40, 'test comments on new report', NULL, b'1', 7, '2019-05-29 06:34:23', 38, '2019-05-23 02:43:42', '2019-05-23 07:43:42'),
-(5, 1, 'trailer', 'LF', 'LR', 'LS', 0, 'GF32', 'Zubair', 445, 6, 'This is comment', NULL, b'1', 7, '2019-05-29 06:31:46', 1, '2019-05-24 05:46:27', '2019-05-24 10:46:27'),
-(6, 1, 'trailer', 'LF', 'LR', 'LS', 16, 'ht65', 'wheel', 550, 6, 'This is comment', '', b'1', 7, '2019-06-03 09:52:56', 1, '2019-05-24 05:48:46', '2019-05-24 10:48:46'),
-(7, 1, 'trailer', 'LF', 'LR', 'LS', 15, '765', 'Know More', 660, 5, NULL, NULL, b'1', 7, '2019-05-29 06:33:29', 1, '2019-05-24 05:56:44', '2019-05-24 10:56:44'),
-(9, 1, 'trailer', 'LF', 'LR', 'LS', 15, 'er43', 'Hire', 43, 7, NULL, NULL, b'1', 7, '2019-06-03 09:51:25', 1, '2019-05-29 07:34:50', '2019-05-29 12:34:50'),
-(147, 1, 'trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 07:07:45', '2019-06-24 12:07:45'),
-(146, 1, 'trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 07:06:53', '2019-06-24 12:06:53'),
-(145, 1, 'trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 06:50:09', '2019-06-24 11:50:09'),
-(144, 1, 'trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 06:49:56', '2019-06-24 11:49:56'),
-(143, 1, 'trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 06:49:47', '2019-06-24 11:49:47'),
-(142, 1, 'trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 06:49:30', '2019-06-24 11:49:30'),
-(141, 1, 'trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 06:49:17', '2019-06-24 11:49:17'),
-(140, 1, 'trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 06:46:42', '2019-06-24 11:46:42'),
-(139, 1, 'trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 06:45:08', '2019-06-24 11:45:08'),
-(138, 1, 'trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 06:44:25', '2019-06-24 11:44:25'),
-(137, 1, 'trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 06:42:40', '2019-06-24 11:42:40'),
-(136, 1, 'trailer', NULL, NULL, NULL, NULL, 'sdfsdf', 'sdfsdf', 43, 21, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 06:41:02', '2019-06-24 11:41:02'),
-(135, 1, 'trailer', NULL, NULL, NULL, NULL, 'erwrw', 'werwerwerw', 43, 21, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-21 05:56:15', '2019-06-21 10:56:15'),
-(134, 1, 'trailer', NULL, NULL, NULL, NULL, 'erwrw', 'werwerwerw', 43, 21, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-21 05:55:21', '2019-06-21 10:55:21'),
-(133, 1, 'trailer', NULL, NULL, NULL, NULL, '32432', 'try Scan', 34, 10, '32', NULL, b'0', NULL, NULL, 1, '2019-06-20 09:13:27', '2019-06-20 14:13:27'),
-(132, 1, 'power_unit', NULL, NULL, NULL, NULL, '324234', 'Muahammad Zubair Khan', 45, 23, 'test', NULL, b'0', NULL, NULL, 1, '2019-06-20 09:11:39', '2019-06-20 14:11:39'),
-(131, 1, 'trailer', NULL, NULL, NULL, NULL, '324234', 'Hire', 45, 10, 'test', NULL, b'0', NULL, NULL, 1, '2019-06-20 08:07:05', '2019-06-20 13:07:05'),
-(130, 1, 'trailer', NULL, NULL, NULL, NULL, '34', 'Know More', 50, 10, 'test', NULL, b'0', NULL, NULL, 1, '2019-06-20 08:06:03', '2019-06-20 13:06:03'),
-(129, 1, 'trailer', NULL, NULL, NULL, NULL, 'sdfsdf', 'sdfdsfsdf', 43, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-20 02:17:25', '2019-06-20 07:17:25'),
-(128, 1, 'trailer', NULL, NULL, NULL, NULL, 'sdfsdf', 'sdfdsfsdf', 43, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-20 02:16:31', '2019-06-20 07:16:31'),
-(127, 1, 'trailer', NULL, NULL, NULL, NULL, 'dsfsdf', 'sdfsdfsdfs', 43, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-20 02:04:11', '2019-06-20 07:04:11'),
-(126, 1, 'trailer', NULL, NULL, NULL, NULL, 'ewrew', 'dsfdsf', 43, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-20 01:58:46', '2019-06-20 06:58:46'),
-(125, 1, 'trailer', NULL, NULL, NULL, NULL, 'ewrew', 'dsfdsf', 43, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-20 01:55:07', '2019-06-20 06:55:07'),
-(124, 1, 'trailer', NULL, NULL, NULL, NULL, 'sdf', 'sdfdfs', 43, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-20 01:33:41', '2019-06-20 06:33:41'),
-(123, 1, 'trailer', NULL, NULL, NULL, NULL, 'unit', 'name', 54, 26, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-20 01:32:59', '2019-06-20 06:32:59'),
-(122, 1, 'trailer', NULL, NULL, NULL, NULL, 'unit', 'name', 54, 26, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-20 01:23:57', '2019-06-20 06:23:57'),
-(121, 1, 'power_unit', NULL, NULL, NULL, 26, 'test', 'test', 45, 26, NULL, NULL, b'0', NULL, NULL, 24, '2019-06-19 08:07:07', '2019-06-19 13:07:07'),
-(120, 1, 'trailer', NULL, NULL, NULL, 26, 'dfgfdg', 'dfgfdg', 454, 26, 'sdffdsfs', NULL, b'0', NULL, NULL, 24, '2019-06-19 07:53:41', '2019-06-19 12:53:41'),
-(119, 1, 'trailer', NULL, NULL, NULL, 26, 'dfgdf', 'dfgdgdfgd', 54, 26, NULL, NULL, b'0', NULL, NULL, 24, '2019-06-19 07:19:13', '2019-06-19 12:19:13'),
-(118, 1, 'trailer', NULL, NULL, NULL, 26, 'sdsada', 'asdasda', 2323, 26, NULL, NULL, b'0', NULL, NULL, 24, '2019-06-19 07:14:45', '2019-06-19 12:14:45'),
-(117, 1, 'trailer', NULL, NULL, NULL, NULL, 'sdfg', 'fdgdfgfdg', 45678, 26, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-19 07:13:06', '2019-06-19 12:13:06'),
-(116, 1, 'trailer', NULL, NULL, NULL, NULL, '1212', 'Muahammad Zubair Khan', 45, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-19 06:52:34', '2019-06-19 11:52:34'),
-(115, 1, 'trailer', NULL, NULL, NULL, NULL, '1212', 'Know More', 45, 25, NULL, NULL, b'0', NULL, NULL, 25, '2019-06-19 06:51:30', '2019-06-19 11:51:30'),
-(114, 1, 'trailer', NULL, NULL, NULL, NULL, 'qwqw', 'Muahammad Zubair Khan', 45, 25, NULL, NULL, b'0', NULL, NULL, 25, '2019-06-19 06:51:09', '2019-06-19 11:51:09'),
-(113, 1, 'trailer', NULL, NULL, NULL, NULL, 'qwqw', 'Muahammad Zubair Khan', 43, 26, 'dsfsd', NULL, b'0', NULL, NULL, 25, '2019-06-19 06:49:51', '2019-06-19 11:49:51'),
-(112, 1, 'trailer', NULL, NULL, NULL, NULL, 'qwqw', 'dfgdfgd', 45, 25, 'comment', NULL, b'0', NULL, NULL, 1, '2019-06-19 06:48:11', '2019-06-19 11:48:11'),
-(111, 1, 'trailer', NULL, NULL, NULL, NULL, 'fgdgfdgdf', 'dfgdfgd', 4343, 23, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-19 06:37:35', '2019-06-19 11:37:35'),
-(110, 1, 'trailer', NULL, NULL, NULL, 26, 'dsf', 'sdfsd', 43, 25, NULL, NULL, b'0', NULL, NULL, 24, '2019-06-19 06:04:34', '2019-06-19 11:04:34'),
-(109, 1, 'power_unit', NULL, NULL, NULL, NULL, 'images', 'too many', 54, 26, 'This is comment', NULL, b'0', NULL, NULL, 1, '2019-06-19 04:58:55', '2019-06-19 09:58:55'),
-(151, 1, 'trailer', NULL, NULL, NULL, NULL, 'fdgfdgfd', 'gfdgdfgdgd', 54, 23, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 07:13:43', '2019-06-24 12:13:43'),
-(150, 1, 'trailer', NULL, NULL, NULL, NULL, 'fdgfdgfd', 'gfdgdfgdgd', 54, 23, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 07:12:43', '2019-06-24 12:12:43'),
-(149, 1, 'trailer', NULL, NULL, NULL, NULL, 'fdgfdgfd', 'gfdgdfgdgd', 54, 23, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 07:11:59', '2019-06-24 12:11:59'),
-(148, 1, 'trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 07:08:23', '2019-06-24 12:08:23'),
-(108, 1, 'power_unit', NULL, NULL, NULL, NULL, 'images', 'too many', 54, 26, 'This is comment', NULL, b'0', NULL, NULL, 1, '2019-06-19 04:57:53', '2019-06-19 09:57:53'),
-(107, 1, 'trailer', NULL, NULL, NULL, 26, 'unit number', 'name', 54, 26, 'This is comment', NULL, b'0', NULL, NULL, 24, '2019-06-19 03:10:42', '2019-06-19 08:10:42'),
-(105, 1, 'trailer', NULL, NULL, NULL, 20, 'sadasd', 'sdasdas', 11, 23, 'asdasdas', NULL, b'0', NULL, NULL, 19, '2019-06-18 03:22:53', '2019-06-18 08:22:53'),
-(106, 1, 'trailer', NULL, NULL, NULL, NULL, 'unit number', 'global admin', 43, 23, 'comment', NULL, b'0', NULL, NULL, 1, '2019-06-18 05:07:32', '2019-06-18 10:07:32'),
-(104, 1, 'trailer', NULL, NULL, NULL, 20, 'unit', 'name', 54, 23, 'comment', NULL, b'0', NULL, NULL, 19, '2019-06-18 03:17:13', '2019-06-18 08:17:13'),
-(103, 1, 'trailer', NULL, NULL, NULL, 16, 'sr', 'dsfsdf', 34, 6, 'sdfsfsdf', NULL, b'0', NULL, NULL, 1, '2019-06-17 01:46:57', '2019-06-17 06:46:57'),
-(102, 1, 'trailer', NULL, NULL, NULL, 16, 'rtertert', 'tertretre', 45345, 10, 'reteteter', NULL, b'0', NULL, NULL, 1, '2019-06-13 08:59:30', '2019-06-13 13:59:30'),
-(101, 1, 'trailer', NULL, NULL, NULL, 16, 'dgdfgdf', 'dfgdfgdfg', 345345, 10, 'fdgdgdf', NULL, b'0', NULL, NULL, 1, '2019-06-13 08:58:15', '2019-06-13 13:58:15'),
-(100, 2, 'trailer', NULL, NULL, NULL, 16, '435435435', '3454353453', 45354, 10, NULL, NULL, b'0', NULL, NULL, 14, '2019-06-13 08:57:09', '2019-06-13 13:57:09'),
-(99, 2, 'trailer', NULL, NULL, NULL, 16, 'ertret', 'ertertert', 4543, 10, NULL, NULL, b'0', NULL, NULL, 14, '2019-06-13 08:55:41', '2019-06-13 13:55:41'),
-(91, 1, 'trailer', NULL, NULL, NULL, 15, 'hdf', 'Muahammad Zubair Khan', 45, 7, 'sdfsdfsdf', NULL, b'0', NULL, NULL, 1, '2019-06-12 06:47:21', '2019-06-12 11:47:21'),
-(92, 1, 'trailer', NULL, NULL, NULL, 15, 'hdf', 'Muahammad Zubair Khan', 45, 7, 'sdfsdfsdf', NULL, b'0', NULL, NULL, 1, '2019-06-12 06:47:43', '2019-06-12 11:47:43'),
-(93, 2, 'trailer', NULL, NULL, NULL, NULL, 'rtetert', 'ertertert', 435, 10, NULL, NULL, b'0', NULL, NULL, 14, '2019-06-13 08:36:58', '2019-06-13 13:36:58');
+(3, 2, 'Trailer', 'LF', 'LR', 'LS', 6, '1000', 'Atif Amin', 150, 39, 'some comments', NULL, b'0', NULL, '2019-05-27 16:53:57', 37, '2019-05-23 02:41:15', '2019-05-23 07:41:15'),
+(4, 1, 'Power Unit', 'LF', 'RR', 'RS', 0, 'unit 300', 'ray gross', 300, 40, 'test comments on new report', NULL, b'1', 7, '2019-05-29 06:34:23', 38, '2019-05-23 02:43:42', '2019-05-23 07:43:42'),
+(5, 1, 'Trailer', 'LF', 'LR', 'LS', 0, 'GF32', 'Zubair', 445, 6, 'This is comment', NULL, b'1', 7, '2019-05-29 06:31:46', 1, '2019-05-24 05:46:27', '2019-05-24 10:46:27'),
+(6, 1, 'Trailer', 'LF', 'LR', 'LS', 16, 'ht65', 'wheel', 550, 6, 'This is comment', '', b'1', 7, '2019-06-03 09:52:56', 1, '2019-05-24 05:48:46', '2019-05-24 10:48:46'),
+(7, 1, 'Trailer', 'LF', 'LR', 'LS', 15, '765', 'Know More', 660, 5, NULL, NULL, b'1', 7, '2019-05-29 06:33:29', 1, '2019-05-24 05:56:44', '2019-05-24 10:56:44'),
+(9, 1, 'Trailer', 'LF', 'LR', 'LS', 15, 'er43', 'Hire', 43, 7, NULL, NULL, b'1', 7, '2019-06-03 09:51:25', 1, '2019-05-29 07:34:50', '2019-05-29 12:34:50'),
+(147, 1, 'Trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 07:07:45', '2019-06-24 12:07:45'),
+(146, 1, 'Trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 07:06:53', '2019-06-24 12:06:53'),
+(145, 1, 'Trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 06:50:09', '2019-06-24 11:50:09'),
+(144, 1, 'Trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 06:49:56', '2019-06-24 11:49:56'),
+(143, 1, 'Trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 06:49:47', '2019-06-24 11:49:47'),
+(142, 1, 'Trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 06:49:30', '2019-06-24 11:49:30'),
+(141, 1, 'Trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 06:49:17', '2019-06-24 11:49:17'),
+(140, 1, 'Trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 06:46:42', '2019-06-24 11:46:42'),
+(139, 1, 'Trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 06:45:08', '2019-06-24 11:45:08'),
+(138, 1, 'Trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 06:44:25', '2019-06-24 11:44:25'),
+(137, 1, 'Trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 06:42:40', '2019-06-24 11:42:40'),
+(136, 1, 'Trailer', NULL, NULL, NULL, NULL, 'sdfsdf', 'sdfsdf', 43, 21, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 06:41:02', '2019-06-24 11:41:02'),
+(135, 1, 'Trailer', NULL, NULL, NULL, NULL, 'erwrw', 'werwerwerw', 43, 21, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-21 05:56:15', '2019-06-21 10:56:15'),
+(134, 1, 'Trailer', NULL, NULL, NULL, NULL, 'erwrw', 'werwerwerw', 43, 21, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-21 05:55:21', '2019-06-21 10:55:21'),
+(133, 1, 'Trailer', NULL, NULL, NULL, NULL, '32432', 'try Scan', 34, 10, '32', NULL, b'0', NULL, NULL, 1, '2019-06-20 09:13:27', '2019-06-20 14:13:27'),
+(132, 1, 'Power Unit', NULL, NULL, NULL, NULL, '324234', 'Muahammad Zubair Khan', 45, 23, 'test', NULL, b'0', NULL, NULL, 1, '2019-06-20 09:11:39', '2019-06-20 14:11:39'),
+(131, 1, 'Trailer', NULL, NULL, NULL, NULL, '324234', 'Hire', 45, 10, 'test', NULL, b'0', NULL, NULL, 1, '2019-06-20 08:07:05', '2019-06-20 13:07:05'),
+(130, 1, 'Trailer', NULL, NULL, NULL, NULL, '34', 'Know More', 50, 10, 'test', NULL, b'0', NULL, NULL, 1, '2019-06-20 08:06:03', '2019-06-20 13:06:03'),
+(129, 1, 'Trailer', NULL, NULL, NULL, NULL, 'sdfsdf', 'sdfdsfsdf', 43, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-20 02:17:25', '2019-06-20 07:17:25'),
+(128, 1, 'Trailer', NULL, NULL, NULL, NULL, 'sdfsdf', 'sdfdsfsdf', 43, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-20 02:16:31', '2019-06-20 07:16:31'),
+(127, 1, 'Trailer', NULL, NULL, NULL, NULL, 'dsfsdf', 'sdfsdfsdfs', 43, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-20 02:04:11', '2019-06-20 07:04:11'),
+(126, 1, 'Trailer', NULL, NULL, NULL, NULL, 'ewrew', 'dsfdsf', 43, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-20 01:58:46', '2019-06-20 06:58:46'),
+(125, 1, 'Trailer', NULL, NULL, NULL, NULL, 'ewrew', 'dsfdsf', 43, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-20 01:55:07', '2019-06-20 06:55:07'),
+(124, 1, 'Trailer', NULL, NULL, NULL, NULL, 'sdf', 'sdfdfs', 43, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-20 01:33:41', '2019-06-20 06:33:41'),
+(123, 1, 'Trailer', NULL, NULL, NULL, NULL, 'unit', 'name', 54, 26, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-20 01:32:59', '2019-06-20 06:32:59'),
+(122, 1, 'Trailer', NULL, NULL, NULL, NULL, 'unit', 'name', 54, 26, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-20 01:23:57', '2019-06-20 06:23:57'),
+(121, 1, 'Power Unit', NULL, NULL, NULL, 26, 'test', 'test', 45, 26, NULL, NULL, b'0', NULL, NULL, 24, '2019-06-19 08:07:07', '2019-06-19 13:07:07'),
+(120, 1, 'Trailer', NULL, NULL, NULL, 26, 'dfgfdg', 'dfgfdg', 454, 26, 'sdffdsfs', NULL, b'0', NULL, NULL, 24, '2019-06-19 07:53:41', '2019-06-19 12:53:41'),
+(119, 1, 'Trailer', NULL, NULL, NULL, 26, 'dfgdf', 'dfgdgdfgd', 54, 26, NULL, NULL, b'0', NULL, NULL, 24, '2019-06-19 07:19:13', '2019-06-19 12:19:13'),
+(118, 1, 'Trailer', NULL, NULL, NULL, 26, 'sdsada', 'asdasda', 2323, 26, NULL, NULL, b'0', NULL, NULL, 24, '2019-06-19 07:14:45', '2019-06-19 12:14:45'),
+(117, 1, 'Trailer', NULL, NULL, NULL, NULL, 'sdfg', 'fdgdfgfdg', 45678, 26, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-19 07:13:06', '2019-06-19 12:13:06'),
+(116, 1, 'Trailer', NULL, NULL, NULL, NULL, '1212', 'Muahammad Zubair Khan', 45, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-19 06:52:34', '2019-06-19 11:52:34'),
+(115, 1, 'Trailer', NULL, NULL, NULL, NULL, '1212', 'Know More', 45, 25, NULL, NULL, b'0', NULL, NULL, 25, '2019-06-19 06:51:30', '2019-06-19 11:51:30'),
+(114, 1, 'Trailer', NULL, NULL, NULL, NULL, 'qwqw', 'Muahammad Zubair Khan', 45, 25, NULL, NULL, b'0', NULL, NULL, 25, '2019-06-19 06:51:09', '2019-06-19 11:51:09'),
+(113, 1, 'Trailer', NULL, NULL, NULL, NULL, 'qwqw', 'Muahammad Zubair Khan', 43, 26, 'dsfsd', NULL, b'0', NULL, NULL, 25, '2019-06-19 06:49:51', '2019-06-19 11:49:51'),
+(112, 1, 'Trailer', NULL, NULL, NULL, NULL, 'qwqw', 'dfgdfgd', 45, 25, 'comment', NULL, b'0', NULL, NULL, 1, '2019-06-19 06:48:11', '2019-06-19 11:48:11'),
+(111, 1, 'Trailer', NULL, NULL, NULL, NULL, 'fgdgfdgdf', 'dfgdfgd', 4343, 23, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-19 06:37:35', '2019-06-19 11:37:35'),
+(110, 1, 'Trailer', NULL, NULL, NULL, 26, 'dsf', 'sdfsd', 43, 25, NULL, NULL, b'0', NULL, NULL, 24, '2019-06-19 06:04:34', '2019-06-19 11:04:34'),
+(109, 1, 'Power Unit', NULL, NULL, NULL, NULL, 'images', 'too many', 54, 26, 'This is comment', NULL, b'0', NULL, NULL, 1, '2019-06-19 04:58:55', '2019-06-19 09:58:55'),
+(152, 1, 'Trailer', NULL, NULL, NULL, NULL, 'test', 'test', 45, 26, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-26 01:39:17', '2019-06-26 06:39:17'),
+(151, 1, 'Trailer', NULL, NULL, NULL, NULL, 'fdgfdgfd', 'gfdgdfgdgd', 54, 23, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 07:13:43', '2019-06-24 12:13:43'),
+(150, 1, 'Trailer', NULL, NULL, NULL, NULL, 'fdgfdgfd', 'gfdgdfgdgd', 54, 23, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 07:12:43', '2019-06-24 12:12:43'),
+(149, 1, 'Trailer', NULL, NULL, NULL, NULL, 'fdgfdgfd', 'gfdgdfgdgd', 54, 23, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 07:11:59', '2019-06-24 12:11:59'),
+(148, 1, 'Trailer', NULL, NULL, NULL, NULL, 'dsfdfs', 'dsfsdfsdf', 32423, 6, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-24 07:08:23', '2019-06-24 12:08:23'),
+(108, 1, 'Power Unit', NULL, NULL, NULL, NULL, 'images', 'too many', 54, 26, 'This is comment', NULL, b'0', NULL, NULL, 1, '2019-06-19 04:57:53', '2019-06-19 09:57:53'),
+(107, 1, 'Trailer', NULL, NULL, NULL, 26, 'unit number', 'name', 54, 26, 'This is comment', NULL, b'0', NULL, NULL, 24, '2019-06-19 03:10:42', '2019-06-19 08:10:42'),
+(105, 1, 'Trailer', NULL, NULL, NULL, 20, 'sadasd', 'sdasdas', 11, 23, 'asdasdas', NULL, b'0', NULL, NULL, 19, '2019-06-18 03:22:53', '2019-06-18 08:22:53'),
+(106, 1, 'Trailer', NULL, NULL, NULL, NULL, 'unit number', 'global admin', 43, 23, 'comment', NULL, b'0', NULL, NULL, 1, '2019-06-18 05:07:32', '2019-06-18 10:07:32'),
+(104, 1, 'Trailer', NULL, NULL, NULL, 20, 'unit', 'name', 54, 23, 'comment', NULL, b'0', NULL, NULL, 19, '2019-06-18 03:17:13', '2019-06-18 08:17:13'),
+(103, 1, 'Trailer', NULL, NULL, NULL, 16, 'sr', 'dsfsdf', 34, 6, 'sdfsfsdf', NULL, b'0', NULL, NULL, 1, '2019-06-17 01:46:57', '2019-06-17 06:46:57'),
+(102, 1, 'Trailer', NULL, NULL, NULL, 16, 'rtertert', 'tertretre', 45345, 10, 'reteteter', NULL, b'0', NULL, NULL, 1, '2019-06-13 08:59:30', '2019-06-13 13:59:30'),
+(101, 1, 'Trailer', NULL, NULL, NULL, 16, 'dgdfgdf', 'dfgdfgdfg', 345345, 10, 'fdgdgdf', NULL, b'0', NULL, NULL, 1, '2019-06-13 08:58:15', '2019-06-13 13:58:15'),
+(100, 2, 'Trailer', NULL, NULL, NULL, 16, '435435435', '3454353453', 45354, 10, NULL, NULL, b'0', NULL, NULL, 14, '2019-06-13 08:57:09', '2019-06-13 13:57:09'),
+(99, 2, 'Trailer', NULL, NULL, NULL, 16, 'ertret', 'ertertert', 4543, 10, NULL, NULL, b'0', NULL, NULL, 14, '2019-06-13 08:55:41', '2019-06-13 13:55:41'),
+(91, 1, 'Trailer', NULL, NULL, NULL, 15, 'hdf', 'Muahammad Zubair Khan', 45, 7, 'sdfsdfsdf', NULL, b'0', NULL, NULL, 1, '2019-06-12 06:47:21', '2019-06-12 11:47:21'),
+(92, 1, 'Trailer', NULL, NULL, NULL, 15, 'hdf', 'Muahammad Zubair Khan', 45, 7, 'sdfsdfsdf', NULL, b'0', NULL, NULL, 1, '2019-06-12 06:47:43', '2019-06-12 11:47:43'),
+(93, 2, 'Trailer', NULL, NULL, NULL, NULL, 'rtetert', 'ertertert', 435, 10, NULL, NULL, b'0', NULL, NULL, 14, '2019-06-13 08:36:58', '2019-06-13 13:36:58'),
+(153, 1, 'Trailer', NULL, NULL, NULL, NULL, 'test', 'test', 45, 26, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-26 01:44:01', '2019-06-26 06:44:01'),
+(154, 1, 'Trailer', NULL, NULL, NULL, NULL, 'test', 'test', 43, 26, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-26 01:46:37', '2019-06-26 06:46:37'),
+(155, 1, 'Trailer', NULL, NULL, NULL, NULL, 'test', 'Muahammad Zubair Khan', 43, 26, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-26 01:48:14', '2019-06-26 06:48:14'),
+(156, 1, 'Trailer', NULL, NULL, NULL, NULL, 'test report', 'test report', 54, 26, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-26 02:08:17', '2019-06-26 07:08:17'),
+(157, 1, 'Trailer', NULL, NULL, NULL, NULL, 'test new report', 'test new report', 34, 26, NULL, 'asas', b'0', NULL, NULL, 24, '2019-06-26 02:10:53', '2019-06-26 07:10:53'),
+(158, 1, 'Trailer', NULL, NULL, NULL, 26, 'new test', 'new test', 45, 26, 'comment', NULL, b'1', 27, '2019-06-26 07:40:00', 24, '2019-06-26 02:36:07', '2019-06-26 07:36:07'),
+(159, 1, 'Trailer', NULL, NULL, NULL, 26, 'new', 'nwe', 34, 27, NULL, 'comment', b'1', 27, '2019-06-26 10:45:35', 24, '2019-06-26 02:38:17', '2019-06-26 07:38:17'),
+(160, 1, 'Trailer', NULL, NULL, NULL, 26, 'dsfsdfs', 'Hire', 234, 23, NULL, NULL, b'0', NULL, NULL, 24, '2019-06-26 03:05:52', '2019-06-26 08:05:52'),
+(161, 1, 'Trailer', NULL, NULL, NULL, 26, 'dsfsdfs', 'Hire', 234, 23, NULL, NULL, b'0', NULL, NULL, 24, '2019-06-26 03:10:53', '2019-06-26 08:10:53'),
+(162, 1, 'Trailer', NULL, NULL, NULL, 26, 'dsfsdfs', 'Hire', 234, 23, NULL, NULL, b'0', NULL, NULL, 24, '2019-06-26 03:11:48', '2019-06-26 08:11:48'),
+(163, 1, 'Trailer', NULL, NULL, NULL, 26, 'erewr', 'Energy body/chakras', 45, 25, NULL, NULL, b'0', NULL, NULL, 24, '2019-06-26 04:39:18', '2019-06-26 09:39:18'),
+(164, 1, 'Trailer', NULL, NULL, NULL, 26, 'erewr', 'Energy body/chakras', 45, 25, NULL, NULL, b'0', NULL, NULL, 24, '2019-06-26 04:47:28', '2019-06-26 09:47:28'),
+(165, 1, 'Trailer', NULL, NULL, NULL, 26, 'tt', 'tt', 54, 26, NULL, 'comment', b'0', NULL, NULL, 24, '2019-06-26 05:40:11', '2019-06-26 10:40:11'),
+(166, 1, 'Trailer', NULL, NULL, NULL, 0, 'qq', 'qq', 43, 23, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-26 05:48:06', '2019-06-26 10:48:06'),
+(167, 1, 'Trailer', NULL, NULL, NULL, 0, 'nn', 'nn', 43, 27, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-26 05:48:36', '2019-06-26 10:48:36'),
+(168, 1, 'Trailer', NULL, NULL, NULL, 0, 'retrete', 'tertreterter', 54, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-26 08:17:12', '2019-06-26 13:17:12'),
+(169, 1, 'Trailer', NULL, NULL, NULL, 0, 'retrete', 'tertreterter', 54, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-26 08:21:59', '2019-06-26 13:21:59'),
+(170, 1, 'Trailer', NULL, NULL, NULL, 0, 'test', 'Muahammad Zubair Khan', 341, 27, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-26 08:24:53', '2019-06-26 13:24:53'),
+(171, 1, 'Trailer', NULL, NULL, NULL, 0, 'dsfsdfsdf', 'dsfsdfsdfsdfs', 4343, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-26 08:37:06', '2019-06-26 13:37:06'),
+(172, 1, 'Trailer', NULL, NULL, NULL, 0, 'dsfsdfsdf', 'dsfsdfsdfsdfs', 4343, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-26 08:37:06', '2019-06-26 13:37:06'),
+(173, 1, 'Trailer', NULL, NULL, NULL, 0, 'test', 'test', 43, 27, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-27 03:02:50', '2019-06-27 08:02:50'),
+(174, 1, 'Trailer', NULL, NULL, NULL, 0, 'sasda', 'Know More', 45, 10, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-28 02:21:19', '2019-06-28 07:21:19'),
+(175, 1, 'Trailer', NULL, NULL, NULL, 0, 'test', 'Muahammad Zubair Khan', 45, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-28 05:17:03', '2019-06-28 10:17:03'),
+(176, 1, 'Trailer', NULL, NULL, NULL, 0, 'dfsdfs', 'fsdfsdfs', 43, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-28 05:46:58', '2019-06-28 10:46:58'),
+(177, 1, 'Trailer', NULL, NULL, NULL, 0, 'dsfsdfsdf', 'wheel', 43, 30, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-28 06:28:55', '2019-06-28 11:28:55'),
+(178, 1, 'Trailer', NULL, NULL, NULL, 0, 'fgdgfdgdf', 'gdfgfdgdf', 64, 32, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-28 06:31:11', '2019-06-28 11:31:11'),
+(179, 1, 'Trailer', NULL, NULL, NULL, 0, 'dfgfd', 'Know More', 45, 32, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-28 08:18:28', '2019-06-28 13:18:28'),
+(180, 1, 'Trailer', NULL, NULL, NULL, 0, 'zubair', 'Muahammad Zubair Khan', 43, 32, NULL, NULL, b'0', NULL, NULL, 1, '2019-06-28 08:26:42', '2019-06-28 13:26:42'),
+(181, 1, 'Trailer', NULL, NULL, NULL, 0, 'FG-333', 'Usama Javed', 234234, 33, 'Comments about the report.', NULL, b'0', NULL, NULL, 1, '2019-07-02 02:38:32', '2019-07-02 07:38:32'),
+(182, 1, 'Trailer', NULL, NULL, NULL, 0, 'FG-333', 'Testing', 234234, 33, 'Comments about the report.', NULL, b'0', NULL, NULL, 1, '2019-07-02 02:43:51', '2019-07-02 07:43:51'),
+(183, 1, 'Trailer', NULL, NULL, NULL, 0, 'FG-333', 'Usama Javed', 234234, 25, NULL, NULL, b'0', NULL, NULL, 1, '2019-07-02 02:44:11', '2019-07-02 07:44:11');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `reports_view`
+-- (See below for the actual view)
+--
+CREATE TABLE `reports_view` (
+`id` int(11)
+,`created_at` timestamp
+,`report_unit_num` varchar(80)
+,`name` varchar(50)
+,`weight` int(11)
+,`signature` varchar(101)
+,`last_user_comments` varchar(57)
+,`location_name` varchar(50)
+,`first_name` varchar(50)
+,`last_name` varchar(50)
+,`account_id` int(8)
+,`manager_id` int(11)
+);
 
 -- --------------------------------------------------------
 
@@ -536,7 +592,40 @@ INSERT INTO `report_images` (`id`, `report_id`, `image_type`, `url`, `created_by
 (135, 148, 'trailer_left_front', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561378176/o7q6fzg1xmyed0hvlguk.webp', 1, '2019-06-24 12:08:34', '2019-06-24 12:08:34'),
 (136, 148, 'trailer_left_front', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561378178/vqy458mboxoia0tnbbgb.webp', 1, '2019-06-24 12:08:34', '2019-06-24 12:08:34'),
 (137, 148, 'trailer_left_front', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561378180/oobrrfwkffhnda6ezk2l.webp', 1, '2019-06-24 12:08:34', '2019-06-24 12:08:34'),
-(138, 148, 'trailer_left_front', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561378182/cjtuj8cgs5jqcxr2wu6l.webp', 1, '2019-06-24 12:08:35', '2019-06-24 12:08:35');
+(138, 148, 'trailer_left_front', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561378182/cjtuj8cgs5jqcxr2wu6l.webp', 1, '2019-06-24 12:08:35', '2019-06-24 12:08:35'),
+(139, 155, 'trailer_right_front', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561531807/okxygynya8bkjo0qeb72.webp', 1, '2019-06-26 06:49:22', '2019-06-26 06:49:22'),
+(140, 155, 'trailer_right_front', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561531831/jff11pmthdycbhwkxymp.webp', 1, '2019-06-26 06:49:22', '2019-06-26 06:49:22'),
+(141, 169, 'trailer_left_front', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561555426/rx9jy6aoi4pjslzgbvua.jpg', 1, '2019-06-26 13:22:40', '2019-06-26 13:22:40'),
+(142, 170, 'trailer_right_front', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561555593/wyg73tybiazjwihvmfmd.jpg', 1, '2019-06-26 13:25:25', '2019-06-26 13:25:25'),
+(143, 171, 'trailer_right_rear', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561556339/m4lmusimwgdhtee7mrnp.jpg', 1, '2019-06-26 13:37:53', '2019-06-26 13:37:53'),
+(144, 172, 'trailer_right_rear', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561556339/hzahuxbde2nm7e4ob4wh.jpg', 1, '2019-06-26 13:37:53', '2019-06-26 13:37:53'),
+(152, 165, 'main_image', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561634122/fons8rdya4nrls4um1bk.webp', 26, '2019-06-27 11:14:12', '2019-06-27 11:14:12'),
+(153, 174, 'trailer_left_front', 'http://res.cloudinary.com/onsiteconfirmation-com/video/upload/v1561706573/eib7jptncoxr4q2thxjc.mp4', 1, '2019-06-28 07:22:01', '2019-06-28 07:22:01'),
+(154, 174, 'trailer_right_front', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561706578/ps8ol2prbmysjjff6qrv.webp', 1, '2019-06-28 07:22:01', '2019-06-28 07:22:01'),
+(155, 174, 'trailer_left_rear', 'http://res.cloudinary.com/onsiteconfirmation-com/video/upload/v1561706588/mfskdwbtbjnfvwqkj4es.mp4', 1, '2019-06-28 07:22:01', '2019-06-28 07:22:01'),
+(156, 174, 'trailer_right_rear', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561706592/uqkp2xm4hbhtqhea8kjj.webp', 1, '2019-06-28 07:22:01', '2019-06-28 07:22:01'),
+(157, 175, 'trailer_left_front', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561717106/ijviufd3hobspzl4l8cv.webp', 1, '2019-06-28 10:17:38', '2019-06-28 10:17:38'),
+(158, 175, 'trailer_left_front', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561717108/dwcrcxt1pozooyqjnafx.webp', 1, '2019-06-28 10:17:38', '2019-06-28 10:17:38'),
+(159, 175, 'trailer_right_front', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561717108/dwcrcxt1pozooyqjnafx.webp', 1, '2019-06-28 10:17:38', '2019-06-28 10:17:38'),
+(160, 175, 'trailer_right_front', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561717110/vhec8wax2pmwmx3oe4lo.webp', 1, '2019-06-28 10:17:38', '2019-06-28 10:17:38'),
+(161, 175, 'trailer_left_rear', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561717112/alem5eflarrijbxwqn6o.webp', 1, '2019-06-28 10:17:38', '2019-06-28 10:17:38'),
+(162, 175, 'trailer_left_rear', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561717113/kmpdfsmevvao4klvvoit.webp', 1, '2019-06-28 10:17:38', '2019-06-28 10:17:38'),
+(163, 175, 'trailer_right_rear', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561717115/k9ebulsm0dpazimbd4oi.png', 1, '2019-06-28 10:17:38', '2019-06-28 10:17:38'),
+(164, 175, 'trailer_right_rear', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561717128/jg6h3oc9up2ebt2nhfy3.jpg', 1, '2019-06-28 10:17:38', '2019-06-28 10:17:38'),
+(165, 176, 'trailer_left_front', 'http://res.cloudinary.com/onsiteconfirmation-com/video/upload/v1561718907/rhzoi0utaqk6eyw5ovfl.mp4', 1, '2019-06-28 10:47:34', '2019-06-28 10:47:34'),
+(166, 176, 'trailer_right_front', 'http://res.cloudinary.com/onsiteconfirmation-com/video/upload/v1561718923/lr9i7wmnednhmwjtufvy.mp4', 1, '2019-06-28 10:47:35', '2019-06-28 10:47:35'),
+(167, 177, 'trailer_left_front', 'http://res.cloudinary.com/onsiteconfirmation-com/video/upload/v1561721430/pgoiyrrgpnn5jnnbuwl1.mp4', 1, '2019-06-28 11:29:20', '2019-06-28 11:29:20'),
+(168, 178, 'trailer_left_front', 'http://res.cloudinary.com/onsiteconfirmation-com/video/upload/v1561721556/vupkoyk0yfdgjtoe47uk.mp4', 1, '2019-06-28 11:31:45', '2019-06-28 11:31:45'),
+(169, 178, 'trailer_right_front', 'http://res.cloudinary.com/onsiteconfirmation-com/video/upload/v1561721572/uewj8r1vhzasggpi1wiq.mp4', 1, '2019-06-28 11:31:45', '2019-06-28 11:31:45'),
+(170, 178, 'trailer_left_rear', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561721575/mimjwxp2rpf3ola9heae.webp', 1, '2019-06-28 11:31:45', '2019-06-28 11:31:45'),
+(171, 178, 'trailer_right_rear', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561721576/zlf2znydnkvkcpioliq4.webp', 1, '2019-06-28 11:31:45', '2019-06-28 11:31:45'),
+(172, 179, 'trailer_left_front', 'http://res.cloudinary.com/onsiteconfirmation-com/video/upload/v1561728009/bgmpnilvdxmmng2rvpeh.mp4', 1, '2019-06-28 13:18:58', '2019-06-28 13:18:58'),
+(173, 180, 'trailer_left_front', 'http://res.cloudinary.com/onsiteconfirmation-com/video/upload/v1561728499/qtdtvzph3jw6zs2nlm6r.mp4', 1, '2019-06-28 13:27:34', '2019-06-28 13:27:34'),
+(174, 180, 'trailer_right_front', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561728502/wrtewcljcrklmrry5ie7.webp', 1, '2019-06-28 13:27:34', '2019-06-28 13:27:34'),
+(175, 180, 'trailer_right_front', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561728505/g9h9grmkwxgdo7c1sf5v.webp', 1, '2019-06-28 13:27:34', '2019-06-28 13:27:34'),
+(176, 180, 'trailer_left_rear', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561728508/vrvns1h23tmvyyeza9hx.webp', 1, '2019-06-28 13:27:34', '2019-06-28 13:27:34'),
+(177, 180, 'trailer_left_rear', 'http://res.cloudinary.com/onsiteconfirmation-com/image/upload/v1561728511/ilkkp2j3jou912oe80ss.webp', 1, '2019-06-28 13:27:34', '2019-06-28 13:27:34'),
+(178, 180, 'trailer_right_rear', 'http://res.cloudinary.com/onsiteconfirmation-com/video/upload/v1561728525/xjquqkmbkwsgd02pxomt.mp4', 1, '2019-06-28 13:27:34', '2019-06-28 13:27:34');
 
 -- --------------------------------------------------------
 
@@ -608,9 +697,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `account_id`, `location_id`, `email`, `user_role`, `first_name`, `last_name`, `password`, `signature`, `remember_token`, `is_active`, `authentication`, `authentication_code`, `authentication_status`, `authentication_time`, `created_by`, `is_otp`, `otp`, `otp_expiry_date`, `created_at`, `updated_at`) VALUES
-(1, 1, NULL, 'ray@mobilemaintenance.com', 1, 'Ray', 'Gross', '$2y$10$axXaJyPRrdCvSte12jbIMetXgWMbTMZhSSXwRQkVwpaOVnhOgpJ.C', NULL, 'kv8zD0E5EYciVbXeN99SoMZ9BQN7M6KG0gr1cpeGRcPrGL96pzbs1KcZPnve', 1, 'false', NULL, 'N', '2019-06-24 11:14:08', 0, 0, NULL, '2019-06-17 07:28:16', '2019-06-24 11:14:08', '2019-06-24 11:14:08'),
-(5, 1, '15', 'usama@gmail.com', 2, 'Usama', 'Javed', '$2y$10$axXaJyPRrdCvSte12jbIMetXgWMbTMZhSSXwRQkVwpaOVnhOgpJ.C', NULL, 'NyuXgWF3DAWHVWhykIWqtsX5qMmYzhxK2juUUASnLX7W7ZtNyEbcWOAz2KKP', 1, 'false', NULL, 'Y', '2019-06-19 06:12:18', 1, 0, NULL, '2019-06-17 07:28:16', '2019-06-17 13:50:30', '2019-06-17 13:50:30'),
-(6, 1, '16', 'ali@gmail.com', 3, 'ali', 'ahmad khan', '$2y$10$iqhHb5Z99hvdBEubUfV37ek0LAn0e.J0Wjw16kqhkxTnG/9sPO8Rq', NULL, '5bz3AYlBi7SaPFZssWtVFibPZ5goicTt8hBWd3FbpRNtV8uoiWJZZiwzh5IL', 1, 'false', NULL, 'Y', '2019-06-19 06:12:18', 1, 0, NULL, '2019-06-17 07:28:16', '2019-06-03 11:59:46', '2019-06-03 11:59:46'),
+(1, 1, NULL, 'ray@mobilemaintenance.com', 1, 'Ray', 'Gross', '$2y$10$axXaJyPRrdCvSte12jbIMetXgWMbTMZhSSXwRQkVwpaOVnhOgpJ.C', NULL, '0D4CnOxWbfiMftxdOzIYRSLmcChFy3q5dMH8J3ljdJ3h62DVqsnYgoDYjx75', 1, 'false', NULL, 'N', '2019-07-03 06:55:58', 0, 0, NULL, '2019-06-17 07:28:16', '2019-07-03 06:55:58', '2019-07-03 06:55:58'),
+(5, 1, '15', 'usama@gmail.com', 2, 'Usama', 'Javed', '$2y$10$WvKtaIGQnxDZ.JmaRhNd3Ojjj0rUAjyEsyTEOwXznFXyvzpJObRZe', NULL, 'gR4qu1B7LUSI06X2BS5f8ZtyilY4HI8lww0inBTrfqDtqbhCbth6UMYnK3Y7', 1, 'false', NULL, 'N', '2019-06-27 12:11:56', 1, 0, NULL, '2019-06-17 07:28:16', '2019-06-27 12:11:56', '2019-06-27 07:11:56'),
+(6, 1, '16', 'ali@gmail.com', 3, 'Ali Test', 'ahmad', '$2y$10$yY5.LBgqDfsCsjI8vs0TsekyqG90CQ3ha0yarCzx1DCwYmkIProcm', NULL, 'LbpJ6sEroPLAsP9yJchnFeFxcr2WRLqZSHhwBG3GmPzs9LIf9QHed8Givjgj', 1, 'true', NULL, 'N', '2019-06-27 10:02:31', 1, 0, NULL, '2019-06-17 07:28:16', '2019-06-27 10:02:31', '2019-06-27 10:02:31'),
 (8, 1, '16', 'manger@gmail.com', 3, 'Manager', 'One', '$2y$10$aimZYCIhKo4qDDmJS0u8NOP/TlOVlC6LVpkNfk9sZLsIyyc/aj.9.', NULL, 'UELZoqH5i8250RB3lPBtQqiDQ2eM93pXcImeXbZLRtd7LgnOzmCMez7kEg2n', 1, 'false', NULL, 'Y', '2019-06-19 06:12:18', 5, 0, NULL, '2019-06-17 07:28:16', '2019-06-10 07:52:29', '2019-06-10 07:52:29'),
 (10, 2, '16', 'tire@gmail.com', 3, 'Tire', 'Wheel', '$2y$10$02OEqZOoGFI1TZxdKYH1NuLBFgMmpf1dFhRJb8qh/0EXAObTdzFGm', NULL, 'qqbmH9xpVuvUt32Y04KMzzjIrHrcpBzufAsIOzKjJWN69bfkDct0oJHMgaBR', 1, 'false', NULL, 'Y', '2019-06-19 06:12:18', 1, 0, NULL, '2019-06-17 07:28:16', '2019-06-10 08:05:10', '2019-06-10 08:05:10'),
 (18, 1, '0', 'aslam@location.com', 4, 'aslam', '', '$2y$10$Ik6UqjSMcSnkpHoTuzlrmekOIRD4vElurDBbEFJFMG34KS4BGhNhK', NULL, NULL, 1, 'false', NULL, 'Y', '2019-06-19 06:12:18', 1, 0, NULL, '2019-06-17 07:51:45', '2019-06-17 02:51:45', '2019-06-17 02:51:45'),
@@ -619,9 +708,13 @@ INSERT INTO `users` (`id`, `account_id`, `location_id`, `email`, `user_role`, `f
 (21, 1, '[\"20\",\"19\"]', 'faisal@manager.com', 3, 'faisal', 'saleem', '$2y$10$CQUhEAYLwo6vkKXLdN/oUOFtPWvdDR0AWbwl8B0nUhdL1UDcqAGfK', NULL, NULL, 1, 'false', NULL, 'Y', '2019-06-19 06:12:18', 1, 0, NULL, '2019-06-17 07:55:40', '2019-06-17 02:55:40', '2019-06-17 02:55:40'),
 (22, 1, '0', 'saleem@location.com', 4, 'saleem', '', '$2y$10$SfkOKON9CGdH5ng212XT.OsNYr.2xj2JxuS/qClArpptzfF1XMP1S', NULL, 'gijjladlObfXmhpOpy2ynZJD1aLXymqNXlZV6bGMWSUbPiewd3uT903MEakf', 1, 'false', NULL, 'Y', '2019-06-19 06:12:18', 1, 0, NULL, '2019-06-17 07:58:01', '2019-06-18 08:15:24', '2019-06-18 08:15:24'),
 (23, 1, '[\"22\",\"20\"]', 'manager@manager.com', 3, 'new', 'manager', '$2y$10$OpBvd3DtJO7L20qOneOSI.j3B51B1uh23l6KEj3/ByAPZxrzEsBGO', NULL, 'rjI2vhQSB7Qf24XbpIFclexGwhWf7u9EQEUdCXDic4dyVO8ZMkVbMesmg7zH', 1, 'false', NULL, 'N', '2019-06-21 11:07:17', 1, 0, NULL, '2019-06-17 10:42:26', '2019-06-21 11:07:17', '2019-06-21 11:07:17'),
-(24, 1, '0', 'new@new.com', 4, 'new', '', '$2y$10$MKCWVmT5CpGNsjhggq3IIubjW24SroB9fOjaIiFi.oc2NDPCEn7xq', NULL, 'pc16ZKGl8M4t4E9EMuOtYryx2kx23QHCExuQ9IWMLfdIrKGLi9shJEZHzCT3', 1, 'false', NULL, 'N', '2019-06-19 13:07:30', 1, 0, NULL, '2019-06-19 05:59:25', '2019-06-19 13:07:30', '2019-06-19 13:07:30'),
-(25, 1, '[\"26\",\"25\"]', 'new@manager.com', 3, 'new', 'new', '$2y$10$M0Q8QrHdG4rxFKp9.q0rS.aXyDEDg6EVhQSC1XaUKCYfnoF8neUXi', NULL, 'hBBH0AsNEz18bLh31242B8NJHGbaeYtdpJi690IFbISDMfspYkB0QFCD9pDa', 1, 'false', NULL, 'N', '2019-06-21 11:06:49', 1, 0, NULL, '2019-06-19 06:00:11', '2019-06-21 11:06:49', '2019-06-21 11:06:49'),
-(26, 1, '[\"25\",\"20\",\"19\"]', '042zubair@gmail.com', 3, 'zubair', 'khan', '$2y$10$d4w5.7VE7RpakOMmSrWEWe0J.rXRwWPPykT5z2X8aD9A9soLBHyMm', NULL, 'G5E09j7AyOD3Vmb8nUQhtM9hkxweUN8JhYlpBVIOWMQ6RAHHt3b4EuZtxHVH', 1, 'false', NULL, 'N', '2019-06-24 07:26:11', 1, 0, NULL, '2019-06-19 06:47:52', '2019-06-24 07:26:11', '2019-06-24 07:26:11');
+(24, 1, '0', 'new@new.com', 4, 'new', '', '$2y$10$MKCWVmT5CpGNsjhggq3IIubjW24SroB9fOjaIiFi.oc2NDPCEn7xq', NULL, 'apaODu3TQY1i9m40yqgyvGKdzQ340KhttMN71EgbxgVkTs7V1c526RARchsP', 1, 'false', NULL, 'N', '2019-06-26 10:40:20', 1, 0, NULL, '2019-06-19 05:59:25', '2019-06-26 10:40:20', '2019-06-26 10:40:20'),
+(25, 1, '[\"26\",\"25\"]', 'new@manager.com', 3, 'new', 'new', '$2y$10$M0Q8QrHdG4rxFKp9.q0rS.aXyDEDg6EVhQSC1XaUKCYfnoF8neUXi', NULL, 'YpwyfF8liqJyOOsF1dBC0goCI0R2skN7nmx9t6ZbxIbXolV5uygXqlXfOvS3', 1, 'false', NULL, 'N', '2019-06-26 10:42:55', 1, 0, NULL, '2019-06-19 06:00:11', '2019-06-26 10:42:55', '2019-06-26 10:42:55'),
+(26, 1, '[\"25\",\"20\",\"19\"]', '042zubair@gmail.com', 3, 'zubair M', 'khan', '$2y$10$p7rCMUH3vaCCiVxdAL2QuOR7YziXYlDVFNGaQkRqrg6yQyWKdtzry', NULL, 'PooPL9AB3HfVmbBgyifarzRstYJq1nn5Z7c7iqkUNDCvVf1e4ePupAykhXY3', 1, 'false', NULL, 'N', '2019-07-03 06:56:55', 1, 0, NULL, '2019-06-19 06:47:52', '2019-07-03 06:56:55', '2019-07-03 06:56:55'),
+(27, 1, '[\"26\",\"25\",\"20\"]', 'newmanager@gmail.com', 3, 'new', 'Manager', '$2y$10$FqP/vrjURFmicH22w0.ah.47roJC8psGZ1IZQi4j7ouqeaD5muVk.', NULL, 'hISW4jqLtEwsLsESV7Z8UOtidRXSB1RuHMb9mE3OMh03nU8YnYWVbtkvcB4o', 1, 'true', NULL, 'N', '2019-06-27 11:34:24', 1, 0, NULL, '2019-06-26 07:07:45', '2019-06-27 11:34:24', '2019-06-27 11:34:24'),
+(30, 1, '[\"25\",\"19\"]', 'manager@gmail.com', 3, 'Muahammad Zubair', 'Khan', '$2y$10$UJrQa1RCXlW6ryHohZT3oed4/j99r9uDQcTMyNJ.FMbkRmc3/xUK6', NULL, 'WP5wYrqZRArQaA2ikxvFu3Vi2yGtTHxDPy1O5FyfP2RiO1eQWcW1ZC10Nqza', 1, 'true', '53519', 'N', '2019-07-02 02:45:13', 1, 0, NULL, '2019-06-27 08:28:59', '2019-07-02 07:45:13', '2019-07-02 02:45:13'),
+(32, 1, '[\"25\",\"20\",\"19\"]', 'm@gmail.com', 3, 'Muahammad Zubair', 'Khan', '$2y$10$t3.a1/5.O85kLYQunHiJO.PKRO8.1aaxTUpq3VAFsuTiSYkuGgglK', NULL, 'Furx2uR3ZuvrcpULgM3MtpGymsHbAbP0SSGg9lIZw9bhX9cy9FRTiZ8lLiDj', 1, 'true', NULL, 'N', '2019-06-27 10:34:27', 1, 0, NULL, '2019-06-27 10:26:25', '2019-06-27 10:34:27', '2019-06-27 10:34:27'),
+(33, 1, '[\"25\",\"20\",\"19\"]', 'zubairkhan280@gmail.com', 3, 'Muahammad Zubair', 'Khan', '$2y$10$FkQaESK07NPSEicrikSso.Xlr1gsT3dWhKNIXts9UayLruNRoeJty', NULL, '6LXq4JPl230adJnDgFhtLLfXvsQSg2offAEQBJCMAIIsczrvAMOdFx2uJDyQ', 1, 'false', NULL, 'N', '2019-06-27 11:17:01', 1, 0, NULL, '2019-06-27 10:36:39', '2019-06-27 11:17:01', '2019-06-27 11:17:01');
 
 -- --------------------------------------------------------
 
@@ -644,6 +737,15 @@ INSERT INTO `user_roles` (`id`, `description`, `is_visible`) VALUES
 (2, 'Administrator', b'1'),
 (3, 'Manager', b'1'),
 (4, 'Location', b'0');
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `reports_view`
+--
+DROP TABLE IF EXISTS `reports_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `reports_view`  AS  select `r`.`id` AS `id`,`r`.`created_at` AS `created_at`,`r`.`report_unit_num` AS `report_unit_num`,`r`.`name` AS `name`,`r`.`weight` AS `weight`,(case when (`r`.`signature` = 1) then '<span class="badge badge-danger">Pending</span>' when (`r`.`signature` <> 1) then concat(`u`.`first_name`,' ',`u`.`last_name`) end) AS `signature`,(case when (`r`.`last_user_comments` <> '') then '<i class="icon-checkmark3 mr-3 icon-2x text-primary"></i>' end) AS `last_user_comments`,`l`.`location_name` AS `location_name`,`u`.`first_name` AS `first_name`,`u`.`last_name` AS `last_name`,`r`.`account_id` AS `account_id`,`r`.`manager_id` AS `manager_id` from ((`reports` `r` left join `locations` `l` on((`r`.`location_id` = `l`.`id`))) left join `users` `u` on((`r`.`signature_by` = `u`.`id`))) ;
 
 --
 -- Indexes for dumped tables
@@ -777,7 +879,7 @@ ALTER TABLE `block_reports`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `locations`
@@ -825,13 +927,13 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=184;
 
 --
 -- AUTO_INCREMENT for table `report_images`
 --
 ALTER TABLE `report_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=179;
 
 --
 -- AUTO_INCREMENT for table `service_request`
@@ -849,7 +951,7 @@ ALTER TABLE `snapshots`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `user_roles`
